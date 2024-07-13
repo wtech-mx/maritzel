@@ -61,7 +61,32 @@
           </li>
           @endcan
 
+          <a data-bs-toggle="collapse" href="#pagesservicios" class="nav-link {{ (Request::is('users*') ? 'active' : '') }}{{ (Request::is('roles*') ? 'active' : '') }}" aria-controls="pagesExamples" role="button" aria-expanded="false">
+            <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
+                <img src="{{ asset('img/icon/catalogo.webp') }}" alt="" width="20px">
+            </div>
+            <span class="nav-link-text ms-1">Servicios</span>
+          </a>
 
+          <div class="collapse " id="pagesservicios">
+            <ul class="nav ms-4">
+
+                <li class="nav-item ">
+                    <a class="nav-link {{ (Request::is('servicios*') ? 'show' : '') }}" href="{{ route('index.servicios') }}">
+                    <span class="sidenav-mini-icon"> P </span>
+                    <span class="sidenav-normal">servicios</span>
+                    </a>
+
+                    <a class="nav-link {{ (Request::is('categorias*') ? 'show' : '') }}" href="{{ route('index.categorias') }}">
+                    <span class="sidenav-mini-icon"> P </span>
+                    <span class="sidenav-normal">Categorias</span>
+                    </a>
+
+
+                </li>
+
+            </ul>
+          </div>
 
           <a data-bs-toggle="collapse" href="#pagesExamples" class="nav-link {{ (Request::is('users*') ? 'active' : '') }}{{ (Request::is('roles*') ? 'active' : '') }}" aria-controls="pagesExamples" role="button" aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">

@@ -68,13 +68,9 @@
 
         {{-- @include('layouts.header') --}}
         @include('layouts.simple_alert')
+
         @yield('breadcrumb')
         @yield('content')
-
-        @include('client.modal_create')
-        @include('operadores.modal_create')
-        @include('proveedores.modal_create')
-
 
 
        <!-- Modal lateral Congif -->
