@@ -20,7 +20,7 @@
 
         @can('clientes-list')
         <li class="nav-item">
-            <a class="nav-link {{ (Request::is('clients*') ? 'active' : '') }}" href="{{ route('clients.index') }}" target="">
+            <a class="nav-link {{ (Request::is('clients*') ? 'active' : '') }}" href="{{ route('index.clients') }}" target="">
               <div class="icon icon-shape icon-sm text-center  me-2 d-flex align-items-center justify-content-center">
                   <img src="{{ asset('img/icon/empleados.webp') }}" alt="" width="20px">
               </div>
@@ -50,6 +50,7 @@
             </a>
           </li>
           @endcan
+
         @can('cotizaciones-list')
           <li class="nav-item">
             <a class="nav-link {{ (Request::is('cotizaciones*') ? 'active' : '') }}" href="{{ route('index.cotizaciones') }}" target="">
