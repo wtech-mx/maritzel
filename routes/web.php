@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     // ==================== C L I E N T E S ====================
-    Route::resource('clients', ClientController::class);
+    Route::get('clients', [App\Http\Controllers\ClientController::class, 'index'])->name('index.clients');
     Route::post('clients/create', [App\Http\Controllers\ClientController::class, 'store'])->name('store.clients');
     Route::patch('clients/update/{id}', [App\Http\Controllers\ClientController::class, 'update'])->name('update.clients');
     Route::get('subclientes/edit/{id}', [App\Http\Controllers\ClientController::class, 'edit_subclientes'])->name('edit_subclientes.clients');
@@ -93,7 +93,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
         Route::get('categorias', [App\Http\Controllers\CategoriasController::class, 'index'])->name('index.categorias');
-        Route::post('clients/create', [App\Http\Controllers\CategoriasController::class, 'store'])->name('store.categorias');
+        Route::post('categorias/create', [App\Http\Controllers\CategoriasController::class, 'store'])->name('store.categorias');
         Route::patch('categorias/update/{id}', [App\Http\Controllers\CategoriasController::class, 'update'])->name('update.categorias');
 
     /*|--------------------------------------------------------------------------

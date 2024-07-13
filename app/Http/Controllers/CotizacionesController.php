@@ -146,7 +146,8 @@ class CotizacionesController extends Controller
             foreach ($nuevosCampos as $index => $campo) {
                 $notas_inscripcion = new ServiciosCotizaciones;
                 $notas_inscripcion->id_notas_servicios = $notas_productos->id;
-                $notas_inscripcion->producto = $campo;
+                $notas_inscripcion->id_servicios = $campo;
+                $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
                 $notas_inscripcion->price = $nuevosCampos2[$index];
                 $notas_inscripcion->cantidad = $nuevosCampos3[$index];
                 $notas_inscripcion->descuento = $nuevosCampos4[$index];
@@ -174,8 +175,13 @@ class CotizacionesController extends Controller
     }
 
     public function edit($id){
+        $cotizacion = Cotizaciones::find($id);
+        $servicios_cotizacion = ServiciosCotizaciones::where('id_notas_servicios', '=', $id)->get();
 
-        return view('cotizaciones.edit', compact('cotizacion', 'documentacion', 'clientes','gastos_extras', 'gastos_ope'));
+        $clientes = Client::get();
+        $servicios = Servicios::orderBy('nombre', 'desc')->get();
+
+        return view('cotizaciones.edit', compact('cotizacion', 'servicios_cotizacion', 'clientes','servicios'));
     }
 
     public function update(Request $request, $id){

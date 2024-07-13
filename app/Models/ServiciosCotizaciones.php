@@ -21,4 +21,9 @@ class ServiciosCotizaciones extends Model
         'descuento',
         'total',
     ];
+
+    public function Servicio()
+    {
+        return $this->belongsTo(Servicios::class, 'id_servicios');
+    }
 }

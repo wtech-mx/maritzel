@@ -25,7 +25,7 @@ return new class extends Migration
                 ->references('id')->on('servicios')
                 ->inDelete('set null');
             $table->string('producto')->nullable();
-            $table->string('dimensiones')->nullable();
+            $table->string('dimenciones')->nullable();
             $table->string('price')->nullable();
             $table->string('cantidad')->nullable();
             $table->string('descuento')->nullable();

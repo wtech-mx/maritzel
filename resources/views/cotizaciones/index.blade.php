@@ -116,7 +116,9 @@
                                                     <td>{{ $item->total }}</td>
                                                     <td>
 
-
+                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            Edit
+                                                        </a>
 
                                                     </td>
                                                 </tr>
@@ -176,7 +178,9 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-
+                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            Edit
+                                                        </a>
 
 
                                                     </td>
@@ -237,7 +241,9 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-
+                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            Edit
+                                                        </a>
 
 
                                                     </td>
@@ -298,7 +304,9 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-
+                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            Edit
+                                                        </a>
 
 
                                                     </td>
@@ -360,7 +368,9 @@
                                                     <td>{{ $item->total }}</td>
                                                     <td>
 
-
+                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            Edit
+                                                        </a>
 
                                                     </td>
                                                 </tr>

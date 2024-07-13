@@ -29,7 +29,7 @@ class PermissionTableSeeder extends Seeder
            'clientes-delete',
            'subclientes-create',
            'subclientes-view',
-           'proovedores-list'
+           'proovedores-list',
            'proovedores-create',
            'proovedores-edit',
            'proovedores-cuentas',
@@ -37,12 +37,12 @@ class PermissionTableSeeder extends Seeder
            'equipos-create',
            'equipos-edit',
            'equipos-documentos',
-           'operadores-list'
+           'operadores-list',
            'operadores-create',
            'operadores-edit',
            'operadores-pagos-p',
            'operadores-pagos-s',
-           'cotizaciones-list'
+           'cotizaciones-list',
            'cotizaciones-create',
            'cotizaciones-edit',
            'cotizaciones-estatus',

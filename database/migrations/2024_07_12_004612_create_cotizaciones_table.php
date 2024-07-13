@@ -20,7 +20,7 @@ return new class extends Migration
                 ->references('id')->on('clients')
                 ->inDelete('set null');
 
-            $table->unsignedBigInteger('id_subcliente');
+            $table->unsignedBigInteger('id_subcliente')->nullable();
             $table->foreign('id_subcliente')
                 ->references('id')->on('subclientes')
                 ->inDelete('set null');
