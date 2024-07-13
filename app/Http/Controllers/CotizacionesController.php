@@ -22,8 +22,8 @@ class CotizacionesController extends Controller
         $cotizaciones_proceso = Cotizaciones::where('estatus_cotizacion','=','proceso')->get();
         $cotizaciones_pendiente = Cotizaciones::where('estatus_cotizacion','=','pendiente')->get();
         $cotizaciones_finalizado = Cotizaciones::where('estatus_cotizacion','=','finalizado')->get();
-        $cotizaciones_aprovado = Cotizaciones::where('estatus_cotizacion','=','aprovado')->get();
-        $cotizaciones_cancelado = Cotizaciones::where('estatus_cotizacion','=','cancelado')->get();
+        $cotizaciones_aprovado = Cotizaciones::where('estatus_cotizacion','=','aprobada')->get();
+        $cotizaciones_cancelado = Cotizaciones::where('estatus_cotizacion','=','cancelada')->get();
 
         return view('cotizaciones.index', compact('cotizaciones_proceso','cotizaciones_pendiente','cotizaciones_finalizado','cotizaciones_aprovado','cotizaciones_cancelado'));
     }
@@ -163,6 +163,10 @@ class CotizacionesController extends Controller
         $this->validate($request, [
             'estatus' => 'required',
         ]);
+
+        $cotizaciones = Cotizaciones::find($id);
+        $cotizaciones->estatus_cotizacion = $request->get('estatus');
+        $cotizaciones->update();
 
         Session::flash('edit', 'Se ha editado sus datos con exito');
         return redirect()->route('index.cotizaciones')

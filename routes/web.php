@@ -91,6 +91,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('servicios/create', [App\Http\Controllers\ServiciosController::class, 'store'])->name('store.servicios');
         Route::patch('servicios/update/{id}', [App\Http\Controllers\ServiciosController::class, 'update'])->name('update.servicios');
 
+
         Route::get('categorias', [App\Http\Controllers\CategoriasController::class, 'index'])->name('index.categorias');
         Route::post('clients/create', [App\Http\Controllers\CategoriasController::class, 'store'])->name('store.categorias');
         Route::patch('categorias/update/{id}', [App\Http\Controllers\CategoriasController::class, 'update'])->name('update.categorias');

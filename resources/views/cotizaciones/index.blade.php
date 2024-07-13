@@ -70,18 +70,130 @@
 
                       <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-planeadas" role="tabpanel" aria-labelledby="nav-planeadas-tab" tabindex="0">
+                            <div class="table-responsive">
+                                <table class="table table-flush" id="datatable-planeadas">
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>No</th>
+                                            <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
+                                            <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
+                                            <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
+                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
+                                            <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            @foreach ($cotizaciones_proceso as $item)
+                                                <tr>
+                                                    <td>{{ $item->folio }}</td>
+                                                    <td>{{ $item->Cliente->nombre }}</td>
+                                                    <td>{{ $item->fecha }}</td>
+                                                    <td>
+                                                        @if ($item->estatus_cotizacion== 'pendiente')
+                                                        <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                            {{$item->estatus_cotizacion}}
+                                                        </button>
 
+                                                        @elseif ($item->estatus_cotizacion == 'cancelada')
+                                                            <button type="button" class="btn btn-xs btn-outline-danger" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'aprobada')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'proceso')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'finalizado')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $item->total }}</td>
+                                                    <td>
+
+
+
+                                                    </td>
+                                                </tr>
+
+                                                @include('cotizaciones.modal_estatus')
+
+                                            @endforeach
+                                        </tbody>
+
+                                </table>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade " id="nav-finalizadas" role="tabpanel" aria-labelledby="nav-finalizadas-tab" tabindex="0">
                             <div class="table-responsive">
+                                <table class="table table-flush" id="datatable-finalizadas">
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>No</th>
+                                            <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
+                                            <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
+                                            <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
+                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
+                                            <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            @foreach ($cotizaciones_finalizado as $item)
+                                                <tr>
+                                                    <td>{{ $item->folio }}</td>
+                                                    <td>{{ $item->Cliente->nombre }}</td>
+                                                    <td>{{ $item->fecha }}</td>
+                                                    <td>
+                                                        @if ($item->estatus_cotizacion== 'pendiente')
+                                                        <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                            {{$item->estatus_cotizacion}}
+                                                        </button>
 
+                                                        @elseif ($item->estatus_cotizacion == 'cancelada')
+                                                            <button type="button" class="btn btn-xs btn-outline-danger" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'aprobada')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'proceso')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'finalizado')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $item->total }}</td>
+                                                    <td>
+
+
+
+                                                    </td>
+                                                </tr>
+
+                                                @include('cotizaciones.modal_estatus')
+
+                                            @endforeach
+                                        </tbody>
+
+                                </table>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                             <div class="table-responsive">
-                                <table class="table table-flush" id="datatable-planeadas">
+                                <table class="table table-flush" id="datatable-search">
                                     <thead class="thead">
                                         <tr>
                                             <th>No</th>
@@ -98,26 +210,167 @@
                                                     <td>{{ $item->folio }}</td>
                                                     <td>{{ $item->Cliente->nombre }}</td>
                                                     <td>{{ $item->fecha }}</td>
-                                                    <td>{{ $item->estatus_cotizacion }}</td>
+                                                    <td>
+                                                        @if ($item->estatus_cotizacion== 'pendiente')
+                                                        <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                            {{$item->estatus_cotizacion}}
+                                                        </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'cancelada')
+                                                            <button type="button" class="btn btn-xs btn-outline-danger" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'aprobada')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'proceso')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'finalizado')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $item->total }}</td>
-                                                    <td></td>
+                                                    <td>
+
+
+
+                                                    </td>
                                                 </tr>
+
+                                                @include('cotizaciones.modal_estatus')
+
                                             @endforeach
                                         </tbody>
 
                                 </table>
-                        </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                             <div class="table-responsive">
+                                <table class="table table-flush" id="datatable_aprovadas">
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>No</th>
+                                            <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
+                                            <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
+                                            <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
+                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
+                                            <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            @foreach ($cotizaciones_aprovado as $item)
+                                                <tr>
+                                                    <td>{{ $item->folio }}</td>
+                                                    <td>{{ $item->Cliente->nombre }}</td>
+                                                    <td>{{ $item->fecha }}</td>
+                                                    <td>
+                                                        @if ($item->estatus_cotizacion== 'pendiente')
+                                                        <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                            {{$item->estatus_cotizacion}}
+                                                        </button>
 
+                                                        @elseif ($item->estatus_cotizacion == 'cancelada')
+                                                            <button type="button" class="btn btn-xs btn-outline-danger" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'aprobada')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'proceso')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'finalizado')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $item->total }}</td>
+                                                    <td>
+
+
+
+                                                    </td>
+                                                </tr>
+
+                                                @include('cotizaciones.modal_estatus')
+
+                                            @endforeach
+                                        </tbody>
+
+                                </table>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                             <div class="table-responsive">
+                                <table class="table table-flush" id="datatable_canceladas">
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>No</th>
+                                            <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
+                                            <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
+                                            <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
+                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
+                                            <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            @foreach ($cotizaciones_cancelado as $item)
+                                                <tr>
+                                                    <td>{{ $item->folio }}</td>
+                                                    <td>{{ $item->Cliente->nombre }}</td>
+                                                    <td>{{ $item->fecha }}</td>
+                                                    <td>
+                                                        @if ($item->estatus_cotizacion== 'pendiente')
+                                                        <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                            {{$item->estatus_cotizacion}}
+                                                        </button>
 
+                                                        @elseif ($item->estatus_cotizacion == 'cancelada')
+                                                            <button type="button" class="btn btn-xs btn-outline-danger" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+
+                                                        @elseif ($item->estatus_cotizacion == 'aprobada')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'proceso')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @elseif ($item->estatus_cotizacion == 'finalizado')
+                                                            <button type="button" class="btn btn-xs btn-outline-success btn-xs" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
+                                                                {{$item->estatus_cotizacion}}
+                                                            </button>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $item->total }}</td>
+                                                    <td>
+
+
+
+                                                    </td>
+                                                </tr>
+
+                                                @include('cotizaciones.modal_estatus')
+
+                                            @endforeach
+                                        </tbody>
+
+                                </table>
                             </div>
                         </div>
                       </div>
