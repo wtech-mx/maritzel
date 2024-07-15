@@ -245,7 +245,9 @@
                                                             Edit
                                                         </a>
 
-
+                                                        <a class="btn btn-sm btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
+                                                            <i class="fa fa-file"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
 

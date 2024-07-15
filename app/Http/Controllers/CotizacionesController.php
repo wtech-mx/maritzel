@@ -88,7 +88,7 @@ class CotizacionesController extends Controller
         $notas_productos->metodo_pago = $request->get('metodo_pago');
         $notas_productos->fecha = $request->get('fecha');
         $notas_productos->subtotal = $sumaCampo4;
-        $notas_productos->restante = $request->get('descuento');
+        $notas_productos->descuento = $request->get('descuento');
         $notas_productos->total = $totalConDescuento;
         $notas_productos->nota = $request->get('nota');
         $notas_productos->metodo_pago2 = $request->get('metodo_pago2');
@@ -144,14 +144,21 @@ class CotizacionesController extends Controller
             $nuevosCampos4 = $request->input('descuento_prod');
 
             foreach ($nuevosCampos as $index => $campo) {
+                if($nuevosCampos2[$index] == NULL){
+                    $unitario = 0;
+                }else{
+                    $unitario = $nuevosCampos2[$index] / $nuevosCampos3[$index];
+                }
+
                 $notas_inscripcion = new ServiciosCotizaciones;
                 $notas_inscripcion->id_notas_servicios = $notas_productos->id;
                 $notas_inscripcion->id_servicios = $campo;
                 $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
-                $notas_inscripcion->price = $nuevosCampos2[$index];
+                $notas_inscripcion->price = $unitario;
                 $notas_inscripcion->cantidad = $nuevosCampos3[$index];
                 $notas_inscripcion->descuento = $nuevosCampos4[$index];
                 $notas_inscripcion->dimenciones = $nuevosCampos5[$index];
+                $notas_inscripcion->total = $nuevosCampos2[$index];
                 $notas_inscripcion->save();
             }
         }
@@ -185,12 +192,84 @@ class CotizacionesController extends Controller
     }
 
     public function update(Request $request, $id){
+        $nuevosCampos = $request->input('campo');
+        $nuevosCampos2 = $request->input('campo4');
+        $nuevosCampos5 = $request->input('campo5');
+        $nuevosCampos3 = $request->input('campo3');
+        $nuevosCampos4 = $request->input('descuento_prod');
 
 
-        Session::flash('edit', 'Se ha editado sus datos con exito');
-        return redirect()->back()
-            ->with('success', 'Estatus updated successfully');
+        for ($count = 0; $count < count($nuevosCampos); $count++) {
+            if($nuevosCampos[$count] != NULL){
+                $cleanPrice = floatval(str_replace(['$', ','], '', $nuevosCampos2[$count]));
+                if($nuevosCampos2[$count] == NULL){
+                    $unitario = 0;
+                }else{
+                    $unitario = $cleanPrice / $nuevosCampos3[$count];
+                }
+
+                $notas_inscripcion = new ServiciosCotizaciones;
+                $notas_inscripcion->id_notas_servicios = $id;
+                $notas_inscripcion->id_servicios = $nuevosCampos[$count];
+                $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
+                $notas_inscripcion->price = $unitario;
+                $notas_inscripcion->cantidad = $nuevosCampos3[$count];
+                $notas_inscripcion->descuento = $nuevosCampos4[$count];
+                $notas_inscripcion->dimenciones = $nuevosCampos5[$count];
+                $notas_inscripcion->total = $cleanPrice;
+                $notas_inscripcion->save();
+
+            }
+        }
+
+        $producto = $request->input('productos');
+        $price = $request->input('price');
+        $cantidad = $request->input('cantidad');
+        $descuento = $request->input('descuento');
+        $dimenciones = $request->input('dimenciones');
+
+        for ($count = 0; $count < count($producto); $count++) {
+            $productos = ServiciosCotizaciones::where('producto', $producto[$count])
+            ->where('id_notas_servicios', $id)
+            ->firstOrFail();
+
+            $precio = $price[$count];
+            $cleanPrice2 = floatval(str_replace(['$', ','], '', $precio));
+            $data = array(
+                'price' => $cleanPrice2,
+                'cantidad' => $cantidad[$count],
+                'descuento' => $descuento[$count],
+                'dimenciones' => $dimenciones[$count],
+            );
+            $productos->update($data);
+        }
+
+        $nota = Cotizaciones::findOrFail($id);
+        $total_final = $request->get('total_final');
+        $cleanPrice3 = floatval(str_replace(['$', ','], '', $total_final));
+        $cleanPrice4 = floatval(str_replace(['$', ','], '', $request->get('subtotal_final')));
+        $nota->subtotal = $cleanPrice4;
+        $nota->total = $cleanPrice3;
+        $nota->save();
+
+        return redirect()->back()->with('success', 'Se ha actualizado con exito');
     }
 
+    public function imprimir($id){
+        $diaActual = date('Y-m-d');
+        $today =  date('d-m-Y');
 
+        $nota = Cotizaciones::find($id);
+
+        $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
+
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'));
+        if($nota->folio == null){
+            $folio = $nota->id;
+        }else{
+            $folio = $nota->folio;
+        }
+       //  return $pdf->stream();
+        return $pdf->download('Cotizacion '. $folio .'/'.$today.'.pdf');
+    }
 }

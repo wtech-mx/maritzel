@@ -85,6 +85,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::patch('cotizaciones/update/estatus/{id}', [App\Http\Controllers\CotizacionesController::class, 'update_estatus'])->name('update_estatus.cotizaciones');
 
+    Route::get('/cotizaciones/imprimir/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir'])->name('imprimir.cotizaciones');
 
         // ==================== C O T I Z A C I O N E S ====================
         Route::get('servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('index.servicios');

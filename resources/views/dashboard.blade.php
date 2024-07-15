@@ -7,13 +7,13 @@
             <div class="card p-3 mb-4">
                 <div class="row">
                     <div class="col-2 my-auto">
-                        <a href="{{ route('clients.index') }}">
+                        <a href="{{ route('index.clients') }}">
                             <img src="{{ asset('img/icon/empleados.webp') }}" alt="" width="35px">
                         </a>
                     </div>
 
                     <div class="col-8">
-                        <a href="{{ route('clients.index') }}">
+                        <a href="{{ route('index.clients') }}">
                             <p style="margin: 0">Consulta</p>
                             <h5>I - Clients</h5>
                         </a>

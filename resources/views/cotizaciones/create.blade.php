@@ -297,7 +297,7 @@
                                                     <span class="input-group-text" id="basic-addon1">
                                                         <img src="{{ asset('img/icon/email.png') }}" alt="" width="15px">
                                                     </span>
-                                                    <input class="form-control" type="text" id="correo_fac" name="correo_fac">
+                                                    <input class="form-control" type="email" id="correo_fac" name="correo_fac">
                                                 </div>
                                             </div>
 
