@@ -58,6 +58,9 @@
                         </div>
                     </div>
 
+                    <div class="col-12">
+                        <img src="{{asset('imagen_serv/'.$item->imagen) }}" class="navbar-brand-img" alt="main_logo" style="height: 30% !important;">
+                    </div>
 
                     <div class="col-12 form-group">
                         <label for="name">Categoria *</label>

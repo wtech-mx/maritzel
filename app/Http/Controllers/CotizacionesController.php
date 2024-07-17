@@ -232,16 +232,16 @@ class CotizacionesController extends Controller
             $productos = ServiciosCotizaciones::where('producto', $producto[$count])
             ->where('id_notas_servicios', $id)
             ->firstOrFail();
-
             $precio = $price[$count];
             $cleanPrice2 = floatval(str_replace(['$', ','], '', $precio));
-            $data = array(
-                'price' => $cleanPrice2,
-                'cantidad' => $cantidad[$count],
-                'descuento' => $descuento[$count],
-                'dimenciones' => $dimenciones[$count],
-            );
-            $productos->update($data);
+
+            $productos->price = $cleanPrice2;
+            $productos->cantidad = $cantidad[$count];
+            $productos->descuento = $descuento[$count];
+            $productos->dimenciones = $dimenciones[$count];
+            $productos->update();
+
+
         }
 
         $nota = Cotizaciones::findOrFail($id);

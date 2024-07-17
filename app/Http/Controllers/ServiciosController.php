@@ -33,7 +33,13 @@ class ServiciosController extends Controller
         $Servicios->precio_normal = $request->get('precio_normal');
         $Servicios->precio_rebajado = $request->get('precio_rebajado');
         $Servicios->id_categoria = $request->get('id_categoria');
-
+        if ($request->hasFile("imagen")) {
+            $file = $request->file('imagen');
+            $path = public_path() . '/imagen_serv';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $Servicios->imagen = $fileName;
+        }
         $Servicios->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
@@ -45,7 +51,20 @@ class ServiciosController extends Controller
     public function update(Request $request, Servicios $id)
     {
 
-        $id->update($request->all());
+        $Servicios = Servicios::find($id);
+        $Servicios->nombre = $request->get('nombre');
+        $Servicios->descripcion = $request->get('descripcion');
+        $Servicios->precio_normal = $request->get('precio_normal');
+        $Servicios->precio_rebajado = $request->get('precio_rebajado');
+        $Servicios->id_categoria = $request->get('id_categoria');
+        if ($request->hasFile("imagen")) {
+            $file = $request->file('imagen');
+            $path = public_path() . '/imagen_serv';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $Servicios->imagen = $fileName;
+        }
+        $Servicios->update();
 
         Session::flash('edit', 'Se ha editado sus datos con exito');
         return redirect()->route('index.servicios')

@@ -57,7 +57,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-12 form-group">
                         <label for="name">Categoria *</label>
                         <div class="input-group mb-3">
