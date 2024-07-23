@@ -26,6 +26,7 @@ class CategoriasController extends Controller
         $categorias = new Categorias;
 
         $categorias->nombre = $request->get('nombre');
+        $categorias->precio_cm = $request->get('precio_cm');
         $categorias->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');

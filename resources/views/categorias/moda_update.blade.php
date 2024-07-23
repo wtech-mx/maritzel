@@ -21,6 +21,16 @@
                         </div>
                     </div>
 
+                    <div class="col-12 form-group">
+                        <label for="name">Precio cm / m2 *</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <img src="{{ asset('img/icon/cinta-metrica.webp') }}" alt="" width="25px">
+                            </span>
+                            <input name="precio_cm" id="precio_cm" type="text" class="form-control" value="{{ $item->precio_cm  }}">
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

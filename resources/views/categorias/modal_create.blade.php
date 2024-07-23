@@ -15,9 +15,19 @@
                         <label for="name">Nombre *</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
-                                <img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">
+                                <img src="{{ asset('img/icon/catalogo.webp') }}" alt="" width="25px">
                             </span>
                             <input name="nombre" id="nombre" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-12 form-group">
+                        <label for="name">Precio cm / m2 *</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <img src="{{ asset('img/icon/cinta-metrica.webp') }}" alt="" width="25px">
+                            </span>
+                            <input name="precio_cm" id="precio_cm" type="text" class="form-control">
                         </div>
                     </div>
 

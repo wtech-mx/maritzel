@@ -114,10 +114,10 @@
                                                         <div class="col-4">
                                                             <h5 for="">Producto</h5>
                                                             <div class="form-group">
-                                                                <select name="campo[]" class="form-select d-inline-block producto">
+                                                                <select name="producto[]" class="form-select d-inline-block producto">
                                                                     <option value="">Seleccione products</option>
                                                                     @foreach ($servicios as $product)
-                                                                    <option value="{{ $product->id }}" data-precio_normal="{{ $product->precio_normal }}">{{ $product->nombre }}</option>
+                                                                        <option value="{{ $product->id }}" data-precio_normal="{{ $product->precio_normal }}">{{ $product->nombre }}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -129,7 +129,7 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input type="number" name="campo3[]" class="form-control d-inline-block cantidad" >
+                                                                <input type="number" name="cantidad[]" class="form-control d-inline-block cantidad" >
                                                             </div>
                                                         </div>
 
@@ -139,17 +139,7 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input type="text" name="campo5[]" class="form-control d-inline-block dimenciones" >
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group col-2">
-                                                            <h5 for="name">Desc. (%)</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input type="number" name="descuento_prod[]" class="form-control d-inline-block descuento_prod" value="0">
+                                                                <input type="text" name="dimenciones[]" class="form-control d-inline-block dimenciones" >
                                                             </div>
                                                         </div>
 
@@ -159,15 +149,76 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input type="text" name="campo4[]" class="form-control d-inline-block subtotal" >
+                                                                <input type="text" name="subtotal[]" class="form-control d-inline-block subtotal" >
                                                             </div>
                                                         </div>
 
-
-
-                                                        <div class="form-group col-2">
+                                                        {{-- <div class="form-group col-2">
                                                             <div class="input-group mb-3">
                                                                 <button type="button" class="btn btn-danger btn-sm eliminarCampo"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                            </div>
+                                                        </div> --}}
+
+                                                        <div class="col-12">
+                                                            <button class="btn btn-primary mt-2 toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
+                                                                Más Opciones
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="collapse" id="collapseExtraFields0">
+                                                            <div class="card card-body mt-3">
+                                                                <div class="row">
+
+                                                                    <div class="form-group col-2">
+                                                                        <h5 for="name">Precio cm/m2</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="precio_cm[]" class="form-control precio_cm">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-2">
+                                                                        <h5 for="name">Total Precio cm/m2</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="total_precio_cm[]" class="form-control total_precio_cm" value="0" readonly>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-2">
+                                                                        <h5 for="name">Material y M.O.</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="material[]" class="form-control material" value="0" readonly>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-2">
+                                                                        <h5 for="name">Utilidad</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="utilidad[]" class="form-control utilidad" value="1.75">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {{-- <div class="form-group col-2">
+                                                                        <h5 for="name">Desc. (%)</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="descuento_prod[]" class="form-control d-inline-block descuento_prod" value="0">
+                                                                        </div>
+                                                                    </div> --}}
+                                                                </div>
                                                             </div>
                                                         </div>
 
@@ -187,7 +238,7 @@
                                             <span class="input-group-text" id="basic-addon1">
                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                             </span>
-                                            <input class="form-control total" type="text" id="envio" name="envio" value="0" >
+                                            <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
                                         </div>
                                     </div>
 
@@ -346,146 +397,160 @@
 @section('datatable')
 <script src="{{ asset('assets/admin/vendor/select2/dist/js/select2.min.js')}}"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var agregarCampoBtn = document.getElementById('agregarCampo');
-        var camposContainer = document.getElementById('camposContainer');
-        var campoExistente = camposContainer.querySelector('.campo');
+document.addEventListener('DOMContentLoaded', function() {
+    var agregarCampoBtn = document.getElementById('agregarCampo');
+    var camposContainer = document.getElementById('camposContainer');
+    var campoExistente = camposContainer.querySelector('.campo');
 
-        campoExistente.querySelector('.cantidad').value = '';
+    $(document).ready(function() {
+        var campoIndex = 1;
 
-        var totalInput = document.getElementById('total');
-        var descuentoInput = document.getElementById('descuento');
-        var totalDescuentoInput = document.getElementById('totalDescuento');
-        var envioInput = document.getElementById('envio');
+        agregarCampoBtn.addEventListener('click', function() {
+            var nuevoCampo = campoExistente.cloneNode(true);
+            var collapseId = 'collapseExtraFields' + campoIndex;
+            var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
 
-        $(document).ready(function() {
-            $('.producto').select2();
+            collapseButton.setAttribute('data-bs-target', '#' + collapseId);
+            collapseButton.setAttribute('aria-controls', collapseId);
+            nuevoCampo.querySelector('.collapse').id = collapseId;
 
-            function asociarEventosCampos(cantidadInput, descuentoInput, productoInput) {
-                cantidadInput.addEventListener('input', function() {
-                    actualizarSubtotal();
-                });
-
-                cantidadInput.addEventListener('blur', function() {
-                    actualizarSubtotal();
-                });
-
-                descuentoInput.addEventListener('input', function() {
-                    actualizarSubtotal();
-                });
-
-                productoInput.addEventListener('change', function () {
-                    actualizarSubtotal();
-                });
-            }
-
-            function eliminarCampo(campo) {
-                campo.remove();
-                actualizarSubtotal();
-            }
-
-            var cantidadOriginal = document.querySelector('.campo .cantidad');
-            var descuentoOriginal = document.querySelector('.campo .descuento_prod');
-            var productoOriginal = document.querySelector('.campo .producto');
-            asociarEventosCampos(cantidadOriginal, descuentoOriginal, productoOriginal);
-
-            agregarCampoBtn.addEventListener('click', function() {
-                var nuevoCampo = campoExistente.cloneNode(true);
-                camposContainer.appendChild(nuevoCampo);
-
-                nuevoCampo.querySelector('.producto').value = '';
-                nuevoCampo.querySelector('.cantidad').value = '';
-                nuevoCampo.querySelector('.descuento_prod').value = '0';
-                nuevoCampo.querySelector('.subtotal').value = '0.00';
-
-                nuevoCampo.querySelector('.producto').addEventListener('change', function () {
-                    actualizarSubtotal();
-                });
-
-                var cantidadInput = nuevoCampo.querySelector('.cantidad');
-                var descuentoInput = nuevoCampo.querySelector('.descuento_prod');
-                var productoInput = nuevoCampo.querySelector('.producto');
-
-                asociarEventosCampos(cantidadInput, descuentoInput, productoInput);
-
-                $(nuevoCampo).find('.producto').removeClass('select2-hidden-accessible').next().remove();
-                $(nuevoCampo).find('.producto').select2();
-
-                var eliminarCampoBtn = nuevoCampo.querySelector('.eliminarCampo');
-                eliminarCampoBtn.addEventListener('click', function() {
-                    eliminarCampo(nuevoCampo);
-                });
-
-                actualizarSubtotal();
+            // Limpiar los valores de los campos en el nuevo campo
+            var inputs = nuevoCampo.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                input.value = '';
             });
 
-            var eliminarCampoBtnOriginal = document.querySelector('.campo .eliminarCampo');
-            eliminarCampoBtnOriginal.addEventListener('click', function() {
-                eliminarCampo(document.querySelector('.campo'));
+            // Limpiar el select
+            var select = nuevoCampo.querySelector('.producto');
+            select.value = '';
+            $(select).trigger('change'); // Actualiza el select2
+
+            camposContainer.appendChild(nuevoCampo);
+
+            campoIndex++;
+
+            agregarEventosCalculo(nuevoCampo);
+        });
+
+        function agregarEventosCalculo(campo) {
+            var productoSelect = campo.querySelector('.producto');
+            var precioCmInput = campo.querySelector('.precio_cm');
+            var dimencionesInput = campo.querySelector('.dimenciones');
+            var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
+            var cantidadInput = campo.querySelector('.cantidad');
+            var materialInput = campo.querySelector('.material');
+            var utilidadInput = campo.querySelector('.utilidad');
+            var subtotalInput = campo.querySelector('.subtotal');
+
+            productoSelect.addEventListener('change', function() {
+                var selectedOption = productoSelect.options[productoSelect.selectedIndex];
+                var precioNormal = selectedOption.getAttribute('data-precio_normal');
+                console.log('Producto seleccionado:', selectedOption.text);
+                console.log('Precio normal:', precioNormal);
+                precioCmInput.value = parseFloat(precioNormal) || 0;
+                calcularTotal();
             });
 
-        });
+            function calcularTotal() {
+                var precioCm = parseFloat(precioCmInput.value) || 0;
+                var dimenciones = parseFloat(dimencionesInput.value) || 0;
+                var totalPrecioCm = precioCm * dimenciones;
+                totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
 
-        camposContainer.addEventListener('change', function(event) {
-            if (event.target.classList.contains('producto') || event.target.classList.contains('cantidad')) {
-                actualizarSubtotal();
-            }
-        });
+                var cantidad = parseFloat(cantidadInput.value) || 0;
+                var materialTotal = totalPrecioCm * cantidad;
+                materialInput.value = materialTotal.toFixed(2);
 
-        function actualizarSubtotal() {
-            var camposProductos = camposContainer.querySelectorAll('.campo .producto');
-            var camposCantidades = camposContainer.querySelectorAll('.campo .cantidad');
-            var camposDescuentos = camposContainer.querySelectorAll('.campo .descuento_prod');
-            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+                var utilidad = parseFloat(utilidadInput.value) || 1;
+                var subtotalTotal = materialTotal * utilidad;
+                subtotalInput.value = subtotalTotal.toFixed(2);
 
-            var total = 0;
-
-            for (var i = 0; i < camposProductos.length; i++) {
-                var producto = camposProductos[i];
-                var cantidad = camposCantidades[i];
-                var descuento = camposDescuentos[i];
-                var subtotal = subtotales[i];
-
-                var precio = parseFloat(producto.options[producto.selectedIndex].getAttribute('data-precio_normal'));
-                var cantidadValor = parseInt(cantidad.value);
-                var descuentoValor = parseFloat(descuento.value);
-
-                var subtotalValor = isNaN(precio) || isNaN(cantidadValor) ? 0 : precio * cantidadValor;
-
-                var subtotalConDescuento = subtotalValor - (subtotalValor * (descuentoValor / 100));
-                subtotal.value = subtotalConDescuento.toFixed(2);
-
-                total += subtotalConDescuento;
+                // Actualizar total después de calcular subtotal
+                actualizarTotal();
             }
 
-            totalInput.value = total.toFixed(2);
-
-            var descuentoTotal = parseFloat(descuentoInput.value);
-            var totalDescuento = total - (total * (descuentoTotal / 100));
-            totalDescuentoInput.value = totalDescuento.toFixed(2);
-
-            var costoEnvio = parseFloat(envioInput.value) || 0;
-            var totalConEnvio = totalDescuento + costoEnvio;
-
-            var toggleFactura = document.getElementById('toggleFactura');
-            if (toggleFactura.checked) {
-                totalConEnvio *= 1.16;
-            }
-
-            totalDescuentoInput.value = totalConEnvio.toFixed(2);
+            precioCmInput.addEventListener('input', calcularTotal);
+            dimencionesInput.addEventListener('input', calcularTotal);
+            cantidadInput.addEventListener('input', calcularTotal);
+            utilidadInput.addEventListener('input', calcularTotal);
         }
 
-        envioInput.addEventListener('input', actualizarSubtotal);
-        document.getElementById('toggleFactura').addEventListener('change', actualizarSubtotal);
-        actualizarSubtotal();
+        function actualizarTotal() {
+            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+            var total = 0;
 
-        descuentoInput.addEventListener('keyup', function() {
-            var descuento = parseFloat(descuentoInput.value);
-            var total = parseFloat(totalInput.value);
-            var totalDescuento = total - (total * (descuento / 100));
+            subtotales.forEach(function(subtotalInput) {
+                var subtotal = parseFloat(subtotalInput.value) || 0;
+                total += subtotal;
+            });
+
+            var totalInput = document.getElementById('total');
+            totalInput.value = total.toFixed(2);
+
+            var envioInput = document.getElementById('envio');
+            var envio = parseFloat(envioInput.value) || 0;
+
+            var totalDescuentoInput = document.getElementById('totalDescuento');
+            var totalDescuento = total + envio;
             totalDescuentoInput.value = totalDescuento.toFixed(2);
+
+            aplicarDescuento();
+            aplicarIVA();
+        }
+
+        function aplicarDescuento() {
+            var descuentoInput = document.getElementById('descuento');
+            var descuentoPorcentaje = parseFloat(descuentoInput.value) || 0;
+
+            var totalDescuentoInput = document.getElementById('totalDescuento');
+            var totalDescuento = parseFloat(totalDescuentoInput.value) || 0;
+
+            var descuento = (totalDescuento * descuentoPorcentaje) / 100;
+            var totalConDescuento = totalDescuento - descuento;
+
+            var totalDescuentoConDescuentoInput = document.getElementById('totalConDescuento');
+            totalDescuentoConDescuentoInput.value = totalConDescuento.toFixed(2);
+
+            aplicarIVA();
+        }
+
+        function aplicarIVA() {
+            var totalDescuentoConDescuentoInput = document.getElementById('totalConDescuento');
+            var totalDescuentoConDescuento = parseFloat(totalDescuentoConDescuentoInput.value) || 0;
+
+            var toggleFacturaCheckbox = document.getElementById('toggleFactura');
+            var aplicarIVA = toggleFacturaCheckbox.checked;
+
+            var totalConIVAInput = document.getElementById('totalConIVA');
+            if (aplicarIVA) {
+                var iva = totalDescuentoConDescuento * 0.16;
+                var totalConIVA = totalDescuentoConDescuento + iva;
+                totalConIVAInput.value = totalConIVA.toFixed(2);
+            } else {
+                totalConIVAInput.value = totalDescuentoConDescuento.toFixed(2);
+            }
+        }
+
+        // Agregar eventos a los campos existentes al cargar la página
+        agregarEventosCalculo(campoExistente);
+
+        // Asegurarse de actualizar el total y el descuento cuando cambien los valores
+        camposContainer.addEventListener('input', function(event) {
+            if (event.target.classList.contains('subtotal')) {
+                actualizarTotal();
+            }
         });
+
+        // Asegurarse de actualizar el totalDescuento cuando cambie el campo de envío
+        document.getElementById('envio').addEventListener('input', actualizarTotal);
+
+        // Actualizar el totalDescuento al cambiar el descuento
+        document.getElementById('descuento').addEventListener('input', aplicarDescuento);
+
+        // Actualizar el totalConIVA cuando se cambie el estado del checkbox
+        document.getElementById('toggleFactura').addEventListener('change', aplicarIVA);
     });
+});
 
     $(document).ready(function () {
         $('#toggleSwitch').change(function () {
