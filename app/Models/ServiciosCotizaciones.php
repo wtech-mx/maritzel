@@ -15,11 +15,16 @@ class ServiciosCotizaciones extends Model
         'id_notas_servicios',
         'id_servicios',
         'producto',
-        'dimensiones',
-        'price',
         'cantidad',
         'descuento',
         'total',
+        'dimenciones_cm',
+        'dimenciones_largo',
+        'dimenciones_ancho',
+        'precio_cm',
+        'total_precio_cm',
+        'material',
+        'utilidad',
     ];
 
     public function Servicio()

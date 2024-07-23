@@ -253,22 +253,22 @@
                                     </div>
 
                                     <div class="form-group col-4">
-                                        <h5 for="name">Subtotal *</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control total" type="text" id="total" name="total" value="0" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
                                         <h5 for="name">Descuento</h5>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
                                             </span>
                                             <input class="form-control" type="number" id="descuento" name="descuento" value="0">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-4">
+                                        <h5 for="name">Subtotal *</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control total" type="text" id="total" name="total" value="0" readonly>
                                         </div>
                                     </div>
 
@@ -289,7 +289,7 @@
                                             <span class="input-group-text" id="basic-addon1">
                                                 <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
                                             </span>
-                                            <input class="form-control" type="date" id="totalDescuento" name="fecha" >
+                                            <input class="form-control" type="date" id="totalDescuento" name="fecha" value="{{date('Y-m-d')}}">
                                         </div>
                                     </div>
 
@@ -397,160 +397,140 @@
 @section('datatable')
 <script src="{{ asset('assets/admin/vendor/select2/dist/js/select2.min.js')}}"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var agregarCampoBtn = document.getElementById('agregarCampo');
-    var camposContainer = document.getElementById('camposContainer');
-    var campoExistente = camposContainer.querySelector('.campo');
+    document.addEventListener('DOMContentLoaded', function() {
+        var agregarCampoBtn = document.getElementById('agregarCampo');
+        var camposContainer = document.getElementById('camposContainer');
+        var campoExistente = camposContainer.querySelector('.campo');
 
-    $(document).ready(function() {
-        var campoIndex = 1;
+        $(document).ready(function() {
+            var campoIndex = 1;
 
-        agregarCampoBtn.addEventListener('click', function() {
-            var nuevoCampo = campoExistente.cloneNode(true);
-            var collapseId = 'collapseExtraFields' + campoIndex;
-            var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
+            agregarCampoBtn.addEventListener('click', function() {
+                var nuevoCampo = campoExistente.cloneNode(true);
+                var collapseId = 'collapseExtraFields' + campoIndex;
+                var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
 
-            collapseButton.setAttribute('data-bs-target', '#' + collapseId);
-            collapseButton.setAttribute('aria-controls', collapseId);
-            nuevoCampo.querySelector('.collapse').id = collapseId;
+                collapseButton.setAttribute('data-bs-target', '#' + collapseId);
+                collapseButton.setAttribute('aria-controls', collapseId);
+                nuevoCampo.querySelector('.collapse').id = collapseId;
 
-            // Limpiar los valores de los campos en el nuevo campo
-            var inputs = nuevoCampo.querySelectorAll('input');
-            inputs.forEach(function(input) {
-                input.value = '';
+                // Limpiar los valores de los campos en el nuevo campo
+                var inputs = nuevoCampo.querySelectorAll('input');
+                inputs.forEach(function(input) {
+                    input.value = '';
+                });
+
+                // Limpiar el select
+                var select = nuevoCampo.querySelector('.producto');
+                select.value = '';
+                $(select).trigger('change'); // Actualiza el select2
+
+                camposContainer.appendChild(nuevoCampo);
+
+                campoIndex++;
+
+                agregarEventosCalculo(nuevoCampo);
             });
 
-            // Limpiar el select
-            var select = nuevoCampo.querySelector('.producto');
-            select.value = '';
-            $(select).trigger('change'); // Actualiza el select2
+            function agregarEventosCalculo(campo) {
+                var productoSelect = campo.querySelector('.producto');
+                var precioCmInput = campo.querySelector('.precio_cm');
+                var dimencionesInput = campo.querySelector('.dimenciones');
+                var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
+                var cantidadInput = campo.querySelector('.cantidad');
+                var materialInput = campo.querySelector('.material');
+                var utilidadInput = campo.querySelector('.utilidad');
+                var subtotalInput = campo.querySelector('.subtotal');
 
-            camposContainer.appendChild(nuevoCampo);
+                productoSelect.addEventListener('change', function() {
+                    var selectedOption = productoSelect.options[productoSelect.selectedIndex];
+                    var precioNormal = selectedOption.getAttribute('data-precio_normal');
+                    console.log('Producto seleccionado:', selectedOption.text);
+                    console.log('Precio normal:', precioNormal);
+                    precioCmInput.value = parseFloat(precioNormal) || 0;
+                    calcularTotal();
+                });
 
-            campoIndex++;
+                function calcularTotal() {
+                    var precioCm = parseFloat(precioCmInput.value) || 0;
+                    var dimenciones = parseFloat(dimencionesInput.value) || 0;
+                    var totalPrecioCm = precioCm * dimenciones;
+                    totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
 
-            agregarEventosCalculo(nuevoCampo);
+                    var cantidad = parseFloat(cantidadInput.value) || 0;
+                    var materialTotal = totalPrecioCm * cantidad;
+                    materialInput.value = materialTotal.toFixed(2);
+
+                    var utilidad = parseFloat(utilidadInput.value) || 1;
+                    var subtotalTotal = materialTotal * utilidad;
+                    subtotalInput.value = subtotalTotal.toFixed(2);
+
+                    // Actualizar total después de calcular subtotal
+                    actualizarTotal();
+                }
+
+                precioCmInput.addEventListener('input', calcularTotal);
+                dimencionesInput.addEventListener('input', calcularTotal);
+                cantidadInput.addEventListener('input', calcularTotal);
+                utilidadInput.addEventListener('input', calcularTotal);
+            }
+
+            function actualizarTotal() {
+                var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+                var total = 0;
+
+                subtotales.forEach(function(subtotalInput) {
+                    var subtotal = parseFloat(subtotalInput.value) || 0;
+                    total += subtotal;
+                });
+
+                var totalInput = document.getElementById('total');
+                totalInput.value = total.toFixed(2);
+
+                var envioInput = document.getElementById('envio');
+                var envio = parseFloat(envioInput.value) || 0;
+
+                var descuentoInput = document.getElementById('descuento');
+                var descuento = parseFloat(descuentoInput.value) || 0;
+
+                var toggleFactura = document.getElementById('toggleFactura');
+                var totalDescuentoInput = document.getElementById('totalDescuento');
+
+                // Calcular total con envío
+                var totalConEnvio = total + envio;
+
+                // Aplicar descuento en porcentaje
+                var totalConDescuento = totalConEnvio - (totalConEnvio * (descuento / 100));
+
+                // Aplicar IVA si el checkbox está seleccionado
+                if (toggleFactura.checked) {
+                    totalConDescuento *= 1.16;
+                }
+
+                // Actualizar el input totalDescuento
+                totalDescuentoInput.value = totalConDescuento.toFixed(2);
+            }
+
+            // Agregar eventos a los campos existentes al cargar la página
+            agregarEventosCalculo(campoExistente);
+
+            // Asegurarse de actualizar el total cuando se cambien los valores
+            camposContainer.addEventListener('input', function(event) {
+                if (event.target.classList.contains('subtotal')) {
+                    actualizarTotal();
+                }
+            });
+
+            // Asegurarse de actualizar el totalDescuento cuando cambie el campo de envío
+            document.getElementById('envio').addEventListener('input', actualizarTotal);
+
+            // Asegurarse de actualizar el totalDescuento cuando cambie el campo de descuento
+            document.getElementById('descuento').addEventListener('input', actualizarTotal);
+
+            // Asegurarse de actualizar el totalDescuento cuando cambie el checkbox de IVA
+            document.getElementById('toggleFactura').addEventListener('change', actualizarTotal);
         });
-
-        function agregarEventosCalculo(campo) {
-            var productoSelect = campo.querySelector('.producto');
-            var precioCmInput = campo.querySelector('.precio_cm');
-            var dimencionesInput = campo.querySelector('.dimenciones');
-            var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
-            var cantidadInput = campo.querySelector('.cantidad');
-            var materialInput = campo.querySelector('.material');
-            var utilidadInput = campo.querySelector('.utilidad');
-            var subtotalInput = campo.querySelector('.subtotal');
-
-            productoSelect.addEventListener('change', function() {
-                var selectedOption = productoSelect.options[productoSelect.selectedIndex];
-                var precioNormal = selectedOption.getAttribute('data-precio_normal');
-                console.log('Producto seleccionado:', selectedOption.text);
-                console.log('Precio normal:', precioNormal);
-                precioCmInput.value = parseFloat(precioNormal) || 0;
-                calcularTotal();
-            });
-
-            function calcularTotal() {
-                var precioCm = parseFloat(precioCmInput.value) || 0;
-                var dimenciones = parseFloat(dimencionesInput.value) || 0;
-                var totalPrecioCm = precioCm * dimenciones;
-                totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
-
-                var cantidad = parseFloat(cantidadInput.value) || 0;
-                var materialTotal = totalPrecioCm * cantidad;
-                materialInput.value = materialTotal.toFixed(2);
-
-                var utilidad = parseFloat(utilidadInput.value) || 1;
-                var subtotalTotal = materialTotal * utilidad;
-                subtotalInput.value = subtotalTotal.toFixed(2);
-
-                // Actualizar total después de calcular subtotal
-                actualizarTotal();
-            }
-
-            precioCmInput.addEventListener('input', calcularTotal);
-            dimencionesInput.addEventListener('input', calcularTotal);
-            cantidadInput.addEventListener('input', calcularTotal);
-            utilidadInput.addEventListener('input', calcularTotal);
-        }
-
-        function actualizarTotal() {
-            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
-            var total = 0;
-
-            subtotales.forEach(function(subtotalInput) {
-                var subtotal = parseFloat(subtotalInput.value) || 0;
-                total += subtotal;
-            });
-
-            var totalInput = document.getElementById('total');
-            totalInput.value = total.toFixed(2);
-
-            var envioInput = document.getElementById('envio');
-            var envio = parseFloat(envioInput.value) || 0;
-
-            var totalDescuentoInput = document.getElementById('totalDescuento');
-            var totalDescuento = total + envio;
-            totalDescuentoInput.value = totalDescuento.toFixed(2);
-
-            aplicarDescuento();
-            aplicarIVA();
-        }
-
-        function aplicarDescuento() {
-            var descuentoInput = document.getElementById('descuento');
-            var descuentoPorcentaje = parseFloat(descuentoInput.value) || 0;
-
-            var totalDescuentoInput = document.getElementById('totalDescuento');
-            var totalDescuento = parseFloat(totalDescuentoInput.value) || 0;
-
-            var descuento = (totalDescuento * descuentoPorcentaje) / 100;
-            var totalConDescuento = totalDescuento - descuento;
-
-            var totalDescuentoConDescuentoInput = document.getElementById('totalConDescuento');
-            totalDescuentoConDescuentoInput.value = totalConDescuento.toFixed(2);
-
-            aplicarIVA();
-        }
-
-        function aplicarIVA() {
-            var totalDescuentoConDescuentoInput = document.getElementById('totalConDescuento');
-            var totalDescuentoConDescuento = parseFloat(totalDescuentoConDescuentoInput.value) || 0;
-
-            var toggleFacturaCheckbox = document.getElementById('toggleFactura');
-            var aplicarIVA = toggleFacturaCheckbox.checked;
-
-            var totalConIVAInput = document.getElementById('totalConIVA');
-            if (aplicarIVA) {
-                var iva = totalDescuentoConDescuento * 0.16;
-                var totalConIVA = totalDescuentoConDescuento + iva;
-                totalConIVAInput.value = totalConIVA.toFixed(2);
-            } else {
-                totalConIVAInput.value = totalDescuentoConDescuento.toFixed(2);
-            }
-        }
-
-        // Agregar eventos a los campos existentes al cargar la página
-        agregarEventosCalculo(campoExistente);
-
-        // Asegurarse de actualizar el total y el descuento cuando cambien los valores
-        camposContainer.addEventListener('input', function(event) {
-            if (event.target.classList.contains('subtotal')) {
-                actualizarTotal();
-            }
-        });
-
-        // Asegurarse de actualizar el totalDescuento cuando cambie el campo de envío
-        document.getElementById('envio').addEventListener('input', actualizarTotal);
-
-        // Actualizar el totalDescuento al cambiar el descuento
-        document.getElementById('descuento').addEventListener('input', aplicarDescuento);
-
-        // Actualizar el totalConIVA cuando se cambie el estado del checkbox
-        document.getElementById('toggleFactura').addEventListener('change', aplicarIVA);
     });
-});
 
     $(document).ready(function () {
         $('#toggleSwitch').change(function () {

@@ -54,47 +54,18 @@ class CotizacionesController extends Controller
             $cliente = $cliente->id;
         }
 
-        $descuento = floatval($request->get('descuento', 0));
-        $envio = $request->get('envio');
-        $nuevosCampos4 = $request->input('campo4', []);
-        $nuevosCampos4 = array_map('floatval', $nuevosCampos4); // Convierte a números
-        $sumaCampo4 = array_sum($nuevosCampos4);
-
-        // Aplicar descuento si $descuento es mayor que 0
-        if ($descuento > 0) {
-            $descuentoAplicado = $sumaCampo4 * ($descuento / 100);
-            $totalDesc = ($envio + $sumaCampo4) - $descuentoAplicado;
-            if($request->get('factura') == NULL){
-                $factura = 0;
-                $totalConDescuento = $totalDesc;
-            }else{
-                $factura = $totalDesc * .16;
-                $totalConDescuento = $totalDesc + $factura;
-            }
-        } else {
-            $descuentoAplicado = 0;
-            $totalDesc = $envio + $sumaCampo4;
-            if($request->get('factura') == NULL){
-                $factura = 0;
-                $totalConDescuento = $totalDesc;
-            }else{
-                $factura = $totalDesc * .16;
-                $totalConDescuento = $totalDesc + $factura;
-            }
-        }
-
         $notas_productos->id_cliente =  $cliente;
         $notas_productos->metodo_pago = $request->get('metodo_pago');
         $notas_productos->fecha = $request->get('fecha');
-        $notas_productos->subtotal = $sumaCampo4;
+        $notas_productos->subtotal = $request->get('total');
         $notas_productos->descuento = $request->get('descuento');
-        $notas_productos->total = $totalConDescuento;
+        $notas_productos->total = $request->get('totalDescuento');
         $notas_productos->nota = $request->get('nota');
         $notas_productos->metodo_pago2 = $request->get('metodo_pago2');
         $notas_productos->monto = $request->get('monto');
         $notas_productos->monto2 = $request->get('monto2');
         $notas_productos->estatus_cotizacion = 'pendiente';
-
+        $notas_productos->envio =  $request->get('envio');
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
 
@@ -120,7 +91,6 @@ class CotizacionesController extends Controller
         // Asignar el nuevo folio al objeto
         $notas_productos->folio = $folio;
 
-        $notas_productos->envio =  $request->get('envio');
 
 
         if($request->get('factura') != NULL){
@@ -135,29 +105,28 @@ class CotizacionesController extends Controller
 
         $notas_productos->save();
 
-        if ($request->has('campo')) {
-            $nuevosCampos = $request->input('campo');
-            $nuevosCampos2 = $request->input('campo4');
-            $nuevosCampos5 = $request->input('campo5');
-            $nuevosCampos3 = $request->input('campo3');
-            $nuevosCampos4 = $request->input('descuento_prod');
+        if ($request->has('cantidad')) {
+            $cantidad = $request->input('cantidad');
+            $producto = $request->input('producto');
+            $dimenciones = $request->input('dimenciones');
+            $subtotal = $request->input('subtotal');
+            $precio_cm = $request->input('precio_cm');
+            $total_precio_cm = $request->input('total_precio_cm');
+            $material = $request->input('material');
+            $utilidad = $request->input('utilidad');
 
-            foreach ($nuevosCampos as $index => $campo) {
-                if($nuevosCampos2[$index] == NULL){
-                    $unitario = 0;
-                }else{
-                    $unitario = $nuevosCampos2[$index] / $nuevosCampos3[$index];
-                }
-
+            foreach ($cantidad as $index => $campo) {
                 $notas_inscripcion = new ServiciosCotizaciones;
                 $notas_inscripcion->id_notas_servicios = $notas_productos->id;
                 $notas_inscripcion->id_servicios = $campo;
                 $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
-                $notas_inscripcion->price = $unitario;
-                $notas_inscripcion->cantidad = $nuevosCampos3[$index];
-                $notas_inscripcion->descuento = $nuevosCampos4[$index];
-                $notas_inscripcion->dimenciones = $nuevosCampos5[$index];
-                $notas_inscripcion->total = $nuevosCampos2[$index];
+                $notas_inscripcion->cantidad = $cantidad[$index];
+                $notas_inscripcion->total = $subtotal[$index];
+                $notas_inscripcion->dimenciones_cm = $dimenciones[$index];
+                $notas_inscripcion->precio_cm = $precio_cm[$index];
+                $notas_inscripcion->total_precio_cm = $total_precio_cm[$index];
+                $notas_inscripcion->material = $material[$index];
+                $notas_inscripcion->utilidad = $utilidad[$index];
                 $notas_inscripcion->save();
             }
         }
