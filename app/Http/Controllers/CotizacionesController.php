@@ -31,9 +31,17 @@ class CotizacionesController extends Controller
     public function create(){
 
         $clientes = Client::get();
-        $servicios = Servicios::orderBy('nombre', 'desc')->get();
+        $servicios = Servicios::where('id_categoria', '=', '1')->orderBy('nombre', 'desc')->get();
 
         return view('cotizaciones.create',compact('clientes','servicios'));
+    }
+
+    public function create_vinil(){
+
+        $clientes = Client::get();
+        $servicios = Servicios::where('id_categoria', '=', '2')->orderBy('nombre', 'desc')->get();
+
+        return view('cotizaciones.cotizaciones_vinil',compact('clientes','servicios'));
     }
 
     public function store(request $request){
@@ -68,6 +76,7 @@ class CotizacionesController extends Controller
         $notas_productos->envio =  $request->get('envio');
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
+        $notas_productos->nombre_empresa = $request->get('nombre_empresa');
 
         // Obtener todos los folios del tipo de nota específico
         $folios = Cotizaciones::where('tipo_nota', $tipoNota)->pluck('folio');
@@ -238,6 +247,6 @@ class CotizacionesController extends Controller
             $folio = $nota->folio;
         }
        //  return $pdf->stream();
-        return $pdf->download('Cotizacion '. $folio .'/'.$today.'.pdf');
+       return $pdf->download('Cotizacion '. $folio .'/'.$today.'.pdf');
     }
 }

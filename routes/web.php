@@ -74,28 +74,24 @@ Route::group(['middleware' => ['auth']], function() {
 
     // ==================== C O T I Z A C I O N E S ====================
     Route::get('cotizaciones/index', [App\Http\Controllers\CotizacionesController::class, 'index'])->name('index.cotizaciones');
-
-    Route::get('cotizaciones/create', [App\Http\Controllers\CotizacionesController::class, 'create'])->name('create.cotizaciones');
-
+    Route::get('cotizaciones/letras/create', [App\Http\Controllers\CotizacionesController::class, 'create'])->name('create.cotizaciones');
     Route::post('cotizaciones/store', [App\Http\Controllers\CotizacionesController::class, 'store'])->name('store.cotizaciones');
-
     Route::get('cotizaciones/edit/{id}', [App\Http\Controllers\CotizacionesController::class, 'edit'])->name('edit.cotizaciones');
-
     Route::patch('cotizaciones/update/{id}', [App\Http\Controllers\CotizacionesController::class, 'update'])->name('update.cotizaciones');
-
     Route::patch('cotizaciones/update/estatus/{id}', [App\Http\Controllers\CotizacionesController::class, 'update_estatus'])->name('update_estatus.cotizaciones');
-
     Route::get('/cotizaciones/imprimir/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir'])->name('imprimir.cotizaciones');
 
-        // ==================== C O T I Z A C I O N E S ====================
-        Route::get('servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('index.servicios');
-        Route::post('servicios/create', [App\Http\Controllers\ServiciosController::class, 'store'])->name('store.servicios');
-        Route::patch('servicios/update/{id}', [App\Http\Controllers\ServiciosController::class, 'update'])->name('update.servicios');
+    // ==================== C O T I Z A C I O N E S ====================
+    Route::get('cotizaciones/vinil/create', [App\Http\Controllers\CotizacionesController::class, 'create_vinil'])->name('create_vinil.cotizaciones');
 
+    // ==================== S E R V I C I O S ====================
+    Route::get('servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('index.servicios');
+    Route::post('servicios/create', [App\Http\Controllers\ServiciosController::class, 'store'])->name('store.servicios');
+    Route::patch('servicios/update/{id}', [App\Http\Controllers\ServiciosController::class, 'update'])->name('update.servicios');
 
-        Route::get('categorias', [App\Http\Controllers\CategoriasController::class, 'index'])->name('index.categorias');
-        Route::post('categorias/create', [App\Http\Controllers\CategoriasController::class, 'store'])->name('store.categorias');
-        Route::patch('categorias/update/{id}', [App\Http\Controllers\CategoriasController::class, 'update'])->name('update.categorias');
+    Route::get('categorias', [App\Http\Controllers\CategoriasController::class, 'index'])->name('index.categorias');
+    Route::post('categorias/create', [App\Http\Controllers\CategoriasController::class, 'store'])->name('store.categorias');
+    Route::patch('categorias/update/{id}', [App\Http\Controllers\CategoriasController::class, 'update'])->name('update.categorias');
 
     /*|--------------------------------------------------------------------------
     |Configuracion

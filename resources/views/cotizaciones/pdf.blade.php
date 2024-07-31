@@ -118,27 +118,31 @@
     <table class="table table-bordered border-primary">
         <thead class="text-center" style="background-color: #00ffa0; color: #000000">
             <tr>
-                <th>Cantidad</th>
                 <th>Producto</th>
-                <th>Dimensiones</th>
-                <th>P.Unit</th>
-                <th>Importe</th>
+                <th>Descripción</th>
+                <th>Costo unitario</th>
+                <th>Cantidad</th>
+                <th>Costo total</th>
             </tr>
         </thead>
         <tbody class="text-center">
             @foreach ($nota_productos as $nota_producto)
                 <tr>
                     <td>
+                        {{ $nota_producto->foto }}
+                    </td>
+                    <td>
+                        {{ $nota->nombre_empresa }} <br>
+                        {{ $nota_producto->Servicio->descripcion }}
+                    </td>
+                    <td>
+                        @php
+                            $unitario = $nota_producto->total / $nota_producto->cantidad;
+                        @endphp
+                        {{ $unitario }}
+                    </td>
+                    <td>
                         {{ $nota_producto->cantidad }}
-                    </td>
-                    <td>
-                        {{ $nota_producto->Servicio->nombre }}
-                    </td>
-                    <td>
-                        {{ $nota_producto->dimenciones }}
-                    </td>
-                    <td>
-                        ${{ $nota_producto->price }}
                     </td>
                     <td>
                         ${{ $nota_producto->total }}
@@ -150,11 +154,13 @@
             <tr style="background-color: #ffffff;">
                 <td></td>
                 <td></td>
+                <td></td>
               <td style="text-align: right"><b>Subtotal</b> </td>
               <td>${{ $nota->subtotal }}</td>
             </tr>
             @if ($nota->descuento > 0)
                 <tr style="background-color: #ffffff;">
+                    <td></td>
                     <td></td>
                     <td></td>
                 <td style="text-align: right"><b>Descuento</b> </td>
@@ -165,6 +171,7 @@
                 <tr style="background-color: #ffffff;">
                     <td></td>
                     <td></td>
+                    <td></td>
                 <td style="text-align: right"><b>Envío</b> </td>
                 <td>${{$nota->envio}}</td>
                 </tr>
@@ -173,11 +180,13 @@
                 <tr style="background-color: #ffffff;">
                     <td></td>
                     <td></td>
-                <td style="text-align: right"><b>IVA por Factura</b> </td>
+                    <td></td>
+                <td style="text-align: right"><b>IVA</b> </td>
                 <td>16%</td>
                 </tr>
             @endif
             <tr style="background-color: #ffffff;">
+                <td></td>
                 <td></td>
                 <td></td>
               <td style="text-align: right"><b>Total</b> </td>
@@ -195,6 +204,18 @@
         <b for="">Telefono Factura:</b> {{ $nota->telefono_fac }} <br>
         <b for="">Dirección:</b> {{ $nota->direccion_fac }}<br>
     @endif
+
+    <h2>Términos y condiciones:</h2>
+    1. Todo proyecto requiere como mínimo el 70% de anticipo y a contra entrega el 30% restante. <br>
+    2. Por ningún motivo se realizan instalaciones sin liquidación.<br>
+    3. Todas nuestras obras e instalaciones tienen 6 meses de garantía a excepción de productos eléctricos (fuentes de
+    poder, iluminación RGB, conexiones electrónicas, etc.) o tonos de impresión y pintura sin previo aviso.<br>
+    4. En el caso de las impresiones a base de Pantone Matching System (PMS) o colores específicos, es necesario indicar
+    si requieren una muestra (con costo adicional) antes de imprimir el proyecto, ya que no nos hacemos responsable del o los
+    tonos que lea la máquina de acuerdo con el archivo enviado, por lo tanto, no estará dentro de la garantía.<br>
+    5. Una vez autorizado el proyecto no hay devoluciones.<br>
+    6. La entrega o instalación del proyecto a realizar, tiempo estimada de 5 a 10 días hábiles.<br>
+    7. Esta cotización tiene vigencia de 45 días para respetar el costo.<br>
   </div>
 </body>
 </html>

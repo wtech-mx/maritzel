@@ -35,10 +35,11 @@
 
                              <div class="float-right">
                                 @can('cotizaciones-create')
-                                <a type="button" class="btn btn-primary" href="{{ route('create.cotizaciones') }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                    Crear
-                                  </a>
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tipoModal" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                        Crear
+                                    </button>
                                   @endcan
+                                  @include('cotizaciones.modal_tipo')
                               </div>
                         </div>
                     </div>
