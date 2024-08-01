@@ -94,7 +94,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="form-group col-6">
+                                        <h5 for="name">Fecha</h5>
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control" type="date" id="fecha" name="fecha" value="{{date('Y-m-d')}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
                                         <label for="name">Nombre y Medidas *</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">
@@ -159,12 +169,12 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input type="text" name="subtotal[]" class="form-control d-inline-block subtotal" >
+                                                                <input type="text" name="subtotal[]" class="form-control d-inline-block subtotal" readonly>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group col-2">
-                                                            <h5 for="name">Subtotal IVA*</h5>
+                                                            <h5 for="name">Total IVA*</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -200,7 +210,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-2">
-                                                                        <h5 for="name">IVA</h5>
+                                                                        <h5 for="name">IVA %</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -210,7 +220,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-2">
-                                                                        <h5 for="name">Total IVA</h5>
+                                                                        <h5 for="name">IVA</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -261,25 +271,27 @@
                                                                         </div>
                                                                     </div>
 
+                                                                    <div class="col-4"></div>
+
                                                                     <div class="form-group col-2">
                                                                         <h5 for="name">Instalacion</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
                                                                             </span>
-                                                                            <input class="form-control instalacion" type="number" id="instalacion" name="instalacion">
+                                                                            <input class="form-control instalacion" type="number" id="instalacion" name="instalacion[]">
                                                                         </div>
                                                                     </div>
 
-                                                                    {{-- <div class="form-group col-2">
-                                                                        <h5 for="name">Desc. (%)</h5>
+                                                                    <div class="form-group col-2">
+                                                                        <h5 for="name">Envio *</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
+                                                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                                             </span>
-                                                                            <input type="number" name="descuento_prod[]" class="form-control d-inline-block descuento_prod" value="0">
+                                                                            <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
                                                                         </div>
-                                                                    </div> --}}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -287,152 +299,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 mt-2 mb-3">
-                                        <h2 style="color:#783E5D"><strong>Pago</strong> </h2>
-                                    </div>
-
-                                    {{-- <div class="col-4 ">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="toggleFactura" name="factura" value="1">
-                                            <h5 class="form-check-h5" for="flexCheckDefault">
-                                                <p class="" style="display: inline-block;font-size: 20px;padding: 5px;color: #3b8b00;">Si</p> <strong> (¿Factura?)</strong>
-                                            </h5>
-                                        </div>
-                                    </div> --}}
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Fecha</h5>
-                                        <div class="input-group ">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control" type="date" id="fecha" name="fecha" value="{{date('Y-m-d')}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Envio *</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Descuento</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control" type="number" id="descuento" name="descuento" value="0">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Subtotal *</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control total" type="text" id="total" name="total" value="0" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Total</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control" type="text" id="totalDescuento" name="totalDescuento" readonly>
-                                        </div>
-                                    </div>
-
-
-                                    <div id="divFactura" style="display: none;">
-                                        <div class="row">
-                                            <h2 style="color: #783E5D">Factura</h2>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Situacion Fiscal</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/picture.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="file" id="situacion_fiscal" name="situacion_fiscal">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Nombre / Razon Social</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/firma-digital.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="razon_social" name="razon_social">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">RFC</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/carta.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="rfc" name="rfc">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">CFDI</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/monetary-policy.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <select class="form-select" name="cfdi" id="cfdi">
-                                                        <option value="">Seleccione CFDI</option>
-                                                        <option value="G01 Adquisicion de Mercancias">G01 Adquisicion de Mercancias</option>
-                                                        <option value="G02 Devoluciones, Descuentos o Bonificaciones">G02 Devoluciones, Descuentos o Bonificaciones</option>
-                                                        <option value="G03 Gastos en General">G03 Gastos en General</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Correo</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/email.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="email" id="correo_fac" name="correo_fac">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Telefono</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/complain.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="number" id="telefono_fac" name="telefono_fac">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <h5 for="name">Direccion de Factura</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/cp.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="direccion_fac" name="direccion_fac">
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
 
@@ -505,6 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var ivaInput = campo.querySelector('.iva');
             var totalIvaInput = campo.querySelector('.totalIva');
             var instalacionInput = campo.querySelector('.instalacion');
+            var envioInput = document.getElementById('envio'); // Nuevo input para envío
 
             productoSelect.addEventListener('change', function() {
                 var selectedOption = productoSelect.options[productoSelect.selectedIndex];
@@ -527,12 +394,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 var utilidad = parseFloat(utilidadInput.value) || 1;
                 var subtotalTotal = materialTotal * utilidad;
-                subtotalInput.value = subtotalTotal.toFixed(2);
 
-                // Calcular IVA
+                // Sumar instalación al subtotal
+                var instalacion = parseFloat(instalacionInput.value) || 0;
+                subtotalTotal += instalacion;
+
+                // Sumar envío al subtotal
+                var envio = parseFloat(envioInput.value) || 0;
+                subtotalTotal += envio;
+
+                // Calcular IVA y sumarlo al subtotal
                 var iva = parseFloat(ivaInput.value) || 0;
                 var totalIva = (subtotalTotal * iva) / 100;
                 totalIvaInput.value = totalIva.toFixed(2);
+
+                // Actualizar subtotal incluyendo el IVA
+                var subtotalIvaInput = document.getElementById('subtotalIva');
+                var totalConIva = subtotalTotal + totalIva;
+                subtotalIvaInput.value = totalConIva.toFixed(2);
+
+                subtotalInput.value = subtotalTotal.toFixed(2);
 
                 // Actualizar total después de calcular subtotal e IVA
                 actualizarTotal();
@@ -544,54 +425,54 @@ document.addEventListener('DOMContentLoaded', function() {
             utilidadInput.addEventListener('input', calcularTotal);
             ivaInput.addEventListener('input', calcularTotal);
             instalacionInput.addEventListener('input', calcularTotal);
+            envioInput.addEventListener('input', calcularTotal); // Nuevo evento para envío
         }
 
         function actualizarTotal() {
-    var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
-    var total = 0;
+            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+            var total = 0;
 
-    subtotales.forEach(function(subtotalInput) {
-        var subtotal = parseFloat(subtotalInput.value) || 0;
-        total += subtotal;
-    });
+            subtotales.forEach(function(subtotalInput) {
+                var subtotal = parseFloat(subtotalInput.value) || 0;
+                total += subtotal;
+            });
 
-    var totalInput = document.getElementById('total');
-    totalInput.value = total.toFixed(2);
+            var totalInput = document.getElementById('total');
+            totalInput.value = total.toFixed(2);
 
-    var envioInput = document.getElementById('envio');
-    var envio = parseFloat(envioInput.value) || 0;
+            var envioInput = document.getElementById('envio');
+            var envio = parseFloat(envioInput.value) || 0;
 
-    var totalDescuentoInput = document.getElementById('totalDescuento');
-    var totalDescuento = total + envio;
-    totalDescuentoInput.value = totalDescuento.toFixed(2);
+            var totalDescuentoInput = document.getElementById('totalDescuento');
+            var totalDescuento = total + envio;
+            totalDescuentoInput.value = totalDescuento.toFixed(2);
 
-    // Aplicar descuento
-    var descuentoInput = document.getElementById('descuento');
-    var descuento = parseFloat(descuentoInput.value) || 0;
-    var descuentoMonto = (totalDescuento * descuento) / 100;
-    var totalConDescuento = totalDescuento - descuentoMonto;
+            // Aplicar descuento
+            var descuentoInput = document.getElementById('descuento');
+            var descuento = parseFloat(descuentoInput.value) || 0;
+            var descuentoMonto = (totalDescuento * descuento) / 100;
+            var totalConDescuento = totalDescuento - descuentoMonto;
 
-    // Aplicar IVA si el checkbox está seleccionado
-    var toggleFactura = document.getElementById('toggleFactura');
-    if (toggleFactura && toggleFactura.checked) {
-        var iva = (totalConDescuento * 16) / 100;
-        totalConDescuento += iva;
-    }
+            // Aplicar IVA si el checkbox está seleccionado
+            var toggleFactura = document.getElementById('toggleFactura');
+            if (toggleFactura && toggleFactura.checked) {
+                var iva = (totalConDescuento * 16) / 100;
+                totalConDescuento += iva;
+            }
 
-    totalDescuentoInput.value = totalConDescuento.toFixed(2);
+            totalDescuentoInput.value = totalConDescuento.toFixed(2);
 
-    // Calcular subtotal con IVA
-    var totalIvaInputs = camposContainer.querySelectorAll('.campo .totalIva');
-    var totalIva = 0;
+            // Calcular subtotal con IVA
+            var totalIvaInputs = camposContainer.querySelectorAll('.campo .totalIva');
+            var totalIva = 0;
 
-    totalIvaInputs.forEach(function(totalIvaInput) {
-        totalIva += parseFloat(totalIvaInput.value) || 0;
-    });
+            totalIvaInputs.forEach(function(totalIvaInput) {
+                totalIva += parseFloat(totalIvaInput.value) || 0;
+            });
 
-    var subtotalIvaInput = document.getElementById('subtotalIva');
-    subtotalIvaInput.value = (total + totalIva).toFixed(2);
-}
-
+            var subtotalIvaInput = document.getElementById('subtotalIva');
+            subtotalIvaInput.value = (total + totalIva).toFixed(2);
+        }
 
         // Agregar eventos a los campos existentes al cargar la página
         agregarEventosCalculo(campoExistente);
@@ -609,6 +490,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('toggleFactura').addEventListener('change', actualizarTotal);
     });
 });
+
+
 
 
     $(document).ready(function () {

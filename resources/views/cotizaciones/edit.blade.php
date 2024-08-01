@@ -95,57 +95,83 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 mt-5">
-                                        <h2 style="color:#783E5D"><strong>Seleciona los productos</strong> </h2>
+                                    <div class="form-group col-6">
+                                        <h5 for="name">Fecha</h5>
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control" type="date" id="fecha" name="fecha" value="{{$cotizacion->fecha}}">
+                                        </div>
                                     </div>
-                                    @php
-                                        $total = 0;
-                                        $totalCantidad = 0;
-                                    @endphp
-                                    @foreach ($servicios_cotizacion as $productos)
-                                        @php
-                                            if($productos->cantidad != NULL){
-                                                $precio_unitario = $productos->total / $productos->cantidad;
-                                                $precio_format = number_format($productos->total, 0, '.', ',');
-                                                $precio_unitario_format = number_format($precio_unitario, 0, '.', ',');
-                                            }
-                                        @endphp
-                                        <div class="row">
 
+                                    <div class="col-6">
+                                        <label for="name">Nombre y Medidas *</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/placa.png') }}" alt="" width="29px">
+                                            </span>
+                                            <input  id="nombre_empresa" name="nombre_empresa" type="text" class="form-control" value="{{$cotizacion->nombre_empresa}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-5">
+                                        <h2 style="color:#783E5D"><strong>Servicio</strong> </h2>
+                                    </div>
+
+                                    @foreach ($servicios_cotizacion as $productos)
+                                        <div class="row">
                                             <div class="col-3">
                                                 <label for="">Nombre</label>
-                                                <input type="text"  name="productos[]" class="form-control d-inline-block" value="{{ $productos->producto }}" readonly>
+                                                <select name="producto[]" class="form-select d-inline-block producto">
+                                                    <option value="{{ $productos->id_servicios }}">{{ $productos->producto }}</option>
+                                                    @foreach ($servicios as $product)
+                                                        <option value="{{ $product->id }}" data-precio_normal="{{ $product->precio_normal }}">{{ $product->nombre }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
 
-                                            <div class="form-group col-2">
-                                                <h5 for="name">Cantidad *</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input type="number" id="cantidad_{{ $productos->id }}" name="cantidad[]" class="form-control d-inline-block cantidad" value="{{$productos->cantidad}}">
+                                            @if ($productos->cantidad == 0)
+                                                <div class="form-group col-2">
+                                                    <h5 for="name">Largo *</h5>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">
+                                                            <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
+                                                        </span>
+                                                        <input type="number" name="largo[]" class="form-control d-inline-block largo" value="{{$productos->largo}}">
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group col-2">
-                                                <h5 for="name">Dimencion *</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input type="text" name="dimenciones[]" class="form-control d-inline-block dimenciones" value="{{$productos->dimenciones}}">
+                                                <div class="form-group col-2">
+                                                    <h5 for="name">Ancho *</h5>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">
+                                                            <img src="{{ asset('img/icon/cinta-metrica.wepb') }}" alt="" width="15px">
+                                                        </span>
+                                                        <input type="text" name="ancho[]" class="form-control d-inline-block ancho" value="{{$productos->ancho}}">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @else
+                                                <div class="form-group col-2">
+                                                    <h5 for="name">Cantidad *</h5>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">
+                                                            <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
+                                                        </span>
+                                                        <input type="number" id="cantidad_{{ $productos->id }}" name="cantidad[]" class="form-control d-inline-block cantidad" value="{{$productos->cantidad}}">
+                                                    </div>
+                                                </div>
 
-                                            <div class="form-group col-2">
-                                                <h5 for="name">Desc. (%)</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input type="number" id="descuento_{{ $productos->id }}" name="descuento[]" class="form-control d-inline-block descuento" value="{{$productos->descuento}}">
+                                                <div class="form-group col-2">
+                                                    <h5 for="name">Dimencion *</h5>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">
+                                                            <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
+                                                        </span>
+                                                        <input type="text" name="dimenciones[]" class="form-control d-inline-block dimenciones" value="{{$productos->dimenciones_cm}}">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
 
                                             <div class="form-group col-2">
                                                 <h5 for="name">Subtotal *</h5>
@@ -153,251 +179,222 @@
                                                     <span class="input-group-text" id="basic-addon1">
                                                         <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                     </span>
-                                                    <input type="text" id="subtotal_{{ $productos->id }}" name="price[]" class="form-control d-inline-block subtotal" value="{{$precio_format}}">
+                                                    <input type="text" name="subtotal[]" class="form-control d-inline-block subtotal" value="{{$productos->total}}" readonly>
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-2">
-                                                <div class="input-group mb-3">
-                                                    <button type="button" class="btn btn-danger btn-sm eliminarCampo"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" id="precio_unitario_{{ $productos->id }}" value="{{ $precio_unitario }}">
-
-                                            @php
-                                                $subtotal = $productos->price;
-                                                $total += $subtotal;
-                                                $precio = $total;
-                                            @endphp
-
-                                        </div>
-                                    @endforeach
-
-                                    <div class="col-2">
-                                        <div class="form-group">
-                                            <button class="mt-5" type="button" id="agregarCampo2" style="border-radius: 9px;width: 36px;height: 40px;">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-11">
-                                        <div class="form-group">
-                                            <div id="camposContainer2">
-                                                <div class="campo2 mt-3">
-                                                    <div class="row"  id="new-products">
-                                                        <div class="col-4">
-                                                            <h5 for="">Producto</h5>
-                                                            <div class="form-group">
-                                                                <select id="producto" name="campo[]" class="form-select d-inline-block producto2">
-                                                                    <option value="">Seleccione products</option>
-                                                                    @foreach ($servicios as $product)
-                                                                    <option value="{{ $product->id }}" data-precio_normal2="{{ $product->precio_normal }}">{{ $product->nombre }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group col-2">
-                                                            <h5 for="name">Cantidad *</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input type="text" name="campo3[]" class="form-control d-inline-block cantidad2"  value="1">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group col-2">
-                                                            <h5 for="name">Dimencion *</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input type="text" name="campo5[]" class="form-control d-inline-block dimenciones" >
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group col-2">
-                                                            <h5 for="name">Desc. (%)</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input type="number" name="descuento_prod[]" class="form-control d-inline-block descuento_prod" value="0">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group col-2">
-                                                            <h5 for="name">Subtotal *</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input type="text" name="campo4[]" class="form-control d-inline-block subtotal2" readonly>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <div class="form-group col-2">
-                                                            <div class="input-group mb-3">
-                                                                <button type="button" class="btn btn-danger btn-sm eliminarCampo"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 mt-2 mb-3">
-                                        <h2 style="color:#783E5D"><strong>Pago</strong> </h2>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Envio *</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control total" type="text" id="envio" name="envio" value="{{$cotizacion->envio}}" >
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-4 ">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="toggleFactura" name="factura" value="1">
-                                            <h5 class="form-check-h5" for="flexCheckDefault">
-                                                <p class="" style="display: inline-block;font-size: 20px;padding: 5px;color: #3b8b00;">Si</p> <strong> (¿Factura?)</strong>
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Subtotal *</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input id="subtotal_final" name="subtotal_final" class="form-control total" type="text"  value="{{$cotizacion->subtotal}}" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Descuento</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/descuento.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control" type="number" id="descuento_cotizacion" name="descuento_cotizacion" value="{{$cotizacion->descuento}}" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Total</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input id="total_final" name="total_final" class="form-control" type="text"  value="{{$cotizacion->total}}" readonly>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group col-4">
-                                        <h5 for="name">Fecha</h5>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
-                                            </span>
-                                            <input class="form-control" type="date" id="totalDescuento" name="fecha" value="{{$cotizacion->fecha}}">
-                                        </div>
-                                    </div>
-
-                                    <div id="divFactura" style="display: none;">
-                                        <div class="row">
-                                            <h2 style="color: #783E5D">Factura</h2>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Situacion Fiscal</h5>
+                                                <h5 for="name">Subtotal IVA*</h5>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/picture.png') }}" alt="" width="15px">
+                                                        <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
                                                     </span>
-                                                    <input class="form-control" type="file" id="situacion_fiscal" name="situacion_fiscal" value="{{$cotizacion->situacion_fiscal}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Nombre / Razon Social</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/firma-digital.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="razon_social" name="razon_social" value="{{$cotizacion->razon_social}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">RFC</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/carta.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="rfc" name="rfc" value="{{$cotizacion->rfc}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">CFDI</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/monetary-policy.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <select class="form-select" name="cfdi" id="cfdi">
-                                                        <option value="{{$cotizacion->cfdi}}">{{$cotizacion->cfdi}}</option>
-                                                        <option value="G01 Adquisicion de Mercancias">G01 Adquisicion de Mercancias</option>
-                                                        <option value="G02 Devoluciones, Descuentos o Bonificaciones">G02 Devoluciones, Descuentos o Bonificaciones</option>
-                                                        <option value="G03 Gastos en General">G03 Gastos en General</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Correo</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/email.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="correo_fac" name="correo_fac" value="{{$cotizacion->correo_fac}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-4">
-                                                <h5 for="name">Telefono</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/complain.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="number" id="telefono_fac" name="telefono_fac" value="{{$cotizacion->telefono_fac}}">
+                                                    <input class="form-control subtotalIva" type="text" id="subtotalIva" name="subtotalIva[]" value="{{$productos->subtotal_iva}}" readonly>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <h5 for="name">Direccion de Factura</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/cp.png') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control" type="text" id="direccion_fac" name="direccion_fac" value="{{$cotizacion->direccion_fac}}">
-                                                </div>
+                                                <button class="btn btn-primary mt-2 toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
+                                                    Más Opciones
+                                                </button>
                                             </div>
 
+                                            <div class="collapse" id="collapseExtraFields0">
+                                                @if ($productos->cantidad == 0)
+                                                    <div class="card card-body mt-3">
+                                                        <div class="row">
+                                                            <div class="form-group col-4">
+                                                                <h5 for="name">Foto</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="file" name="imagen[]" class="form-control imagen" value="0">
+                                                                </div>
+                                                                <img src="{{ asset('img/icon/pdf.webp') }}" alt="" width="40px">
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">M2</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/escala.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="m2[]" class="form-control m2" value="{{$productos->m2}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">IVA</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/comisiones.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="iva[]" class="form-control iva" value="{{$productos->iva}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Total IVA</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/ingresos.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="text" name="totalIva[]" class="form-control totalIva" value="{{$productos->total_iva}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-2"></div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Precio m2</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="precio_cm[]" value="{{$productos->precio_cm}}" class="form-control precio_cm">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Total Precio m2</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="total_precio_cm[]" class="form-control total_precio_cm" value="{{$productos->total_precio_cm}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Instalacion</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="instalacion[]" class="form-control instalacion" value="{{$productos->instalacion}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Total Instalacion</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="total_instalacion[]" class="form-control total_instalacion" value="{{$productos->total_instalacion}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Envio *</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input class="form-control envio" type="text" id="envio" name="envio" value="{{$cotizacion->envio}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <input class="form-control" type="hidden" id="cantidad" name="cantidad[]" value="0" >
+                                                            <input class="form-control" type="hidden" id="dimenciones_cm" name="dimenciones_cm[]" value="0" >
+                                                            <input class="form-control" type="hidden" id="material" name="material[]" value="0" >
+                                                            <input class="form-control" type="hidden" id="utilidad" name="utilidad[]" value="0" >
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <div class="card card-body mt-3">
+                                                        <div class="row">
+
+                                                            <div class="form-group col-4">
+                                                                <h5 for="name">Foto</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="file" name="imagen[]" class="form-control imagen" value="0">
+                                                                </div>
+                                                                <img src="{{ asset('img/icon/pdf.webp') }}" alt="" width="40px">
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">IVA</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="iva[]" class="form-control iva" value="{{$productos->iva}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Total IVA</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="text" name="totalIva[]" class="form-control totalIva" value="{{$productos->total_iva}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-4"></div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Precio cm</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="precio_cm[]" class="form-control precio_cm" value="{{$productos->precio_cm}}" >
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Total Precio cm</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="total_precio_cm[]" class="form-control total_precio_cm" value="{{$productos->total_precio_cm}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Material y M.O.</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="material[]" class="form-control material" value="{{$productos->material}}" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Utilidad</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input type="number" name="utilidad[]" class="form-control utilidad" value="{{$productos->utilidad}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-2">
+                                                                <h5 for="name">Instalacion</h5>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon1">
+                                                                        <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                    </span>
+                                                                    <input class="form-control instalacion" type="number" id="instalacion" name="instalacion"  value="{{$productos->instalacion}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
 
                                     <div class="col-12">
                                         <div class="form-group">

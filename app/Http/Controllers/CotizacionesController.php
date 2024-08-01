@@ -63,15 +63,8 @@ class CotizacionesController extends Controller
         }
 
         $notas_productos->id_cliente =  $cliente;
-        $notas_productos->metodo_pago = $request->get('metodo_pago');
         $notas_productos->fecha = $request->get('fecha');
-        $notas_productos->subtotal = $request->get('total');
-        $notas_productos->descuento = $request->get('descuento');
-        $notas_productos->total = $request->get('totalDescuento');
         $notas_productos->nota = $request->get('nota');
-        $notas_productos->metodo_pago2 = $request->get('metodo_pago2');
-        $notas_productos->monto = $request->get('monto');
-        $notas_productos->monto2 = $request->get('monto2');
         $notas_productos->estatus_cotizacion = 'pendiente';
         $notas_productos->envio =  $request->get('envio');
         $notas_productos->tipo_nota = 'Cotizacion';
@@ -99,32 +92,29 @@ class CotizacionesController extends Controller
 
         // Asignar el nuevo folio al objeto
         $notas_productos->folio = $folio;
-
-
-
-        if($request->get('factura') != NULL){
-            $notas_productos->factura = $request->get('factura');
-            $notas_productos->razon_social = $request->get('razon_social');
-            $notas_productos->rfc = $request->get('rfc');
-            $notas_productos->cfdi = $request->get('cfdi');
-            $notas_productos->correo_fac = $request->get('correo_fac');
-            $notas_productos->telefono_fac = $request->get('telefono_fac');
-            $notas_productos->direccion_fac = $request->get('direccion_fac');
-        }
-
         $notas_productos->save();
 
-        if ($request->has('cantidad')) {
+        if ($request->has('cantidad') || $request->has('m2')) {
             $cantidad = $request->input('cantidad');
             $producto = $request->input('producto');
-            $dimenciones = $request->input('dimenciones');
+            $dimenciones = $request->input('dimenciones_cm');
             $subtotal = $request->input('subtotal');
             $precio_cm = $request->input('precio_cm');
             $total_precio_cm = $request->input('total_precio_cm');
             $material = $request->input('material');
             $utilidad = $request->input('utilidad');
+            $subtotalIva = $request->input('subtotalIva');
+            $largo = $request->input('largo');
+            $ancho = $request->input('ancho');
+            $m2 = $request->input('m2');
+            $iva = $request->input('iva');
+            $totalIva = $request->input('totalIva');
+            $instalacion = $request->input('instalacion');
+            $total_instalacion = $request->input('total_instalacion');
+            $imagen = $request->hasFile('imagen');
 
-            foreach ($cantidad as $index => $campo) {
+
+            foreach ($producto as $index => $campo) {
                 $notas_inscripcion = new ServiciosCotizaciones;
                 $notas_inscripcion->id_notas_servicios = $notas_productos->id;
                 $notas_inscripcion->id_servicios = $campo;
@@ -136,6 +126,22 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->total_precio_cm = $total_precio_cm[$index];
                 $notas_inscripcion->material = $material[$index];
                 $notas_inscripcion->utilidad = $utilidad[$index];
+                $notas_inscripcion->subtotal_iva = $subtotalIva[$index];
+                $notas_inscripcion->largo = $largo[$index];
+                $notas_inscripcion->ancho = $ancho[$index];
+                $notas_inscripcion->m2 = $m2[$index];
+                $notas_inscripcion->iva = $iva[$index];
+                $notas_inscripcion->total_iva = $totalIva[$index];
+                $notas_inscripcion->instalacion = $instalacion[$index];
+                $notas_inscripcion->total_instalacion = $total_instalacion[$index];
+
+                if (isset($imagenes[$index])) { // Verifica si existe una imagen en este índice
+                    $file = $imagenes[$index];
+                    $path = public_path('materiales'); // Usar barra normal y sin concatenar comillas
+                    $fileName = uniqid() . '_' . $file->getClientOriginalName();
+                    $file->move($path, $fileName);
+                    $notas_inscripcion->foto = $fileName;
+                }
                 $notas_inscripcion->save();
             }
         }
