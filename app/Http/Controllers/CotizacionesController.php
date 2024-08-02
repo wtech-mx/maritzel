@@ -97,7 +97,7 @@ class CotizacionesController extends Controller
         if ($request->has('cantidad') || $request->has('m2')) {
             $cantidad = $request->input('cantidad');
             $producto = $request->input('producto');
-            $dimenciones = $request->input('dimenciones_cm');
+            $dimenciones = $request->input('dimenciones');
             $subtotal = $request->input('subtotal');
             $precio_cm = $request->input('precio_cm');
             $total_precio_cm = $request->input('total_precio_cm');

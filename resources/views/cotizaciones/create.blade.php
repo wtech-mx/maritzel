@@ -232,7 +232,7 @@
                                                                     <div class="col-4"></div>
 
                                                                     <div class="form-group col-2">
-                                                                        <h5 for="name">Precio cm/m2</h5>
+                                                                        <h5 for="name">Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
@@ -242,7 +242,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-2">
-                                                                        <h5 for="name">Total Precio cm/m2</h5>
+                                                                        <h5 for="name">Total Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
@@ -296,6 +296,10 @@
                                                             </div>
                                                         </div>
 
+                                                        <input class="form-control" type="hidden" id="largo " name="largo[]" value="0" >
+                                                        <input class="form-control" type="hidden" id="ancho " name="ancho[]" value="0" >
+                                                        <input class="form-control" type="hidden" id="m2 " name="m2[]" value="0" >
+                                                        <input class="form-control" type="hidden" id="total_instalacion " name="total_instalacion[]" value="0" >
                                                     </div>
                                                 </div>
                                             </div>
