@@ -19,8 +19,49 @@
         color: #ffffff; /* Color del texto del tab activo */
     }
 
+    .img_tab{
+        width: 40px;
+    }
+
+    @media only screen and (max-width: 760px) {
+        .img_tab{
+            width: 20px;
+        }
+        .custom-tabs .custom-tab {
+            font-size: 15px;
+        }
+    }
+
+    @media only screen and (max-width: 610px) {
+        .custom-tabs .custom-tab {
+            font-size: 11px;
+        }
+    }
+
+    @media only screen and (max-width: 550px) {
+        .custom-tabs .custom-tab {
+            font-size: 9px;
+        }
+    }
+
+
+    @media only screen and (max-width: 460px) {
+        .custom-tabs .custom-tab {
+            font-size: 6px;
+        }
+    }
+
+    @media only screen and (max-width: 396px) {
+        .img_tab{
+            width: 8px;
+        }
+
+        .custom-tabs .custom-tab {
+            font-size: 7px;
+        }
+    }
+
 </style>
-    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -35,7 +76,7 @@
 
                              <div class="float-right">
                                 @can('cotizaciones-create')
-                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tipoModal" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                    <button type="button" class="btn btn-xs" data-bs-toggle="modal" data-bs-target="#tipoModal" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
                                         Crear
                                     </button>
                                   @endcan
@@ -44,26 +85,26 @@
                         </div>
                     </div>
 
-                    <nav class="mx-auto">
+                    <nav class="mx-auto mt-lg-5 mt-md-3 mt-5">
                         <div class="nav nav-tabs custom-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link custom-tab active" id="nav-planeadas-tab" data-bs-toggle="tab" data-bs-target="#nav-planeadas" type="button" role="tab" aria-controls="nav-planeadas" aria-selected="false">
-                            <img src="{{ asset('img/icon/resultado.webp') }}" alt="" width="40px">  En Proceso
+                            <img src="{{ asset('img/icon/resultado.webp') }}" alt=""class="img_tab">Proceso
                         </button>
 
                         <button class="nav-link custom-tab " id="nav-finalizadas-tab" data-bs-toggle="tab" data-bs-target="#nav-finalizadas" type="button" role="tab" aria-controls="nav-finalizadas" aria-selected="false">
-                            <img src="{{ asset('img/icon/pdf.webp') }}" alt="" width="40px">  Finalizadas
+                            <img src="{{ asset('img/icon/pdf.webp') }}" alt=""class="img_tab">Finalizada
                         </button>
 
                           <button class="nav-link custom-tab" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-                            <img src="{{ asset('img/icon/pausa.png') }}" alt="" width="40px">  En espera
+                            <img src="{{ asset('img/icon/pausa.png') }}" alt=""class="img_tab">Espera
                           </button>
 
                           <button class="nav-link custom-tab" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                            <img src="{{ asset('img/icon/cheque.png') }}" alt="" width="40px">  Aprobada
+                            <img src="{{ asset('img/icon/cheque.png') }}" alt=""class="img_tab">Aprobada
                           </button>
 
                           <button class="nav-link custom-tab" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
-                            <img src="{{ asset('img/icon/cerrar.png') }}" alt="" width="40px">  Canceladas
+                            <img src="{{ asset('img/icon/cerrar.png') }}" alt=""class="img_tab">Cancelada
                           </button>
                         </div>
                     </nav>
@@ -117,8 +158,8 @@
                                                     <td>{{ $item->total }}</td>
                                                     <td>
 
-                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                            Edit
+                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                           <i class="fa fa-file"></i>
                                                         </a>
 
                                                     </td>
@@ -179,8 +220,8 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                            Edit
+                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                           <i class="fa fa-file"></i>
                                                         </a>
 
 
@@ -242,11 +283,11 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                            Edit
+                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                           <i class="fa fa-pencil"></i>
                                                         </a>
 
-                                                        <a class="btn btn-sm btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
+                                                        <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
                                                             <i class="fa fa-file"></i>
                                                         </a>
                                                     </td>
@@ -307,8 +348,8 @@
                                                     </td>
                                                     <td>{{ $item->total }}</td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                            Edit
+                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                           <i class="fa fa-file"></i>
                                                         </a>
 
 
@@ -371,8 +412,8 @@
                                                     <td>{{ $item->total }}</td>
                                                     <td>
 
-                                                        <a type="button" class="btn btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                            Edit
+                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                           <i class="fa fa-file"></i>
                                                         </a>
 
                                                     </td>
@@ -391,7 +432,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('datatable')

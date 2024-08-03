@@ -131,7 +131,7 @@
                                             <div id="camposContainer">
                                                 <div class="campo mt-3">
                                                     <div class="row">
-                                                        <div class="col-4">
+                                                        <div class="col-lg-4 col-md-8 col-8">
                                                             <h5 for="">Producto</h5>
                                                             <div class="form-group">
                                                                 <select name="producto[]" class="form-select d-inline-block producto">
@@ -143,7 +143,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-2">
+                                                        <div class="form-group col-lg-2 col-md-4 col-4 ">
                                                             <h5 for="name">Cantidad *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
@@ -153,7 +153,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-2">
+                                                        <div class="form-group col-lg-2 col-md-4 col-6 ">
                                                             <h5 for="name">Dimencion *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
@@ -163,7 +163,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-2">
+                                                        <div class="form-group col-lg-2 col-md-4 col-6 ">
                                                             <h5 for="name">Subtotal *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
@@ -173,7 +173,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-2">
+                                                        <div class="form-group col-lg-2 col-md-4 col-6 ">
                                                             <h5 for="name">Total IVA*</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
@@ -189,17 +189,20 @@
                                                             </div>
                                                         </div> --}}
 
-                                                        <div class="col-12">
-                                                            <button class="btn btn-primary mt-2 toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
-                                                                Más Opciones
-                                                            </button>
+                                                        <div class="form-group col-lg-12 col-md-12 col-6 ">
+                                                            <h5 for="name">-</h5>
+                                                            <div class="input-group mb-3">
+                                                                <button class="btn btn-primary toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
+                                                                    Más Opciones
+                                                                </button>
+                                                            </div>
                                                         </div>
 
                                                         <div class="collapse" id="collapseExtraFields0">
                                                             <div class="card card-body mt-3">
                                                                 <div class="row">
 
-                                                                    <div class="form-group col-4">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Foto</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -209,7 +212,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">IVA %</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -219,7 +222,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">IVA</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -229,9 +232,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-4"></div>
-
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -241,7 +242,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Total Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -251,7 +252,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Material y M.O.</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -261,7 +262,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Utilidad</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -271,9 +272,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-4"></div>
-
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Instalacion</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
@@ -283,7 +282,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-2">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 for="name">Envio *</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
