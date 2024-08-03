@@ -287,7 +287,7 @@
                                                                     </div>
 
                                                                     <input class="form-control" type="hidden" id="cantidad" name="cantidad[]" value="0" >
-                                                                    <input class="form-control" type="hidden" id="dimenciones_cm" name="dimenciones_cm[]" value="0" >
+                                                                    <input class="form-control" type="hidden" id="dimenciones" name="dimenciones[]" value="0" >
                                                                     <input class="form-control" type="hidden" id="material" name="material[]" value="0" >
                                                                     <input class="form-control" type="hidden" id="utilidad" name="utilidad[]" value="0" >
                                                                 </div>
