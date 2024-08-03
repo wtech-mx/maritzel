@@ -6,6 +6,17 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/admin/vendor/select2/dist/css/select2.min.css')}}">
+
+
+    <style>
+
+        @media only screen and (max-width: 550px) {
+                .label_text{
+                    font-size: 12px;
+                }
+            }
+
+    </style>
  @endsection
 
 @php
@@ -25,14 +36,14 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-12">
-                                                <label for="precio">Nuevo cliente</label><br>
+                                                <label class="label_text" for="precio">Nuevo cliente</label><br>
                                                 <button class="btn btn-success btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                                     Agregar <img src="{{ asset('assets/icons/cliente.png') }}" alt="" width="25px">
                                                 </button>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="name">Cliente *</label>
+                                                    <label class="label_text" class="label_text" for="name">Cliente *</label>
                                                     <select class="form-select cliente d-inline-block"  data-toggle="select" id="id_cliente" name="id_cliente" value="{{ old('id_cliente') }}">
                                                         <option value="">Seleccionar cliente</option>
                                                         @foreach ($clientes as $item)
@@ -44,7 +55,7 @@
 
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="name">Subcliente *</label>
+                                                    <label class="label_text" class="label_text" for="name">Subcliente *</label>
                                                     <select class="form-select subcliente d-inline-block" id="id_subcliente" name="id_subcliente">
                                                         <option value="">Seleccionar subcliente</option>
                                                     </select>
@@ -60,7 +71,7 @@
 
 
                                                     <div class="col-6">
-                                                        <label for="name">Nombre completo *</label>
+                                                        <label class="label_text" class="label_text" for="name">Nombre completo *</label>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text" id="basic-addon1">
                                                                 <img src="{{ asset('assets/icons/cliente.png') }}" alt="" width="29px">
@@ -70,7 +81,7 @@
                                                     </div>
 
                                                     <div class="col-6">
-                                                        <label for="name">Telefono *</label>
+                                                        <label class="label_text" class="label_text" for="name">Telefono *</label>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text" id="basic-addon1">
                                                                 <img src="{{ asset('assets/icons/phone.png') }}" alt="" width="29px">
@@ -80,7 +91,7 @@
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <label for="name">Correo</label>
+                                                        <label class="label_text" class="label_text" for="name">Correo</label>
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text" id="basic-addon1">
                                                                 <img src="{{ asset('assets/icons/correo-electronico.png') }}" alt="" width="29px">
@@ -95,7 +106,7 @@
                                     </div>
 
                                     <div class="form-group col-6">
-                                        <h5 for="name">Fecha</h5>
+                                        <h5 class="label_text" for="name">Fecha</h5>
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <img src="{{ asset('img/icon/calendario.png') }}" alt="" width="15px">
@@ -105,7 +116,7 @@
                                     </div>
 
                                     <div class="col-6">
-                                        <label for="name">Nombre y Medidas *</label>
+                                        <label class="label_text" class="label_text" for="name">Nombre y Medidas *</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <img src="{{ asset('img/icon/placa.png') }}" alt="" width="29px">
@@ -132,7 +143,7 @@
                                                 <div class="campo mt-3">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-8 col-8">
-                                                            <h5 for="">Producto</h5>
+                                                            <h5 class="label_text" for="">Producto</h5>
                                                             <div class="form-group">
                                                                 <select name="producto[]" class="form-select d-inline-block producto">
                                                                     <option value="">Seleccione products</option>
@@ -144,7 +155,7 @@
                                                         </div>
 
                                                         <div class="form-group col-lg-2 col-md-4 col-4 ">
-                                                            <h5 for="name">Cantidad *</h5>
+                                                            <h5 class="label_text" for="name">Cantidad *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
@@ -154,7 +165,7 @@
                                                         </div>
 
                                                         <div class="form-group col-lg-2 col-md-4 col-6 ">
-                                                            <h5 for="name">Dimencion *</h5>
+                                                            <h5 class="label_text" for="name">Dimencion *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/impresora-3d.png') }}" alt="" width="15px">
@@ -164,7 +175,7 @@
                                                         </div>
 
                                                         <div class="form-group col-lg-2 col-md-4 col-6 ">
-                                                            <h5 for="name">Subtotal *</h5>
+                                                            <h5 class="label_text" for="name">Subtotal *</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -174,7 +185,7 @@
                                                         </div>
 
                                                         <div class="form-group col-lg-2 col-md-4 col-6 ">
-                                                            <h5 for="name">Total IVA*</h5>
+                                                            <h5 class="label_text" for="name">Total IVA*</h5>
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -190,7 +201,7 @@
                                                         </div> --}}
 
                                                         <div class="form-group col-lg-12 col-md-12 col-6 ">
-                                                            <h5 for="name">-</h5>
+                                                            <h5 class="label_text" for="name">-</h5>
                                                             <div class="input-group mb-3">
                                                                 <button class="btn btn-primary toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
                                                                     Más Opciones
@@ -203,7 +214,7 @@
                                                                 <div class="row">
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Foto</h5>
+                                                                        <h5 class="label_text" for="name">Foto</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
@@ -213,7 +224,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">IVA %</h5>
+                                                                        <h5 class="label_text" for="name">IVA %</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -223,7 +234,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">IVA</h5>
+                                                                        <h5 class="label_text" for="name">IVA</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -233,7 +244,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Precio cm</h5>
+                                                                        <h5 class="label_text" for="name">Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
@@ -243,7 +254,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Total Precio cm</h5>
+                                                                        <h5 class="label_text" for="name">Total Precio cm</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
@@ -253,7 +264,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Material y M.O.</h5>
+                                                                        <h5 class="label_text" for="name">Material y M.O.</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
@@ -263,7 +274,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Utilidad</h5>
+                                                                        <h5 class="label_text" for="name">Utilidad</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
@@ -273,7 +284,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Instalacion</h5>
+                                                                        <h5 class="label_text" for="name">Instalacion</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
@@ -283,7 +294,7 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 for="name">Envio *</h5>
+                                                                        <h5 class="label_text" for="name">Envio *</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
@@ -307,7 +318,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <h5 for="name">Comentario/nota</h5>
+                                            <h5 class="label_text" for="name">Comentario/nota</h5>
                                             <textarea class="form-control" name="nota" id="nota" cols="30" rows="3"></textarea>
                                         </div>
                                     </div>
