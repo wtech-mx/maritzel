@@ -1,121 +1,133 @@
-<!doctype html>
+<?php
+    // Supongamos que $nota->fecha contiene la fecha en el formato 'Y-m-d'
+    $fechaOriginal = $nota->fecha;
+
+    // Crear un objeto DateTime a partir de la fecha original
+    $date = new DateTime($fechaOriginal);
+
+    // Formatear la fecha al formato deseado (d/m/Y)
+    $fechaFormateada = $date->format('d/m/Y');
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-        body{
-            font-family: sans-serif;
+    <meta charset="UTF-8">
+    <title>Cotización Imaginarte 3D @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
         }
-        @page {
-            margin: 160px 50px;
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            border-collapse: collapse;
         }
-        header {
-            position: fixed;
-            left: 0px;
-            top: -160px;
-            right: 0px;
-            height: 100px;
-            background-color: #7f5adc;
-            color: #fff;
+        .body_content{
+            width: 100%;
+
+        }
+        .section {
+            padding: 15px 35px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .text-center {
             text-align: center;
         }
-        header h1{
-            margin: 10px 0;
-        }
-        header h2{
-            margin: 0 0 10px 0;
-        }
-        footer {
-            position: fixed;
-            left: -50px;
-            bottom: -160px;
-            right: -50px;
-            height: 180px;
-            background-color: #7f5adcaf;
-            color: #fff
-        }
-        footer .page:after {
-            content: counter(page);
-        }
-        footer table {
-            width: 100%;
-        }
-        footer p {
+        .text-right {
             text-align: right;
         }
-        footer .izq {
-            text-align: left;
+        .heading {
+            color: #683cc0;
         }
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
+        .client-details {
+            background-color: #683cc0;
+            color: #ffffff;
+            font-size: 20px;
+            /* width: 650px; */
             width: 100%;
         }
-
-        td, th {
+        .details {
             text-align: center;
-            padding: 8px;
+            padding: 15px 0;
         }
-
-        tr:nth-child(even) {
-            background-color: #F7EAED;
+        .image img {
+            max-width: 100%;
+            vertical-align: middle;
         }
-  </style>
+        .no-border {
+            border: 0 hidden;
+        }
+        .center-table {
+            margin: 0 auto;
+            display: table;
+        }
+    </style>
+</head>
 <body>
-  <header>
-    <h1>Cotización #@if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</h1>
-    <h3>Publicidad que destaca. Fabricamos, instalamos y potencializamos tu marca.</h3>
-  </header>
-
-  <footer>
-    <table>
-        <tr>
-            <td>
-                <p class="izq">
-                <h2>Datos de contacto</h2>
-                <b for="">Razon Social:</b> {{ $nota->razon_social }} <br>
-                <b for="">Correo Factura:</b> {{ $nota->correo_fac }} <br>
-                <b for="">Telefono Factura:</b> {{ $nota->telefono_fac }} <br>
-                </p>
-            </td>
-            <td>
-                <p class="page">
-                    <img src="https://imaginarte3d.com.mx/wp-content/uploads/2022/01/cropped-new-log.png" class="navbar-brand-img h-100" alt="main_logo">
-                </p>
-            </td>
-        </tr>
-    </table>
-  </footer>
-
-  <div id="content">
-
-    <table class="table text-center table-bordered border-primary">
-        <thead >
-            <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
+    <table class="container" align="center">
         <tbody>
-           <tr>
-            <td>
-                    {{ $nota->Cliente->nombre }}
-            </td>
-            <td>
-                    {{ $nota->Cliente->correo }}
-            </td>
-            <td>
-                    {{ $nota->Cliente->telefono }}
-            </td>
-            <td>
-                Fecha: {{ date('d/n/y', strtotime($nota->fecha)) }}
-            </td>
-           </tr>
+            <tr>
+                <td class="section" id="body_content">
+                    <div class="image text-center">
+                        <a href="https://imaginarte3d.com.mx/wp-content/uploads/2022/01/cropped-new-log.png" target="_blank">
+                            <img alt="" width="265" src='https://imnasmexico.com/new/wp-content/uploads/2024/08/logo_imaginarte.png' / style="margin: auto">
+                        </a>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="text-item text-right heading">
+                        <p><strong>COTIZACIÓN</strong></p>
+                    </div>
+                    <div class="text-item text-right">
+                        <p>Folio :  # @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</p>
+                        <p>Fecha : {{ $fechaFormateada; }}</p>
+                        <p>Vendedor : Maritzel</p>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 
-    <table class="table table-bordered border-primary">
+    <table class="container" align="center">
+        <tbody>
+            <tr>
+                <td class="section" id="body_content"style="margin: 0;padding:0;">
+                    <div class="text-item client-details text-center" style="margin: 0;padding:0;">
+                        <p style="margin: 0;padding:0;">Datos del Cliente</p>
+                    </div>
+                    <div class="details">
+                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }}</p>
+                        <p><strong>Correo :</strong>{{ $nota->Cliente->correo  }}</p>
+                        <p><strong>Telefono :</strong>{{ $nota->Cliente->telefono   }}</p>
+                        <p><strong>Direccion :  </strong>Av vasco de Quiroga 1235</p>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="text-item client-details text-center">
+                        <p>Datos del Facturacion</p>
+                    </div>
+                    <div class="details">
+                        <p><strong> Razon Social:</strong> {{ $nota->razon_social }}</p>
+                        <p><strong> Correo Factura:</strong>{{ $nota->correo_fac }} </p>
+                        <p><strong> Telefono Factura:</strong>{{ $nota->telefono_fac }}</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="container" align="center">
         <thead class="text-center" style="background-color: #00ffa0; color: #000000">
             <tr>
                 <th>Producto</th>
@@ -195,27 +207,30 @@
         </tfoot>
     </table>
 
-    @if ($nota->factura == '1')
-        <h2>Datos de Factura</h2>
-        <b for="">Razon Social:</b> {{ $nota->razon_social }} <br>
-        <b for="">RFC:</b> {{ $nota->rfc }} <br>
-        <b for="">CFDI:</b> {{ $nota->cfdi }} <br>
-        <b for="">Correo Factura:</b> {{ $nota->correo_fac }} <br>
-        <b for="">Telefono Factura:</b> {{ $nota->telefono_fac }} <br>
-        <b for="">Dirección:</b> {{ $nota->direccion_fac }}<br>
-    @endif
+    <table class="html_text" align='center' width='100%' border='0' cellpadding='0' cellspacing="0" style='border-collapse:separate;'>
+                <tr>
+                    <td valign='top' dir="ltr"style='font-size: 15px;width:540px;line-height:22px;background-image:none;padding:15px 5px 14px;border-radius:6px;border-top:2px solid #3c434a;border-right:2px solid #3c434a;border-bottom:2px solid #3c434a;border-left:2px solid #3c434a;'>
+                        <div
+                            class='text-item '>
+                            <p><strong>Términos y condiciones:</strong></p>
+                            <p>&nbsp;</p>
+                            <p>1. Todo proyecto requiere como mínimo el <strong>70% de anticipo y a contra entrega el 30% restante.</strong></p>
+                            <p>&nbsp;</p>
+                            <p>2. Por ningún motivo se realizan instalaciones sin liquidación.</p>
+                            <p>&nbsp;</p>
+                            <p>3. Todas nuestras obras e instalaciones tienen 6 meses de garantía a excepción de <strong>productos eléctricos (fuentes de poder, iluminación RGB, conexiones electrónicas, etc.)</strong> o tonos de impresión y pintura sin previo aviso.</p>
+                            <p>&nbsp;</p>
+                            <p>4. En el caso de las impresiones a base de <strong>Pantone Matching System (PMS) o colores específicos,</strong> es necesario indicar si requieren una muestra (con costo adicional) antes de imprimir el proyecto, ya que no nos hacemos responsable del o los tonos que lea la máquina de acuerdo con el archivo enviado, por lo tanto, no estará dentro de la garantía.</p>
+                            <p>&nbsp;</p>
+                            <p>5. Una vez autorizado el proyecto no hay devoluciones.</p>
+                            <p>&nbsp;</p>
+                            <p>6. La entrega o instalación del proyecto a realizar, tiempo estimada de 5 a 10 días hábiles.</p>
+                            <p>&nbsp;</p>
+                            <p>7. Esta cotización tiene vigencia de 45 días para respetar el costo.</p>
+                        </div>
+                    </td>
+                </tr>
+    </table>
 
-    <h2>Términos y condiciones:</h2>
-    1. Todo proyecto requiere como mínimo el 70% de anticipo y a contra entrega el 30% restante. <br>
-    2. Por ningún motivo se realizan instalaciones sin liquidación.<br>
-    3. Todas nuestras obras e instalaciones tienen 6 meses de garantía a excepción de productos eléctricos (fuentes de
-    poder, iluminación RGB, conexiones electrónicas, etc.) o tonos de impresión y pintura sin previo aviso.<br>
-    4. En el caso de las impresiones a base de Pantone Matching System (PMS) o colores específicos, es necesario indicar
-    si requieren una muestra (con costo adicional) antes de imprimir el proyecto, ya que no nos hacemos responsable del o los
-    tonos que lea la máquina de acuerdo con el archivo enviado, por lo tanto, no estará dentro de la garantía.<br>
-    5. Una vez autorizado el proyecto no hay devoluciones.<br>
-    6. La entrega o instalación del proyecto a realizar, tiempo estimada de 5 a 10 días hábiles.<br>
-    7. Esta cotización tiene vigencia de 45 días para respetar el costo.<br>
-  </div>
 </body>
 </html>
