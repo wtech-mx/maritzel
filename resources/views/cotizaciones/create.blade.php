@@ -190,15 +190,9 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input class="form-control" type="text" id="subtotalIva" name="subtotalIva" readonly>
+                                                                <input class="form-control" type="text" id="subtotalIva" name="subtotalIva[]" readonly>
                                                             </div>
                                                         </div>
-
-                                                        {{-- <div class="form-group col-2">
-                                                            <div class="input-group mb-3">
-                                                                <button type="button" class="btn btn-danger btn-sm eliminarCampo"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                            </div>
-                                                        </div> --}}
 
                                                         <div class="form-group col-lg-12 col-md-12 col-6 ">
                                                             <h5 class="label_text" for="name">-</h5>
@@ -337,13 +331,13 @@
 @endsection
 @section('datatable')
 <script src="{{ asset('assets/admin/vendor/select2/dist/js/select2.min.js')}}"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var agregarCampoBtn = document.getElementById('agregarCampo');
     var camposContainer = document.getElementById('camposContainer');
     var campoExistente = camposContainer.querySelector('.campo');
 
-    $(document).ready(function() {
         var campoIndex = 1;
 
         agregarCampoBtn.addEventListener('click', function() {
@@ -457,25 +451,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var envioInput = document.getElementById('envio');
             var envio = parseFloat(envioInput.value) || 0;
 
-            var totalDescuentoInput = document.getElementById('totalDescuento');
-            var totalDescuento = total + envio;
-            totalDescuentoInput.value = totalDescuento.toFixed(2);
-
-            // Aplicar descuento
-            var descuentoInput = document.getElementById('descuento');
-            var descuento = parseFloat(descuentoInput.value) || 0;
-            var descuentoMonto = (totalDescuento * descuento) / 100;
-            var totalConDescuento = totalDescuento - descuentoMonto;
-
-            // Aplicar IVA si el checkbox está seleccionado
-            var toggleFactura = document.getElementById('toggleFactura');
-            if (toggleFactura && toggleFactura.checked) {
-                var iva = (totalConDescuento * 16) / 100;
-                totalConDescuento += iva;
-            }
-
-            totalDescuentoInput.value = totalConDescuento.toFixed(2);
-
             // Calcular subtotal con IVA
             var totalIvaInputs = camposContainer.querySelectorAll('.campo .totalIva');
             var totalIva = 0;
@@ -500,23 +475,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Asegurarse de actualizar el totalDescuento cuando cambie el campo de envío o descuento o el estado del checkbox
         document.getElementById('envio').addEventListener('input', actualizarTotal);
-        document.getElementById('descuento').addEventListener('input', actualizarTotal);
-        document.getElementById('toggleFactura').addEventListener('change', actualizarTotal);
-    });
-});
 
-
-
-
-    $(document).ready(function () {
         $('#toggleSwitch').change(function () {
             $('#divToToggle').toggle();
         });
 
-        $('#toggleFactura').change(function () {
-            $('#divFactura').toggle();
-        });
-    });
+});
+
 </script>
 
 @endsection

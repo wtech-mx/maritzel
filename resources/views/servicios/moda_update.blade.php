@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="col-12">
-                        <img src="{{asset('imagen_serv/'.$item->imagen) }}" class="navbar-brand-img" alt="main_logo" style="height: 30% !important;">
+                        <img src="{{asset('imagen_serv/'.$item->imagen) }}" class="navbar-brand-img" alt="{{ $item->imagen }}" style="height: 150px;">
                     </div>
 
                     <div class="col-12 form-group">
@@ -69,7 +69,7 @@
                                 <img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">
                             </span>
                             <select name="id_categoria" id="" class="form-select">
-                                <option value="">{{ $item->Categoria->nombre }}</option>
+                                <option value="{{ $item->Categoria->id }}">{{ $item->Categoria->nombre }}</option>
                                 @foreach ($Categorias as $Categoria)
                                     <option value="{{ $Categoria->id }}">{{ $Categoria->nombre }}</option>
                                 @endforeach

@@ -51,15 +51,36 @@ Servicios
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    function insertarSaltosDeLinea($texto, $palabrasPorLinea = 5) {
+                                        $palabras = explode(' ', $texto);
+                                        $resultado = '';
+                                        $contador = 0;
+
+                                        foreach ($palabras as $palabra) {
+                                            $resultado .= $palabra . ' ';
+                                            $contador++;
+
+                                            if ($contador % $palabrasPorLinea == 0) {
+                                                $resultado .= '<br>';
+                                            }
+                                        }
+
+                                        return $resultado;
+                                    }
+                                    @endphp
+
                                     @foreach ($servicios as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
 
 											<td>{{ $item->nombre }}</td>
-											<td>{{ $item->descripcion }}</td>
+                                            <td>{!! insertarSaltosDeLinea($item->descripcion) !!}</td>
 											<td>{{ $item->precio_rebajado }}</td>
 											<td>{{ $item->precio_normal }}</td>
-											<td>{{ $item->imagen }}</td>
+											<td>
+                                                <img src="{{asset('imagen_serv/'.$item->imagen) }}" class="navbar-brand-img" alt="{{ $item->imagen }}" style="height: 50px;">
+                                            </td>
                                             <td>{{ $item->Categoria->nombre }}</td>
 
                                             <td>

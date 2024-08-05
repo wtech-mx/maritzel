@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Client;
 use App\Models\Configuracion;
 use App\Models\ServiciosCotizaciones;
@@ -14,6 +13,7 @@ use Illuminate\Http\Request;
 use Session;
 use Carbon\Carbon;
 use DB;
+use PDF;
 
 class CotizacionesController extends Controller
 {
@@ -175,57 +175,6 @@ class CotizacionesController extends Controller
     }
 
     public function update(Request $request, $id){
-        $nuevosCampos = $request->input('campo');
-        $nuevosCampos2 = $request->input('campo4');
-        $nuevosCampos5 = $request->input('campo5');
-        $nuevosCampos3 = $request->input('campo3');
-        $nuevosCampos4 = $request->input('descuento_prod');
-
-
-        for ($count = 0; $count < count($nuevosCampos); $count++) {
-            if($nuevosCampos[$count] != NULL){
-                $cleanPrice = floatval(str_replace(['$', ','], '', $nuevosCampos2[$count]));
-                if($nuevosCampos2[$count] == NULL){
-                    $unitario = 0;
-                }else{
-                    $unitario = $cleanPrice / $nuevosCampos3[$count];
-                }
-
-                $notas_inscripcion = new ServiciosCotizaciones;
-                $notas_inscripcion->id_notas_servicios = $id;
-                $notas_inscripcion->id_servicios = $nuevosCampos[$count];
-                $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
-                $notas_inscripcion->price = $unitario;
-                $notas_inscripcion->cantidad = $nuevosCampos3[$count];
-                $notas_inscripcion->descuento = $nuevosCampos4[$count];
-                $notas_inscripcion->dimenciones = $nuevosCampos5[$count];
-                $notas_inscripcion->total = $cleanPrice;
-                $notas_inscripcion->save();
-
-            }
-        }
-
-        $producto = $request->input('productos');
-        $price = $request->input('price');
-        $cantidad = $request->input('cantidad');
-        $descuento = $request->input('descuento');
-        $dimenciones = $request->input('dimenciones');
-
-        for ($count = 0; $count < count($producto); $count++) {
-            $productos = ServiciosCotizaciones::where('producto', $producto[$count])
-            ->where('id_notas_servicios', $id)
-            ->firstOrFail();
-            $precio = $price[$count];
-            $cleanPrice2 = floatval(str_replace(['$', ','], '', $precio));
-
-            $productos->price = $cleanPrice2;
-            $productos->cantidad = $cantidad[$count];
-            $productos->descuento = $descuento[$count];
-            $productos->dimenciones = $dimenciones[$count];
-            $productos->update();
-
-
-        }
 
         $nota = Cotizaciones::findOrFail($id);
         $total_final = $request->get('total_final');
@@ -233,6 +182,15 @@ class CotizacionesController extends Controller
         $cleanPrice4 = floatval(str_replace(['$', ','], '', $request->get('subtotal_final')));
         $nota->subtotal = $cleanPrice4;
         $nota->total = $cleanPrice3;
+
+        if ($request->hasFile("imagen")) {
+            $file = $request->file('imagen');
+            $path = public_path() . '/cotizaciones';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $nota->foto = $fileName;
+        }
+
         $nota->save();
 
         return redirect()->back()->with('success', 'Se ha actualizado con exito');
@@ -246,13 +204,16 @@ class CotizacionesController extends Controller
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
 
-        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'));
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 595, 730], 'landscape');
+
         if($nota->folio == null){
             $folio = $nota->id;
         }else{
             $folio = $nota->folio;
         }
        //  return $pdf->stream();
-       return $pdf->download('Cotizacion '. $folio .'/'.$today.'.pdf');
+
+       return $pdf->stream();
+
     }
 }

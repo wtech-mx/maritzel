@@ -314,7 +314,7 @@
                                                                     </span>
                                                                     <input type="file" name="imagen[]" class="form-control imagen" value="0">
                                                                 </div>
-                                                                <img src="{{ asset('img/icon/pdf.webp') }}" alt="" width="40px">
+                                                                <img src="{{ asset('cotizaciones/'.$cotizacion->foto) }}" alt="" width="25px">
                                                             </div>
 
                                                             <div class="form-group col-2">

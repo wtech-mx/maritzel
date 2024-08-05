@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Categorias;
 use App\Models\Servicios;
-
 use Illuminate\Http\Request;
 use Session;
 use Carbon\Carbon;
@@ -15,7 +15,7 @@ class ServiciosController extends Controller
     {
 
         $Categorias = Categorias::orderBy('nombre', 'desc')->get();
-        $servicios = Servicios::orderBy('nombre', 'desc')->get();
+        $servicios = Servicios::orderBy('id', 'desc')->get();
 
         return view('servicios.index', compact('Categorias','servicios'));
     }
@@ -48,15 +48,17 @@ class ServiciosController extends Controller
 
     }
 
-    public function update(Request $request, Servicios $id)
+    public function update(Request $request,$id)
     {
 
         $Servicios = Servicios::find($id);
+
         $Servicios->nombre = $request->get('nombre');
         $Servicios->descripcion = $request->get('descripcion');
         $Servicios->precio_normal = $request->get('precio_normal');
         $Servicios->precio_rebajado = $request->get('precio_rebajado');
         $Servicios->id_categoria = $request->get('id_categoria');
+
         if ($request->hasFile("imagen")) {
             $file = $request->file('imagen');
             $path = public_path() . '/imagen_serv';
@@ -64,6 +66,7 @@ class ServiciosController extends Controller
             $file->move($path, $fileName);
             $Servicios->imagen = $fileName;
         }
+
         $Servicios->update();
 
         Session::flash('edit', 'Se ha editado sus datos con exito');

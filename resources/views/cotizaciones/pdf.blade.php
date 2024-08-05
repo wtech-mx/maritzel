@@ -110,19 +110,12 @@
                         <p><strong>Correo :</strong>{{ $nota->Cliente->correo  }}</p>
                         <p><strong>Telefono :</strong>{{ $nota->Cliente->telefono   }}</p>
                         <p><strong>Direccion :  </strong>Av vasco de Quiroga 1235</p>
+                        <p><strong>{{ $nota->nombre_empresa }} <br></strong></p>
+                        <p><strong>{{ $nota->nota }} <br></strong></p>
+
                     </div>
                 </td>
 
-                <td>
-                    <div class="text-item client-details text-center">
-                        <p>Datos del Facturacion</p>
-                    </div>
-                    <div class="details">
-                        <p><strong> Razon Social:</strong> {{ $nota->razon_social }}</p>
-                        <p><strong> Correo Factura:</strong>{{ $nota->correo_fac }} </p>
-                        <p><strong> Telefono Factura:</strong>{{ $nota->telefono_fac }}</p>
-                    </div>
-                </td>
             </tr>
         </tbody>
     </table>
@@ -135,34 +128,52 @@
                 <th>Costo unitario</th>
                 <th>Cantidad</th>
                 <th>Costo total</th>
+                <th>Subtotal</th>
+                <th>IVA</th>
+                <th>Total</th>
+
             </tr>
         </thead>
         <tbody class="text-center">
-            @foreach ($nota_productos as $nota_producto)
+            @foreach ($nota_productos as $item)
                 <tr>
                     <td>
-                        {{ $nota_producto->foto }}
+                        <p>
+                            <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="150px"> <br>
+
+                            {{ $item->Servicio->nombre }}
+                        </p>
                     </td>
                     <td>
-                        {{ $nota->nombre_empresa }} <br>
-                        {{ $nota_producto->Servicio->descripcion }}
+                        {{ $item->Servicio->descripcion }}
                     </td>
                     <td>
                         @php
-                            $unitario = $nota_producto->total / $nota_producto->cantidad;
+                            $unitario = $item->total / $item->cantidad;
                         @endphp
-                        {{ $unitario }}
+
+                        ${{ number_format($unitario, 2) }}
+
                     </td>
                     <td>
-                        {{ $nota_producto->cantidad }}
+                        {{ $item->cantidad }}
                     </td>
                     <td>
-                        ${{ $nota_producto->total }}
+                        ${{ number_format($item->total, 1) }}
+                    </td>
+                    <td>
+                        ${{ number_format($item->total, 1) }}
+                    </td>
+                    <td>
+                       ${{ number_format($item->total_iva, 1) }}
+                    </td>
+                    <td>
+                        ${{ number_format($item->subtotal_iva,1) }}
                     </td>
                 </tr>
            @endforeach
         </tbody>
-        <tfoot >
+        {{-- <tfoot >
             <tr style="background-color: #ffffff;">
                 <td></td>
                 <td></td>
@@ -194,7 +205,7 @@
                     <td></td>
                     <td></td>
                 <td style="text-align: right"><b>IVA</b> </td>
-                <td>16%</td>
+                <td></td>
                 </tr>
             @endif
             <tr style="background-color: #ffffff;">
@@ -204,7 +215,7 @@
               <td style="text-align: right"><b>Total</b> </td>
               <td><b>${{ $nota->total }}</b> </td>
             </tr>
-        </tfoot>
+        </tfoot> --}}
     </table>
 
     <table class="html_text" align='center' width='100%' border='0' cellpadding='0' cellspacing="0" style='border-collapse:separate;'>
