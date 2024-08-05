@@ -50,35 +50,14 @@ class Cotizaciones extends Model
     {
         return $this->belongsTo(Subclientes::class, 'id_subcliente');
     }
-
-    public function DocCotizacion()
-    {
-        return $this->hasOne(DocumCotizacion::class, 'id_cotizacion');
-    }
-
-    public function Bancos1()
-    {
-        return $this->hasOne(Bancos::class, 'id_banco1');
-    }
-
-    public function Bancos2()
-    {
-        return $this->hasOne(Bancos::class, 'id_banco2');
-    }
-
     public function BancoProv()
     {
         return $this->hasOne(CuentasBancarias::class, 'id_cuenta_prov');
     }
 
-    public function BancoProv2()
+    public function ServiciosCotizaciones()
     {
-        return $this->hasOne(CuentasBancarias::class, 'id_cuenta_prov2');
-    }
-
-    public function Empresa()
-    {
-        return $this->hasOne(Empresas::class, 'id_empresa');
+        return $this->hasOne(ServiciosCotizaciones::class, 'id_notas_servicios');
     }
 
 }

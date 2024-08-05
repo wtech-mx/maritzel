@@ -223,8 +223,6 @@
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
                                                            <i class="fa fa-file"></i>
                                                         </a>
-
-
                                                     </td>
                                                 </tr>
 
@@ -239,6 +237,7 @@
 
                         <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                             <div class="table-responsive">
+
                                 <table class="table table-flush" id="datatable-search">
                                     <thead class="thead">
                                         <tr>
@@ -253,7 +252,7 @@
                                         <tbody>
                                             @foreach ($cotizaciones_pendiente as $item)
                                                 <tr>
-                                                    <td>{{ $item->folio }}</td>
+                                                    <td>{{ $item->id }} / {{ $item->ServiciosCotizaciones->id }}</td>
                                                     <td>{{ $item->Cliente->nombre }}</td>
                                                     <td>{{ $item->fecha }}</td>
                                                     <td>
@@ -299,6 +298,7 @@
                                         </tbody>
 
                                 </table>
+
                             </div>
                         </div>
 

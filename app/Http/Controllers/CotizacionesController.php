@@ -25,6 +25,7 @@ class CotizacionesController extends Controller
         $cotizaciones_aprovado = Cotizaciones::where('estatus_cotizacion','=','aprobada')->get();
         $cotizaciones_cancelado = Cotizaciones::where('estatus_cotizacion','=','cancelada')->get();
 
+
         return view('cotizaciones.index', compact('cotizaciones_proceso','cotizaciones_pendiente','cotizaciones_finalizado','cotizaciones_aprovado','cotizaciones_cancelado'));
     }
 
@@ -197,14 +198,13 @@ class CotizacionesController extends Controller
     }
 
     public function imprimir($id){
-        $diaActual = date('Y-m-d');
         $today =  date('d-m-Y');
 
         $nota = Cotizaciones::find($id);
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
 
-        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 595, 730], 'landscape');
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 595, 850], 'landscape');
 
         if($nota->folio == null){
             $folio = $nota->id;

@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cotización Imaginarte 3D @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</title>
+    <title>Cotización  @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</title>
     <style>
         body {
             font-family: Helvetica, Arial, sans-serif;
@@ -106,10 +106,8 @@
                         <p style="margin: 0;padding:0;">Datos del Cliente</p>
                     </div>
                     <div class="details">
-                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }}</p>
-                        <p><strong>Correo :</strong>{{ $nota->Cliente->correo  }}</p>
-                        <p><strong>Telefono :</strong>{{ $nota->Cliente->telefono   }}</p>
-                        <p><strong>Direccion :  </strong>Av vasco de Quiroga 1235</p>
+                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion</strong>{{ $nota->Cliente->direccion }} <br></p>
+
                         <p><strong>{{ $nota->nombre_empresa }} <br></strong></p>
                         <p><strong>{{ $nota->nota }} <br></strong></p>
 
@@ -120,103 +118,99 @@
         </tbody>
     </table>
 
-    <table class="container" align="center">
-        <thead class="text-center" style="background-color: #00ffa0; color: #000000">
+    @php
+    $mostrarInstalacion = false;
+    $mostrarEnvio = false;
+
+    foreach ($nota_productos as $item) {
+        if (!empty($item->instalacion)) {
+            $mostrarInstalacion = true;
+        }
+        if (!empty($nota->envio)) {
+            $mostrarEnvio = true;
+        }
+    }
+@endphp
+
+<table class="container" align="center">
+    <thead class="text-center" style="background-color: #00ffa0; color: #000000">
+        <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Costo unitario</th>
+            <th>Cantidad</th>
+            <th>Costo total</th>
+            @if($mostrarInstalacion)
+                <th>Instalación</th>
+            @endif
+            {{-- @if($mostrarEnvio)
+                <th>Envío</th>
+            @endif --}}
+            <th>Subtotal</th>
+            <th>IVA</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @php
+            $totalSubtotal = 0;
+            $totalIVA = 0;
+            $totalGeneral = 0;
+        @endphp
+
+        @foreach ($nota_productos as $item)
+            @php
+                if ($item->cantidad == 0) {
+                    $unitario = $item->total / 1;
+                } else {
+                    $unitario = $item->total / $item->cantidad;
+                }
+
+                $totalSubtotal += $item->total;
+                $totalIVA += $item->total_iva;
+                $totalGeneral += $item->subtotal_iva;
+            @endphp
+
             <tr>
-                <th>Producto</th>
-                <th>Descripción</th>
-                <th>Costo unitario</th>
-                <th>Cantidad</th>
-                <th>Costo total</th>
-                <th>Subtotal</th>
-                <th>IVA</th>
-                <th>Total</th>
-
+                <td>
+                    <p>
+                        <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="130px"> <br>
+                        {{ $item->Servicio->nombre }}
+                    </p>
+                </td>
+                <td>{{ $item->Servicio->descripcion }}</td>
+                <td>${{ number_format($unitario, 2) }}</td>
+                <td>{{ $item->cantidad }}</td>
+                <td>${{ number_format($item->total, 1) }}</td>
+                @if($mostrarInstalacion)
+                    <td>${{ number_format($item->instalacion ?? 0, 1) }}</td>
+                @endif
+                {{-- @if($mostrarEnvio)
+                    <td>${{ number_format($nota->envio ?? 0, 1) }}</td>
+                @endif --}}
+                <td>${{ number_format($item->total, 1) }}</td>
+                <td>${{ number_format($item->total_iva, 1) }}</td>
+                <td>${{ number_format($item->subtotal_iva, 1) }}</td>
             </tr>
-        </thead>
-        <tbody class="text-center">
-            @foreach ($nota_productos as $item)
-                <tr>
-                    <td>
-                        <p>
-                            <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="150px"> <br>
+        @endforeach
+    </tbody>
+    <tfoot>
+        <tr style="background-color: #ffffff;">
+            <td style="text-align: right"><b>Subtotal</b></td>
+            <td>${{ number_format($totalSubtotal, 1) }}</td>
+        </tr>
+        <tr style="background-color: #ffffff;">
+            <td style="text-align: right"><b>IVA</b></td>
+            <td>${{ number_format($totalIVA, 1) }}</td>
+        </tr>
+        <tr style="background-color: #ffffff;">
+            <td style="text-align: right"><b>Total</b></td>
+            <td>${{ number_format($totalGeneral, 1) }}</td>
+        </tr>
+    </tfoot>
+</table>
 
-                            {{ $item->Servicio->nombre }}
-                        </p>
-                    </td>
-                    <td>
-                        {{ $item->Servicio->descripcion }}
-                    </td>
-                    <td>
-                        @php
-                            $unitario = $item->total / $item->cantidad;
-                        @endphp
 
-                        ${{ number_format($unitario, 2) }}
-
-                    </td>
-                    <td>
-                        {{ $item->cantidad }}
-                    </td>
-                    <td>
-                        ${{ number_format($item->total, 1) }}
-                    </td>
-                    <td>
-                        ${{ number_format($item->total, 1) }}
-                    </td>
-                    <td>
-                       ${{ number_format($item->total_iva, 1) }}
-                    </td>
-                    <td>
-                        ${{ number_format($item->subtotal_iva,1) }}
-                    </td>
-                </tr>
-           @endforeach
-        </tbody>
-        {{-- <tfoot >
-            <tr style="background-color: #ffffff;">
-                <td></td>
-                <td></td>
-                <td></td>
-              <td style="text-align: right"><b>Subtotal</b> </td>
-              <td>${{ $nota->subtotal }}</td>
-            </tr>
-            @if ($nota->descuento > 0)
-                <tr style="background-color: #ffffff;">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                <td style="text-align: right"><b>Descuento</b> </td>
-                <td>{{ $nota->descuento }}%</td>
-                </tr>
-            @endif
-            @if ($nota->envio == NULL)
-                <tr style="background-color: #ffffff;">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                <td style="text-align: right"><b>Envío</b> </td>
-                <td>${{$nota->envio}}</td>
-                </tr>
-            @endif
-            @if ($nota->factura == '1')
-                <tr style="background-color: #ffffff;">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                <td style="text-align: right"><b>IVA</b> </td>
-                <td></td>
-                </tr>
-            @endif
-            <tr style="background-color: #ffffff;">
-                <td></td>
-                <td></td>
-                <td></td>
-              <td style="text-align: right"><b>Total</b> </td>
-              <td><b>${{ $nota->total }}</b> </td>
-            </tr>
-        </tfoot> --}}
-    </table>
 
     <table class="html_text" align='center' width='100%' border='0' cellpadding='0' cellspacing="0" style='border-collapse:separate;'>
                 <tr>

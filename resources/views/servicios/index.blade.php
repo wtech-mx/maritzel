@@ -76,8 +76,11 @@ Servicios
 
 											<td>{{ $item->nombre }}</td>
                                             <td>{!! insertarSaltosDeLinea($item->descripcion) !!}</td>
-											<td>{{ $item->precio_rebajado }}</td>
-											<td>{{ $item->precio_normal }}</td>
+											<td>
+                                                 ${{ number_format($item->precio_rebajado, 2) }}
+                                            </td>
+											<td>
+                                                 ${{ number_format($item->precio_normal, 2) }}
 											<td>
                                                 <img src="{{asset('imagen_serv/'.$item->imagen) }}" class="navbar-brand-img" alt="{{ $item->imagen }}" style="height: 50px;">
                                             </td>

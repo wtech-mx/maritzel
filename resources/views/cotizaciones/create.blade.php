@@ -142,6 +142,7 @@
                                             <div id="camposContainer">
                                                 <div class="campo mt-3">
                                                     <div class="row">
+
                                                         <div class="col-lg-4 col-md-8 col-8">
                                                             <h5 class="label_text" for="">Producto</h5>
                                                             <div class="form-group">
@@ -190,7 +191,7 @@
                                                                 <span class="input-group-text" id="basic-addon1">
                                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                                 </span>
-                                                                <input class="form-control" type="text" id="subtotalIva" name="subtotalIva[]" readonly>
+                                                                <input class="form-control subtotalIva" type="text"  name="subtotalIva[]" readonly>
                                                             </div>
                                                         </div>
 
@@ -380,6 +381,9 @@ document.addEventListener('DOMContentLoaded', function() {
             var totalIvaInput = campo.querySelector('.totalIva');
             var instalacionInput = campo.querySelector('.instalacion');
             var envioInput = document.getElementById('envio'); // Nuevo input para envío
+            var subtotalIvaInput = campo.querySelector('.subtotalIva');
+
+
 
             productoSelect.addEventListener('change', function() {
                 var selectedOption = productoSelect.options[productoSelect.selectedIndex];
@@ -417,7 +421,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalIvaInput.value = totalIva.toFixed(2);
 
                 // Actualizar subtotal incluyendo el IVA
-                var subtotalIvaInput = document.getElementById('subtotalIva');
                 var totalConIva = subtotalTotal + totalIva;
                 subtotalIvaInput.value = totalConIva.toFixed(2);
 
@@ -459,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalIva += parseFloat(totalIvaInput.value) || 0;
             });
 
-            var subtotalIvaInput = document.getElementById('subtotalIva');
+
             subtotalIvaInput.value = (total + totalIva).toFixed(2);
         }
 
