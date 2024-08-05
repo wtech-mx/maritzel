@@ -58,7 +58,20 @@
                             <span class="input-group-text" id="basic-addon1">
                                 <img src="{{ asset('img/icon/gear.webp') }}" alt="" width="25px">
                             </span>
-                            <input name="regimen_fiscal" id="regimen_fiscal" type="text" class="form-control" value="{{ $client->regimen_fiscal }}">
+                            <select name="regimen_fiscal" id="" class="form-select">
+                                <option value="{{ $client->regimen_fiscal }}">{{ $client->regimen_fiscal }}</option>
+                                <option value="Actividades empresariales y profesionales">Actividades empresariales y profesionales</option>
+                                <option value="Arrendamiento de Inmuebles">Arrendamiento de Inmuebles</option>
+                                <option value="Servicios profesionales">Servicios profesionales</option>
+                                <option value="Régimen simplificado de confianza">Régimen simplificado de confianza</option>
+                                <option value="Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas">Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
+                                <option value="Régimen de sueldos y salarios">Régimen de sueldos y salarios</option>
+                                <option value="Enagenación de bienes">Enagenación de bienes</option>
+                                <option value="Ingresos por intereses">Ingresos por intereses</option>
+                                <option value="Ingresos por dividendos">Ingresos por dividendos</option>
+                                <option value="Demás ingresos">Demás ingresos</option>
+                            </select>
+
                         </div>
                     </div>
 

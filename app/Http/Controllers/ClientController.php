@@ -162,7 +162,7 @@ class ClientController extends Controller
         $id->update($request->all());
 
         Session::flash('edit', 'Se ha editado sus datos con exito');
-        return redirect()->route('clients.index')
+        return redirect()->route('index.clients')
             ->with('success', 'Client updated successfully');
     }
 
