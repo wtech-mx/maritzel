@@ -120,7 +120,6 @@
                                             <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
                                             <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
                                             <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
-                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
                                             <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
                                         </tr>
                                     </thead>
@@ -155,7 +154,6 @@
                                                             </button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->total }}</td>
                                                     <td>
 
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
@@ -183,7 +181,6 @@
                                             <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
                                             <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
                                             <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
-                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
                                             <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
                                         </tr>
                                     </thead>
@@ -218,7 +215,6 @@
                                                             </button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->total }}</td>
                                                     <td>
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
                                                            <i class="fa fa-file"></i>
@@ -245,16 +241,27 @@
                                             <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
                                             <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
                                             <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
-                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
                                             <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
                                         </tr>
                                     </thead>
                                         <tbody>
                                             @foreach ($cotizaciones_pendiente as $item)
+
+                                                @php
+                                                    // Supongamos que $nota->fecha contiene la fecha en el formato 'Y-m-d'
+                                                    $fechaOriginal = $item->fecha;
+
+                                                    // Crear un objeto DateTime a partir de la fecha original
+                                                    $date = new DateTime($fechaOriginal);
+
+                                                    // Formatear la fecha al formato deseado (d/m/Y)
+                                                    $fechaFormateada = $date->format('d/m/Y');
+                                                @endphp
+
                                                 <tr>
-                                                    <td>{{ $item->id }} / {{ $item->ServiciosCotizaciones->id }}</td>
+                                                    <td>{{ $item->folio }} /</td>
                                                     <td>{{ $item->Cliente->nombre }}</td>
-                                                    <td>{{ $item->fecha }}</td>
+                                                    <td>{{ $fechaFormateada }}</td>
                                                     <td>
                                                         @if ($item->estatus_cotizacion== 'pendiente')
                                                         <button type="button" class="btn btn-xs btn-outline-warning" data-bs-toggle="modal" data-bs-target="#estatusModal{{$item->id}}">
@@ -280,14 +287,13 @@
                                                             </button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->total }}</td>
                                                     <td>
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                           <i class="fa fa-pencil"></i>
+                                                           <i class="fa fa-pencil"></i> Editar
                                                         </a>
 
                                                         <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
-                                                            <i class="fa fa-file"></i>
+                                                            <i class="fa fa-file"></i> Descargar
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -311,7 +317,6 @@
                                             <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
                                             <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
                                             <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
-                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
                                             <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
                                         </tr>
                                     </thead>
@@ -346,13 +351,10 @@
                                                             </button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->total }}</td>
                                                     <td>
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
                                                            <i class="fa fa-file"></i>
                                                         </a>
-
-
                                                     </td>
                                                 </tr>
 
@@ -374,7 +376,6 @@
                                             <th><img src="{{ asset('img/icon/user_predeterminado.webp') }}" alt="" width="25px">Cliente</th>
                                             <th><img src="{{ asset('img/icon/gps.webp') }}" alt="" width="25px">Fecha</th>
                                             <th><img src="{{ asset('img/icon/semaforos.webp') }}" alt="" width="25px">Estatus</th>
-                                            <th><img src="{{ asset('img/icon/coordenadas.png') }}" alt="" width="25px">Total</th>
                                             <th><img src="{{ asset('img/icon/edit.png') }}" alt="" width="25px">Acciones</th>
                                         </tr>
                                     </thead>
@@ -409,7 +410,6 @@
                                                             </button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->total }}</td>
                                                     <td>
 
                                                         <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
