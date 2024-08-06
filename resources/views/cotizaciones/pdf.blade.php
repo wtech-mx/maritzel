@@ -204,9 +204,9 @@
                 Total: <br>
             </td>
             <td>
-                $ 34,00.0<br>
-                $ 34,00.0<br>
-                $ 34,00.0<br>
+                ${{ number_format($nota->subtotal, 2) }}<br>
+                ${{ number_format($nota->iva_total, 2) }}<br>
+                ${{ number_format($nota->total, 2) }}<br>
             </td>
         </tr>
 </table>

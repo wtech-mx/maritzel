@@ -68,6 +68,10 @@ class CotizacionesController extends Controller
         $notas_productos->nota = $request->get('nota');
         $notas_productos->estatus_cotizacion = 'pendiente';
         $notas_productos->envio =  $request->get('envio');
+        $notas_productos->subtotal =  $request->get('total');
+        $notas_productos->iva_porcentaje =  $request->get('ivaPorcentaje');
+        $notas_productos->iva_total =  $request->get('ivaTotal');
+        $notas_productos->total =  $request->get('totalIva');
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
         $notas_productos->nombre_empresa = $request->get('nombre_empresa');
@@ -108,8 +112,6 @@ class CotizacionesController extends Controller
             $largo = $request->input('largo');
             $ancho = $request->input('ancho');
             $m2 = $request->input('m2');
-            $iva = $request->input('iva');
-            $totalIva = $request->input('totalIva');
             $instalacion = $request->input('instalacion');
             $total_instalacion = $request->input('total_instalacion');
             $imagen = $request->hasFile('imagen');
@@ -127,12 +129,9 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->total_precio_cm = $total_precio_cm[$index];
                 $notas_inscripcion->material = $material[$index];
                 $notas_inscripcion->utilidad = $utilidad[$index];
-                $notas_inscripcion->subtotal_iva = $subtotalIva[$index];
                 $notas_inscripcion->largo = $largo[$index];
                 $notas_inscripcion->ancho = $ancho[$index];
                 $notas_inscripcion->m2 = $m2[$index];
-                $notas_inscripcion->iva = $iva[$index];
-                $notas_inscripcion->total_iva = $totalIva[$index];
                 $notas_inscripcion->instalacion = $instalacion[$index];
                 $notas_inscripcion->total_instalacion = $total_instalacion[$index];
 

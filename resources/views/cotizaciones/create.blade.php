@@ -185,16 +185,6 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-lg-2 col-md-4 col-6 ">
-                                                            <h5 class="label_text" for="name">Total IVA*</h5>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">
-                                                                    <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                </span>
-                                                                <input class="form-control subtotalIva" type="text"  name="subtotalIva[]" readonly>
-                                                            </div>
-                                                        </div>
-
                                                         <div class="form-group col-lg-12 col-md-12 col-6 ">
                                                             <h5 class="label_text" for="name">-</h5>
                                                             <div class="input-group mb-3">
@@ -215,26 +205,6 @@
                                                                                 <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
                                                                             </span>
                                                                             <input type="file" name="imagen[]" class="form-control imagen" value="0">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">IVA %</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input type="number" name="iva[]" class="form-control iva" value="0">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">IVA</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input type="text" name="totalIva[]" class="form-control totalIva" readonly>
                                                                         </div>
                                                                     </div>
 
@@ -287,16 +257,6 @@
                                                                             <input class="form-control instalacion" type="number" id="instalacion" name="instalacion[]">
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Envio *</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -308,6 +268,56 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Envio *</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Total</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="text" id="total" name="total" class="form-control d-inline-block" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">IVA %</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="number" id="ivaPorcentaje" name="ivaPorcentaje" class="form-control" value="16">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">IVA</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input id="ivaTotal" name="ivaTotal" type="text" class="form-control" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6 ">
+                                        <h5 class="label_text" for="name">Total IVA*</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input id="totalIva" name="totalIva" class="form-control" type="text" readonly>
                                         </div>
                                     </div>
 
@@ -339,151 +349,132 @@ document.addEventListener('DOMContentLoaded', function() {
     var camposContainer = document.getElementById('camposContainer');
     var campoExistente = camposContainer.querySelector('.campo');
 
-        var campoIndex = 1;
+    var campoIndex = 1;
 
-        agregarCampoBtn.addEventListener('click', function() {
-            var nuevoCampo = campoExistente.cloneNode(true);
-            var collapseId = 'collapseExtraFields' + campoIndex;
-            var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
+    agregarCampoBtn.addEventListener('click', function() {
+        var nuevoCampo = campoExistente.cloneNode(true);
+        var collapseId = 'collapseExtraFields' + campoIndex;
+        var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
 
-            collapseButton.setAttribute('data-bs-target', '#' + collapseId);
-            collapseButton.setAttribute('aria-controls', collapseId);
-            nuevoCampo.querySelector('.collapse').id = collapseId;
+        collapseButton.setAttribute('data-bs-target', '#' + collapseId);
+        collapseButton.setAttribute('aria-controls', collapseId);
+        nuevoCampo.querySelector('.collapse').id = collapseId;
 
-            // Limpiar los valores de los campos en el nuevo campo
-            var inputs = nuevoCampo.querySelectorAll('input');
-            inputs.forEach(function(input) {
-                input.value = '';
-            });
-
-            // Limpiar el select
-            var select = nuevoCampo.querySelector('.producto');
-            select.value = '';
-            $(select).trigger('change'); // Actualiza el select2
-
-            camposContainer.appendChild(nuevoCampo);
-
-            campoIndex++;
-
-            agregarEventosCalculo(nuevoCampo);
+        // Limpiar los valores de los campos en el nuevo campo
+        var inputs = nuevoCampo.querySelectorAll('input');
+        inputs.forEach(function(input) {
+            input.value = '';
         });
 
-        function agregarEventosCalculo(campo) {
-            var productoSelect = campo.querySelector('.producto');
-            var precioCmInput = campo.querySelector('.precio_cm');
-            var dimencionesInput = campo.querySelector('.dimenciones');
-            var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
-            var cantidadInput = campo.querySelector('.cantidad');
-            var materialInput = campo.querySelector('.material');
-            var utilidadInput = campo.querySelector('.utilidad');
-            var subtotalInput = campo.querySelector('.subtotal');
-            var ivaInput = campo.querySelector('.iva');
-            var totalIvaInput = campo.querySelector('.totalIva');
-            var instalacionInput = campo.querySelector('.instalacion');
-            var envioInput = document.getElementById('envio'); // Nuevo input para envío
-            var subtotalIvaInput = campo.querySelector('.subtotalIva');
+        // Limpiar el select
+        var select = nuevoCampo.querySelector('.producto');
+        select.value = '';
+        $(select).trigger('change'); // Actualiza el select2
 
+        camposContainer.appendChild(nuevoCampo);
 
+        campoIndex++;
 
-            productoSelect.addEventListener('change', function() {
-                var selectedOption = productoSelect.options[productoSelect.selectedIndex];
-                var precioNormal = selectedOption.getAttribute('data-precio_normal');
-                console.log('Producto seleccionado:', selectedOption.text);
-                console.log('Precio normal:', precioNormal);
-                precioCmInput.value = parseFloat(precioNormal) || 0;
-                calcularTotal();
-            });
+        agregarEventosCalculo(nuevoCampo);
+    });
 
-            function calcularTotal() {
-                var precioCm = parseFloat(precioCmInput.value) || 0;
-                var dimenciones = parseFloat(dimencionesInput.value) || 0;
-                var totalPrecioCm = precioCm * dimenciones;
-                totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
+    function agregarEventosCalculo(campo) {
+        var productoSelect = campo.querySelector('.producto');
+        var precioCmInput = campo.querySelector('.precio_cm');
+        var dimencionesInput = campo.querySelector('.dimenciones');
+        var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
+        var cantidadInput = campo.querySelector('.cantidad');
+        var materialInput = campo.querySelector('.material');
+        var utilidadInput = campo.querySelector('.utilidad');
+        var subtotalInput = campo.querySelector('.subtotal');
+        var instalacionInput = campo.querySelector('.instalacion');
 
-                var cantidad = parseFloat(cantidadInput.value) || 0;
-                var materialTotal = totalPrecioCm * cantidad;
-                materialInput.value = materialTotal.toFixed(2);
+        productoSelect.addEventListener('change', function() {
+            var selectedOption = productoSelect.options[productoSelect.selectedIndex];
+            var precioNormal = selectedOption.getAttribute('data-precio_normal');
+            console.log('Producto seleccionado:', selectedOption.text);
+            console.log('Precio normal:', precioNormal);
+            precioCmInput.value = parseFloat(precioNormal) || 0;
+            calcularTotal();
+        });
 
-                var utilidad = parseFloat(utilidadInput.value) || 1;
-                var subtotalTotal = materialTotal * utilidad;
+        function calcularTotal() {
+            var precioCm = parseFloat(precioCmInput.value) || 0;
+            var dimenciones = parseFloat(dimencionesInput.value) || 0;
+            var totalPrecioCm = precioCm * dimenciones;
+            totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
 
-                // Sumar instalación al subtotal
-                var instalacion = parseFloat(instalacionInput.value) || 0;
-                subtotalTotal += instalacion;
+            var cantidad = parseFloat(cantidadInput.value) || 0;
+            var materialTotal = totalPrecioCm * cantidad;
+            materialInput.value = materialTotal.toFixed(2);
 
-                // Sumar envío al subtotal
-                var envio = parseFloat(envioInput.value) || 0;
-                subtotalTotal += envio;
+            var utilidad = parseFloat(utilidadInput.value) || 1;
+            var subtotalTotal = materialTotal * utilidad;
 
-                // Calcular IVA y sumarlo al subtotal
-                var iva = parseFloat(ivaInput.value) || 0;
-                var totalIva = (subtotalTotal * iva) / 100;
-                totalIvaInput.value = totalIva.toFixed(2);
+            // Sumar instalación al subtotal
+            var instalacion = parseFloat(instalacionInput.value) || 0;
+            subtotalTotal += instalacion;
 
-                // Actualizar subtotal incluyendo el IVA
-                var totalConIva = subtotalTotal + totalIva;
-                subtotalIvaInput.value = totalConIva.toFixed(2);
+            subtotalInput.value = subtotalTotal.toFixed(2);
 
-                subtotalInput.value = subtotalTotal.toFixed(2);
-
-                // Actualizar total después de calcular subtotal e IVA
-                actualizarTotal();
-            }
-
-            precioCmInput.addEventListener('input', calcularTotal);
-            dimencionesInput.addEventListener('input', calcularTotal);
-            cantidadInput.addEventListener('input', calcularTotal);
-            utilidadInput.addEventListener('input', calcularTotal);
-            ivaInput.addEventListener('input', calcularTotal);
-            instalacionInput.addEventListener('input', calcularTotal);
-            envioInput.addEventListener('input', calcularTotal); // Nuevo evento para envío
+            // Actualizar total después de calcular subtotal
+            actualizarTotal();
         }
 
-        function actualizarTotal() {
-            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
-            var total = 0;
+        precioCmInput.addEventListener('input', calcularTotal);
+        dimencionesInput.addEventListener('input', calcularTotal);
+        cantidadInput.addEventListener('input', calcularTotal);
+        utilidadInput.addEventListener('input', calcularTotal);
+        instalacionInput.addEventListener('input', calcularTotal);
+    }
 
-            subtotales.forEach(function(subtotalInput) {
-                var subtotal = parseFloat(subtotalInput.value) || 0;
-                total += subtotal;
-            });
+    function actualizarTotal() {
+        var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+        var total = 0;
 
-            var totalInput = document.getElementById('total');
-            totalInput.value = total.toFixed(2);
+        subtotales.forEach(function(subtotalInput) {
+            var subtotal = parseFloat(subtotalInput.value) || 0;
+            total += subtotal;
+        });
 
-            var envioInput = document.getElementById('envio');
-            var envio = parseFloat(envioInput.value) || 0;
+        // Agregar el valor de envío al total
+        var envioInput = document.getElementById('envio');
+        var envio = parseFloat(envioInput.value) || 0;
+        total += envio;
 
-            // Calcular subtotal con IVA
-            var totalIvaInputs = camposContainer.querySelectorAll('.campo .totalIva');
-            var totalIva = 0;
+        var totalInput = document.getElementById('total');
+        totalInput.value = total.toFixed(2);
 
-            totalIvaInputs.forEach(function(totalIvaInput) {
-                totalIva += parseFloat(totalIvaInput.value) || 0;
-            });
+        // Calcular IVA general
+        var ivaPorcentajeInput = document.getElementById('ivaPorcentaje');
+        var ivaPorcentaje = parseFloat(ivaPorcentajeInput.value) || 0;
+        var ivaTotal = (total * ivaPorcentaje) / 100;
 
+        var ivaTotalInput = document.getElementById('ivaTotal');
+        ivaTotalInput.value = ivaTotal.toFixed(2);
 
-            subtotalIvaInput.value = (total + totalIva).toFixed(2);
+        var totalIvaInput = document.getElementById('totalIva');
+        totalIvaInput.value = (total + ivaTotal).toFixed(2);
+    }
+
+    // Agregar eventos a los campos existentes al cargar la página
+    agregarEventosCalculo(campoExistente);
+
+    // Asegurarse de actualizar el total cuando se cambien los valores
+    camposContainer.addEventListener('input', function(event) {
+        if (event.target.classList.contains('subtotal')) {
+            actualizarTotal();
         }
+    });
 
-        // Agregar eventos a los campos existentes al cargar la página
-        agregarEventosCalculo(campoExistente);
+    // Asegurarse de actualizar el total y el IVA cuando cambie el campo de envío o el porcentaje de IVA
+    document.getElementById('envio').addEventListener('input', actualizarTotal);
+    document.getElementById('ivaPorcentaje').addEventListener('input', actualizarTotal);
 
-        // Asegurarse de actualizar el total cuando se cambien los valores
-        camposContainer.addEventListener('input', function(event) {
-            if (event.target.classList.contains('subtotal')) {
-                actualizarTotal();
-            }
-        });
-
-        // Asegurarse de actualizar el totalDescuento cuando cambie el campo de envío o descuento o el estado del checkbox
-        document.getElementById('envio').addEventListener('input', actualizarTotal);
-
-        $('#toggleSwitch').change(function () {
-            $('#divToToggle').toggle();
-        });
-
+    // Calcular el total inicial con el IVA predeterminado
+    actualizarTotal();
 });
+
 
 </script>
 
