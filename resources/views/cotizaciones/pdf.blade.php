@@ -106,11 +106,7 @@
                         <p style="margin: 0;padding:0;">Datos del Cliente</p>
                     </div>
                     <div class="details">
-                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion</strong>{{ $nota->Cliente->direccion }} <br></p>
-
-                        <p><strong>{{ $nota->nombre_empresa }} <br></strong></p>
-                        <p><strong>{{ $nota->nota }} <br></strong></p>
-
+                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion : </strong>{{ $nota->Cliente->direccion }} <strong>{{ $nota->nombre_empresa }}</strong> </p>
                     </div>
                 </td>
 
@@ -137,19 +133,10 @@
         <tr>
             <th>Producto</th>
             <th>Descripción</th>
-            <th>Costo unitario</th>
             <th>Cantidad</th>
+            <th>Costo unitario</th>
             <th>Costo total</th>
-            @if($mostrarInstalacion)
-                <th>Instalación</th>
-            @endif
-            {{-- @if($mostrarEnvio)
-                <th>Envío</th>
-            @endif --}}
-            <th>Subtotal</th>
-            <th>IVA</th>
-            <th>Total</th>
-        </tr>
+            </tr>
     </thead>
     <tbody class="text-center">
         @php
@@ -175,22 +162,24 @@
                 <td>
                     <p>
                         <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="130px"> <br>
-                        {{ $item->Servicio->nombre }}
                     </p>
                 </td>
-                <td>{{ $item->Servicio->descripcion }}</td>
-                <td>${{ number_format($unitario, 2) }}</td>
+
+                <td>
+                    {{ $item->Servicio->descripcion }}
+                    @if($mostrarInstalacion)
+                       ${{ number_format($item->instalacion ?? 0, 1) }}
+                    @endif
+                </td>
+
                 <td>{{ $item->cantidad }}</td>
+
+                <td>${{ number_format($unitario, 2) }}</td>
+
+
                 <td>${{ number_format($item->total, 1) }}</td>
-                @if($mostrarInstalacion)
-                    <td>${{ number_format($item->instalacion ?? 0, 1) }}</td>
-                @endif
-                {{-- @if($mostrarEnvio)
-                    <td>${{ number_format($nota->envio ?? 0, 1) }}</td>
-                @endif --}}
-                <td>${{ number_format($item->total, 1) }}</td>
-                <td>${{ number_format($item->total_iva, 1) }}</td>
-                <td>${{ number_format($item->subtotal_iva, 1) }}</td>
+
+
             </tr>
         @endforeach
     </tbody>
@@ -210,28 +199,24 @@
     </tfoot>
 </table>
 
-
-
     <table class="html_text" align='center' width='100%' border='0' cellpadding='0' cellspacing="0" style='border-collapse:separate;'>
                 <tr>
                     <td valign='top' dir="ltr"style='font-size: 15px;width:540px;line-height:22px;background-image:none;padding:15px 5px 14px;border-radius:6px;border-top:2px solid #3c434a;border-right:2px solid #3c434a;border-bottom:2px solid #3c434a;border-left:2px solid #3c434a;'>
                         <div
                             class='text-item '>
-                            <p><strong>Términos y condiciones:</strong></p>
-                            <p>&nbsp;</p>
-                            <p>1. Todo proyecto requiere como mínimo el <strong>70% de anticipo y a contra entrega el 30% restante.</strong></p>
-                            <p>&nbsp;</p>
-                            <p>2. Por ningún motivo se realizan instalaciones sin liquidación.</p>
-                            <p>&nbsp;</p>
-                            <p>3. Todas nuestras obras e instalaciones tienen 6 meses de garantía a excepción de <strong>productos eléctricos (fuentes de poder, iluminación RGB, conexiones electrónicas, etc.)</strong> o tonos de impresión y pintura sin previo aviso.</p>
-                            <p>&nbsp;</p>
-                            <p>4. En el caso de las impresiones a base de <strong>Pantone Matching System (PMS) o colores específicos,</strong> es necesario indicar si requieren una muestra (con costo adicional) antes de imprimir el proyecto, ya que no nos hacemos responsable del o los tonos que lea la máquina de acuerdo con el archivo enviado, por lo tanto, no estará dentro de la garantía.</p>
-                            <p>&nbsp;</p>
-                            <p>5. Una vez autorizado el proyecto no hay devoluciones.</p>
-                            <p>&nbsp;</p>
-                            <p>6. La entrega o instalación del proyecto a realizar, tiempo estimada de 5 a 10 días hábiles.</p>
-                            <p>&nbsp;</p>
-                            <p>7. Esta cotización tiene vigencia de 45 días para respetar el costo.</p>
+                            <p>
+                               <strong> Términos y condiciones:</strong><br><br>
+                                1. Todo proyecto requiere como mínimo el <strong>70% de anticipo y a contra entrega el 30% restante.</strong><br>
+                                2. Por ningún motivo se realizan instalaciones sin liquidación.<br>
+                                3. Todas nuestras obras e instalaciones tienen 6 meses de garantía a excepción de <strong>productos eléctricos (fuentes de poder, iluminación RGB,
+                                    conexiones electrónicas, etc.)</strong> o tonos de impresión y pintura sin previo aviso.<br>
+                                4. En el caso de las impresiones a base de <strong>Pantone Matching System (PMS)</strong> o colores específicos, es necesario indicar si requieren una muestra
+                                (con costo adicional) antes de imprimir el proyecto, ya que no nos hacemos responsable del o los tonos que lea la máquina de acuerdo con el archivo
+                                enviado, por lo tanto, no estará dentro de la garantía.<br>
+                                5. Una vez autorizado el proyecto no hay devoluciones.<br>
+                                6. La entrega o instalación del proyecto a realizar, tiempo estimada de 5 a 10 días hábiles.<br>
+                                7. Esta cotización tiene vigencia de 45 días para respetar el costo.<br>
+                            </p>
                         </div>
                     </td>
                 </tr>
