@@ -42,14 +42,17 @@
         .text-center {
             text-align: center;
         }
+        .text-left {
+            text-align: left;
+        }
         .text-right {
             text-align: right;
         }
         .heading {
-            color: #683cc0;
+            color: #7030A0;
         }
         .client-details {
-            background-color: #683cc0;
+            background-color: #7030A0;
             color: #ffffff;
             font-size: 20px;
             /* width: 650px; */
@@ -70,6 +73,18 @@
             margin: 0 auto;
             display: table;
         }
+
+        .terminos{
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .folios{
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+
     </style>
 </head>
 <body>
@@ -77,21 +92,20 @@
         <tbody>
             <tr>
                 <td class="section" id="body_content">
-                    <div class="image text-center">
-                        <a href="https://imaginarte3d.com.mx/wp-content/uploads/2022/01/cropped-new-log.png" target="_blank">
-                            <img alt="" width="265" src='https://imnasmexico.com/new/wp-content/uploads/2024/08/logo_imaginarte.png' / style="margin: auto">
-                        </a>
+                    <div class="image text-left">
+                            <img alt="" width="230" src='https://imnasmexico.com/new/wp-content/uploads/2024/08/logo_imaginarte.png' / style="margin: auto">
                     </div>
                 </td>
 
                 <td>
-                    <div class="text-item text-right heading">
-                        <p><strong>COTIZACIÓN</strong></p>
+                    <div class="text-item text-right heading" style="padding: 0;margin:0;">
+                        <p style="padding: 0;margin:0;"><strong>COTIZACIÓN</strong></p>
                     </div>
-                    <div class="text-item text-right">
-                        <p>Folio :  # @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</p>
-                        <p>Fecha : {{ $fechaFormateada; }}</p>
-                        <p>Vendedor : Maritzel</p>
+                    <div class="text-item text-right" style="padding: 0;margin:0;">
+                        <p class="folios" style="padding: 0;margin:0;">Folio :  # @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</p>
+                        <p class="folios" style="padding: 0;margin:0;">Fecha : {{ $fechaFormateada; }}</p>
+                        <p class="folios" style="padding: 0;margin:0;">Vendedor : Maritzel</p>
+                        <p class="folios" style="padding: 0;margin:0;">{{ $nota->nombre_empresa }}</p>
                     </div>
                 </td>
             </tr>
@@ -105,8 +119,8 @@
                     <div class="text-item client-details text-center" style="margin: 0;padding:0;">
                         <p style="margin: 0;padding:0;">Datos del Cliente</p>
                     </div>
-                    <div class="details">
-                        <p><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion : </strong>{{ $nota->Cliente->direccion }} <strong>{{ $nota->nombre_empresa }}</strong> </p>
+                    <div class="details"  style="padding: 0;margin:0;">
+                        <p class="folios" style="padding: 10px;margin:0;"><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion : </strong>{{ $nota->Cliente->direccion }} </p>
                     </div>
                 </td>
 
@@ -115,27 +129,27 @@
     </table>
 
     @php
-    $mostrarInstalacion = false;
-    $mostrarEnvio = false;
+        $mostrarInstalacion = false;
+        $mostrarEnvio = false;
 
-    foreach ($nota_productos as $item) {
-        if (!empty($item->instalacion)) {
-            $mostrarInstalacion = true;
+        foreach ($nota_productos as $item) {
+            if (!empty($item->instalacion)) {
+                $mostrarInstalacion = true;
+            }
+            if (!empty($nota->envio)) {
+                $mostrarEnvio = true;
+            }
         }
-        if (!empty($nota->envio)) {
-            $mostrarEnvio = true;
-        }
-    }
-@endphp
+    @endphp
 
-<table class="container" align="center">
-    <thead class="text-center" style="background-color: #00ffa0; color: #000000">
+<table class="container" align="center" style="border: 1px solid black;border-collapse: collapse;">
+    <thead class="text-center" style="background-color: #E4C9FF; color: #000000">
         <tr>
-            <th>Producto</th>
-            <th>Descripción</th>
-            <th>Cantidad</th>
-            <th>Costo unitario</th>
-            <th>Costo total</th>
+            <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Producto</th>
+            <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Descripción</th>
+            <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Costo unitario</th>
+            <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Cantidad</th>
+            <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Costo total</th>
             </tr>
     </thead>
     <tbody class="text-center">
@@ -159,52 +173,52 @@
             @endphp
 
             <tr>
-                <td>
+                <td style="border: 1px solid black;border-collapse: collapse;">
                     <p>
                         <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="130px"> <br>
                     </p>
                 </td>
 
-                <td>
+                <td style="border: 1px solid black;border-collapse: collapse;">
                     {{ $item->Servicio->descripcion }}
                     @if($mostrarInstalacion)
                        ${{ number_format($item->instalacion ?? 0, 1) }}
                     @endif
                 </td>
 
-                <td>{{ $item->cantidad }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 2) }}</td>
 
-                <td>${{ number_format($unitario, 2) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">{{ $item->cantidad }}</td>
 
-
-                <td>${{ number_format($item->total, 1) }}</td>
-
-
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item->total, 1) }}</td>
             </tr>
         @endforeach
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align: right">
+                Subtotal: <br>
+                IVA: <br>
+                Total: <br>
+            </td>
+            <td>
+                $ 34,00.0<br>
+                $ 34,00.0<br>
+                $ 34,00.0<br>
+            </td>
+        </tr>
+
     </tbody>
-    <tfoot>
-        <tr style="background-color: #ffffff;">
-            <td style="text-align: right"><b>Subtotal</b></td>
-            <td>${{ number_format($totalSubtotal, 1) }}</td>
-        </tr>
-        <tr style="background-color: #ffffff;">
-            <td style="text-align: right"><b>IVA</b></td>
-            <td>${{ number_format($totalIVA, 1) }}</td>
-        </tr>
-        <tr style="background-color: #ffffff;">
-            <td style="text-align: right"><b>Total</b></td>
-            <td>${{ number_format($totalGeneral, 1) }}</td>
-        </tr>
-    </tfoot>
 </table>
 
-    <table class="html_text" align='center' width='100%' border='0' cellpadding='0' cellspacing="0" style='border-collapse:separate;'>
-                <tr>
+<table class="container" align="center" style="border: 1px solid black;border-collapse: collapse;" style="margin-top: 1rem">
+    <tr>
                     <td valign='top' dir="ltr"style='font-size: 15px;width:540px;line-height:22px;background-image:none;padding:15px 5px 14px;border-radius:6px;border-top:2px solid #3c434a;border-right:2px solid #3c434a;border-bottom:2px solid #3c434a;border-left:2px solid #3c434a;'>
                         <div
                             class='text-item '>
-                            <p>
+                            <p class="terminos">
                                <strong> Términos y condiciones:</strong><br><br>
                                 1. Todo proyecto requiere como mínimo el <strong>70% de anticipo y a contra entrega el 30% restante.</strong><br>
                                 2. Por ningún motivo se realizan instalaciones sin liquidación.<br>
