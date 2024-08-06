@@ -267,7 +267,7 @@ class CotizacionesController extends Controller
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
 
-        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 900, 600], 'landscape');
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 700, 600], 'landscape');
 
         if($nota->folio == null){
             $folio = $nota->id;

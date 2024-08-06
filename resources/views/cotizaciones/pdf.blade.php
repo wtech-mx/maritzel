@@ -112,15 +112,15 @@
         </tbody>
     </table>
 
-    <table class="container" align="center">
+    <table class="container" align="center" style="margin-top: 1rem">
         <tbody>
             <tr>
                 <td class="section" id="body_content"style="margin: 0;padding:0;">
                     <div class="text-item client-details text-center" style="margin: 0;padding:0;">
                         <p style="margin: 0;padding:0;">Datos del Cliente</p>
                     </div>
-                    <div class="details"  style="padding: 0;margin:0;">
-                        <p class="folios" style="padding: 10px;margin:0;"><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Dieccion : </strong>{{ $nota->Cliente->direccion }} </p>
+                    <div class="details"  style="padding: 0;margin:0;margin-top: 0.5rem;margin-bottom: 0.5rem;">
+                        <p class="folios" style="padding: 10px;margin:0;"><strong>Nombre :</strong>{{ $nota->Cliente->nombre }} / <strong>Correo :</strong>{{ $nota->Cliente->correo  }}/ <strong>Telefono :</strong>{{ $nota->Cliente->telefono   }} / <strong>Direccion : </strong>{{ $nota->Cliente->direccion }} </p>
                     </div>
                 </td>
 
@@ -142,8 +142,8 @@
         }
     @endphp
 
-<table class="container" align="center" style="border: 1px solid black;border-collapse: collapse;">
-    <thead class="text-center" style="background-color: #E4C9FF; color: #000000">
+<table class="container" align="center" style="">
+    <thead class="text-center" style="background-color: #00EEA8; color: #000000">
         <tr>
             <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Producto</th>
             <th style="border: 1px solid black;border-collapse: collapse;padding:20px;">Descripción</th>
@@ -179,7 +179,7 @@
                     </p>
                 </td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">
+                <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
                     {{ $item->Servicio->descripcion }}
                     @if($mostrarInstalacion)
                        ${{ number_format($item->instalacion ?? 0, 1) }}
@@ -209,13 +209,11 @@
                 $ 34,00.0<br>
             </td>
         </tr>
-
-    </tbody>
 </table>
 
-<table class="container" align="center" style="border: 1px solid black;border-collapse: collapse;" style="margin-top: 1rem">
+<table class="container" align="center" style="border: 1px solid black;border-collapse: collapse;" style="margin-top: 5rem">
     <tr>
-                    <td valign='top' dir="ltr"style='font-size: 15px;width:540px;line-height:22px;background-image:none;padding:15px 5px 14px;border-radius:6px;border-top:2px solid #3c434a;border-right:2px solid #3c434a;border-bottom:2px solid #3c434a;border-left:2px solid #3c434a;'>
+                    <td valign='top' dir="ltr"style='font-size: 15px;width:540px;line-height:22px;padding:0px;border-top:2px solid #3c434a;border-right:2px solid #3c434a;border-bottom:2px solid #3c434a;border-left:2px solid #3c434a;'>
                         <div
                             class='text-item '>
                             <p class="terminos">
