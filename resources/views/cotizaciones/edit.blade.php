@@ -6,6 +6,16 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/admin/vendor/select2/dist/css/select2.min.css')}}">
+
+    <style>
+
+        @media only screen and (max-width: 550px) {
+                    .label_text{
+                        font-size: 12px;
+                    }
+                }
+    </style>
+
  @endsection
 
 @php
@@ -183,28 +193,20 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group col-2">
-                                                <h5 for="name">Subtotal IVA*</h5>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
-                                                    </span>
-                                                    <input class="form-control subtotalIva" type="text" id="subtotalIva" name="subtotalIva[]" value="{{$productos->subtotal_iva}}" readonly>
-                                                </div>
-                                            </div>
-
                                             <div class="col-12">
-                                                <button class="btn btn-primary mt-2 toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0" aria-expanded="false" aria-controls="collapseExtraFields0">
+                                                <button class="btn btn-primary mt-2 btn-sm toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0_{{ $productos->id }}" aria-expanded="false" aria-controls="collapseExtraFields0_{{ $productos->id }}">
                                                     Más Opciones
                                                 </button>
                                             </div>
 
-                                            <div class="collapse" id="collapseExtraFields0">
+                                            <div class="collapse" id="collapseExtraFields0_{{ $productos->id }}">
                                                 @if ($productos->cantidad == 0)
+
                                                     <div class="card card-body mt-3">
-                                                        <div class="row">
+                                                        <div class="row"  style="background-color: #ccc">
+
                                                             <div class="form-group col-4">
-                                                                <h5 for="name">Foto</h5>
+                                                                <h5 for="name">Foto 1</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
@@ -302,55 +304,34 @@
                                                             <input class="form-control" type="hidden" id="utilidad" name="utilidad[]" value="0" >
                                                         </div>
                                                     </div>
+
                                                 @else
-                                                    <div class="card card-body mt-3">
+                                                    <div class="card card-body mt-3" style="background-color: #ccc">
+
                                                         <div class="row">
 
-                                                            <div class="form-group col-4">
-                                                                <h5 for="name">Foto</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Foto</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
                                                                     </span>
                                                                     <input type="file" name="imagen[]" class="form-control imagen" value="0">
                                                                 </div>
-                                                                <img src="{{ asset('cotizaciones/'.$cotizacion->foto) }}" alt="" width="25px">
                                                             </div>
 
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">IVA</h5>
-                                                                <div class="input-group mb-3">
-                                                                    <span class="input-group-text" id="basic-addon1">
-                                                                        <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                    </span>
-                                                                    <input type="number" name="iva[]" class="form-control iva" value="{{$productos->iva}}">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Total IVA</h5>
-                                                                <div class="input-group mb-3">
-                                                                    <span class="input-group-text" id="basic-addon1">
-                                                                        <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
-                                                                    </span>
-                                                                    <input type="text" name="totalIva[]" class="form-control totalIva" value="{{$productos->total_iva}}" readonly>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-4"></div>
-
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Precio cm</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Precio cm</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/efectivo.webp') }}" alt="" width="15px">
                                                                     </span>
-                                                                    <input type="number" name="precio_cm[]" class="form-control precio_cm" value="{{$productos->precio_cm}}" >
+                                                                    <input type="number" name="precio_cm[]" class="form-control precio_cm" value="{{$productos->precio_cm}}">
                                                                 </div>
                                                             </div>
 
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Total Precio cm</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Total Precio cm</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/bolsa-de-dinero.png') }}" alt="" width="15px">
@@ -359,8 +340,8 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Material y M.O.</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Material y M.O.</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
@@ -369,8 +350,8 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Utilidad</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Utilidad</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
@@ -379,22 +360,79 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="form-group col-2">
-                                                                <h5 for="name">Instalacion</h5>
+                                                            <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                <h5 class="label_text" for="name">Instalacion</h5>
                                                                 <div class="input-group mb-3">
                                                                     <span class="input-group-text" id="basic-addon1">
                                                                         <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
                                                                     </span>
-                                                                    <input class="form-control instalacion" type="number" id="instalacion" name="instalacion"  value="{{$productos->instalacion}}">
+                                                                    <input class="form-control instalacion" type="number" id="instalacion" name="instalacion[]" value="{{$productos->instalacion}}">
                                                                 </div>
                                                             </div>
+
                                                         </div>
+
                                                     </div>
                                                 @endif
 
                                             </div>
                                         </div>
                                     @endforeach
+
+                                    @if ($productos->cantidad != 0)
+
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Envio *</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control envio" type="text" id="envio" name="envio" value="{{$cotizacion->envio}}" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Total</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="text" id="total" name="total" class="form-control d-inline-block" value="{{$cotizacion->subtotal }}" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">IVA %</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="number" id="ivaPorcentaje" name="ivaPorcentaje" class="form-control" value="{{$cotizacion->iva_porcentaje}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">IVA</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input id="ivaTotal" name="ivaTotal" type="text" class="form-control" value="{{$cotizacion->iva_total}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6 ">
+                                        <h5 class="label_text" for="name">Total IVA*</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input id="totalIva" name="totalIva" class="form-control" type="text" value="{{$cotizacion->total }}">
+                                        </div>
+                                    </div>
+
+                                    @endif
 
                                     <div class="col-12">
                                         <div class="form-group">
@@ -475,87 +513,138 @@
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const camposContainer2 = document.getElementById('camposContainer2');
+    document.addEventListener('DOMContentLoaded', function() {
+        var agregarCampoBtn = document.getElementById('agregarCampo');
+        var camposContainer = document.getElementById('camposContainer');
+        var campoExistente = camposContainer.querySelector('.campo');
 
-        // Añadir campo de producto
-        document.getElementById('agregarCampo2').addEventListener('click', function() {
-            const nuevoCampo = crearNuevoCampo();
-            camposContainer2.appendChild(nuevoCampo);
-            asignarEventos(nuevoCampo);
+        var campoIndex = 1;
+
+        agregarCampoBtn.addEventListener('click', function() {
+            var nuevoCampo = campoExistente.cloneNode(true);
+            var collapseId = 'collapseExtraFields' + campoIndex;
+            var collapseButton = nuevoCampo.querySelector('.toggle-collapse');
+
+            collapseButton.setAttribute('data-bs-target', '#' + collapseId);
+            collapseButton.setAttribute('aria-controls', collapseId);
+            nuevoCampo.querySelector('.collapse').id = collapseId;
+
+            // Limpiar los valores de los campos en el nuevo campo
+            var inputs = nuevoCampo.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                input.value = '';
+            });
+
+            // Limpiar el select
+            var select = nuevoCampo.querySelector('.producto');
+            select.value = '';
+            $(select).trigger('change'); // Actualiza el select2
+
+            camposContainer.appendChild(nuevoCampo);
+
+            campoIndex++;
+
+            agregarEventosCalculo(nuevoCampo);
         });
 
-        function crearNuevoCampo() {
-            const campoTemplate = document.querySelector('.campo2');
-            const nuevoCampo = campoTemplate.cloneNode(true);
-            nuevoCampo.querySelector('.producto2').value = '';
-            nuevoCampo.querySelector('.cantidad2').value = '';
-            nuevoCampo.querySelector('.descuento_prod').value = '0';
-            nuevoCampo.querySelector('.subtotal2').value = '';
-            return nuevoCampo;
+        function agregarEventosCalculo(campo) {
+            var productoSelect = campo.querySelector('.producto');
+            var precioCmInput = campo.querySelector('.precio_cm');
+            var dimencionesInput = campo.querySelector('.dimenciones');
+            var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
+            var cantidadInput = campo.querySelector('.cantidad');
+            var materialInput = campo.querySelector('.material');
+            var utilidadInput = campo.querySelector('.utilidad');
+            var subtotalInput = campo.querySelector('.subtotal');
+            var instalacionInput = campo.querySelector('.instalacion');
+
+            productoSelect.addEventListener('change', function() {
+                var selectedOption = productoSelect.options[productoSelect.selectedIndex];
+                var precioNormal = selectedOption.getAttribute('data-precio_normal');
+                console.log('Producto seleccionado:', selectedOption.text);
+                console.log('Precio normal:', precioNormal);
+                precioCmInput.value = parseFloat(precioNormal) || 0;
+                calcularTotal();
+            });
+
+            function calcularTotal() {
+                var precioCm = parseFloat(precioCmInput.value) || 0;
+                var dimenciones = parseFloat(dimencionesInput.value) || 0;
+                var totalPrecioCm = precioCm * dimenciones;
+                totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
+
+                var cantidad = parseFloat(cantidadInput.value) || 0;
+                var materialTotal = totalPrecioCm * cantidad;
+                materialInput.value = materialTotal.toFixed(2);
+
+                var utilidad = parseFloat(utilidadInput.value) || 1;
+                var subtotalTotal = materialTotal * utilidad;
+
+                // Sumar instalación al subtotal
+                var instalacion = parseFloat(instalacionInput.value) || 0;
+                subtotalTotal += instalacion;
+
+                subtotalInput.value = subtotalTotal.toFixed(2);
+
+                // Actualizar total después de calcular subtotal
+                actualizarTotal();
+            }
+
+            precioCmInput.addEventListener('input', calcularTotal);
+            dimencionesInput.addEventListener('input', calcularTotal);
+            cantidadInput.addEventListener('input', calcularTotal);
+            utilidadInput.addEventListener('input', calcularTotal);
+            instalacionInput.addEventListener('input', calcularTotal);
         }
 
-        function asignarEventos(campo) {
-            const productSelect = campo.querySelector('.producto2');
-            const cantidadInput = campo.querySelector('.cantidad2');
-            const descuentoInput = campo.querySelector('.descuento_prod');
+        function actualizarTotal() {
+            var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
+            var total = 0;
 
-            productSelect.addEventListener('change', function () {
-                const selectedOption = productSelect.options[productSelect.selectedIndex];
-                const precio = parseFloat(selectedOption.dataset.precio_normal2) || 0;
-                cantidadInput.value = 1;
-                const descuento = parseFloat(descuentoInput.value) || 0;
-                const subtotal = precio - (precio * (descuento / 100));
-                campo.querySelector('.subtotal2').value = `$${subtotal.toFixed(2)}`;
-                updateTotal();
+            subtotales.forEach(function(subtotalInput) {
+                var subtotal = parseFloat(subtotalInput.value) || 0;
+                total += subtotal;
             });
 
-            cantidadInput.addEventListener('input', function () {
-                actualizarSubtotalNuevo(campo);
-            });
+            // Agregar el valor de envío al total
+            var envioInput = document.getElementById('envio');
+            var envio = parseFloat(envioInput.value) || 0;
+            total += envio;
 
-            descuentoInput.addEventListener('input', function () {
-                actualizarSubtotalNuevo(campo);
-            });
+            var totalInput = document.getElementById('total');
+            totalInput.value = total.toFixed(2);
+
+            // Calcular IVA general
+            var ivaPorcentajeInput = document.getElementById('ivaPorcentaje');
+            var ivaPorcentaje = parseFloat(ivaPorcentajeInput.value) || 0;
+            var ivaTotal = (total * ivaPorcentaje) / 100;
+
+            var ivaTotalInput = document.getElementById('ivaTotal');
+            ivaTotalInput.value = ivaTotal.toFixed(2);
+
+            var totalIvaInput = document.getElementById('totalIva');
+            totalIvaInput.value = (total + ivaTotal).toFixed(2);
         }
 
-        function actualizarSubtotalNuevo(campo) {
-            const productSelect = campo.querySelector('.producto2');
-            const selectedOption = productSelect.options[productSelect.selectedIndex];
-            const precio = parseFloat(selectedOption.dataset.precio_normal2) || 0;
-            const cantidad = parseFloat(campo.querySelector('.cantidad2').value) || 0;
-            const descuento = parseFloat(campo.querySelector('.descuento_prod').value) || 0;
-            const subtotal = (precio * cantidad) - ((precio * cantidad) * (descuento / 100));
-            campo.querySelector('.subtotal2').value = `$${subtotal.toFixed(2)}`;
-            updateTotal();
-        }
+        // Agregar eventos a los campos existentes al cargar la página
+        agregarEventosCalculo(campoExistente);
 
-        function updateTotal() {
-            let total = 0;
-
-            // Sumar subtotales de productos existentes
-            const subtotalesExistentes = document.querySelectorAll('.subtotal');
-            subtotalesExistentes.forEach(subtotalElement => {
-                const subtotalValue = parseFloat(subtotalElement.value.replace('$', '').replace(',', '')) || 0;
-                total += subtotalValue;
-            });
-
-            // Sumar subtotales de nuevos productos
-            const subtotalesNuevos = document.querySelectorAll('.subtotal2');
-            subtotalesNuevos.forEach(subtotalElement => {
-                const subtotalValue = parseFloat(subtotalElement.value.replace('$', '').replace(',', '')) || 0;
-                total += subtotalValue;
-            });
-
-            document.getElementById('subtotal_final').value = `$${total.toFixed(2)}`;
-            document.getElementById('total_final').value = `$${total.toFixed(2)}`;
-        }
-
-        // Asignar eventos a los campos existentes
-        document.querySelectorAll('.campo2').forEach(campo => {
-            asignarEventos(campo);
+        // Asegurarse de actualizar el total cuando se cambien los valores
+        camposContainer.addEventListener('input', function(event) {
+            if (event.target.classList.contains('subtotal')) {
+                actualizarTotal();
+            }
         });
+
+        // Asegurarse de actualizar el total y el IVA cuando cambie el campo de envío o el porcentaje de IVA
+        document.getElementById('envio').addEventListener('input', actualizarTotal);
+        document.getElementById('ivaPorcentaje').addEventListener('input', actualizarTotal);
+
+        // Calcular el total inicial con el IVA predeterminado
+        actualizarTotal();
     });
-</script>
+
+
+    </script>
 
 @endsection

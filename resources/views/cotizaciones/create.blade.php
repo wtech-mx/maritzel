@@ -257,6 +257,7 @@
                                                                             <input class="form-control instalacion" type="number" id="instalacion" name="instalacion[]">
                                                                         </div>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
