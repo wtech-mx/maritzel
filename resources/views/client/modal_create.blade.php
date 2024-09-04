@@ -60,17 +60,25 @@
                             {{-- <input name="regimen_fiscal" id="regimen_fiscal" type="text" class="form-control"> --}}
 
                             <select name="regimen_fiscal" id="" class="form-select">
-                                <option value="">Selecciona una opcion</option>
-                                <option value="Actividades empresariales y profesionales">Actividades empresariales y profesionales</option>
-                                <option value="Arrendamiento de Inmuebles">Arrendamiento de Inmuebles</option>
-                                <option value="Servicios profesionales">Servicios profesionales</option>
-                                <option value="Régimen simplificado de confianza">Régimen simplificado de confianza</option>
-                                <option value="Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas">Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
-                                <option value="Régimen de sueldos y salarios">Régimen de sueldos y salarios</option>
-                                <option value="Enagenación de bienes">Enagenación de bienes</option>
-                                <option value="Ingresos por intereses">Ingresos por intereses</option>
-                                <option value="Ingresos por dividendos">Ingresos por dividendos</option>
+                                <option value="">Selecciona una opción</option>
+                                <option value="Sin Definir">Sin Definir</option>
+                                <option value="General de Ley Personas Morales">General de Ley Personas Morales</option>
+                                <option value="Personas Morales con Fines no Lucrativos">Personas Morales con Fines no Lucrativos</option>
+                                <option value="Sueldos y Salarios e Ingresos Asimilados a Salarios">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                                <option value="Arrendamiento">Arrendamiento</option>
                                 <option value="Demás ingresos">Demás ingresos</option>
+                                <option value="Residentes en el Extranjero sin Establecimiento Permanente en México">Residentes en el Extranjero sin Establecimiento Permanente en México</option>
+                                <option value="Ingresos por Dividendos (Socios y Accionistas)">Ingresos por Dividendos (Socios y Accionistas)</option>
+                                <option value="Personas Físicas con Actividades Empresariales y Profesionales">Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                <option value="Regímenes Fiscales Preferentes y de las Empresas Multinacionales">Regímenes Fiscales Preferentes y de las Empresas Multinacionales</option>
+                                <option value="Enajenación de Acciones en Bolsa de Valores">Enajenación de Acciones en Bolsa de Valores</option>
+                                <option value="Régimen Simplificado de Confianza">Régimen Simplificado de Confianza</option>
+                                <option value="Incorporación Fiscal">Incorporación Fiscal</option>
+                                <option value="Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras">Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+                                <option value="Dividendos">Dividendos</option>
+                                <option value="Intereses">Intereses</option>
+                                <option value="Servicios Profesionales">Servicios Profesionales</option>
+                                <option value="Plataformas Tecnológicas">Plataformas Tecnológicas</option>
                             </select>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="col-lg-2 col-md-2 col-2 my-auto">
-                        <a type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a href="{{ route('index.clients') }}">
                             <img src="{{ asset('img/icon/anadir.webp') }}" alt="" width="35px">
                         </a>
                     </div>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-2 col-2 my-auto">
-                    <a type="button" class="" data-bs-toggle="modal" data-bs-target="#proveedores">
+                    <a href="{{ route('index.proveedores') }}">
                         <img src="{{ asset('img/icon/anadir.webp') }}" alt="" width="35px">
                     </a>
                 </div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-2 col-2 my-auto">
-                    <a type="button" class="" data-bs-toggle="modal" data-bs-target="#operadoresModal">
+                    <a href="{{ route('index.operadores') }}">
                         <img src="{{ asset('img/icon/anadir.webp') }}" alt="" width="35px">
                     </a>
                 </div>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-2 col-2 my-auto">
-                    <a href="{{ route('create.cotizaciones') }}">
+                    <a href="{{ route('index.cotizaciones') }}">
                         <img src="{{ asset('img/icon/anadir.webp') }}" alt="" width="35px">
                     </a>
                 </div>
