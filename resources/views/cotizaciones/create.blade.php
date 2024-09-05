@@ -239,12 +239,22 @@
                                                                     </div>
 
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Utilidad</h5>
+                                                                        <h5 class="label_text" for="name">Utilidad %</h5>
                                                                         <div class="input-group mb-3">
                                                                             <span class="input-group-text" id="basic-addon1">
                                                                                 <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
                                                                             </span>
                                                                             <input type="number" name="utilidad[]" class="form-control utilidad" value="1.75">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                        <h5 class="label_text" for="name">Utilidad $</h5>
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text" id="basic-addon1">
+                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                                                            </span>
+                                                                            <input type="number" name="utilidad_fijo[]" class="form-control utilidad_fijo" value="0">
                                                                         </div>
                                                                     </div>
 
@@ -390,6 +400,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var subtotalInput = campo.querySelector('.subtotal');
         var instalacionInput = campo.querySelector('.instalacion');
 
+        // Nuevo input de utilidad fijo
+        var utilidadFijoInput = campo.querySelector('.utilidad_fijo');
+
         productoSelect.addEventListener('change', function() {
             var selectedOption = productoSelect.options[productoSelect.selectedIndex];
             var precioNormal = selectedOption.getAttribute('data-precio_normal');
@@ -416,6 +429,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var instalacion = parseFloat(instalacionInput.value) || 0;
             subtotalTotal += instalacion;
 
+            // Sumar la utilidad fija al subtotal
+            var utilidadFijo = parseFloat(utilidadFijoInput.value) || 0;
+            subtotalTotal += utilidadFijo;
+
             subtotalInput.value = subtotalTotal.toFixed(2);
 
             // Actualizar total después de calcular subtotal
@@ -427,6 +444,9 @@ document.addEventListener('DOMContentLoaded', function() {
         cantidadInput.addEventListener('input', calcularTotal);
         utilidadInput.addEventListener('input', calcularTotal);
         instalacionInput.addEventListener('input', calcularTotal);
+
+        // Añadir evento para el nuevo input de utilidad fija
+        utilidadFijoInput.addEventListener('input', calcularTotal);
     }
 
     function actualizarTotal() {
@@ -475,6 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Calcular el total inicial con el IVA predeterminado
     actualizarTotal();
 });
+
 
 
 </script>

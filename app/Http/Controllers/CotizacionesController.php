@@ -113,6 +113,7 @@ class CotizacionesController extends Controller
             $ancho = $request->input('ancho');
             $m2 = $request->input('m2');
             $instalacion = $request->input('instalacion');
+            $utilidad_fijo = $request->input('utilidad_fijo');
             $total_instalacion = $request->input('total_instalacion');
             $imagen = $request->hasFile('imagen');
 
@@ -133,6 +134,7 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->ancho = $ancho[$index];
                 $notas_inscripcion->m2 = $m2[$index];
                 $notas_inscripcion->instalacion = $instalacion[$index];
+                $notas_inscripcion->utilidad_fijo = $utilidad_fijo[$index];
                 $notas_inscripcion->total_instalacion = $total_instalacion[$index];
 
                 if (isset($imagenes[$index])) { // Verifica si existe una imagen en este índice
@@ -220,6 +222,7 @@ class CotizacionesController extends Controller
             $iva = $request->input('iva');
             $totalIva = $request->input('totalIva');
             $instalacion = $request->input('instalacion');
+            $utilidad_fijo = $request->input('utilidad_fijo');
             $total_instalacion = $request->input('total_instalacion');
             $imagenes = $request->file('imagen');
 
@@ -240,6 +243,7 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->ancho = $ancho[$index];
                 $notas_inscripcion->m2 = $m2[$index];
                 $notas_inscripcion->iva = $iva[$index];
+                $notas_inscripcion->utilidad_fijo = $utilidad_fijo[$index];
                 $notas_inscripcion->total_iva = $totalIva[$index];
                 $notas_inscripcion->instalacion = $instalacion[$index];
                 $notas_inscripcion->total_instalacion = $total_instalacion[$index];
