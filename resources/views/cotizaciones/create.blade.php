@@ -237,37 +237,6 @@
                                                                             <input type="number" name="material[]" class="form-control material" value="0" readonly>
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Utilidad %</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input type="number" name="utilidad[]" class="form-control utilidad" value="1.75">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Utilidad $</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input type="number" name="utilidad_fijo[]" class="form-control utilidad_fijo" value="0">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Instalacion</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input class="form-control instalacion" type="number" id="instalacion" name="instalacion[]">
-                                                                        </div>
-                                                                    </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -289,6 +258,36 @@
                                                 <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                             </span>
                                             <input class="form-control envio" type="text" id="envio" name="envio" value="0" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Instalacion</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control instalacion" type="number" id="instalacion" name="instalacion" value="0">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Utilidad %</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="number" name="utilidad" id="utilidad" class="form-control utilidad" value="1.75">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name">Utilidad $</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/signo-de-dolar.webp') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="number" name="utilidad_fijo"  id="utilidad_fijo" class="form-control utilidad_fijo" value="0">
                                         </div>
                                     </div>
 
@@ -396,18 +395,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var totalPrecioCmInput = campo.querySelector('.total_precio_cm');
         var cantidadInput = campo.querySelector('.cantidad');
         var materialInput = campo.querySelector('.material');
-        var utilidadInput = campo.querySelector('.utilidad');
         var subtotalInput = campo.querySelector('.subtotal');
-        var instalacionInput = campo.querySelector('.instalacion');
 
-        // Nuevo input de utilidad fijo
-        var utilidadFijoInput = campo.querySelector('.utilidad_fijo');
+        // Referencias a los inputs globales
+        var utilidadInput = document.getElementById('utilidad');
+        var utilidadFijoInput = document.getElementById('utilidad_fijo');
+        var instalacionInputGlobal = document.getElementById('instalacion');
 
         productoSelect.addEventListener('change', function() {
             var selectedOption = productoSelect.options[productoSelect.selectedIndex];
             var precioNormal = selectedOption.getAttribute('data-precio_normal');
-            console.log('Producto seleccionado:', selectedOption.text);
-            console.log('Precio normal:', precioNormal);
             precioCmInput.value = parseFloat(precioNormal) || 0;
             calcularTotal();
         });
@@ -415,88 +412,60 @@ document.addEventListener('DOMContentLoaded', function() {
         function calcularTotal() {
             var precioCm = parseFloat(precioCmInput.value) || 0;
             var dimenciones = parseFloat(dimencionesInput.value) || 0;
+            var cantidad = parseFloat(cantidadInput.value) || 0;
+            var utilidadPorcentaje = parseFloat(utilidadInput.value) || 0;
+            var utilidadFijo = parseFloat(utilidadFijoInput.value) || 0;
+            var instalacionGlobal = parseFloat(instalacionInputGlobal.value) || 0;
+
+            // Cálculos para cada producto
             var totalPrecioCm = precioCm * dimenciones;
             totalPrecioCmInput.value = totalPrecioCm.toFixed(2);
 
-            var cantidad = parseFloat(cantidadInput.value) || 0;
-            var materialTotal = totalPrecioCm * cantidad;
-            materialInput.value = materialTotal.toFixed(2);
+            var material = totalPrecioCm * cantidad;
+            materialInput.value = material.toFixed(2);
 
-            var utilidad = parseFloat(utilidadInput.value) || 1;
-            var subtotalTotal = materialTotal * utilidad;
+            var subtotal = material * (1 + utilidadPorcentaje / 100) + utilidadFijo;
+            subtotalInput.value = subtotal.toFixed(2);
 
-            // Sumar instalación al subtotal
-            var instalacion = parseFloat(instalacionInput.value) || 0;
-            subtotalTotal += instalacion;
-
-            // Sumar la utilidad fija al subtotal
-            var utilidadFijo = parseFloat(utilidadFijoInput.value) || 0;
-            subtotalTotal += utilidadFijo;
-
-            subtotalInput.value = subtotalTotal.toFixed(2);
-
-            // Actualizar total después de calcular subtotal
-            actualizarTotal();
+            calcularTotalesGenerales();
         }
 
+        function calcularTotalesGenerales() {
+            var total = 0;
+            var totalIva = 0;
+            var ivaPorcentaje = parseFloat(document.getElementById('ivaPorcentaje').value) || 0;
+            var instalacionGlobal = parseFloat(instalacionInputGlobal.value) || 0;
+            var utilidadPorcentaje = parseFloat(utilidadInput.value) || 0;
+            var utilidadFijo = parseFloat(utilidadFijoInput.value) || 0;
+
+            var subtotales = document.querySelectorAll('.subtotal');
+            subtotales.forEach(function(input) {
+                total += parseFloat(input.value) || 0;
+            });
+
+            // Aplicar instalación y utilidad
+            total += instalacionGlobal;
+            total *= (1 + utilidadPorcentaje / 100); // Aplicar el porcentaje de utilidad
+            total += utilidadFijo; // Sumar el valor fijo de utilidad
+
+            totalIva = total * (1 + ivaPorcentaje / 100);
+
+            document.getElementById('total').value = total.toFixed(2);
+            document.getElementById('ivaTotal').value = (total * ivaPorcentaje / 100).toFixed(2);
+            document.getElementById('totalIva').value = totalIva.toFixed(2);
+        }
+
+        // Eventos para recalcular en caso de cambios
         precioCmInput.addEventListener('input', calcularTotal);
         dimencionesInput.addEventListener('input', calcularTotal);
         cantidadInput.addEventListener('input', calcularTotal);
-        utilidadInput.addEventListener('input', calcularTotal);
-        instalacionInput.addEventListener('input', calcularTotal);
-
-        // Añadir evento para el nuevo input de utilidad fija
-        utilidadFijoInput.addEventListener('input', calcularTotal);
+        utilidadInput.addEventListener('input', calcularTotalesGenerales);
+        utilidadFijoInput.addEventListener('input', calcularTotalesGenerales);
+        instalacionInputGlobal.addEventListener('input', calcularTotalesGenerales);
     }
 
-    function actualizarTotal() {
-        var subtotales = camposContainer.querySelectorAll('.campo .subtotal');
-        var total = 0;
-
-        subtotales.forEach(function(subtotalInput) {
-            var subtotal = parseFloat(subtotalInput.value) || 0;
-            total += subtotal;
-        });
-
-        // Agregar el valor de envío al total
-        var envioInput = document.getElementById('envio');
-        var envio = parseFloat(envioInput.value) || 0;
-        total += envio;
-
-        var totalInput = document.getElementById('total');
-        totalInput.value = total.toFixed(2);
-
-        // Calcular IVA general
-        var ivaPorcentajeInput = document.getElementById('ivaPorcentaje');
-        var ivaPorcentaje = parseFloat(ivaPorcentajeInput.value) || 0;
-        var ivaTotal = (total * ivaPorcentaje) / 100;
-
-        var ivaTotalInput = document.getElementById('ivaTotal');
-        ivaTotalInput.value = ivaTotal.toFixed(2);
-
-        var totalIvaInput = document.getElementById('totalIva');
-        totalIvaInput.value = (total + ivaTotal).toFixed(2);
-    }
-
-    // Agregar eventos a los campos existentes al cargar la página
     agregarEventosCalculo(campoExistente);
-
-    // Asegurarse de actualizar el total cuando se cambien los valores
-    camposContainer.addEventListener('input', function(event) {
-        if (event.target.classList.contains('subtotal')) {
-            actualizarTotal();
-        }
-    });
-
-    // Asegurarse de actualizar el total y el IVA cuando cambie el campo de envío o el porcentaje de IVA
-    document.getElementById('envio').addEventListener('input', actualizarTotal);
-    document.getElementById('ivaPorcentaje').addEventListener('input', actualizarTotal);
-
-    // Calcular el total inicial con el IVA predeterminado
-    actualizarTotal();
 });
-
-
 
 </script>
 
