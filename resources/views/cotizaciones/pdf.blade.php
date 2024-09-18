@@ -178,11 +178,11 @@
                    <b> {{ $nota->nombre_empresa }}</b> <br><br>
                     {{ $item['Servicio']->descripcion }}
                     @if($nota->instalacion != NULL)
-                    <br> Instalación en área metropolitana no mayor
+                    <br><br> Instalación en área metropolitana no mayor
                         a 3 mts de altura.
                     @endif
                     @if($nota->envio != NULL)
-                    <br>  Incluye entrega en area metropolitana
+                    <br><br>  Incluye entrega en area metropolitana
                     @endif
                 </td>
 
