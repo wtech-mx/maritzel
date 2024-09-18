@@ -175,15 +175,14 @@
                 </td>
 
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
-                    {{ $nota->nombre_empresa }}
+                   <b> {{ $nota->nombre_empresa }}</b> <br>
                     {{ $item['Servicio']->descripcion }}
                     @if($nota->instalacion != NULL)
-                        Instalación en área metropolitana no mayor
+                    <br> Instalación en área metropolitana no mayor
                         a 3 mts de altura.
                     @endif
                     @if($nota->envio != NULL)
-                        Instalación en área metropolitana no mayor
-                        a 3 mts de altura.
+                    <br>  Incluye envio
                     @endif
                 </td>
 
