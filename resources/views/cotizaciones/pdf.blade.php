@@ -175,9 +175,15 @@
                 </td>
 
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
+                    {{ $nota->nombre_empresa }}
                     {{ $item['Servicio']->descripcion }}
-                    @if($mostrarInstalacion)
-                    ${{ number_format($item['instalacion'] ?? 0, 1) }}
+                    @if($nota->instalacion != NULL)
+                        Instalación en área metropolitana no mayor
+                        a 3 mts de altura.
+                    @endif
+                    @if($nota->envio != NULL)
+                        Instalación en área metropolitana no mayor
+                        a 3 mts de altura.
                     @endif
                 </td>
 
@@ -188,6 +194,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
             </tr>
         @endforeach
+
 
         <tr>
             <td></td>
