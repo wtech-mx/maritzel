@@ -75,6 +75,9 @@ class CotizacionesController extends Controller
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
         $notas_productos->nombre_empresa = $request->get('nombre_empresa');
+        $notas_productos->instalacion = $request->get('instalacion');
+        $notas_productos->utilidad_fijo = $request->get('utilidad_fijo');
+        $notas_productos->utilidad = $request->get('utilidad');
 
         // Obtener todos los folios del tipo de nota específico
         $folios = Cotizaciones::where('tipo_nota', $tipoNota)->pluck('folio');
@@ -107,13 +110,10 @@ class CotizacionesController extends Controller
             $precio_cm = $request->input('precio_cm');
             $total_precio_cm = $request->input('total_precio_cm');
             $material = $request->input('material');
-            $utilidad = $request->input('utilidad');
             $subtotalIva = $request->input('subtotalIva');
             $largo = $request->input('largo');
             $ancho = $request->input('ancho');
             $m2 = $request->input('m2');
-            $instalacion = $request->input('instalacion');
-            $utilidad_fijo = $request->input('utilidad_fijo');
             $total_instalacion = $request->input('total_instalacion');
             $imagen = $request->hasFile('imagen');
 
@@ -129,12 +129,9 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->precio_cm = $precio_cm[$index];
                 $notas_inscripcion->total_precio_cm = $total_precio_cm[$index];
                 $notas_inscripcion->material = $material[$index];
-                $notas_inscripcion->utilidad = $utilidad[$index];
                 $notas_inscripcion->largo = $largo[$index];
                 $notas_inscripcion->ancho = $ancho[$index];
                 $notas_inscripcion->m2 = $m2[$index];
-                $notas_inscripcion->instalacion = $instalacion[$index];
-                $notas_inscripcion->utilidad_fijo = $utilidad_fijo[$index];
                 $notas_inscripcion->total_instalacion = $total_instalacion[$index];
 
                 if (isset($imagenes[$index])) { // Verifica si existe una imagen en este índice
@@ -268,7 +265,20 @@ class CotizacionesController extends Controller
 
         $nota = Cotizaciones::find($id);
 
-        $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
+        $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)
+            ->get()
+            ->groupBy('id_servicios')  // Agrupa por id_servicios
+            ->map(function ($group) {   // Mapea cada grupo de servicios
+                return [
+                    'id_servicios' => $group->first()->id_servicios,
+                    'cantidad' => $group->sum('cantidad'),
+                    'total' => $group->sum('total'),
+                    'total_iva' => $group->sum('total_iva'),
+                    'subtotal_iva' => $group->sum('subtotal_iva'),
+                    'Servicio' => $group->first()->Servicio,  // Obtén el primer servicio del grupo para los datos relacionados
+                    'imagen' => $group->first()->Servicio->imagen,
+                ];
+            });
 
         $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos'))->setPaper([0, 0, 700, 600], 'landscape');
 

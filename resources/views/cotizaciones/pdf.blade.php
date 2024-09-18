@@ -161,36 +161,31 @@
 
         @foreach ($nota_productos as $item)
             @php
-                if ($item->cantidad == 0) {
-                    $unitario = $item->total / 1;
-                } else {
-                    $unitario = $item->total / $item->cantidad;
-                }
-
-                $totalSubtotal += $item->total;
-                $totalIVA += $item->total_iva;
-                $totalGeneral += $item->subtotal_iva;
+                $unitario = $item['total'] / $item['cantidad'];  // Calcular el unitario
+                $totalSubtotal += $item['total'];
+                $totalIVA += $item['total_iva'];
+                $totalGeneral += $item['subtotal_iva'];
             @endphp
 
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
                     <p>
-                        <img src="{{ asset('imagen_serv/'.$item->Servicio->imagen) }}" alt="" width="130px"> <br>
+                        <img src="{{ asset('imagen_serv/'.$item['imagen']) }}" alt="" width="130px"> <br>
                     </p>
                 </td>
 
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
-                    {{ $item->Servicio->descripcion }}
+                    {{ $item['Servicio']->descripcion }}
                     @if($mostrarInstalacion)
-                       ${{ number_format($item->instalacion ?? 0, 1) }}
+                    ${{ number_format($item['instalacion'] ?? 0, 1) }}
                     @endif
                 </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 2) }}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">{{ $item->cantidad }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">{{ $item['cantidad'] }}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item->total, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
             </tr>
         @endforeach
 
