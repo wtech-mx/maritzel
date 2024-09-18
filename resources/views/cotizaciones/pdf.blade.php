@@ -181,9 +181,9 @@
                     @endif
                 </td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 2) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">{{ $item['cantidad'] }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">1</td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
             </tr>
