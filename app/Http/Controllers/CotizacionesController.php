@@ -267,10 +267,10 @@ class CotizacionesController extends Controller
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)
             ->get()
-            ->groupBy('id_servicios')  // Agrupa por id_servicios
+            ->groupBy('id_notas_servicios')  // Agrupa por id_servicios
             ->map(function ($group) {   // Mapea cada grupo de servicios
                 return [
-                    'id_servicios' => $group->first()->id_servicios,
+                    'id_notas_servicios' => $group->first()->id_notas_servicios,
                     'cantidad' => $group->sum('cantidad'),
                     'total' => $group->sum('total'),
                     'total_iva' => $group->sum('total_iva'),
