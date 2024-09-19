@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('cotizaciones', function (Blueprint $table) {
-            $table->text('utilidad')->nullable();
-            $table->text('utilidad_fijo')->nullable();
-            $table->text('instalacion')->nullable();
+            $table->integer('envio_externo')->nullable();
+            $table->integer('instalacion_aparte')->nullable();
+            $table->text('mensaje_envio')->nullable();
+            $table->text('mensaje_instalacion')->nullable();
+            $table->integer('cantidad_letreros')->nullable();
         });
     }
 

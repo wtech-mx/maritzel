@@ -252,6 +252,26 @@
                                     </div>
 
                                     <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <label for="envio_externo">¿Envió Externo?</label>
+                                        <input type="checkbox" id="envio_externo" name="envio_externo" value="1">
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <label for="instalacion_aparte">¿Separar instalacion?</label>
+                                        <input type="checkbox" id="instalacion_aparte" name="instalacion_aparte" value="1">
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                        <h5 class="label_text" for="name"># Letreros *</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
+                                            </span>
+                                            <input class="form-control" type="text" id="cantidad_letreros" name="cantidad_letreros" value="1" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-4 col-6">
                                         <h5 class="label_text" for="name">Envio *</h5>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">
@@ -331,12 +351,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <h5 class="label_text" for="name">Comentario/nota</h5>
-                                            <textarea class="form-control" name="nota" id="nota" cols="30" rows="3"></textarea>
-                                        </div>
+
+                                    <div id="mensaje_envio" class="form-group  col-lg-6 col-md-6 col-12 " style="display:none;">
+                                        <label for="mensaje">Mensaje de Envío</label>
+                                        <textarea class="form-control" id="mensaje_envio" name="mensaje_envio" rows="4" placeholder="Escribe tu mensaje..."></textarea>
                                     </div>
+
+                                    <div id="mensaje_instalacion" class="form-group  col-lg-6 col-md-6 col-12 " style="display:none;">
+                                        <label for="mensaje">Mensaje de Instalacion</label>
+                                        <textarea class="form-control" id="2" name="mensaje_instalacion" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -465,6 +490,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     agregarEventosCalculo(campoExistente);
+
+    $('#envio_externo').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#mensaje_envio').slideDown();  // Muestra el textarea
+        } else {
+            $('#mensaje_envio').slideUp();  // Oculta el textarea
+        }
+    });
+
+    $('#instalacion_aparte').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#mensaje_instalacion').slideDown();  // Muestra el textarea
+        } else {
+            $('#mensaje_instalacion').slideUp();  // Oculta el textarea
+        }
+    });
 });
 
 </script>

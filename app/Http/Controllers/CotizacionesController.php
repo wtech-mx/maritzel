@@ -78,6 +78,11 @@ class CotizacionesController extends Controller
         $notas_productos->instalacion = $request->get('instalacion');
         $notas_productos->utilidad_fijo = $request->get('utilidad_fijo');
         $notas_productos->utilidad = $request->get('utilidad');
+        $notas_productos->envio_externo = $request->get('envio_externo');
+        $notas_productos->instalacion_aparte = $request->get('instalacion_aparte');
+        $notas_productos->mensaje_envio = $request->get('mensaje_envio');
+        $notas_productos->mensaje_instalacion = $request->get('mensaje_instalacion');
+        $notas_productos->cantidad_letreros = $request->get('cantidad_letreros');
 
         // Obtener todos los folios del tipo de nota específico
         $folios = Cotizaciones::where('tipo_nota', $tipoNota)->pluck('folio');

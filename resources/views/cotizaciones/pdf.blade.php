@@ -161,7 +161,7 @@
 
         @foreach ($nota_productos as $item)
             @php
-                $unitario = $item['total'] / $item['cantidad'];  // Calcular el unitario
+                $unitario = $nota->subtotal / $nota->cantidad_letreros;  // Calcular el unitario
                 $totalSubtotal += $item['total'];
                 $totalIVA += $item['total_iva'];
                 $totalGeneral += $item['subtotal_iva'];
@@ -177,21 +177,57 @@
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
                    <b> {{ $nota->nombre_empresa }}</b> <br><br>
                     {{ $item['Servicio']->descripcion }}
-                    @if($nota->instalacion != NULL)
+                    @if($nota->instalacion_aparte != 1)
                     <br><br> Instalación en área metropolitana no mayor
                         a 3 mts de altura.
                     @endif
-                    @if($nota->envio != NULL)
+                    @if($nota->mensaje_envio != 1)
                     <br><br>  Incluye entrega en area metropolitana
                     @endif
                 </td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">1</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">{{$nota->cantidad_letreros}}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($item['total'], 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
             </tr>
+
+            @if ($nota->instalacion_aparte == 1)
+                <tr>
+                    <td style="border: 1px solid black;border-collapse: collapse;">
+                        <b>Instalacion</b>
+                    </td>
+
+                    <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
+                        {{ $nota->mensaje_instalacion }}
+                    </td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->instalacion, 1) }}</td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">1</td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->instalacion, 1) }}</td>
+                </tr>
+            @endif
+
+            @if ($nota->envio_externo == 1)
+                <tr>
+                    <td style="border: 1px solid black;border-collapse: collapse;">
+                        <b>Envio</b>
+                    </td>
+
+                    <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
+                        {{ $nota->mensaje_envio }}
+                    </td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->envio, 1) }}</td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">1</td>
+
+                    <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->envio, 1) }}</td>
+                </tr>
+            @endif
         @endforeach
 
 
