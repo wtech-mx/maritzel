@@ -63,15 +63,18 @@ class CotizacionesController extends Controller
             $cliente = $cliente->id;
         }
 
+        $cantidad_letreros = $request->get('cantidad_letreros') * $request->get('total');
+        $cantidad_letreros_iva = $request->get('cantidad_letreros') * $request->get('totalIva');
+
         $notas_productos->id_cliente =  $cliente;
         $notas_productos->fecha = $request->get('fecha');
         $notas_productos->nota = $request->get('nota');
         $notas_productos->estatus_cotizacion = 'pendiente';
         $notas_productos->envio =  $request->get('envio');
-        $notas_productos->subtotal =  $request->get('total');
+        $notas_productos->subtotal =  $cantidad_letreros;
         $notas_productos->iva_porcentaje =  $request->get('ivaPorcentaje');
         $notas_productos->iva_total =  $request->get('ivaTotal');
-        $notas_productos->total =  $request->get('totalIva');
+        $notas_productos->total =  $cantidad_letreros_iva;
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
         $notas_productos->nombre_empresa = $request->get('nombre_empresa');
@@ -105,6 +108,14 @@ class CotizacionesController extends Controller
 
         // Asignar el nuevo folio al objeto
         $notas_productos->folio = $folio;
+
+        if ($request->hasFile("imagen")) {
+            $file = $request->file('imagen');
+            $path = public_path('/materiales'); // Usar barra normal y sin concatenar comillas
+            $fileName = uniqid() . '_' . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $notas_productos->foto_logo = $fileName;
+        }
         $notas_productos->save();
 
         if ($request->has('cantidad') || $request->has('m2')) {
@@ -138,14 +149,6 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->ancho = $ancho[$index];
                 $notas_inscripcion->m2 = $m2[$index];
                 $notas_inscripcion->total_instalacion = $total_instalacion[$index];
-
-                if (isset($imagenes[$index])) { // Verifica si existe una imagen en este índice
-                    $file = $imagenes[$index];
-                    $path = public_path('materiales'); // Usar barra normal y sin concatenar comillas
-                    $fileName = uniqid() . '_' . $file->getClientOriginalName();
-                    $file->move($path, $fileName);
-                    $notas_inscripcion->foto = $fileName;
-                }
                 $notas_inscripcion->save();
             }
         }

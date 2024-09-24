@@ -125,6 +125,16 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group col-12">
+                                        <h5 class="label_text" for="name">Foto</h5>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
+                                            </span>
+                                            <input type="file" name="imagen" class="form-control imagen">
+                                        </div>
+                                    </div>
+
                                     <div class="col-12 mt-5">
                                         <h2 style="color:#783E5D"><strong>Seleciona los productos</strong> </h2>
                                     </div>
@@ -197,17 +207,6 @@
                                                         <div class="collapse" id="collapseExtraFields0">
                                                             <div class="card card-body mt-3">
                                                                 <div class="row">
-
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Foto</h5>
-                                                                        <div class="input-group mb-3">
-                                                                            <span class="input-group-text" id="basic-addon1">
-                                                                                <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
-                                                                            </span>
-                                                                            <input type="file" name="imagen[]" class="form-control imagen" value="0">
-                                                                        </div>
-                                                                    </div>
-
                                                                     <div class="form-group col-lg-2 col-md-4 col-6">
                                                                         <h5 class="label_text" for="name">Precio cm</h5>
                                                                         <div class="input-group mb-3">
@@ -354,12 +353,13 @@
 
                                     <div id="mensaje_envio" class="form-group  col-lg-6 col-md-6 col-12 " style="display:none;">
                                         <label for="mensaje">Mensaje de Envío</label>
-                                        <textarea class="form-control" id="mensaje_envio" name="mensaje_envio" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                                        <textarea class="form-control" id="mensaje_envio" name="mensaje_envio" rows="4" placeholder="Escribe tu mensaje...">Incluye entrega en area metropolitana</textarea>
                                     </div>
 
                                     <div id="mensaje_instalacion" class="form-group  col-lg-6 col-md-6 col-12 " style="display:none;">
                                         <label for="mensaje">Mensaje de Instalacion</label>
-                                        <textarea class="form-control" id="2" name="mensaje_instalacion" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                                        <textarea class="form-control" id="2" name="mensaje_instalacion" rows="4" placeholder="Escribe tu mensaje...">Instalación en área metropolitana no mayor
+                                            a 3 mts de altura.</textarea>
                                     </div>
 
                                 </div>
@@ -463,6 +463,9 @@ document.addEventListener('DOMContentLoaded', function() {
             var utilidadPorcentaje = parseFloat(utilidadInput.value) || 0;
             var utilidadFijo = parseFloat(utilidadFijoInput.value) || 0;
 
+            // Referencia al input de envio
+            var envio = parseFloat(document.getElementById('envio').value) || 0;
+
             var subtotales = document.querySelectorAll('.subtotal');
             subtotales.forEach(function(input) {
                 total += parseFloat(input.value) || 0;
@@ -473,8 +476,12 @@ document.addEventListener('DOMContentLoaded', function() {
             total *= (1 + utilidadPorcentaje / 100); // Aplicar el porcentaje de utilidad
             total += utilidadFijo; // Sumar el valor fijo de utilidad
 
+            // Sumar el valor de envio
+            total += envio;
+
             totalIva = total * (1 + ivaPorcentaje / 100);
 
+            // Actualizar los campos del total
             document.getElementById('total').value = total.toFixed(2);
             document.getElementById('ivaTotal').value = (total * ivaPorcentaje / 100).toFixed(2);
             document.getElementById('totalIva').value = totalIva.toFixed(2);
@@ -487,6 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
         utilidadInput.addEventListener('input', calcularTotalesGenerales);
         utilidadFijoInput.addEventListener('input', calcularTotalesGenerales);
         instalacionInputGlobal.addEventListener('input', calcularTotalesGenerales);
+        document.getElementById('envio').addEventListener('input', calcularTotalesGenerales);
     }
 
     agregarEventosCalculo(campoExistente);

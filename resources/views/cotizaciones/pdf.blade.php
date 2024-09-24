@@ -153,24 +153,15 @@
             </tr>
     </thead>
     <tbody class="text-center">
-        @php
-            $totalSubtotal = 0;
-            $totalIVA = 0;
-            $totalGeneral = 0;
-        @endphp
-
         @foreach ($nota_productos as $item)
             @php
-                $unitario = $nota->subtotal / $nota->cantidad_letreros;  // Calcular el unitario
-                $totalSubtotal += $item['total'];
-                $totalIVA += $item['total_iva'];
-                $totalGeneral += $item['subtotal_iva'];
+                $unitario = $nota->subtotal / $nota->cantidad_letreros;
             @endphp
 
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
                     <p>
-                        <img src="{{ asset('imagen_serv/'.$item['imagen']) }}" alt="" width="130px"> <br>
+                        <img src="{{ asset('materiales/'.$nota->foto_logo) }}" alt="" width="130px"> <br>
                     </p>
                 </td>
 
@@ -181,7 +172,7 @@
                     <br><br> Instalación en área metropolitana no mayor
                         a 3 mts de altura.
                     @endif
-                    @if($nota->mensaje_envio != 1)
+                    @if($nota->envio_externo != 1)
                     <br><br>  Incluye entrega en area metropolitana
                     @endif
                 </td>
@@ -190,7 +181,7 @@
 
                 <td style="border: 1px solid black;border-collapse: collapse;">{{$nota->cantidad_letreros}}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->subtotal, 1) }}</td>
             </tr>
 
             @if ($nota->instalacion_aparte == 1)
