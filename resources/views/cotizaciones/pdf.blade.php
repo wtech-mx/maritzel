@@ -177,11 +177,31 @@
                     @endif
                 </td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">
+                    @php
+                        if($nota->instalacion_aparte == 1 && $nota->envio_externo == 1){
+                            $resta = $unitario - $nota->envio - $nota->instalacion;
+                            $resta_subtotal = $nota->subtotal - $nota->envio - $nota->instalacion;
+                        }
+                        if($nota->instalacion_aparte == 1 && $nota->envio_externo != 1){
+                            $resta = $unitario - $nota->instalacion;
+                            $resta_subtotal = $nota->subtotal - $nota->instalacion;
+                        }
+                        if($nota->instalacion_aparte != 1 && $nota->envio_externo == 1){
+                            $resta = $unitario - $nota->envio;
+                            $resta_subtotal = $nota->subtotal - $nota->envio;
+                        }
+                        if($nota->instalacion_aparte != 1 && $nota->envio_externo != 1){
+                            $resta = $unitario;
+                            $resta_subtotal = $nota->subtotal;
+                        }
+                    @endphp
+                        ${{ number_format($resta, 1) }}
+                </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">{{$nota->cantidad_letreros}}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($nota->subtotal, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($resta_subtotal, 1) }}</td>
             </tr>
 
             @if ($nota->instalacion_aparte == 1)
