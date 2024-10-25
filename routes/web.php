@@ -81,6 +81,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::patch('cotizaciones/update/estatus/{id}', [App\Http\Controllers\CotizacionesController::class, 'update_estatus'])->name('update_estatus.cotizaciones');
     Route::get('/cotizaciones/imprimir/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir'])->name('imprimir.cotizaciones');
 
+    Route::post('/eliminar-imagen', [App\Http\Controllers\CotizacionesController::class, 'eliminarImagen'])->name('eliminar.imagen');
+
     // ==================== C O T I Z A C I O N E S ====================
     Route::get('cotizaciones/vinil/create', [App\Http\Controllers\CotizacionesController::class, 'create_vinil'])->name('create_vinil.cotizaciones');
 

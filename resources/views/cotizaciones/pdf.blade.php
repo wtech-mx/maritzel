@@ -160,9 +160,11 @@
 
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
-                    <p>
-                        <img src="{{ asset('materiales/'.$nota->foto_logo) }}" alt="" width="130px"> <br>
-                    </p>
+                    @foreach ($fotos as $foto)
+                        <p>
+                            <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
+                        </p>
+                    @endforeach
                 </td>
 
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">

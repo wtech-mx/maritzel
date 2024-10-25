@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cotizacion Letras
+    Cotizacion Personalizado
 @endsection
 
 @section('css')
