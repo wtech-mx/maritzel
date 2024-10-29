@@ -18,6 +18,11 @@
                                     </a>
                                 </div>
                                 <div class="col-12 text-center">
+                                    <a type="button" class="btn btn-primary" href="{{ route('create_personalizado.cotizaciones') }}" style="background: #dfec2d; color: #000000">
+                                        Personalizado
+                                    </a>
+                                </div>
+                                <div class="col-12 text-center">
                                     <a type="button" class="btn btn-primary" href="{{ route('create_vinil.cotizaciones') }}" style="background: #dfec2d; color: #000000">
                                         Vinil
                                     </a>

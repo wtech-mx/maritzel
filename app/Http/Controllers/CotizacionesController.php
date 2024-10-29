@@ -288,7 +288,7 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->save();
             }
         }
-        
+
         return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }
 
@@ -346,5 +346,13 @@ class CotizacionesController extends Controller
 
        return $pdf->stream();
 
+    }
+
+    public function create_personalizado(){
+
+        $clientes = Client::get();
+        $servicios = Servicios::where('id_categoria', '=', '1')->orderBy('nombre', 'desc')->get();
+
+        return view('cotizaciones.personalizado.create',compact('clientes','servicios'));
     }
 }

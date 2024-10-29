@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth']], function() {
     // ==================== C O T I Z A C I O N E S ====================
     Route::get('cotizaciones/vinil/create', [App\Http\Controllers\CotizacionesController::class, 'create_vinil'])->name('create_vinil.cotizaciones');
 
+    Route::get('cotizaciones/personalizado/create', [App\Http\Controllers\CotizacionesController::class, 'create_personalizado'])->name('create_personalizado.cotizaciones');
+
     // ==================== S E R V I C I O S ====================
     Route::get('servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('index.servicios');
     Route::post('servicios/create', [App\Http\Controllers\ServiciosController::class, 'store'])->name('store.servicios');
