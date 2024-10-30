@@ -13,6 +13,7 @@ class CotizacionFoto extends Model
     protected $fillable = [
         'id_cotizacion',
         'foto',
+        'serv_id',
     ];
 
     public function Cotizaciones()

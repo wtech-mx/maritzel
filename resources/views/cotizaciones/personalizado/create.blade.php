@@ -17,7 +17,7 @@
             }
 
     </style>
- @endsection
+@endsection
 
 @php
     $fecha = date('Y-m-d');
@@ -28,7 +28,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store.cotizaciones') }}" enctype="multipart/form-data" role="form">
+                        <form method="POST" action="{{ route('store_personalizado.cotizaciones') }}" enctype="multipart/form-data" role="form">
                             @csrf
                             <div class="modal-body">
                                 <div class="row">
@@ -115,13 +115,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-6">
-                                        <label class="label_text" class="label_text" for="name">Nombre y Medidas *</label>
+                                    <div class="form-group col-lg-4 col-md-4 col-4 ">
+                                        <h5 class="label_text" for="name">Descripción *</h5>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <img src="{{ asset('img/icon/placa.png') }}" alt="" width="29px">
-                                            </span>
-                                            <input  id="nombre_empresa" name="nombre_empresa" type="text" class="form-control" placeholder="Imaginarte 90 * 200">
+                                            <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="3"></textarea>
                                         </div>
                                     </div>
 
@@ -150,16 +147,9 @@
                                     <div id="rowContainer">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-8 col-8">
-                                                <h5 class="label_text" for="">Producto</h5>
+                                                <h5 class="label_text" for="">Nombre y Medidas *</h5>
                                                 <div class="form-group">
                                                     <input id="producto[]" name="producto[]" type="text" class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group col-lg-4 col-md-4 col-4 ">
-                                                <h5 class="label_text" for="name">Descripción *</h5>
-                                                <div class="input-group mb-3">
-                                                    <textarea name="descripcion[]" id="descripcion[]" cols="30" rows="3"></textarea>
                                                 </div>
                                             </div>
 
@@ -172,6 +162,16 @@
                                                     <input type="text" name="subtotal[]" class="form-control d-inline-block subtotal">
                                                 </div>
                                             </div>
+
+                                            {{-- <div class="form-group col-lg-2 col-md-4 col-4 ">
+                                                <h5 class="label_text" for="name">Cantidad *</h5>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                        <img src="{{ asset('img/icon/clic2.png') }}" alt="" width="15px">
+                                                    </span>
+                                                    <input type="number" name="cantidad[]" class="form-control d-inline-block cantidad" >
+                                                </div>
+                                            </div> --}}
                                         </div>
                                     </div>
 
@@ -185,7 +185,7 @@
                                         <input type="checkbox" id="instalacion_aparte" name="instalacion_aparte" value="1">
                                     </div>
 
-                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                    {{-- <div class="form-group col-lg-2 col-md-4 col-6">
                                         <h5 class="label_text" for="name"># Producto *</h5>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">
@@ -193,7 +193,7 @@
                                             </span>
                                             <input class="form-control" type="text" id="cantidad_letreros" name="cantidad_letreros" value="1" >
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group col-lg-2 col-md-4 col-6">
                                         <h5 class="label_text" for="name">Envio *</h5>

@@ -288,18 +288,29 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
-                                                           <i class="fa fa-pencil"></i> Editar
-                                                        </a>
+                                                        @if ($item->tipo_nota == 'Personalizado')
+                                                            <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit_personalizado.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                                <i class="fa fa-pencil"></i> Editar
+                                                            </a>
+                                                        @else
+                                                            <a type="button" class="btn btn-xs btn-primary" href="{{ route('edit.cotizaciones', $item->id) }}" style="background: {{$configuracion->color_boton_add}}; color: #ffff">
+                                                            <i class="fa fa-pencil"></i> Editar
+                                                            </a>
+                                                        @endif
 
-                                                        <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
-                                                            <i class="fa fa-file"></i> Descargar
-                                                        </a>
+                                                        @if ($item->tipo_nota == 'Personalizado')
+                                                            <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir_personalizado.cotizaciones', ['id' => $item->id]) }}">
+                                                                <i class="fa fa-file"></i> Descargar
+                                                            </a>
+                                                        @else
+                                                            <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
+                                                                <i class="fa fa-file"></i> Descargar
+                                                            </a>
+                                                        @endif
                                                     </td>
                                                 </tr>
 
                                                 @include('cotizaciones.modal_estatus')
-
                                             @endforeach
                                         </tbody>
 

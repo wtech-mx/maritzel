@@ -21,6 +21,7 @@ return new class extends Migration
                 ->inDelete('set null');
 
             $table->text('foto')->nullable();
+            $table->unsignedBigInteger('serv_id')->nullable();
             $table->timestamps();
         });
     }

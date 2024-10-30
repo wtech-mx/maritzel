@@ -355,4 +355,137 @@ class CotizacionesController extends Controller
 
         return view('cotizaciones.personalizado.create',compact('clientes','servicios'));
     }
+
+    // ============================================== P E R S O N A L I Z A D O ==============================================
+        public function store_personalizado(request $request){
+            // Creacion de user
+            $code = Str::random(8);
+
+            $notas_productos = new Cotizaciones;
+
+            if($request->get('nombre_cliente') == NULL){
+                $cliente = $request->get('id_cliente');
+            }else{
+                $cliente = new Client;
+                $cliente->nombre = $request->get('nombre_cliente');
+                $cliente->correo = $request->get('correo_cliente');
+                $cliente->telefono = $request->get('telefono_cliente');
+                $cliente->save();
+
+                $cliente = $cliente->id;
+            }
+
+            $notas_productos->id_cliente =  $cliente;
+            $notas_productos->fecha = $request->get('fecha');
+            $notas_productos->nota = $request->get('nota');
+            $notas_productos->estatus_cotizacion = 'pendiente';
+            $notas_productos->envio =  $request->get('envio');
+            $notas_productos->subtotal =  $request->get('total');
+            $notas_productos->iva_porcentaje =  $request->get('ivaPorcentaje');
+            $notas_productos->iva_total =  $request->get('ivaTotal');
+            $notas_productos->total =  $request->get('totalIva');
+            $notas_productos->tipo_nota = 'Personalizado';
+            $tipoNota = $notas_productos->tipo_nota;
+            $notas_productos->nombre_empresa = $request->get('nombre_empresa');
+            $notas_productos->instalacion = $request->get('instalacion');
+            $notas_productos->utilidad_fijo = $request->get('utilidad_fijo');
+            $notas_productos->utilidad = $request->get('utilidad');
+            $notas_productos->envio_externo = $request->get('envio_externo');
+            $notas_productos->instalacion_aparte = $request->get('instalacion_aparte');
+            $notas_productos->mensaje_envio = $request->get('mensaje_envio');
+            $notas_productos->mensaje_instalacion = $request->get('mensaje_instalacion');
+            $notas_productos->cantidad_letreros = $request->get('cantidad_letreros');
+            $notas_productos->nota = $request->input('descripcion');
+
+            // Obtener todos los folios del tipo de nota específico
+            $folios = Cotizaciones::where('tipo_nota', $tipoNota)->pluck('folio');
+
+            // Extraer los números de los folios y encontrar el máximo
+            $maxNumero = $folios->map(function ($folio) use ($tipoNota) {
+                return intval(substr($folio, strlen($tipoNota[0])));
+            })->max();
+
+            // Si hay un folio existente, sumarle 1 al máximo número
+            if ($maxNumero) {
+                $numeroFolio = $maxNumero + 1;
+            } else {
+                // Si no hay un folio existente, empezar desde 1
+                $numeroFolio = 1;
+            }
+
+            // Crear el nuevo folio con el tipo de nota y el número
+            $folio = $tipoNota[0] . $numeroFolio;
+
+            // Asignar el nuevo folio al objeto
+            $notas_productos->folio = $folio;
+            $notas_productos->save();
+
+            if ($request->hasFile('foto')) {
+                $files = $request->file('foto');  // Obtén todas las imágenes
+                $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
+
+                foreach ($files as $file) {
+                    $path = public_path('/materiales');  // Directorio de almacenamiento
+                    $fileName = uniqid() . '_' . $file->getClientOriginalName();
+                    $file->move($path, $fileName);  // Mueve el archivo al directorio
+
+                    // Guarda la imagen en la tabla cotizaciones_fotos
+                    CotizacionFoto::create([
+                        'id_cotizacion' => $cotizacionId,  // ID de la cotización
+                        'foto' => $fileName  // Nombre del archivo guardado
+                    ]);
+                }
+            }
+
+            $producto = $request->input('producto');
+            $subtotal = $request->input('subtotal');
+            $fotos = $request->file('foto');
+
+            foreach ($producto as $index => $producto) {
+
+                $servicioCotizacion = new ServiciosCotizaciones;
+                $servicioCotizacion->id_notas_servicios = $notas_productos->id;
+                $servicioCotizacion->producto = $producto;
+                $servicioCotizacion->total = $subtotal[$index];
+                $servicioCotizacion->cantidad = '1';
+                $servicioCotizacion->save();
+            }
+
+            return redirect()->route('index.cotizaciones')
+            ->with('success', 'Se ha creado su cotizacion con exito');
+        }
+
+        public function edit_personalizado($id){
+            $cotizacion = Cotizaciones::find($id);
+            $servicios_cotizacion = ServiciosCotizaciones::where('id_notas_servicios', '=', $id)->get();
+            $cotizacion_fotos = CotizacionFoto::where('id_cotizacion', $cotizacion->id)->get();
+
+            $clientes = Client::get();
+            $servicios = Servicios::orderBy('nombre', 'desc')->get();
+
+            return view('cotizaciones.personalizado.edit', compact('cotizacion', 'servicios_cotizacion', 'clientes','servicios', 'cotizacion_fotos'));
+        }
+
+        public function imprimir_personalizado($id){
+            $today =  date('d-m-Y');
+
+            $nota = Cotizaciones::find($id);
+
+            $fotos = CotizacionFoto::where('id_cotizacion', $id)->get();
+
+            $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)->get();
+
+            $pdf = \PDF::loadView('cotizaciones.personalizado.pdf', compact('nota', 'today', 'nota_productos', 'fotos'))->setPaper([0, 0, 700, 600], 'landscape');
+
+            if($nota->folio == null){
+                $folio = $nota->id;
+            }else{
+                $folio = $nota->folio;
+            }
+           //  return $pdf->stream();
+
+           return $pdf->stream();
+
+        }
+    // ============================================== E N D  P E R S O N A L I Z A D O ==============================================
 }
