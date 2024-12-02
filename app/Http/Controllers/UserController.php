@@ -35,9 +35,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        $empresas = Empresas::orderBy('id','DESC')->get();
-
-        return view('users.create',compact('roles','empresas'));
+        return view('users.create',compact('roles'));
     }
 
     /**
@@ -92,9 +90,7 @@ class UserController extends Controller
 
         $userRole = $user->roles->pluck('name','name')->all();
 
-        $empresas = Empresas::orderBy('id','DESC')->get();
-
-        return view('users.edit',compact('user','roles','userRole','empresas'));
+        return view('users.edit',compact('user','roles','userRole'));
     }
 
     /**

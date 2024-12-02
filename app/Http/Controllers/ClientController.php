@@ -53,7 +53,6 @@ class ClientController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'nombre' => 'required',
-            'correo' => 'required',
             'telefono' => 'required'
         ]);
 
@@ -80,7 +79,6 @@ class ClientController extends Controller
     public function store_subclientes(Request $request){
         $this->validate($request, [
             'nombre' => 'required',
-            'correo' => 'required',
             'telefono' => 'required'
         ]);
 
