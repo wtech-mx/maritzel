@@ -13,6 +13,11 @@
                         <div class="form-group">
                             <h5 class="text-center">Selecciona el tipo de cotizacion </h5>
                                 <div class="col-12 text-center">
+                                    <a type="button" class="btn btn-primary" href="{{ route('create_new.cotizaciones') }}" style="background: #83ec2d; color: #000000">
+                                        Letras
+                                    </a>
+                                </div>
+                                <div class="col-12 text-center">
                                     <a type="button" class="btn btn-primary" href="{{ route('create.cotizaciones') }}" style="background: #83ec2d; color: #000000">
                                         Letras
                                     </a>

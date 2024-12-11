@@ -82,14 +82,17 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cotizaciones/imprimir/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir'])->name('imprimir.cotizaciones');
 
     Route::post('/eliminar-imagen', [App\Http\Controllers\CotizacionesController::class, 'eliminarImagen'])->name('eliminar.imagen');
-    // ==================== C O T I Z A C I O N E S  V I N I L====================
-    Route::get('cotizaciones/vinil/create', [App\Http\Controllers\CotizacionesController::class, 'create_vinil'])->name('create_vinil.cotizaciones');
+        // ==================== C O T I Z A C I O N E S  V I N I L====================
+        Route::get('cotizaciones/letras/create/new', [App\Http\Controllers\CotizacionesController::class, 'create_new'])->name('create_new.cotizaciones');
 
-    // ==================== C O T I Z A C I O N E S  P E R S O N A L I Z A D O====================
-    Route::get('cotizaciones/personalizado/create', [App\Http\Controllers\CotizacionesController::class, 'create_personalizado'])->name('create_personalizado.cotizaciones');
-    Route::post('cotizaciones/personalizado/store', [App\Http\Controllers\CotizacionesController::class, 'store_personalizado'])->name('store_personalizado.cotizaciones');
-    Route::get('/cotizaciones/imprimir/personalizado/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir_personalizado'])->name('imprimir_personalizado.cotizaciones');
-    Route::get('cotizaciones/edit/personalizado/{id}', [App\Http\Controllers\CotizacionesController::class, 'edit_personalizado'])->name('edit_personalizado.cotizaciones');
+        // ==================== C O T I Z A C I O N E S  V I N I L====================
+        Route::get('cotizaciones/vinil/create', [App\Http\Controllers\CotizacionesController::class, 'create_vinil'])->name('create_vinil.cotizaciones');
+
+        // ==================== C O T I Z A C I O N E S  P E R S O N A L I Z A D O====================
+        Route::get('cotizaciones/personalizado/create', [App\Http\Controllers\CotizacionesController::class, 'create_personalizado'])->name('create_personalizado.cotizaciones');
+        Route::post('cotizaciones/personalizado/store', [App\Http\Controllers\CotizacionesController::class, 'store_personalizado'])->name('store_personalizado.cotizaciones');
+        Route::get('/cotizaciones/imprimir/personalizado/{id}', [App\Http\Controllers\CotizacionesController::class, 'imprimir_personalizado'])->name('imprimir_personalizado.cotizaciones');
+        Route::get('cotizaciones/edit/personalizado/{id}', [App\Http\Controllers\CotizacionesController::class, 'edit_personalizado'])->name('edit_personalizado.cotizaciones');
 
     // ==================== S E R V I C I O S ====================
     Route::get('servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('index.servicios');

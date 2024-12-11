@@ -38,6 +38,13 @@ class CotizacionesController extends Controller
         return view('cotizaciones.create',compact('clientes','servicios'));
     }
 
+    public function create_new(){
+        $clientes = Client::get();
+        $servicios = Servicios::where('id_categoria', '=', '1')->orderBy('nombre', 'desc')->get();
+
+        return view('cotizaciones.letreros.create',compact('clientes','servicios'));
+    }
+
     public function create_vinil(){
 
         $clientes = Client::get();
@@ -64,18 +71,15 @@ class CotizacionesController extends Controller
             $cliente = $cliente->id;
         }
 
-        $cantidad_letreros = $request->get('cantidad_letreros') * $request->get('total');
-        $cantidad_letreros_iva = $request->get('cantidad_letreros') * $request->get('totalIva');
-
         $notas_productos->id_cliente =  $cliente;
         $notas_productos->fecha = $request->get('fecha');
         $notas_productos->nota = $request->get('nota');
         $notas_productos->estatus_cotizacion = 'pendiente';
         $notas_productos->envio =  $request->get('envio');
-        $notas_productos->subtotal =  $cantidad_letreros;
+        $notas_productos->subtotal =  $request->get('total');
         $notas_productos->iva_porcentaje =  $request->get('ivaPorcentaje');
         $notas_productos->iva_total =  $request->get('ivaTotal');
-        $notas_productos->total =  $cantidad_letreros_iva;
+        $notas_productos->total =  $request->get('totalIva');
         $notas_productos->tipo_nota = 'Cotizacion';
         $tipoNota = $notas_productos->tipo_nota;
         $notas_productos->nombre_empresa = $request->get('nombre_empresa');
@@ -111,24 +115,7 @@ class CotizacionesController extends Controller
         $notas_productos->folio = $folio;
         $notas_productos->save();
 
-        if ($request->hasFile('foto')) {
-            $files = $request->file('foto');  // Obtén todas las imágenes
-            $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
-
-            foreach ($files as $file) {
-                $path = public_path('/materiales');  // Directorio de almacenamiento
-                $fileName = uniqid() . '_' . $file->getClientOriginalName();
-                $file->move($path, $fileName);  // Mueve el archivo al directorio
-
-                // Guarda la imagen en la tabla cotizaciones_fotos
-                CotizacionFoto::create([
-                    'id_cotizacion' => $cotizacionId,  // ID de la cotización
-                    'foto' => $fileName  // Nombre del archivo guardado
-                ]);
-            }
-        }
-
-        if ($request->has('cantidad') || $request->has('m2')) {
+        if (!empty($request->input('cantidad')) && array_filter($request->input('cantidad')) !== []) {
             $cantidad = $request->input('cantidad');
             $producto = $request->input('producto');
             $dimenciones = $request->input('dimenciones');
@@ -137,10 +124,6 @@ class CotizacionesController extends Controller
             $total_precio_cm = $request->input('total_precio_cm');
             $material = $request->input('material');
             $subtotalIva = $request->input('subtotalIva');
-            $largo = $request->input('largo');
-            $ancho = $request->input('ancho');
-            $m2 = $request->input('m2');
-            $total_instalacion = $request->input('total_instalacion');
             $imagen = $request->hasFile('imagen');
 
 
@@ -155,11 +138,74 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->precio_cm = $precio_cm[$index];
                 $notas_inscripcion->total_precio_cm = $total_precio_cm[$index];
                 $notas_inscripcion->material = $material[$index];
-                $notas_inscripcion->largo = $largo[$index];
-                $notas_inscripcion->ancho = $ancho[$index];
-                $notas_inscripcion->m2 = $m2[$index];
-                $notas_inscripcion->total_instalacion = $total_instalacion[$index];
+                $notas_inscripcion->tipo = '1';
                 $notas_inscripcion->save();
+
+                // if ($request->hasFile('foto')) {
+                //     $files = $request->file('foto');  // Obtén todas las imágenes
+                //     $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
+
+                //     foreach ($files as $file) {
+                //         $path = public_path('/materiales');  // Directorio de almacenamiento
+                //         $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                //         $file->move($path, $fileName);  // Mueve el archivo al directorio
+
+                //         // Guarda la imagen en la tabla cotizaciones_fotos
+                //         CotizacionFoto::create([
+                //             'id_cotizacion' => $cotizacionId,  // ID de la cotización
+                //             'serv_id' => $notas_inscripcion->id,
+                //             'tipo' => '1',
+                //             'foto' => $fileName  // Nombre del archivo guardado
+                //         ]);
+                //     }
+                // }
+            }
+        }
+
+        if (!empty($request->input('cantidad2')) && array_filter($request->input('cantidad2')) !== []) {
+            $cantidad2 = $request->input('cantidad2');
+            $producto2 = $request->input('producto2');
+            $dimenciones2 = $request->input('dimenciones2');
+            $subtotal2 = $request->input('subtotal2');
+            $precio_cm2 = $request->input('precio_cm2');
+            $total_precio_cm2 = $request->input('total_precio_cm2');
+            $material2 = $request->input('material2');
+            $subtotalIva2 = $request->input('subtotalIva2');
+            $nombre2 = $request->input('nombre_empresa2');
+
+            foreach ($producto2 as $index => $campo) {
+                $notas_inscripcion = new ServiciosCotizaciones;
+                $notas_inscripcion->id_notas_servicios = $notas_productos->id;
+                $notas_inscripcion->id_servicios = $campo;
+                $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
+                $notas_inscripcion->cantidad = $cantidad2[$index];
+                $notas_inscripcion->total = $subtotal2[$index];
+                $notas_inscripcion->dimenciones_cm = $dimenciones2[$index];
+                $notas_inscripcion->precio_cm = $precio_cm2[$index];
+                $notas_inscripcion->total_precio_cm = $total_precio_cm2[$index];
+                $notas_inscripcion->material = $material2[$index];
+                $notas_inscripcion->nombre = $nombre2[$index];
+                $notas_inscripcion->tipo = '2';
+                $notas_inscripcion->save();
+
+                // if ($request->hasFile('foto2')) {
+                //     $files = $request->file('foto2');  // Obtén todas las imágenes
+                //     $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
+
+                //     foreach ($files as $file) {
+                //         $path = public_path('/materiales');  // Directorio de almacenamiento
+                //         $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                //         $file->move($path, $fileName);  // Mueve el archivo al directorio
+
+                //         // Guarda la imagen en la tabla cotizaciones_fotos
+                //         CotizacionFoto::create([
+                //             'id_cotizacion' => $cotizacionId,  // ID de la cotización
+                //             'serv_id' => $notas_inscripcion->id,
+                //             'tipo' => '2',
+                //             'foto' => $fileName  // Nombre del archivo guardado
+                //         ]);
+                //     }
+                // }
             }
         }
 
@@ -321,6 +367,7 @@ class CotizacionesController extends Controller
         $fotos = CotizacionFoto::where('id_cotizacion', $id)->get();
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)
+            ->where('tipo', '1')
             ->get()
             ->groupBy('id_notas_servicios')  // Agrupa por id_servicios
             ->map(function ($group) {   // Mapea cada grupo de servicios
@@ -335,15 +382,15 @@ class CotizacionesController extends Controller
                 ];
             });
 
-        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos', 'fotos'))->setPaper([0, 0, 700, 600], 'landscape');
+        $nota_productos2 = ServiciosCotizaciones::where('id_notas_servicios', $id)->where('tipo', '2')->get();
+
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos', 'fotos', 'nota_productos2'))->setPaper([0, 0, 700, 600], 'landscape');
 
         if($nota->folio == null){
             $folio = $nota->id;
         }else{
             $folio = $nota->folio;
         }
-       //  return $pdf->stream();
-
        return $pdf->stream();
 
     }
