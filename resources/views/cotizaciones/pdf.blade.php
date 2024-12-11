@@ -154,9 +154,12 @@
     </thead>
     <tbody class="text-center">
 
+        @php
+            $unitario = 0;
+        @endphp
         @foreach ($nota_productos as $item)
             @php
-                $unitario += $item->total;
+                $unitario += $item['total'];
             @endphp
 
             <tr>
@@ -202,9 +205,9 @@
                         ${{ number_format($unitario, 1) }}
                 </td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">{{$nota->cantidad_letreros}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">1</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($resta_subtotal, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
             </tr>
 
             @if ($nota->instalacion_aparte == 1)
