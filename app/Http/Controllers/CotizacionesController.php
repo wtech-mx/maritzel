@@ -57,6 +57,31 @@ class CotizacionesController extends Controller
         // Creacion de user
         $code = Str::random(8);
 
+        $producto2 = $request->input('producto2');
+        $producto = $request->input('producto');
+
+        if($producto != NULL && $producto2 != NULL){
+            $count_serv = 1 + count($producto2);
+        }elseif($producto != NULL){
+            $count_serv = 1;
+        }elseif($producto2 != NULL){
+            $count_serv = count($producto2);
+        }
+
+        if($request->get('envio') != NULL){
+            $div_envio = $request->get('envio') / $count_serv;
+        }else{
+            $div_envio = 0;
+        }
+
+        if($request->get('instalacion') != NULL){
+            $div_instalacion = $request->get('instalacion') / $count_serv;
+        }else{
+            $div_instalacion = 0;
+        }
+
+        $suma_indiv = $div_envio + $div_instalacion;
+
         $notas_productos = new Cotizaciones;
 
         if($request->get('nombre_cliente') == NULL){
@@ -72,6 +97,7 @@ class CotizacionesController extends Controller
         }
 
         $notas_productos->id_cliente =  $cliente;
+        $notas_productos->suma_indiv = $suma_indiv;
         $notas_productos->fecha = $request->get('fecha');
         $notas_productos->nota = $request->get('nota');
         $notas_productos->estatus_cotizacion = 'pendiente';
@@ -117,7 +143,6 @@ class CotizacionesController extends Controller
 
         if (!empty($request->input('cantidad')) && array_filter($request->input('cantidad')) !== []) {
             $cantidad = $request->input('cantidad');
-            $producto = $request->input('producto');
             $dimenciones = $request->input('dimenciones');
             $subtotal = $request->input('subtotal');
             $precio_cm = $request->input('precio_cm');
@@ -164,7 +189,6 @@ class CotizacionesController extends Controller
 
         if (!empty($request->input('cantidad2')) && array_filter($request->input('cantidad2')) !== []) {
             $cantidad2 = $request->input('cantidad2');
-            $producto2 = $request->input('producto2');
             $dimenciones2 = $request->input('dimenciones2');
             $subtotal2 = $request->input('subtotal2');
             $precio_cm2 = $request->input('precio_cm2');

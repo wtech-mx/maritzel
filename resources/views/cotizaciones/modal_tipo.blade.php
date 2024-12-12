@@ -17,11 +17,11 @@
                                         Letras
                                     </a>
                                 </div>
-                                <div class="col-12 text-center">
+                                {{-- <div class="col-12 text-center">
                                     <a type="button" class="btn btn-primary" href="{{ route('create.cotizaciones') }}" style="background: #83ec2d; color: #000000">
                                         Letras
                                     </a>
-                                </div>
+                                </div> --}}
                                 <div class="col-12 text-center">
                                     <a type="button" class="btn btn-primary" href="{{ route('create_personalizado.cotizaciones') }}" style="background: #ec892d; color: #f0f0f0">
                                         Personalizado

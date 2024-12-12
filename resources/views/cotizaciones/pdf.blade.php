@@ -160,6 +160,14 @@
         @foreach ($nota_productos as $item)
             @php
                 $unitario += $item['total'];
+
+                if ($nota->instalacion_aparte == 1 && $nota->envio_externo == 1){
+                    $precio_uni = $unitario;
+                    $costo_total_div = $unitario / $item['cantidad'];
+                }else{
+                    $precio_uni = $unitario + $nota->suma_indiv;
+                    $costo_total_div = $precio_uni / $item['cantidad'];
+                }
             @endphp
 
             <tr>
@@ -184,30 +192,12 @@
                 </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">
-                    @php
-                        if($nota->instalacion_aparte == 1 && $nota->envio_externo == 1){
-                            $resta = $unitario - $nota->envio - $nota->instalacion;
-                            $resta_subtotal = $nota->subtotal - $nota->envio - $nota->instalacion;
-                        }
-                        if($nota->instalacion_aparte == 1 && $nota->envio_externo != 1){
-                            $resta = $unitario - $nota->instalacion;
-                            $resta_subtotal = $nota->subtotal - $nota->instalacion;
-                        }
-                        if($nota->instalacion_aparte != 1 && $nota->envio_externo == 1){
-                            $resta = $unitario - $nota->envio;
-                            $resta_subtotal = $nota->subtotal - $nota->envio;
-                        }
-                        if($nota->instalacion_aparte != 1 && $nota->envio_externo != 1){
-                            $resta = $unitario;
-                            $resta_subtotal = $nota->subtotal;
-                        }
-                    @endphp
-                        ${{ number_format($unitario, 1) }}
+                        ${{ number_format($precio_uni, 1) }}
                 </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">1</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($unitario, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($precio_uni, 1) }}</td>
             </tr>
 
             @if ($nota->instalacion_aparte == 1)
@@ -249,22 +239,12 @@
 
         @foreach ($nota_productos2 as $item)
             @php
-                if ($nota->instalacion_aparte == 1){
+                if ($nota->instalacion_aparte == 1 && $nota->envio_externo == 1){
                     $precio_uni = $item->total;
-                    $costo_total_uni = $item->total * $item->cantidad;
+                    $costo_total_div = $item->total / $item->cantidad;
                 }else{
-                    $instalacion_uni = $nota->instalacion / count($nota_productos2);
-                    $precio_uni = $item->total + $instalacion_uni;
-                    $costo_total_uni = $precio_uni * $item->cantidad;
-                }
-
-                if ($nota->instalacion_aparte == 1){
-                    $precio_uni = $item->total;
-                    $costo_total_uni = $item->total * $item->cantidad;
-                }else{
-                    $instalacion_uni = $nota->instalacion / count($nota_productos2);
-                    $precio_uni = $item->total + $instalacion_uni;
-                    $costo_total_uni = $precio_uni * $item->cantidad;
+                    $precio_uni = $item->total + $nota->suma_indiv;
+                    $costo_total_div = $precio_uni / $item->cantidad;
                 }
             @endphp
             <tr>
@@ -289,12 +269,12 @@
                 </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">
-                        ${{ number_format($precio_uni, 1) }}
+                        ${{ number_format($costo_total_div, 1) }}
                 </td>
 
                 <td style="border: 1px solid black;border-collapse: collapse;">{{$item->cantidad}}</td>
 
-                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($costo_total_uni, 1) }}</td>
+                <td style="border: 1px solid black;border-collapse: collapse;">${{ number_format($precio_uni, 1) }}</td>
             </tr>
 
             @if ($nota->instalacion_aparte == 1)
