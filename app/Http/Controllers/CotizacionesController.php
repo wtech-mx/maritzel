@@ -196,10 +196,6 @@ class CotizacionesController extends Controller
             $nombre2 = $request->input('nombre_empresa2');
             $fotos2 = $request->file('fotos2'); // Fotos subidas desde el formulario
 
-            // Almacenar servicios creados
-            $serviciosCreados = [];
-
-            // Crear registros de ServiciosCotizaciones
             foreach ($producto2 as $index => $productoId) {
                 if (empty($productoId)) continue; // Si no hay producto seleccionado, saltar este índice
 
@@ -218,37 +214,22 @@ class CotizacionesController extends Controller
                 $servicio->tipo = '2';
                 $servicio->save();
 
-                // Guardar el servicio creado
-                $serviciosCreados[] = $servicio->id;
-            }
+                // Asociar imágenes al servicio actual
+                if (!empty($fotos2[$index])) { // Verifica que existan imágenes para este índice
+                    foreach ($fotos2[$index] as $foto) {
+                        // Guardar la imagen en el servidor
+                        $path = public_path('/materiales');
+                        $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $foto->getClientOriginalName());
+                        $foto->move($path, $fileName);
 
-            // Aseguramos que hay imágenes y servicios creados
-            if (!empty($fotos2) && !empty($serviciosCreados)) {
-                // Aseguramos que haya correspondencia entre servicios y grupos de imágenes
-                $servicioIndex = 0;
-                foreach ($fotos2 as $imagenes) {
-                    // Obtener el ID del servicio actual
-                    $servicioId = $serviciosCreados[$servicioIndex] ?? null;
-
-                    if ($servicioId) {
-                        foreach ($imagenes as $foto) {
-                            // Guardar la imagen en el servidor
-                            $path = public_path('/materiales');
-                            $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $foto->getClientOriginalName());
-                            $foto->move($path, $fileName);
-
-                            // Guardar la imagen en la base de datos
-                            CotizacionFoto::create([
-                                'id_cotizacion' => $notas_productos->id,
-                                'serv_id' => $servicioId, // Asociar con el servicio actual
-                                'tipo' => '2',
-                                'foto' => $fileName,
-                            ]);
-                        }
+                        // Guardar la imagen en la base de datos
+                        CotizacionFoto::create([
+                            'id_cotizacion' => $notas_productos->id,
+                            'serv_id' => $servicio->id, // Asociar con el servicio actual
+                            'tipo' => '2',
+                            'foto' => $fileName,
+                        ]);
                     }
-
-                    // Pasar al siguiente servicio
-                    $servicioIndex++;
                 }
             }
         }
