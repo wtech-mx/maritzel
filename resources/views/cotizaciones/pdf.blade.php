@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cotización  @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</title>
+    <title>Cotización @if ($nota->folio == null) {{ $nota->id }} @else {{ $nota->folio }} @endif</title>
     <style>
         body {
             font-family: Helvetica, Arial, sans-serif;
@@ -251,13 +251,17 @@
             @endphp
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
-                    @foreach ($fotos as $foto)
-                        @if ($foto->serv_id == $item->id)
-                            <p>
-                                <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
-                            </p>
-                        @endif
-                    @endforeach
+                    @if ($fotos && $fotos->isNotEmpty())
+                        @foreach ($fotos as $foto)
+                            @if ($foto->serv_id == $item->id)
+                                <p>
+                                    <img src="{{ public_path('materiales/'.$foto->foto) }}" alt="Imagen no disponible" width="130px">
+                                </p>
+                            @endif
+                        @endforeach
+                    @else
+                        <p>No hay fotos disponibles.</p>
+                    @endif
                 </td>
 
                 <td style="" style="border: 1px solid black;border-collapse: collapse;padding:20px;font-size:13px;line-height: 1;">
