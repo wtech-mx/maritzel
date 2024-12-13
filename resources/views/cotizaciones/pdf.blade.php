@@ -173,9 +173,11 @@
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
                     @foreach ($fotos as $foto)
-                        <p>
-                            <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
-                        </p>
+                        @if ($foto->serv_id == NULL)
+                            <p>
+                                <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
+                            </p>
+                        @endif
                     @endforeach
                 </td>
 
@@ -250,9 +252,11 @@
             <tr>
                 <td style="border: 1px solid black;border-collapse: collapse;">
                     @foreach ($fotos as $foto)
-                        <p>
-                            <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
-                        </p>
+                        @if ($foto->serv_id == $item->id)
+                            <p>
+                                <img src="{{ asset('materiales/'.$foto->foto) }}" alt="" width="130px"> <br>
+                            </p>
+                        @endif
                     @endforeach
                 </td>
 

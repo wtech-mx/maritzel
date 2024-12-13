@@ -136,10 +136,27 @@ class CotizacionesController extends Controller
 
         // Crear el nuevo folio con el tipo de nota y el número
         $folio = $tipoNota[0] . $numeroFolio;
-
         // Asignar el nuevo folio al objeto
         $notas_productos->folio = $folio;
         $notas_productos->save();
+
+        if ($request->hasFile('foto')) {
+            $files = $request->file('foto');  // Obtén todas las imágenes
+            $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
+
+            foreach ($files as $file) {
+                $path = public_path('/materiales');  // Directorio de almacenamiento
+                $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                $file->move($path, $fileName);  // Mueve el archivo al directorio
+
+                // Guarda la imagen en la tabla cotizaciones_fotos
+                CotizacionFoto::create([
+                    'id_cotizacion' => $cotizacionId,  // ID de la cotización
+                    'tipo' => '1',
+                    'foto' => $fileName  // Nombre del archivo guardado
+                ]);
+            }
+        }
 
         if (!empty($request->input('cantidad')) && array_filter($request->input('cantidad')) !== []) {
             $cantidad = $request->input('cantidad');
@@ -165,25 +182,6 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->material = $material[$index];
                 $notas_inscripcion->tipo = '1';
                 $notas_inscripcion->save();
-
-                // if ($request->hasFile('foto')) {
-                //     $files = $request->file('foto');  // Obtén todas las imágenes
-                //     $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
-
-                //     foreach ($files as $file) {
-                //         $path = public_path('/materiales');  // Directorio de almacenamiento
-                //         $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
-                //         $file->move($path, $fileName);  // Mueve el archivo al directorio
-
-                //         // Guarda la imagen en la tabla cotizaciones_fotos
-                //         CotizacionFoto::create([
-                //             'id_cotizacion' => $cotizacionId,  // ID de la cotización
-                //             'serv_id' => $notas_inscripcion->id,
-                //             'tipo' => '1',
-                //             'foto' => $fileName  // Nombre del archivo guardado
-                //         ]);
-                //     }
-                // }
             }
         }
 
@@ -212,24 +210,20 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->tipo = '2';
                 $notas_inscripcion->save();
 
-                // if ($request->hasFile('foto2')) {
-                //     $files = $request->file('foto2');  // Obtén todas las imágenes
-                //     $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
+                if (isset($fotos2[$index])) {
+                    $file = $fotos2[$index];
+                    $path = public_path('/materiales');
+                    $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                    $file->move($path, $fileName);
 
-                //     foreach ($files as $file) {
-                //         $path = public_path('/materiales');  // Directorio de almacenamiento
-                //         $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
-                //         $file->move($path, $fileName);  // Mueve el archivo al directorio
-
-                //         // Guarda la imagen en la tabla cotizaciones_fotos
-                //         CotizacionFoto::create([
-                //             'id_cotizacion' => $cotizacionId,  // ID de la cotización
-                //             'serv_id' => $notas_inscripcion->id,
-                //             'tipo' => '2',
-                //             'foto' => $fileName  // Nombre del archivo guardado
-                //         ]);
-                //     }
-                // }
+                    // Guarda la foto en la tabla CotizacionFoto
+                    CotizacionFoto::create([
+                        'id_cotizacion' => $notas_productos->id,
+                        'serv_id' => $notas_inscripcion->id,
+                        'tipo' => '2',
+                        'foto' => $fileName,
+                    ]);
+                }
             }
         }
 
