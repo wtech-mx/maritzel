@@ -42,7 +42,7 @@ class CotizacionesController extends Controller
         $clientes = Client::get();
         $servicios = Servicios::where('id_categoria', '=', '1')->orderBy('nombre', 'desc')->get();
 
-        return view('cotizaciones.letreros.create',compact('clientes','servicios'));
+        return view('cotizaciones.letreros.create_new',compact('clientes','servicios'));
     }
 
     public function create_vinil(){
@@ -184,52 +184,45 @@ class CotizacionesController extends Controller
                 $notas_inscripcion->save();
             }
         }
-        // Verificamos que los datos necesarios existan y no estén vacíos
-        if (!empty($request->input('producto2')) && array_filter($request->input('producto2')) !== []) {
-            $producto2 = $request->input('producto2');
+
+        if (!empty($request->input('cantidad2')) && array_filter($request->input('cantidad2')) !== []) {
             $cantidad2 = $request->input('cantidad2');
             $dimenciones2 = $request->input('dimenciones2');
             $subtotal2 = $request->input('subtotal2');
             $precio_cm2 = $request->input('precio_cm2');
             $total_precio_cm2 = $request->input('total_precio_cm2');
             $material2 = $request->input('material2');
+            $subtotalIva2 = $request->input('subtotalIva2');
             $nombre2 = $request->input('nombre_empresa2');
-            $fotos2 = $request->file('fotos2'); // Fotos subidas desde el formulario
 
-            foreach ($producto2 as $index => $productoId) {
-                if (empty($productoId)) continue; // Si no hay producto seleccionado, saltar este índice
+            foreach ($producto2 as $index => $campo) {
+                $notas_inscripcion = new ServiciosCotizaciones;
+                $notas_inscripcion->id_notas_servicios = $notas_productos->id;
+                $notas_inscripcion->id_servicios = $campo;
+                $notas_inscripcion->producto = $notas_inscripcion->Servicio->nombre;
+                $notas_inscripcion->cantidad = $cantidad2[$index];
+                $notas_inscripcion->total = $subtotal2[$index];
+                $notas_inscripcion->dimenciones_cm = $dimenciones2[$index];
+                $notas_inscripcion->precio_cm = $precio_cm2[$index];
+                $notas_inscripcion->total_precio_cm = $total_precio_cm2[$index];
+                $notas_inscripcion->material = $material2[$index];
+                $notas_inscripcion->nombre = $nombre2[$index];
+                $notas_inscripcion->tipo = '2';
+                $notas_inscripcion->save();
 
-                // Crear el servicio
-                $servicio = new ServiciosCotizaciones;
-                $servicio->id_notas_servicios = $notas_productos->id;
-                $servicio->id_servicios = $productoId;
-                $servicio->producto = $servicio->Servicio->nombre ?? 'Sin nombre';
-                $servicio->cantidad = $cantidad2[$index] ?? 0;
-                $servicio->total = $subtotal2[$index] ?? 0;
-                $servicio->dimenciones_cm = $dimenciones2[$index] ?? 0;
-                $servicio->precio_cm = $precio_cm2[$index] ?? 0;
-                $servicio->total_precio_cm = $total_precio_cm2[$index] ?? 0;
-                $servicio->material = $material2[$index] ?? 0;
-                $servicio->nombre = $nombre2[$index] ?? 'Sin nombre';
-                $servicio->tipo = '2';
-                $servicio->save();
+                if (isset($fotos2[$index])) {
+                    $file = $fotos2[$index];
+                    $path = public_path('/materiales');
+                    $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                    $file->move($path, $fileName);
 
-                // Asociar imágenes al servicio actual
-                if (!empty($fotos2[$index])) { // Verifica que existan imágenes para este índice
-                    foreach ($fotos2[$index] as $foto) {
-                        // Guardar la imagen en el servidor
-                        $path = public_path('/materiales');
-                        $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $foto->getClientOriginalName());
-                        $foto->move($path, $fileName);
-
-                        // Guardar la imagen en la base de datos
-                        CotizacionFoto::create([
-                            'id_cotizacion' => $notas_productos->id,
-                            'serv_id' => $servicio->id, // Asociar con el servicio actual
-                            'tipo' => '2',
-                            'foto' => $fileName,
-                        ]);
-                    }
+                    // Guarda la foto en la tabla CotizacionFoto
+                    CotizacionFoto::create([
+                        'id_cotizacion' => $notas_productos->id,
+                        'serv_id' => $notas_inscripcion->id,
+                        'tipo' => '2',
+                        'foto' => $fileName,
+                    ]);
                 }
             }
         }
@@ -384,41 +377,41 @@ class CotizacionesController extends Controller
         return response()->json(['success' => 'Imagen eliminada con éxito']);
     }
 
-    public function imprimir($id)
-    {
-        $today = date('d-m-Y');
+    public function imprimir($id){
+        $today =  date('d-m-Y');
+
         $nota = Cotizaciones::find($id);
 
-        $fotos = CotizacionFoto::where('id_cotizacion', $id)->get() ?? collect();
+        $fotos = CotizacionFoto::where('id_cotizacion', $id)->get();
 
         $nota_productos = ServiciosCotizaciones::where('id_notas_servicios', $id)
             ->where('tipo', '1')
             ->get()
-            ->groupBy('id_notas_servicios')
-            ->map(function ($group) {
+            ->groupBy('id_notas_servicios')  // Agrupa por id_servicios
+            ->map(function ($group) {   // Mapea cada grupo de servicios
                 return [
                     'id_notas_servicios' => $group->first()->id_notas_servicios,
                     'cantidad' => $group->sum('cantidad'),
                     'total' => $group->sum('total'),
                     'total_iva' => $group->sum('total_iva'),
                     'subtotal_iva' => $group->sum('subtotal_iva'),
-                    'Servicio' => $group->first()->Servicio,
+                    'Servicio' => $group->first()->Servicio,  // Obtén el primer servicio del grupo para los datos relacionados
                     'imagen' => $group->first()->Servicio->imagen,
                 ];
             });
 
-        $nota_productos2 = ServiciosCotizaciones::where('id_notas_servicios', $id)
-            ->where('tipo', '2')
-            ->get();
+        $nota_productos2 = ServiciosCotizaciones::where('id_notas_servicios', $id)->where('tipo', '2')->get();
 
-        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos', 'fotos', 'nota_productos2'))
-            ->setPaper([0, 0, 700, 600], 'landscape');
+        $pdf = \PDF::loadView('cotizaciones.pdf', compact('nota', 'today', 'nota_productos', 'fotos', 'nota_productos2'))->setPaper([0, 0, 700, 600], 'landscape');
 
-        $folio = $nota->folio ?? $nota->id;
+        if($nota->folio == null){
+            $folio = $nota->id;
+        }else{
+            $folio = $nota->folio;
+        }
+       return $pdf->stream();
 
-        return $pdf->stream();
     }
-
 
     public function create_personalizado(){
 
@@ -467,7 +460,6 @@ class CotizacionesController extends Controller
             $notas_productos->mensaje_envio = $request->get('mensaje_envio');
             $notas_productos->mensaje_instalacion = $request->get('mensaje_instalacion');
             $notas_productos->cantidad_letreros = $request->get('cantidad_letreros');
-            $notas_productos->nota = $request->input('descripcion');
 
             // Obtener todos los folios del tipo de nota específico
             $folios = Cotizaciones::where('tipo_nota', $tipoNota)->pluck('folio');
@@ -492,25 +484,9 @@ class CotizacionesController extends Controller
             $notas_productos->folio = $folio;
             $notas_productos->save();
 
-            if ($request->hasFile('foto')) {
-                $files = $request->file('foto');  // Obtén todas las imágenes
-                $cotizacionId = $notas_productos->id; // Supongamos que ya tienes el ID de la cotización
-
-                foreach ($files as $file) {
-                    $path = public_path('/materiales');  // Directorio de almacenamiento
-                    $fileName = uniqid() . '_' . $file->getClientOriginalName();
-                    $file->move($path, $fileName);  // Mueve el archivo al directorio
-
-                    // Guarda la imagen en la tabla cotizaciones_fotos
-                    CotizacionFoto::create([
-                        'id_cotizacion' => $cotizacionId,  // ID de la cotización
-                        'foto' => $fileName  // Nombre del archivo guardado
-                    ]);
-                }
-            }
-
             $producto = $request->input('producto');
             $subtotal = $request->input('subtotal');
+            $descripcion = $request->input('descripcion');
             $fotos = $request->file('foto');
 
             foreach ($producto as $index => $producto) {
@@ -520,7 +496,23 @@ class CotizacionesController extends Controller
                 $servicioCotizacion->producto = $producto;
                 $servicioCotizacion->total = $subtotal[$index];
                 $servicioCotizacion->cantidad = '1';
+                $servicioCotizacion->descripcion = $descripcion[$index];
                 $servicioCotizacion->save();
+
+                if ($request->hasFile('foto')) {
+                    $file = $request->file('foto');
+                    $path = public_path('/materiales');
+                    $fileName = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                    $file->move($path, $fileName);
+
+                    // Guarda la foto en la tabla CotizacionFoto
+                    CotizacionFoto::create([
+                        'id_cotizacion' => $notas_productos->id,
+                        'serv_id' => $servicioCotizacion->id,
+                        'tipo' => '2',
+                        'foto' => $fileName,
+                    ]);
+                }
             }
 
             return redirect()->route('index.cotizaciones')
