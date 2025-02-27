@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{asset('assets/admin/vendor/select2/dist/css/select2.min.css')}}">
 
     <style>
-            @media only screen and (max-width: 550px) {
-                .label_text{
-                    font-size: 12px;
-                }
+        @media only screen and (max-width: 550px) {
+            .label_text{
+                font-size: 12px;
             }
+        }
     </style>
 @endsection
 
@@ -139,7 +139,7 @@
                                                         <span class="input-group-text" id="basic-addon1">
                                                             <img src="{{ asset('img/icon/galeria-de-imagenes.webp') }}" alt="" width="15px">
                                                         </span>
-                                                        <input type="file" name="foto[0][]" class="form-control" multiple>
+                                                        <input type="file" name="foto[0][0][]" class="form-control" multiple>
                                                     </div>
                                                 </div>
 
@@ -155,7 +155,7 @@
                                                 </div>
 
                                                 <!-- calculos -->
-                                                <div class="form-group col-4">
+                                                <div class="form-group col-2">
                                                     <h5 class="label_text" for="name">Envio</h5>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">
@@ -165,7 +165,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group col-4">
+                                                <div class="form-group col-2">
                                                     <h5 class="label_text" for="name">instalacion</h5>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">
@@ -177,15 +177,15 @@
 
                                                 <div class="form-group col-lg-2 col-md-4 col-6">
                                                     <h5 class="label_text" for="name">Utilidad (%)</h5>
-                                                    <input type="number" name="utilidad[0][]" id="utilidad_0" class="form-control utilidad" step="0.01">
+                                                    <input type="number" name="utilidad[0]" id="utilidad_0" class="form-control utilidad" step="0.01">
                                                 </div>
 
                                                 <div class="form-group col-lg-2 col-md-4 col-6">
                                                     <h5 class="label_text" for="name">Utilidad</h5>
-                                                    <input type="number" name="utilidad_fijo[0][]" id="utilidad_fijo_0" class="form-control utilidad-fijo">
+                                                    <input type="number" name="utilidad_fijo[0]" id="utilidad_fijo_0" class="form-control utilidad-fijo">
                                                 </div>
 
-                                                <div class="form-group col-4">
+                                                <div class="form-group col-3">
                                                     <h5 class="label_text" for="name">Total Registro</h5>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">
@@ -207,29 +207,43 @@
                                                                         <div class="form-group">
                                                                             <select name="producto[0][]" class="form-select d-inline-block producto-select">
                                                                                 <option value="">Seleccione producto</option>
-                                                                                @foreach ($servicios as $product)
-                                                                                    <option value="{{ $product->id }}" data-precio_normal="{{ $product->precio_normal }}">{{ $product->nombre }}</option>
+                                                                                @foreach ($servicios as $servicio)
+                                                                                    <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio_normal }}" data-categoria="{{ $servicio->id_categoria }}"> {{ $servicio->nombre }} </option>
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group col-lg-2 col-md-4 col-4">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-4 categoria-2">
                                                                         <h5 class="label_text" for="name">Cantidad *</h5>
                                                                         <input type="number" name="cantidad[0][]" class="form-control d-inline-block cantidad">
                                                                     </div>
 
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6 categoria-2">
                                                                         <h5 class="label_text" for="name">Dimensiones *</h5>
                                                                         <input type="text" name="dimensiones[0][]" class="form-control d-inline-block dimensiones">
                                                                     </div>
 
-                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                        <h5 class="label_text" for="name">Subtotal *</h5>
-                                                                        <input type="text" name="subtotal[0][]" class="form-control d-inline-block subtotal" readonly>
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6 d-none ancho-altura categoria-1">
+                                                                        <h5 class="label_text" for="name">Ancho *</h5>
+                                                                        <input type="number" class="form-control ancho" name="ancho[0][]" placeholder="Ancho">
                                                                     </div>
 
-                                                                    <!-- Collapse -->
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6 d-none ancho-altura categoria-1">
+                                                                        <h5 class="label_text" for="name">Altura *</h5>
+                                                                        <input type="number" class="form-control altura" name="altura[0][]" placeholder="Altura">
+                                                                    </div>
+
+                                                                    <div class="form-group col-lg-4 col-md-8 col-8 descripcion-personalizado d-none">
+                                                                        <h5 class="label_text" for="descripcion">Descripción</h5>
+                                                                        <textarea name="descripcion[0][]" class="form-control d-inline-block descripcion"></textarea>
+                                                                    </div>
+
+                                                                    <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                        <h5 class="label_text" for="name">Subtotal *</h5>
+                                                                        <input type="text" name="subtotal[0][]" class="form-control d-inline-block subtotal">
+                                                                    </div>
+
                                                                     <div class="form-group col-lg-12 col-md-12 col-6">
                                                                         <button class="btn btn-primary toggle-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraFields0_0" aria-expanded="false" aria-controls="collapseExtraFields0_0">
                                                                             Más Opciones
@@ -240,13 +254,18 @@
                                                                         <div class="card card-body mt-3">
                                                                             <div class="row">
                                                                                 <div class="form-group col-lg-2 col-md-4 col-6">
-                                                                                    <h5 class="label_text" for="name">Precio cm</h5>
+                                                                                    <h5 class="label_text" for="name">Precio</h5>
                                                                                     <input type="number" name="precio_cm[0][]" class="form-control precio-cm">
                                                                                 </div>
 
-                                                                                <div class="form-group col-lg-2 col-md-4 col-6">
+                                                                                <div class="form-group col-lg-2 col-md-4 col-6 categoria-2">
                                                                                     <h5 class="label_text" for="name">Total Precio cm</h5>
                                                                                     <input type="number" name="total_precio_cm[0][]" class="form-control total-precio-cm" readonly>
+                                                                                </div>
+
+                                                                                <div class="form-group col-lg-2 col-md-4 col-6 categoria-1">
+                                                                                    <h5 class="label_text" for="name">Total Precio m2</h5>
+                                                                                    <input type="number" name="total_precio_m2[0][]" class="form-control total-precio-m2" readonly>
                                                                                 </div>
 
                                                                                 <div class="form-group col-lg-2 col-md-4 col-6">
@@ -274,16 +293,6 @@
                                     <div class="row mt-5">
                                         <h4>Total cotizacion</h4>
                                         <div class="form-group col-lg-2 col-md-4 col-6">
-                                            <label for="envio_externo">¿Envió Externo?</label>
-                                            <input type="checkbox" id="envio_externo" name="envio_externo" value="1">
-                                        </div>
-
-                                        <div class="form-group col-lg-2 col-md-4 col-6">
-                                            <label for="instalacion_aparte">¿Separar instalacion?</label>
-                                            <input type="checkbox" id="instalacion_aparte" name="instalacion_aparte" value="1">
-                                        </div>
-
-                                        <div class="form-group col-lg-2 col-md-4 col-6">
                                             <h5 class="label_text" for="name">Total</h5>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="basic-addon1">
@@ -309,7 +318,7 @@
                                                 <span class="input-group-text" id="basic-addon1">
                                                     <img src="{{ asset('img/icon/dinero.png') }}" alt="" width="15px">
                                                 </span>
-                                                <input id="ivaTotal" name="ivaTotal" type="text" class="form-control" readonly>
+                                                <input id="iva" name="iva" type="text" class="form-control" readonly>
                                             </div>
                                         </div>
 
@@ -356,21 +365,38 @@ $(document).ready(function () {
 
     // Función para calcular el subtotal de cada producto
     function calcularSubtotal(productoContainer) {
-        const precioCm = parseFloat(productoContainer.find(".precio-cm").val()) || 0;
-        const dimensiones = parseFloat(productoContainer.find(".dimensiones").val()) || 0;
-        const cantidad = parseFloat(productoContainer.find(".cantidad").val()) || 0;
+        const categoria = productoContainer.find(".producto-select option:selected").data("categoria");
 
-        // Calcular el totalPrecioCm
-        const totalPrecioCm = precioCm * dimensiones;
-        productoContainer.find(".total-precio-cm").val(totalPrecioCm.toFixed(2));
+        if (categoria === 1) {
+            // Cálculos para categoría 2
+            const precioCm = parseFloat(productoContainer.find(".precio-cm").val()) || 0;
+            const dimensiones = parseFloat(productoContainer.find(".dimensiones").val()) || 0;
+            const cantidad = parseFloat(productoContainer.find(".cantidad").val()) || 0;
 
-        // Calcular el material
-        const material = totalPrecioCm * cantidad;
-        productoContainer.find(".material").val(material.toFixed(2));
+            const totalPrecioCm = precioCm * dimensiones;
+            productoContainer.find(".total-precio-cm").val(totalPrecioCm.toFixed(2));
 
-        // Calcular el subtotal
-        const subtotal = material;
-        productoContainer.find(".subtotal").val(subtotal.toFixed(2));
+            const material = totalPrecioCm * cantidad;
+            productoContainer.find(".material").val(material.toFixed(2));
+
+            // Calcular el subtotal
+            const subtotal = material;
+            productoContainer.find(".subtotal").val(subtotal.toFixed(2));
+        } else if (categoria === 2) {
+            // Cálculos para categoría 1
+            const ancho = parseFloat(productoContainer.find(".ancho").val()) || 0;
+            const altura = parseFloat(productoContainer.find(".altura").val()) || 0;
+            const precioCm = parseFloat(productoContainer.find(".precio-cm").val()) || 0;
+
+            const totalPrecioM2 = ancho * altura * precioCm;
+            productoContainer.find(".total-precio-m2").val(totalPrecioM2.toFixed(2));
+
+            const subtotal = ancho * altura * precioCm;
+            productoContainer.find(".subtotal").val(subtotal.toFixed(2));
+
+            const material = subtotal;
+            productoContainer.find(".material").val(material.toFixed(2));
+        }
     }
 
     function calcularTotalRegistro(registroContainer) {
@@ -378,7 +404,7 @@ $(document).ready(function () {
 
         // Sumar subtotales de los productos
         registroContainer.find(".productosContainer .producto").each(function () {
-            const subtotal = parseFloat($(this).find(".material").val()) || 0;
+            const subtotal = parseFloat($(this).find(".subtotal").val()) || 0;
             totalProductos += subtotal;
         });
 
@@ -392,19 +418,42 @@ $(document).ready(function () {
 
         const totalConUtilidad = (totalProductos + envio + instalacion) * (1 + utilidad / 100) + utilidadFijo;
 
-        registroContainer.find(".total-registro").val(totalConUtilidad.toFixed(2));
+        // Actualizar el campo total-registro
+        registroContainer.find(".total-registro").val(totalConUtilidad.toFixed(2)).trigger("input");
 
-        // Depuración
-        console.log("Total Productos:", totalProductos);
-        console.log("Envío:", envio);
-        console.log("Instalación:", instalacion);
-        console.log("Utilidad %:", utilidad);
-        console.log("Utilidad Fijo:", utilidadFijo);
-        console.log("Total Registro:", totalConUtilidad);
+        calcularIva();
     }
 
+    function calcularIva() {
+        let total = 0;
+
+        // Iterar por todos los campos con la clase .total-registro
+        $(".total-registro").each(function () {
+            const value = parseFloat($(this).val()) || 0; // Convertir a número o tomar 0 si está vacío
+            total += value;
+        });
+
+        // Actualizar el campo #total con el total acumulado
+        $("#total").val(total.toFixed(2)); // Redondear a 2 decimales
+
+        // Calcular el IVA en base al porcentaje
+        const ivaPorcentaje = parseFloat($("#ivaPorcentaje").val()) || 0;
+        const iva = (total * ivaPorcentaje) / 100;
+
+        // Mostrar el resultado en el input #iva
+        $("#iva").val(iva.toFixed(2));
+
+        // Sumar total + IVA y actualizar el campo #totalIva
+        const totalConIva = total + iva;
+        $("#totalIva").val(totalConIva.toFixed(2));
+    }
+
+    $(document).on("input", "#ivaPorcentaje", function () {
+        calcularIva();
+    });
+
     // Evento para recalcular el subtotal al cambiar cantidad, dimensiones, precio por cm, material o utilidad
-    $(document).on("input", ".cantidad, .dimensiones, .precio-cm", function () {
+    $(document).on("input", ".cantidad, .dimensiones, .precio-cm, .ancho, .altura", function () {
         const productoContainer = $(this).closest(".producto");
         calcularSubtotal(productoContainer);
 
@@ -414,11 +463,29 @@ $(document).ready(function () {
 
     // Evento para seleccionar un producto y cargar su precio
     $(document).on("change", ".producto-select", function () {
-        const selectedOption = $(this).find(":selected");
-        const precioNormal = parseFloat(selectedOption.data("precio_normal")) || 0;
-
         const productoContainer = $(this).closest(".producto");
-        productoContainer.find(".precio-cm").val(precioNormal.toFixed(2));
+        const selectedOption = $(this).find(":selected");
+        const categoria = selectedOption.data("categoria");
+        const precio = selectedOption.data("precio");
+        const servicioId = selectedOption.val();
+
+        // Asignar precio al input de precio-cm
+        productoContainer.find(".precio-cm").val(precio || 0);
+
+        // Mostrar/ocultar campos según la categoría o si el servicio es personalizado (ID 6)
+        if (servicioId == 6) {
+            productoContainer.find(".categoria-2, .categoria-1").addClass("d-none");
+            productoContainer.find(".descripcion-personalizado").removeClass("d-none");
+        } else {
+            productoContainer.find(".descripcion-personalizado").addClass("d-none");
+            if (categoria === 2) {
+                productoContainer.find(".categoria-2").addClass("d-none");
+                productoContainer.find(".categoria-1").removeClass("d-none");
+            } else if (categoria === 1) {
+                productoContainer.find(".categoria-1").addClass("d-none");
+                productoContainer.find(".categoria-2").removeClass("d-none");
+            }
+        }
 
         calcularSubtotal(productoContainer);
 
@@ -426,7 +493,7 @@ $(document).ready(function () {
         calcularTotalRegistro(registroContainer);
     });
 
-    $(document).on("input", ".envio, .instalacion, .utilidad, .utilidad-fijo", function () {
+    $(document).on("input", ".envio, .instalacion, .utilidad, .utilidad-fijo, .subtotal", function () {
         const registroContainer = $(this).closest(".registro");
         calcularTotalRegistro(registroContainer);
     });
@@ -462,19 +529,47 @@ $(document).ready(function () {
             }
         });
 
+        // Actualizar IDs del colapso y el botón "Más Opciones"
+        const collapseId = `collapseExtraFields${registroIndex}_${productoIndex}`;
+        nuevoProducto.find(".collapse").attr("id", collapseId);
+        nuevoProducto.find(".toggle-collapse").attr("data-bs-target", `#${collapseId}`);
+        nuevoProducto.find(".toggle-collapse").attr("aria-controls", collapseId);
+
         productosContainer.append(nuevoProducto);
+    });
+
+    $(document).on("input", ".total-registro", function () {
+        console.log("Input triggered"); // Debugging para verificar si el evento se activa
+        let total = 0;
+
+        // Iterar por todos los campos con la clase .total-registro
+        $(".total-registro").each(function () {
+            const value = parseFloat($(this).val()) || 0; // Convertir a número o tomar 0 si está vacío
+            total += value;
+        });
+
+        console.log("Total acumulado:", total); // Debugging para verificar el cálculo
+        // Actualizar el campo #total con el total acumulado
+        $("#total").val(total.toFixed(2)); // Redondear a 2 decimales
     });
 
     // Evento para agregar un nuevo registro
     $("#agregarRegistro").on("click", function () {
         registroIndex++;
 
-        // Clonar el registro y limpiar los valores
+        // Clonar el primer registro
         let nuevoRegistro = $(".registro:first").clone();
+
+        // Limpiar valores y dejar un solo producto
         nuevoRegistro.find("input").val(""); // Limpia todos los valores de los inputs
         nuevoRegistro.find("select").val(""); // Limpia los selects
         nuevoRegistro.find(".collapse").removeClass("show"); // Cierra los collapses abiertos
-        nuevoRegistro.find(".error").remove(); // Elimina errores (si tienes validaciones)
+        nuevoRegistro.find(".productosContainer").html(""); // Elimina todos los productos del registro
+
+        // Crear un solo producto por defecto
+        let productoDefault = $(".registro:first .producto:first").clone();
+        productoDefault.find("input, select").val(""); // Limpia los valores del producto
+        nuevoRegistro.find(".productosContainer").append(productoDefault);
 
         // Actualizar índices en los atributos name e id
         nuevoRegistro.find("input, select").each(function () {

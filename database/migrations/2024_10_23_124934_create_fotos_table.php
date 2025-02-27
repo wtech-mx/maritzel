@@ -20,8 +20,12 @@ return new class extends Migration
                 ->references('id')->on('cotizaciones')
                 ->inDelete('set null');
 
+            $table->unsignedBigInteger('id_registro');
+            $table->foreign('id_registro')
+                ->references('id')->on('registro_cotizacion')
+                ->inDelete('set null');
+
             $table->text('foto')->nullable();
-            $table->unsignedBigInteger('serv_id')->nullable();
             $table->timestamps();
         });
     }

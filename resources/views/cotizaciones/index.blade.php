@@ -302,15 +302,9 @@
                                                             </a>
                                                         @endif
 
-                                                        @if ($item->tipo_nota == 'Personalizado')
-                                                            <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir_personalizado.cotizaciones', ['id' => $item->id]) }}">
-                                                                <i class="fa fa-file"></i> Descargar
-                                                            </a>
-                                                        @else
                                                             <a class="btn btn-xs btn-info text-white" target="_blank" href="{{ route('imprimir.cotizaciones', ['id' => $item->id]) }}">
                                                                 <i class="fa fa-file"></i> Descargar
                                                             </a>
-                                                        @endif
                                                     </td>
                                                 </tr>
 

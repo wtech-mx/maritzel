@@ -12,23 +12,26 @@ class ServiciosCotizaciones extends Model
     protected $table = 'servicios_cotizaciones';
 
     protected $fillable = [
-        'id_notas_servicios',
+        'id_nota_cotizacion',
+        'id_registro',
         'id_servicios',
-        'producto',
         'cantidad',
-        'descuento',
-        'total',
-        'dimenciones_cm',
-        'dimenciones_largo',
-        'dimenciones_ancho',
-        'precio_cm',
-        'total_precio_cm',
-        'material',
-        'utilidad',
+        'dimenciones',
+        'subtotal',
+        'precio',
+        'total_precio',
+        'mano_obra',
     ];
 
-    public function Servicio()
-    {
+    public function Cotizacion(){
+        return $this->belongsTo(Cotizaciones::class, 'id_nota_cotizacion');
+    }
+
+    public function Registro(){
+        return $this->belongsTo(RegistroCotizaciones::class, 'id_registro');
+    }
+
+    public function Servicio(){
         return $this->belongsTo(Servicios::class, 'id_servicios');
     }
 }

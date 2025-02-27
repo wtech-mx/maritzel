@@ -14,31 +14,30 @@ class Cotizaciones extends Model
     protected $fillable = [
         'id_cliente',
         'id_subcliente',
-        'origen',
-        'destino',
-        'tamano',
-        'peso_contenedor',
-        'precio_viaje',
-        'burreo',
-        'maniobra',
-        'estadia',
-        'otro',
-        'fecha_modulacion',
-        'fecha_entrega',
+        'fecha',
+        'subtotal',
+        'iva_porcentaje',
         'iva',
-        'retencion',
-        'estatus',
-        'sobrepeso',
-        'peso_reglamentario',
-        'peso_kg',
-        'precio_sobre_peso',
-        'precio_tonelada',
-        'id_banco1',
-        'id_banco2',
-        'id_empresa',
-        'prove_restante',
-        'id_cuenta_prov',
-        'id_cuenta_prov2',
+        'total',
+        'dinero_recibido',
+        'restante',
+        'descuento',
+        'metodo_pago',
+        'monto',
+        'foto_pago',
+        'metodo_pago2',
+        'monto2',
+        'foto_pago2',
+        'factura',
+        'situacion_fiscal',
+        'razon_social',
+        'rfc',
+        'cfdi',
+        'correo_fac',
+        'telefono_fac',
+        'direccion_fac',
+        'estatus_cotizacion',
+        'id_admin',
     ];
 
     public function Cliente()
@@ -50,14 +49,9 @@ class Cotizaciones extends Model
     {
         return $this->belongsTo(Subclientes::class, 'id_subcliente');
     }
-    public function BancoProv()
-    {
-        return $this->hasOne(CuentasBancarias::class, 'id_cuenta_prov');
-    }
 
-    public function ServiciosCotizaciones()
+    public function Admin()
     {
-        return $this->hasOne(ServiciosCotizaciones::class, 'id_notas_servicios');
+        return $this->belongsTo(User::class, 'id_admin');
     }
-
 }

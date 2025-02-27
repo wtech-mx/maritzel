@@ -12,12 +12,17 @@ class CotizacionFoto extends Model
 
     protected $fillable = [
         'id_cotizacion',
+        'id_registro',
         'foto',
-        'serv_id',
     ];
 
     public function Cotizaciones()
     {
         return $this->belongsTo(Cotizaciones::class, 'id_cotizacion');
+    }
+
+    public function Registro()
+    {
+        return $this->belongsTo(RegistroCotizaciones::class, 'id_registro');
     }
 }

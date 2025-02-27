@@ -25,16 +25,15 @@ return new class extends Migration
                 ->references('id')->on('subclientes')
                 ->inDelete('set null');
 
-            $table->string('tipo_nota')->nullable();
-            $table->string('envio')->nullable();
             $table->date('fecha')->nullable();
             $table->string('subtotal')->nullable();
+            $table->string('iva_porcentaje')->nullable();
+            $table->string('iva')->nullable();
             $table->string('total')->nullable();
+
             $table->string('dinero_recibido')->nullable();
             $table->string('restante')->nullable();
-            $table->string('nota')->nullable();
             $table->string('descuento')->nullable();
-            $table->string('cambio')->nullable();
 
             $table->string('metodo_pago')->nullable();
             $table->string('monto')->nullable();
@@ -51,8 +50,13 @@ return new class extends Migration
             $table->string('correo_fac')->nullable();
             $table->string('telefono_fac')->nullable();
             $table->string('direccion_fac')->nullable();
-            $table->string('folio')->nullable();
             $table->string('estatus_cotizacion')->nullable();
+
+            $table->unsignedBigInteger('id_admin');
+            $table->foreign('id_admin')
+                ->references('id')->on('users')
+                ->inDelete('set null');
+
             $table->timestamps();
         });
     }
