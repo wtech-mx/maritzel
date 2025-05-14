@@ -25,6 +25,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('inicio', [App\Http\Controllers\PaginaController::class, 'inicio'])->name('pagina.inicio');
+
+
 // =============== M O D U L O   login custom ===============================
 
 // Route::get('dashboard', [App\Http\Controllers\CustomAuthController::class, 'dashboard']);
