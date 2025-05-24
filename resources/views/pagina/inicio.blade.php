@@ -6,289 +6,6 @@
 
 @section('content')
 
-<style>
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-    body{
-        margin: 0;
-        padding: 0;
-    }
-    .container_card_inicio{
-        --display: flex;
-        --min-height: 70px;
-        --flex-direction: row;
-        --container-widget-width: calc((1 - var(--container-widget-flex-grow))* 100%);
-        --container-widget-height: 100%;
-        --container-widget-flex-grow: 1;
-        --container-widget-align-self: stretch;
-        --flex-wrap-mobile: wrap;
-        --justify-content: center;
-        --align-items: center;
-        --gap: 0px 0px;
-        --row-gap: 0px;
-        --column-gap: 0px;
-        border-radius: 12px 12px 12px 12px;
-        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .img_container_card_inicio{
-        width: 60px;
-        padding: 10px;
-    }
-
-    .sibtittle_card_inicio{
-        font-family: "Roboto", Sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: var(--e-global-color-46546eb);
-        text-decoration: none;
-        padding: 10px;
-        text-align: start;
-    }
-
-    .titulo_principal{
-        font-family: "Varela Round", Sans-serif;
-        font-size: 30px;
-        font-weight: 600;
-        line-height: 1.2em;
-        color: #7f5adc;
-    }
-
-    .subtitulos{
-        column-gap: 1px;
-        text-align: center;
-        font-family: "Montserrat", Sans-serif;
-        font-size: 18px;
-        font-weight: 200;
-        line-height: 1.4em;
-        color: #000000;
-    }
-
-    .img_crousel_principal{
-        border-radius: 10px 10px 10px 10px;
-        width: 70%;
-    }
-
-    .btn_accion{
-        background-color: #683cc0;
-        font-family: "Montserrat", Sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-transform: capitalize;
-        fill: #00ffa0;
-        color: #00ffa0;
-        box-shadow: 5px 0px 30px 0px rgba(0, 255, 232.0000000000002, 0.5);
-        border-style: solid;
-        border-color: #00ffa0;
-        border-radius: 30px 30px 30px 30px;
-        padding: 15px 50px 15px 50px;
-        text-decoration: none;
-    }
-
-    .coantiner_card_services{
-        border-radius: 12px 12px 12px 12px;
-        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-        padding-top: 65px;
-        padding-bottom: 65px;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .coantiner_card_services2{
-        border-radius: 12px 12px 12px 12px;
-        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .h3_subtitle{
-        font-family: "Roboto", Sans-serif;
-        font-size: 17px;
-        font-weight: 600;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: #683cc0;
-    }
-
-    .img_coantiner_card_services{
-        width: 60% !important;
-        display: inline!important;
-    }
-
-    .texto_services{
-           font-family: "Roboto", Sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: #000000;
-    }
-
-    .h2_subtitle{
-        font-family: "Roboto", Sans-serif;
-        font-weight: 600;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: #683cc0;
-    }
-
-    .text_parraf{
-        font-family: "Roboto", Sans-serif;
-        font-weight: 400;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-        color: #000000;
-    }
-
-    .container_card_product{
-
-    }
-
-    .img_products{
-        max-width: 100%;
-        border-radius: 15px 15px 0px 0px;
-    }
-
-    .text_products{
-        background-color: #7f5adc;
-        border-radius: 0px 0px 15px 15px;
-        font-family: "Roboto", Sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        color: #fff;
-        padding: 10px;
-    }
-
-    .cotizar{
-        background-color: #FFFFFF;
-        font-family: "Montserrat", Sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-transform: capitalize;
-        fill: #683cc0;
-        color: #683cc0;
-        box-shadow: 5px 0px 15px 0px rgba(186.9999999999998, 0, 255, 0.5);
-        border-style: solid;
-        border-color: #683cc0;
-        border-radius: 30px 30px 30px 30px;
-        padding: 10px 30px 10px 30px;
-        text-decoration: none;
-    }
-
-    .whatascontacto{
-        background-color: #FFFFFF;
-        font-family: "Montserrat", Sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-transform: capitalize;
-        fill: #00ffa0;
-        color: #00ffa0;
-        box-shadow: 5px 0px 15px 0px rgba(0, 255, 145.23913043478262, 0.5);
-        border-style: solid;
-        border-color: #00ffa0;
-        border-radius: 30px 30px 30px 30px;
-        padding: 10px 30px 10px 30px;
-        text-decoration: none;
-    }
-
-    .consejos{
-        background-color: #FFFFFF;
-        font-family: "Montserrat", Sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-transform: capitalize;
-        fill: #000000;
-        color: #000000;
-        box-shadow: 5px 0px 15px 0px rgba(0, 0, 0, 0.5);
-        border-style: solid;
-        border-color: #000000;
-        border-radius: 30px 30px 30px 30px;
-        padding: 10px 30px 10px 30px;
-        text-decoration: none;
-    }
-
-    .separador_sections{
-        background-color: transparent;
-        background-image: linear-gradient(70deg, #4F3DB3 0%, #00FEA0 100%);
-        opacity: 1;
-    }
-
-    .h4_separador{
-        font-family: "Roboto", Sans-serif;
-        font-weight: 600;
-        color: #ffffff;
-        font-size: 32px;
-        margin-top: 80px;
-        margin-bottom: 80px;
-    }
-
-    .text_logo{
-        font-family: "Montserrat", Sans-serif;
-        font-size: 20px;
-        font-weight: bold;
-        text-transform: capitalize;
-        color: #fff;
-    }
-
-    .text_opriniones{
-        font-family: "Roboto", Sans-serif;
-        font-weight: 500;
-        color: #00ffa0;
-    }
-
-    .h3_clientes{
-        font-size: 45px;
-        font-weight: 600;
-        color: #00ffa0;
-        text-align: end;
-    }
-
-    .text_clientes{
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: #683cc0;
-        text-align: end;
-    }
-
-    .img_marca{
-        width: 65% !important;
-    }
-
-    .img_logo_footer{
-        width: 170px;
-        height: 45px;
-    }
-
-    .tittle_footer{
-        font-size: 25px;
-        font-weight: 600;
-        color: #00ffa0;
-        text-align: start;
-    }
-
-    .ul_footer a{
-        text-align: left;
-        font-family: "Roboto", Sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        text-transform: uppercase;
-        line-height: 9px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .separdor{
-        margin-top: 7rem !important;
-    }
-
-</style>
-
 <section class="row container mx-auto">
 
     <div class="col-12 col-md-8 col-lg-6">
@@ -507,96 +224,29 @@
         </p>
 
         <div class="row">
-
-            <div class="col-3">
+            @foreach ([
+                ['src'=>'pagina/1.jpg','label'=>'Letreros 3D'],
+                ['src'=>'pagina/4-1.jpg','label'=>'Impresión Digital'],
+                ['src'=>'pagina/6.jpg','label'=>'Neón'],
+                ['src'=>'pagina/2.jpg','label'=>'Anuncios Luminosos'],
+                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Promocionales'],
+                ['src'=>'pagina/3.jpg','label'=>'Recorte de Vinil'],
+                ['src'=>'pagina/5.jpg','label'=>'Señaletica'],
+                ['src'=>'pagina/9.jpg','label'=>'Otros Productos'],
+            ] as $img)
+                <div class="col-3">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/1.jpg')}}" alt=""> <br>
+                    <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
+                        <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
+                    </a>
                     </p>
-                    <p class="text-center text_products">
-                        Letreros 3D
-                    </p>
+                    <p class="text-center text_products">{{ $img['label'] }}</p>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/4-1.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                        Impresión Digital
-                    </p>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/6.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                        Neón
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/2.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                       Anuncios Luminosos
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/9-1024x649.jpeg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                        Promocionales
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/3.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                       Recorte de Vinil
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/5.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                        Señaletica
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="container_card_product">
-                    <p class="text-center mb-0">
-                        <img class="img_products" src="{{ asset('pagina/9.jpg')}}" alt=""> <br>
-                    </p>
-                    <p class="text-center text_products">
-                        Otros Productos
-                    </p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
+
     </div>
 
 </section>
@@ -692,19 +342,21 @@
 
 <section class="row container-fluid  mt-5 mb-3" style="background: #7f5adc">
 
-    <div class="col-6">
-        <div class="d-flex justify-content-center">
-            <div class="container mb-5 mt-5">
-                <h4 class="text_logo">Imaginarte 3D</h4>
-                <h5 class="text_opriniones">
-                    Lo que nuestros clientes tienen que decir
-                </h5>
+    <div class="row container mx-auto mt-5 mb-3">
+        <div class="col-6">
+            <div class="d-flex justify-content-center">
+                <div class="container mb-5 mt-5">
+                    <h4 class="text_logo">Imaginarte 3D</h4>
+                    <h5 class="text_opriniones">
+                        Lo que nuestros clientes tienen que decir
+                    </h5>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-6">
+        <div class="col-6">
 
+        </div>
     </div>
 
 </section>
@@ -768,65 +420,22 @@
 
 </section>
 
-<footer class="row container-fluid m-0 p-0">
-
-    <div class="container_head_footer row container-fluid p-4" style="background: #7f5adc">
-
-        <div class="col-2">
-        </div>
-
-        <div class="col-8">
-
-            <div class="row">
-                <div class="col-4 my-auto mx-auto">
-                    <img class="img_logo_footer " src="{{ asset(path: 'pagina/cropped-new-log.png')}}" alt="">
-                </div>
-
-                <div class="col-4">
-                    <h3 class="tittle_footer" >Informacion</h3>
-                    <p class="ul_footer">
-                        <br>
-                    <a href="" > INICIO</a><br> <br>
-                    <a href="" > PRODUCTOS</a><br> <br>
-                    <a href="" > PREGUNTAS </a><br> <br>
-                    <a href="" > Cotizar</a><br> <br>
-                    </p>
-                </div>
-
-                <div class="col-4">
-                    <h3 class="tittle_footer" >Síguenos en</h3>
-                    <p class="ul_footer">
-
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2">
-        </div>
-
-    </div>
-
-    <div class="container_foot_footer row container-fluid" style="background: #683CC0">
-
-        <div class="col-2">
-        </div>
-
-        <div class="col-8">
-            <div class="row">
-                <div class="col-6 my-auto">
-                    <p class="m-0 p-3 text-white">POWER BY |W - TECH WEB TECH</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-2">
-        </div>
-
-    </div>
-
-</footer>
+@include('pagina.componentes.footer')
 
 @endsection
 
+@section('js_custom')
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      slideEffect: 'fade'  // efecto suave
+    });
+  });
+</script>
+
+@endsection

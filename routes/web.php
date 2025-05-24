@@ -26,6 +26,12 @@ Route::get('/', function () {
 });
 
 Route::get('inicio', [App\Http\Controllers\PaginaController::class, 'inicio'])->name('pagina.inicio');
+Route::get('letras3d', [App\Http\Controllers\PaginaController::class, 'letras3d'])->name('pagina.letras3d');
+Route::get('impresion_digital', [App\Http\Controllers\PaginaController::class, 'impresion_digital'])->name('pagina.impresion_digital');
+Route::get('letreros_neon', [App\Http\Controllers\PaginaController::class, 'letreros_neon'])->name('pagina.letreros_neon');
+Route::get('anuncios_luminosos', [App\Http\Controllers\PaginaController::class, 'anuncios_luminosos'])->name('pagina.anuncios_luminosos');
+Route::get('promocionales', [App\Http\Controllers\PaginaController::class, 'promocionales'])->name('pagina.promocionales');
+Route::get('señaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
 
 
 // =============== M O D U L O   login custom ===============================

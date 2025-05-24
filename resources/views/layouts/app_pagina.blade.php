@@ -28,77 +28,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
+  <link href="{{ asset('assets/bootstrap_icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/landing.css') }}" rel="stylesheet">
+
+  <!-- GLightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
   @yield('css')
 
   <!-- CSS Files -->
 
   <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
 
-  <style>
-    .header{
-        background-color: #683CC0;
-    }
-
-    .nav-pills .nav-link {
-        color: #fff;
-        fill: #fff;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        font-size: 15px;
-        font-weight: 500;
-    }
-
-    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-        background: #00FFA0;
-        color: #683CC0;
-    }
-
-  </style>
-
 </head>
 
 <body class="container-fluid m-0 p-0" >
-    <header class="header container-fluid  py-3 mb-4 border-bottom sticky-top">
-        <div class="row container mx-auto">
-            <div class="col-12">
-                <div class="container d-flex flex-wrap justify-content-center">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <img class="img_logo_footer " src="{{ asset(path: 'pagina/cropped-new-log.png')}}" alt="">
-                </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Productos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Letras 3d</a></li>
-                            <li><a class="dropdown-item" href="#">Impresión digital a gran formato</a></li>
-                            <li><a class="dropdown-item" href="#">Letreros en Neón</a></li>
-                            <li><a class="dropdown-item" href="#">Anuncios luminosos</a></li>
-                            <li><a class="dropdown-item" href="#">Promocionales</a></li>
-                            <li><a class="dropdown-item" href="#">Señalética Creativa</a></li>
-                            <li><a class="dropdown-item" href="#">Vinilo Decorativo</a></li>
+    @include('pagina.componentes.header')
 
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="#" class="nav-link">Nosotros</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-
-                    <li class="nav-item my-auto">
-                         <a href="" class="btn_accion text-center mt-3 mx-auto">Contacto</a>
-                    </li>
-                </ul>
-                </div>
-
-            </div>
-        </div>
-
-    </header>
-
-     @yield('content')
-
+    @yield('content')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -106,6 +54,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
   <!-- Owl Carousel JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script>
