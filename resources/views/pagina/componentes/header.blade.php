@@ -14,13 +14,13 @@
                             Productos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Letras 3d</a></li>
-                            <li><a class="dropdown-item" href="#">Impresión digital a gran formato</a></li>
-                            <li><a class="dropdown-item" href="#">Letreros en Neón</a></li>
-                            <li><a class="dropdown-item" href="#">Anuncios luminosos</a></li>
-                            <li><a class="dropdown-item" href="#">Promocionales</a></li>
-                            <li><a class="dropdown-item" href="#">Señalética Creativa</a></li>
-                            <li><a class="dropdown-item" href="#">Vinilo Decorativo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.letras3d') }}">Letras 3d</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.impresion_digital') }}">Impresión digital a gran formato</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.letreros_neon') }}">Letreros en Neón</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.anuncios_luminosos') }}">Anuncios luminosos</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.promocionales') }}">Promocionales</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.señaletica') }}">Señalética Creativa</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pagina.vinil') }}">Vinilo Decorativo</a></li>
 
                         </ul>
                     </li>

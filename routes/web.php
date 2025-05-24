@@ -32,6 +32,7 @@ Route::get('letreros_neon', [App\Http\Controllers\PaginaController::class, 'letr
 Route::get('anuncios_luminosos', [App\Http\Controllers\PaginaController::class, 'anuncios_luminosos'])->name('pagina.anuncios_luminosos');
 Route::get('promocionales', [App\Http\Controllers\PaginaController::class, 'promocionales'])->name('pagina.promocionales');
 Route::get('señaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
+Route::get('vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
 
 
 // =============== M O D U L O   login custom ===============================
