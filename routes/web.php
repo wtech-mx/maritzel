@@ -26,13 +26,13 @@ Route::get('/sistema', function () {
 });
 
 Route::get('/', [App\Http\Controllers\PaginaController::class, 'inicio'])->name('pagina.inicio');
-Route::get('letras3d', [App\Http\Controllers\PaginaController::class, 'letras3d'])->name('pagina.letras3d');
-Route::get('impresion_digital', [App\Http\Controllers\PaginaController::class, 'impresion_digital'])->name('pagina.impresion_digital');
-Route::get('letreros_neon', [App\Http\Controllers\PaginaController::class, 'letreros_neon'])->name('pagina.letreros_neon');
-Route::get('anuncios_luminosos', [App\Http\Controllers\PaginaController::class, 'anuncios_luminosos'])->name('pagina.anuncios_luminosos');
+Route::get('letras-3d-corporeas', [App\Http\Controllers\PaginaController::class, 'letras3d'])->name('pagina.letras3d');
+Route::get('impresion-digital', [App\Http\Controllers\PaginaController::class, 'impresion_digital'])->name('pagina.impresion_digital');
+Route::get('neon', [App\Http\Controllers\PaginaController::class, 'letreros_neon'])->name('pagina.letreros_neon');
+Route::get('anuncios-luminosos', [App\Http\Controllers\PaginaController::class, 'anuncios_luminosos'])->name('pagina.anuncios_luminosos');
 Route::get('promocionales', [App\Http\Controllers\PaginaController::class, 'promocionales'])->name('pagina.promocionales');
-Route::get('señaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
-Route::get('vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
+Route::get('senaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
+Route::get('recorte-de-vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
 
 
 // =============== M O D U L O   login custom ===============================
