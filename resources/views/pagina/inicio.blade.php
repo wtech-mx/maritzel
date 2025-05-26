@@ -361,64 +361,11 @@
 
 </section>
 
-<section class="row container mx-auto mt-5 mb-5">
+@include('pagina.componentes.clientes')
 
-    <div class="col-8">
-        <div id="ClientesCarousel" class="owl-carousel">
-             <img class="img_marca" src="{{ asset('pagina/logo_orange_theory_fitness.webp')}}" alt="">
-             <img class="img_marca" src="{{ asset('pagina/logo_petroleos_mexicanos.webp')}}" alt="">
-             <img class="img_marca" src="{{ asset('pagina/logo_puma.webp')}}" alt="">
-             <img class="img_marca" src="{{ asset('pagina/logo_ralph_lauren.webp')}}" alt="">
-             <img class="img_marca" src="{{ asset('pagina/logo_uniliver.webp')}}" alt="">
-        </div>
-    </div>
+@include('pagina.componentes.call_to_action')
 
-    <div class="col-4 my-auto">
-        <div class="container">
-            <h3 class="h3_clientes">Clientes</h3>
-            <p class="text_clientes">
-                Una mirada a las industrias de alto prestigio y sus estrategias para que su negocio brille.
-            </p>
-        </div>
-    </div>
-
-</section>
-
-<section class="row container separdor mx-auto mt-5 mb-5">
-
-    <div class="col-8">
-        <div class="container">
-            <p class="text_clientes" style="text-align: start!important">
-               TE ACOMPAÑAMOS DE PRINCIPIO A FIN
-            </p>
-            <h3 class="h3_clientes" style="text-align: start!important">Mándanos un WhatsApp</h3>
-        </div>
-    </div>
-
-    <div class="col-4">
-        <div class="d-flex justify-content-center">
-            <div class="container_btns">
-                <p class="text-end mb-5">
-                    <a href="" class="cotizar">Cotizar</a> <br>
-                </p>
-                <p class="text-end mb-5">
-                    <a href="" class="cotizar ">Contáctanos Por WhatsApp</a> <br>
-                </p>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="row container mx-auto mt-3 mb-3">
-
-    <div class="col-6">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7526.344046683556!2d-99.126111!3d19.404972!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff7fb3cd9809%3A0xf15b66d1828439a9!2sLetras%203D%2C%20Anuncios%20luminosos%20e%20impresi%C3%B3n%20en%20vinil%2C%20lona%2C%20papel%20tapiz%20y%20r%C3%ADgidos.!5e0!3m2!1sen!2smx!4v1747267358411!5m2!1sen!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
-    <div class="col-6">
-        <h3 class="h3_clientes" style="text-align: start!important">Ponte en contacto y recibe asesoría</h3>
-    </div>
-
-</section>
+@include('pagina.componentes.contacto')
 
 @include('pagina.componentes.footer')
 
