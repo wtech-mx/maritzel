@@ -8,7 +8,7 @@
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Inicio</a></li>
+                    <li class="nav-item"><a href="{{ route('pagina.inicio') }}" class="nav-link active" aria-current="page">Inicio</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Productos

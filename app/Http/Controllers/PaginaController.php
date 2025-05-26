@@ -35,4 +35,9 @@ class PaginaController extends Controller
 
         return view('pagina.secciones.señaletica');
     }
+
+    public function vinil(){
+
+        return view('pagina.secciones.vinil');
+    }
 }

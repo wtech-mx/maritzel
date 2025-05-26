@@ -21,11 +21,11 @@ use App\Http\Controllers\EmpresasController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/sistema', function () {
     return view('auth.login');
 });
 
-Route::get('inicio', [App\Http\Controllers\PaginaController::class, 'inicio'])->name('pagina.inicio');
+Route::get('/', [App\Http\Controllers\PaginaController::class, 'inicio'])->name('pagina.inicio');
 Route::get('letras3d', [App\Http\Controllers\PaginaController::class, 'letras3d'])->name('pagina.letras3d');
 Route::get('impresion_digital', [App\Http\Controllers\PaginaController::class, 'impresion_digital'])->name('pagina.impresion_digital');
 Route::get('letreros_neon', [App\Http\Controllers\PaginaController::class, 'letreros_neon'])->name('pagina.letreros_neon');
