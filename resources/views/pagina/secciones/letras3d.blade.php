@@ -101,14 +101,14 @@
 
         <div class="row">
             @foreach ([
-                ['src'=>'pagina/1.jpg','label'=>'Aluminio plata cepillado'],
-                ['src'=>'pagina/4-1.jpg','label'=>'Letreros en aluminio'],
-                ['src'=>'pagina/6.jpg','label'=>'Aluminio dorado'],
-                ['src'=>'pagina/2.jpg','label'=>'Aluminio oro cepillado con luz indirecta cálida'],
-                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Aluminio plata y aluminio negro con iluminación indirecta cálida'],
-                ['src'=>'pagina/3.jpg','label'=>'Aluminio con pintura electroestática e iluminación indirecta fría'],
-                ['src'=>'pagina/5.jpg','label'=>'Aluminio con iluminación indirecta RGB'],
-                ['src'=>'pagina/9.jpg','label'=>'Aluminio negro con iluminación indirecta RGB'],
+                ['src'=>'pagina/letras_3d/aluminio5.jpg','label'=>'Aluminio plata cepillado'],
+                ['src'=>'pagina/letras_3d/pemex.png','label'=>'Letreros en aluminio'],
+                ['src'=>'pagina/letras_3d/aluminio7.jpg','label'=>'Aluminio dorado'],
+                ['src'=>'pagina/letras_3d/Imagen1.jpg','label'=>'Aluminio oro cepillado con luz indirecta cálida'],
+                ['src'=>'pagina/letras_3d/aluminio3.jpg','label'=>'Aluminio plata y aluminio negro con iluminación indirecta cálida'],
+                ['src'=>'pagina/letras_3d/Aluminio1.jpg','label'=>'Aluminio con pintura electroestática e iluminación indirecta fría'],
+                ['src'=>'pagina/letras_3d/inife.png','label'=>'Aluminio con iluminación indirecta RGB'],
+                ['src'=>'pagina/letras_3d/aluminio8.jpg','label'=>'Aluminio negro con iluminación indirecta RGB'],
             ] as $img)
                 <div class="col-3">
                 <div class="container_card_product">
@@ -238,16 +238,14 @@
 
         <div class="row">
             @foreach ([
-                ['src'=>'pagina/1.jpg','label'=>'Checa la diversidad de este material y elige cual se adapta más con tu logotipo'],
-                ['src'=>'pagina/4-1.jpg','label'=>'Frente y cantos de acrílico color blanco con luz fría'],
-                ['src'=>'pagina/6.jpg','label'=>'Aluminio dorado'],
-                ['src'=>'pagina/2.jpg','label'=>'Frente y cantos de acrílico color rojo sin luz'],
-                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Rectangular con vinil negro sólido calado sobre acrílico blanco e iluminación indirecta'],
-                ['src'=>'pagina/3.jpg','label'=>'Iluminación directa e indirecta'],
-                ['src'=>'pagina/5.jpg','label'=>'Acrílico con vinil'],
-                ['src'=>'pagina/9.jpg','label'=>'Acrílico con vinil'],
-                ['src'=>'pagina/9.jpg','label'=>'Medallón de acrílico 3d con arte en vinil'],
-
+                ['src'=>'pagina/letras_3d/1.jpg','label'=>'Checa la diversidad de este material y elige cual se adapta más con tu logotipo'],
+                ['src'=>'pagina/letras_3d/Imagen1-1.jpg','label'=>'Frente y cantos de acrílico color blanco con luz fría'],
+                ['src'=>'pagina/letras_3d/frente-y-cantos-de-acrilico-color-rojo-sin-luz.png','label'=>'Aluminio dorado'],
+                ['src'=>'pagina/letras_3d/rectangular-con-vinil-negro-solido-calado-sobre-acrilico-blanco-e-iluminacion-indirecta.png','label'=>'Frente y cantos de acrílico color rojo sin luz'],
+                ['src'=>'pagina/letras_3d/Letrero-3D-con-iluminacion-directa-e-indirecta.png','label'=>'Rectangular con vinil negro sólido calado sobre acrílico blanco e iluminación indirecta'],
+                ['src'=>'pagina/letras_3d/Letras-de-acrilico-con-vinil.png','label'=>'Iluminación directa e indirecta'],
+                ['src'=>'pagina/letras_3d/acrilico6.jpg','label'=>'Acrílico con vinil'],
+                ['src'=>'pagina/letras_3d/medallon-de-acrilico-3d-con-arte-en-vinil.jpg','label'=>'Acrílico con vinil'],
             ] as $img)
                 <div class="col-3">
                 <div class="container_card_product">
@@ -375,14 +373,14 @@
 
         <div class="row">
             @foreach ([
-                ['src'=>'pagina/1.jpg','label'=>'Frente de acrílico y cantos de aluminio'],
-                ['src'=>'pagina/4-1.jpg','label'=>'Acrílico y cantos de aluminio'],
-                ['src'=>'pagina/6.jpg','label'=>'Frente de aluminio mate y cantos de acrílico blanco'],
-                ['src'=>'pagina/6.jpg','label'=>'Frente aluminio espejo y cantos de acrílico esme'],
-                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Aluminio y cantos acrílico'],
-                ['src'=>'pagina/3.jpg','label'=>'Acrílico y cantos de aluminio'],
+                ['src'=>'pagina/letras_3d/Letras-3d-frente-de-acrilico-y-cantos-de-aluminio.png','label'=>'Frente de acrílico y cantos de aluminio'],
+                ['src'=>'pagina/letras_3d/Letras-3d-frente-de-acrilico-y-cantos-de-aluminio3.png','label'=>'Acrílico y cantos de aluminio'],
+                ['src'=>'pagina/letras_3d/acrilyaluminio2.jpg','label'=>'Frente de aluminio mate y cantos de acrílico blanco'],
+                ['src'=>'pagina/letras_3d/acrilyaluminio4.jpg','label'=>'Frente de aluminio mate y cantos de acrílico blanco'],
+                ['src'=>'pagina/letras_3d/Letras-3d-frente-de-aluminio-y-cantos-acrilico.png','label'=>'Frente aluminio espejo y cantos de acrílico esme'],
+                ['src'=>'pagina/letras_3d/Letras-3d-frente-de-acrilico-y-cantos-de-aluminio2.png','label'=>'Aluminio y cantos acrílico'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-4">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -415,10 +413,10 @@
 
         <div class="row">
             @foreach ([
-                ['src'=>'pagina/1.jpg','label'=>'MDF, PVC, acrílico y panel compuesto'],
-                ['src'=>'pagina/4-1.jpg','label'=>'PVC 10 mm con pintura'],
-                ['src'=>'pagina/6.jpg','label'=>'PVC 10 mm con pintura'],
-                ['src'=>'pagina/6.jpg','label'=>'Panel compuesto 3 mm'],
+                ['src'=>'pagina/letras_3d/mdf6.jpg','label'=>'MDF, PVC, acrílico y panel compuesto'],
+                ['src'=>'pagina/letras_3d/pvc4.jpg','label'=>'PVC 10 mm con pintura'],
+                ['src'=>'pagina/letras_3d/acrilico4.jpg','label'=>'PVC 10 mm con pintura'],
+                ['src'=>'pagina/letras_3d/panel-compuesto-3-mm.jpg','label'=>'Panel compuesto 3 mm'],
             ] as $img)
                 <div class="col-3">
                 <div class="container_card_product">
