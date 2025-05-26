@@ -16,6 +16,11 @@ class PaginaController extends Controller
         return view('pagina.secciones.letras3d');
     }
 
+    public function letreros_neon(){
+
+        return view('pagina.secciones.neon');
+    }
+
     public function impresion_digital(){
 
         return view('pagina.secciones.impresion_digital');
