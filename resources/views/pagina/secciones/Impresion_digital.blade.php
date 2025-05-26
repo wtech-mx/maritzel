@@ -1,7 +1,7 @@
 @extends('layouts.app_pagina')
 
 @section('template_title')
-    Letras 3D
+    Impresion digital
 @endsection
 
 @section('content')
