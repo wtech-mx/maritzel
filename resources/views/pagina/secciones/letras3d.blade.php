@@ -223,6 +223,316 @@
 
 </section>
 
+<section class="row container mx-auto">
+
+    <div class="col-12">
+
+        <h3 class="subtite_negro text-center mt-5">LETRAS DE ACRILICO</h3>
+
+        <h2 class=" subtitulos text-center mb-5">
+           El acrílico es un material que ha ganado gran aceptación por tener la belleza y naturalidad parecida a la del cristal, gracias a su flexibilidad y ligereza es excelente opción para realzar en 3D letras, figuras e isotipos. La naturaleza translúcida del acrílico hará que al iluminarse consiga un brillo único y definitivamente destacará del resto, dentro de sus ventajas se encuentra una amplia gama de colores, además de tener la facilidad de poder ser rotuladas en viniles translucidos con colores sólidos o impresos.
+        </h2>
+        <p class="text-center h2_subtitle mb-4">
+            Checa la diversidad de este material y elige cual se adapta más con tu logotipo
+        </p>
+
+        <div class="row">
+            @foreach ([
+                ['src'=>'pagina/1.jpg','label'=>'Checa la diversidad de este material y elige cual se adapta más con tu logotipo'],
+                ['src'=>'pagina/4-1.jpg','label'=>'Frente y cantos de acrílico color blanco con luz fría'],
+                ['src'=>'pagina/6.jpg','label'=>'Aluminio dorado'],
+                ['src'=>'pagina/2.jpg','label'=>'Frente y cantos de acrílico color rojo sin luz'],
+                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Rectangular con vinil negro sólido calado sobre acrílico blanco e iluminación indirecta'],
+                ['src'=>'pagina/3.jpg','label'=>'Iluminación directa e indirecta'],
+                ['src'=>'pagina/5.jpg','label'=>'Acrílico con vinil'],
+                ['src'=>'pagina/9.jpg','label'=>'Acrílico con vinil'],
+                ['src'=>'pagina/9.jpg','label'=>'Medallón de acrílico 3d con arte en vinil'],
+
+            ] as $img)
+                <div class="col-3">
+                <div class="container_card_product">
+                    <p class="text-center mb-0">
+                    <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
+                        <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
+                    </a>
+                    </p>
+                    <p class="text-center text_products2">{{ $img['label'] }}</p>
+                </div>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+
+</section>
+
+<section class="row container mx-auto">
+
+    <div class="col-12">
+
+        <h3 class="subtite_negro text-center mt-5">Características</h3>
+
+        <div class="row">
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Tonalidades Exclusivas</h5>
+                        <p class="text-start subtexto_prinicpal_card">Plata, Oro, Cobre, Negro, Acero, Chocolate, Blanco, entre otros…</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Diseño Adaptable</h5>
+                        <p class="text-start subtexto_prinicpal_card">Apto para exterior e interior</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Acabados Sofisticados</h5>
+                        <p class="text-start subtexto_prinicpal_card">Cepillado, espejo y natural</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/certificado-de-garantia.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Garantía y Resistencia</h5>
+                        <p class="text-start subtexto_prinicpal_card">
+                            Más de 10 años de garantía, no se oxida y no se mancha con los rayos UV.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Personalización Total</h5>
+                        <p class="text-start subtexto_prinicpal_card">
+                            Si los tonos antes mencionados no te convencen , tenemos opciones de pintura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/foco.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Iluminación Versátil</h5>
+                        <p class="text-start subtexto_prinicpal_card">Iluminación indirecta fría, cálida y opciones de RGB</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="row container mx-auto">
+
+    <div class="col-12">
+
+        <h3 class="subtite_negro text-center mt-5">LETRAS DE ACRILICO CON ALUMINIO</h3>
+
+        <h2 class="subtitulos text-center mb-5"> 
+            Los Letreros 3D de aluminio y acrílico hacen la perfecta conjunción de la naturalidad del acrílico y la elegancia del aluminio, al tener los dos materiales tienes diferentes posibilidades para crear tu letrero, dentro de su fabricación podemos ocupar frente de acrilico y cantos de aluminio o viceversa.
+           <br> Las Letras corporeas 3d en aluminio y acrílico son ideales para colocarse en alturas por que tienen mayor cuerpo y suelen ser vistosas
+        </h2>
+
+        <div class="row">
+            @foreach ([
+                ['src'=>'pagina/1.jpg','label'=>'Frente de acrílico y cantos de aluminio'],
+                ['src'=>'pagina/4-1.jpg','label'=>'Acrílico y cantos de aluminio'],
+                ['src'=>'pagina/6.jpg','label'=>'Frente de aluminio mate y cantos de acrílico blanco'],
+                ['src'=>'pagina/6.jpg','label'=>'Frente aluminio espejo y cantos de acrílico esme'],
+                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Aluminio y cantos acrílico'],
+                ['src'=>'pagina/3.jpg','label'=>'Acrílico y cantos de aluminio'],
+            ] as $img)
+                <div class="col-3">
+                <div class="container_card_product">
+                    <p class="text-center mb-0">
+                    <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
+                        <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
+                    </a>
+                    </p>
+                    <p class="text-center text_products2">{{ $img['label'] }}</p>
+                </div>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+
+</section>
+
+<section class="row container mx-auto">
+
+    <div class="col-12">
+
+        <h3 class="subtite_negro text-center mt-5">Letreros sin realce <br>MDF, PVC, acrílico y panel compuesto </h3>
+
+        <h2 class="text-center h2_subtitle mb-4">
+            ¿En busca de letreros sencillos, económicos y que cubran las necesidades de tu marca?
+        </h2>
+
+        <p class="subtitulos text-center mb-5"> 
+            Los Letreros sin realce 3d, son ideales sí buscas un letrero sencillo y estético, estos se fabrican con el espesor del material de su elección, dentro de sus acabados pueden ser pintados, rotulados en vinil, con frente en aluminio o acrílico, etc.
+        </p>
+
+        <div class="row">
+            @foreach ([
+                ['src'=>'pagina/1.jpg','label'=>'MDF, PVC, acrílico y panel compuesto'],
+                ['src'=>'pagina/4-1.jpg','label'=>'PVC 10 mm con pintura'],
+                ['src'=>'pagina/6.jpg','label'=>'PVC 10 mm con pintura'],
+                ['src'=>'pagina/6.jpg','label'=>'Panel compuesto 3 mm'],
+            ] as $img)
+                <div class="col-3">
+                <div class="container_card_product">
+                    <p class="text-center mb-0">
+                    <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
+                        <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
+                    </a>
+                    </p>
+                    <p class="text-center text_products2">{{ $img['label'] }}</p>
+                </div>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+
+</section>
+
+<section class="row container mx-auto">
+
+    <div class="col-12">
+
+        <h3 class="subtite_negro text-center mt-5">Características</h3>
+
+        <div class="row">
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Tonalidades Exclusivas</h5>
+                        <p class="text-start subtexto_prinicpal_card">Plata, Oro, Cobre, Negro, Acero, Chocolate, Blanco, entre otros…</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Diseño Adaptable</h5>
+                        <p class="text-start subtexto_prinicpal_card">Apto para exterior e interior</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Acabados Sofisticados</h5>
+                        <p class="text-start subtexto_prinicpal_card">Cepillado, espejo y natural</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/certificado-de-garantia.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Garantía y Resistencia</h5>
+                        <p class="text-start subtexto_prinicpal_card">
+                            Más de 10 años de garantía, no se oxida y no se mancha con los rayos UV.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Personalización Total</h5>
+                        <p class="text-start subtexto_prinicpal_card">
+                            Si los tonos antes mencionados no te convencen , tenemos opciones de pintura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 contenedor_facs">
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img_icon_card" src="{{ asset('pagina/letras_3d/foco.png') }}" alt="">
+                    </div>
+
+                    <div class="col-9">
+                        <h5 class="text-start texto_prinicpal_card">Iluminación Versátil</h5>
+                        <p class="text-start subtexto_prinicpal_card">Iluminación indirecta fría, cálida y opciones de RGB</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 @include('pagina.componentes.clientes')
 
 @include('pagina.componentes.call_to_action')
