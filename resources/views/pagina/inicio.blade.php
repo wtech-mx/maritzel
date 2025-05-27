@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12 col-md-8 col-lg-6">
         <h1 class="text-center titulo_principal mt-3">
@@ -28,10 +28,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/3d.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Letras 3D corpóreas</a>
                         </div>
                     </div>
@@ -41,10 +41,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/senal-de-neon.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Anuncios luminosos</a>
                         </div>
                     </div>
@@ -54,10 +54,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/luz-1.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Letreros de neón</a>
                         </div>
                     </div>
@@ -67,10 +67,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/continentes.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Vinil decorativo</a>
                         </div>
                     </div>
@@ -80,10 +80,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/impresora.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Impresión a gran formato</a>
                         </div>
                     </div>
@@ -93,10 +93,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/senalizacion.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Señalética creativa</a>
                         </div>
                     </div>
@@ -106,10 +106,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/pintar.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Arte grafica</a>
                         </div>
                     </div>
@@ -119,10 +119,10 @@
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
                     <div class="row">
-                        <div class="col-2 my-auto">
+                        <div class="col-4 col-md-2 col-lg-2 my-auto">
                             <img class="img_container_card_inicio" src="{{ asset('pagina/salida-2.png')}}" alt="">
                         </div>
-                        <div class="col-10 my-auto">
+                        <div class="col-8 col-md-10 col-lg-10 my-auto">
                             <a href="" class="sibtittle_card_inicio">Señalética de protección civil</a>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 col-md-4 col-lg-6 mt-5 mt-sm-5 mt-md-0 mt-lg-0">
 
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -177,14 +177,14 @@
 
 </section>
 
-<section class="row container mx-auto mt-5 mb-3">
-    <div class="col-3">
+<section class="row container-lg mx-auto mt-5 mb-3">
+    <div class="col-12 col-md-3 col-lg-3 mb-2 mb-md-0 mb-lg-0">
         <div class="coantiner_card_services">
             <h3 class="h3_subtitle">Selecciona alguno de nuestros servicios</h3>
         </div>
     </div>
 
-    <div class="col-9 my-auto">
+    <div class="col-12 col-md-9 col-lg-9 my-auto">
         <div id="popularProductsCarousel" class="owl-carousel">
             <div class="coantiner_card_services2">
                 <p class="text-center texto_services">
@@ -214,7 +214,7 @@
     </div>
 </section>
 
-<section class="row container mx-auto mt-5 mb-3">
+<section class="row container-lg mx-auto mt-5 mb-3">
 
     <div class="col-12">
         <h2 class="h2_subtitle">PRODUCTOS</h2>
@@ -234,7 +234,7 @@
                 ['src'=>'pagina/5.jpg','label'=>'Señaletica'],
                 ['src'=>'pagina/9.jpg','label'=>'Otros Productos'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -251,9 +251,9 @@
 
 </section>
 
-<section class="row container mx-auto mt-5 mb-3">
+<section class="row container-lg mx-auto mt-5 mb-3">
 
-    <div class="col-6">
+    <div class="col-12 col-md-6 col-lg-6">
         <div class="d-flex justify-content-center">
             <div class="container_btns">
                 <p class="text-star mb-5">
@@ -269,7 +269,7 @@
         </div>
     </div>
 
-    <div class="col-6 my-auto">
+    <div class="col-12 col-md-6 col-lg-6 my-auto">
         <div class="d-flex justify-content-center">
             <div class="container_btns">
                 <h2 class="h2_subtitle text-center">Mándanos un WhatsApp</h2>
@@ -282,15 +282,15 @@
 
 </section>
 
-<section class="row container-fluid separador_sections">
+<section class="row container-lg-fluid separador_sections">
     <div class="d-flex justify-content-center">
         <h4 class="h4_separador text-center">IMAGINA - COTIZA - CREA <br>TE ACOMPAÑAMOS DE PRINCIPIO A FIN </h4>
     </div>
 </section>
 
-<section class="row container mx-auto mt-5 mb-3">
+<section class="row container-lg mx-auto mt-5 mb-3">
 
-    <div class="col-6">
+    <div class="col-12 col-md-6 col-lg-6 my-auto">
         <div class="d-flex justify-content-center">
             <div id="carouselExampleMision" class="carousel slide">
                 <div class="carousel-inner">
@@ -320,7 +320,7 @@
         </div>
     </div>
 
-    <div class="col-6 my-auto">
+    <div class="col-12 col-md-6 col-lg-6 my-auto">
         <div class="d-flex justify-content-center">
             <div class="container_btns">
 
@@ -340,12 +340,12 @@
 
 </section>
 
-<section class="row container-fluid  mt-5 mb-3" style="background: #7f5adc">
+<section class="row container-lg-fluid  mt-5 mb-3" style="background: #7f5adc">
 
     <div class="row container mx-auto  mt-5 mb-3">
-        <div class="col-6 my-auto">
+        <div class="col-12 col-md-6 col-lg-6 my-auto">
             <div class="d-flex justify-content-center">
-                <div class="container mb-5 mt-5">
+                <div class="container mb-0 mb-md-5 mb-lg-5 mt-0 mt-md-5 mt-lg-5">
                     <h4 class="text_logo text-center">Imaginarte 3D</h4>
                     <h5 class="text_opriniones text-center">
                         Lo que nuestros clientes tienen que decir
@@ -354,11 +354,11 @@
             </div>
         </div>
 
-        <div class="col-6 mx-auto">
+        <div class="col-12 col-md-6 col-lg-6 mx-auto">
             <div id="carouselResenas" class="carousel slide" >
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="{{ asset('pagina/r1.png')}}" class="d-block img_resenas" alt="...">
+                    <img src="{{ asset('pagina/r1.png')}}" class="d-block img_resenas" alt="...">
                 </div>
                 <div class="carousel-item">
                 <img src="{{ asset('pagina/r2.png')}}" class="d-block img_resenas" alt="...">

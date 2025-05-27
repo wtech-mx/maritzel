@@ -38,7 +38,7 @@
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         color: var(--e-global-color-46546eb);
         text-decoration: none;
-        padding: 10px;
+        /* padding: 10px; */
         text-align: start;
     }
 
@@ -97,6 +97,7 @@
         padding-bottom: 10px;
         padding-left: 30px;
         padding-right: 30px;
+        margin: 10;
     }
 
     .h3_subtitle{
@@ -192,6 +193,10 @@
         border-radius: 30px 30px 30px 30px;
         padding: 10px 30px 10px 30px;
         text-decoration: none;
+    }
+
+    .navbar-toggler {
+        background-color: #00ffa0!important;
     }
 
     .consejos{
@@ -403,4 +408,69 @@
 
     .img_resenas{
         width: 80%;
+    }
+
+    @media only screen and (max-width: 991px) {
+        .img_crousel_principal {
+            width: 100%;
+        }
+
+        .h3_subtitle {
+            font-size: 14px;
+        }
+
+        .coantiner_card_services {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .text_parraf {
+            font-size: 13px;
+        }
+
+        .h2_subtitle {
+            font-size: 20px;
+        }
+
+        .h3_clientes {
+            font-size: 40px;
+        }
+
+        .btn_accion {
+            padding: 7px 20px 7px 20px;
+        }
+
+    }
+
+    @media only screen and (max-width:440px) {
+        .titulo_principal {
+            font-size: 19px;
+        }
+
+        .subtitulos {
+            font-size: 14px;
+        }
+
+        .coantiner_card_services {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .coantiner_card_services2 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 10px;
+        }
+
+        .h4_separador {
+            font-size: 18px;
+        }
+
+        .separdor{
+            margin-top: 0rem !important;
+        }
+        .h3_clientes {
+            font-size: 32px;
+        }
     }
