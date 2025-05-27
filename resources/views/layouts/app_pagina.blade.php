@@ -8,7 +8,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/'. $configuracion->favicon) }}">
-  <link rel="icon" type="image/png" href="{{ asset('favicon/'. $configuracion->favicon) }}">
+
+    <link rel="icon" type="image/png" href="{{ asset('pagina/cropped-cropped-new-log-180x180.png') }}">
+    <link rel="icon" href="{{ asset('pagina/cropped-cropped-new-log-192x192.png') }}" sizes="192x192" />
+    <link rel="apple-touch-icon" href="{{ asset('pagina/cropped-cropped-new-log-180x180.png') }}" />
+
   <title>
     @yield('template_title') - Imaginarte 3D
   </title>
@@ -46,9 +50,12 @@
 
     @include('pagina.componentes.header')
 
-    @yield('content')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
+    @yield('content')
+
+    @include('pagina.componentes.modal_faqs')
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>

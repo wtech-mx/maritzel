@@ -25,7 +25,11 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link">Nosotros</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        FAQS
+                        </a>
+                    </li>
 
                     <li class="nav-item my-auto">
                          <a href="" class="btn_accion text-center mt-3 mx-auto">Contacto</a>

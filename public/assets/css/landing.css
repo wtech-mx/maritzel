@@ -381,3 +381,22 @@
         padding: 10px 10px 10px 10px;
         text-decoration: none;
     }
+
+    .titulo_modal{
+        font-family: "Roboto", Sans-serif;
+        font-weight: 600;
+        color: #00ffa0;
+        font-size: 30px;
+    }
+
+    .subtitulo_modal{
+        font-family: "Roboto", Sans-serif;
+        font-weight: 600;
+        color: #00ffa0;
+        font-size: 15px;
+    }
+
+    .header_content_modal{
+        background: #683cc0;
+        color: #00ffa0;
+    }
