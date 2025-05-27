@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12 col-md-12 col-lg-12 my-auto">
         <h1 class="text-center">Anuncios Luminosos</h1>
@@ -26,9 +26,10 @@
             </div>
         </div>
     </div>
+
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
     <div class="col-12">
 
         <h2 class="h2_subtitle text-center mb-5">
@@ -44,7 +45,7 @@
                 ['src'=>'pagina/anuncios_luminosos/5.jpeg','label'=>'Anuncio luminoso tipo bandera  rectangular'],
                 ['src'=>'pagina/anuncios_luminosos/6.jpg','label'=>'Caja rectangular de lona tensada'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -60,7 +61,7 @@
     </div>
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12">
 
@@ -68,7 +69,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/letrero.png') }}" alt="">
@@ -81,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/foco.png') }}" alt="">
@@ -94,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/aluminio.png') }}" alt="">
@@ -107,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/certificado-de-garantia.png') }}" alt="">
@@ -122,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/luz-1.png') }}" alt="">
@@ -137,7 +138,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/letrero.png') }}" alt="">

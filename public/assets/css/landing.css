@@ -473,4 +473,21 @@
         .h3_clientes {
             font-size: 32px;
         }
+
+        .subtite_negro {
+            font-size: 30px;
+        }
+
+        .h2_subtitle {
+            font-size: 15px;
+        }
+
+        .btn_servicices_sect {
+            font-size: 9px;
+        }
+
+        .subtitulos {
+            font-size: 14px;
+        }
+
     }

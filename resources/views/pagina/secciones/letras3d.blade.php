@@ -6,9 +6,9 @@
 
 @section('content')
 
-<section class="row container mx-auto">
+<section class="row container-lg  mx-auto">
 
-    <div class="col-12 col-md-8 col-lg-6 my-auto">
+    <div class="col-12 col-md-8 col-lg-6 my-auto mx-auto">
         <h2 class="h2_subtitle">Letras 3D Corpóreas</h2>
 
         <p class="text-start subtitulos mb-4">
@@ -33,7 +33,7 @@
 
     </div>
 
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 col-md-8 col-lg-6 mx-auto">
 
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -66,7 +66,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg  mx-auto">
 
     <div class="col-12">
         <h2 class="h2_subtitle text-center mt-5 mb-5"> Elige el material de tu preferencia</h2>
@@ -84,7 +84,7 @@
 
 </section>
 
-<section class="row container mx-auto" id="ALUMINIO">
+<section class="row container-lg  mx-auto" id="ALUMINIO">
 
     <div class="col-12">
 
@@ -110,7 +110,7 @@
                 ['src'=>'pagina/letras_3d/inife.png','label'=>'Aluminio con iluminación indirecta RGB'],
                 ['src'=>'pagina/letras_3d/aluminio8.jpg','label'=>'Aluminio negro con iluminación indirecta RGB'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -127,7 +127,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg  mx-auto">
 
     <div class="col-12">
 
@@ -135,7 +135,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
@@ -148,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
@@ -161,7 +161,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
@@ -174,7 +174,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/certificado-de-garantia.png') }}" alt="">
@@ -189,7 +189,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
@@ -204,7 +204,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/foco.png') }}" alt="">
@@ -223,7 +223,7 @@
 
 </section>
 
-<section class="row container mx-auto" id="ACRILICO">
+<section class="row container-lg  mx-auto" id="ACRILICO">
 
     <div class="col-12">
 
@@ -247,7 +247,7 @@
                 ['src'=>'pagina/letras_3d/acrilico6.jpg','label'=>'Acrílico con vinil'],
                 ['src'=>'pagina/letras_3d/medallon-de-acrilico-3d-con-arte-en-vinil.jpg','label'=>'Acrílico con vinil'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -264,7 +264,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg  mx-auto">
 
     <div class="col-12">
 
@@ -272,7 +272,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
@@ -285,7 +285,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
@@ -298,7 +298,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
@@ -311,7 +311,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/certificado-de-garantia.png') }}" alt="">
@@ -326,7 +326,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
@@ -341,7 +341,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/foco.png') }}" alt="">
@@ -360,7 +360,7 @@
 
 </section>
 
-<section class="row container mx-auto" id="ACRILICOALU">
+<section class="row container-lg  mx-auto" id="ACRILICOALU">
 
     <div class="col-12">
 
@@ -380,7 +380,7 @@
                 ['src'=>'pagina/letras_3d/Letras-3d-frente-de-aluminio-y-cantos-acrilico.png','label'=>'Frente aluminio espejo y cantos de acrílico esme'],
                 ['src'=>'pagina/letras_3d/Letras-3d-frente-de-acrilico-y-cantos-de-aluminio2.png','label'=>'Aluminio y cantos acrílico'],
             ] as $img)
-                <div class="col-4">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -397,7 +397,7 @@
 
 </section>
 
-<section class="row container mx-auto" id="MDF">
+<section class="row container-lg  mx-auto" id="MDF">
 
     <div class="col-12">
 
@@ -418,7 +418,7 @@
                 ['src'=>'pagina/letras_3d/acrilico4.jpg','label'=>'PVC 10 mm con pintura'],
                 ['src'=>'pagina/letras_3d/panel-compuesto-3-mm.jpg','label'=>'Panel compuesto 3 mm'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -435,7 +435,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg  mx-auto">
 
     <div class="col-12">
 
@@ -443,7 +443,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
@@ -456,7 +456,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
@@ -469,7 +469,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
@@ -482,7 +482,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/certificado-de-garantia.png') }}" alt="">
@@ -497,7 +497,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
@@ -512,7 +512,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/foco.png') }}" alt="">

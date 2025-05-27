@@ -1,4 +1,4 @@
-<header class="header sticky-top border-bottom">
+<header class="header sticky-top border-bottom mb-4">
   <nav class="navbar navbar-expand-lg container">
     <!-- Logo a la izquierda -->
     <a class="navbar-brand me-auto" href="{{ route('pagina.inicio') }}">

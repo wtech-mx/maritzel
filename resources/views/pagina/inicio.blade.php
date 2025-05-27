@@ -151,12 +151,116 @@
 
                 <div class="carousel-item active">
                     <p class="text-center">
-                        <img src="{{ asset('pagina/b1.png')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                        <img src="{{ asset('pagina/banner/1.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
                     </p>
                 </div>
 
                 <div class="carousel-item">
-                    <img src="{{ asset('pagina/b1.png')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                    <img src="{{ asset('pagina/banner/2.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/3.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/4.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/5.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/6.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/7.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/8.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/9.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/10.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/11.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/12.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/13.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/14.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/15.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/16.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/17.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/18.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/19.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/20.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/21.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/22.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/23.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/24.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/25.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/26.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/27.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/28.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
                 </div>
 
             </div>
@@ -295,15 +399,119 @@
             <div id="carouselExampleMision" class="carousel slide">
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <p class="text-center">
-                            <img src="{{ asset('pagina/b1.png')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
-                        </p>
-                    </div>
+                <div class="carousel-item active">
+                    <p class="text-center">
+                        <img src="{{ asset('pagina/banner/1.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                    </p>
+                </div>
 
-                    <div class="carousel-item">
-                        <img src="{{ asset('pagina/b1.png')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
-                    </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/2.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/3.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/4.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/5.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/6.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/7.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/8.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/9.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/10.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/11.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/12.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/13.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/14.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/15.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/16.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/17.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/18.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/19.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/20.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/21.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/22.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/23.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/24.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/25.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/26.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/27.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('pagina/banner/28.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                </div>
 
                 </div>
 

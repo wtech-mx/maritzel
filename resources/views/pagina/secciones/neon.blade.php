@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12 col-md-12 col-lg-12 my-auto">
         <h1 class="text-center">Letreros en Neón Flex</h1>
@@ -30,7 +30,7 @@
     </div>
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
     <div class="col-12">
         <h2 class="h2_subtitle text-center mb-5">
             Son excepcionalmente brillantes aún a la luz del día y muy llamativos.
@@ -46,7 +46,7 @@
                 ['src'=>'pagina/neon/Letreros-en-Neon-Flex-6.jpg','label'=>'Neón Flex amarillo'],
 
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -62,7 +62,7 @@
     </div>
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12">
 
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="col-6 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">

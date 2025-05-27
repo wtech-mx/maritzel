@@ -77,7 +77,7 @@
                 ['src'=>'pagina/impresion_digital/lona/3.jpg','label'=>'Lona mesh'],
                 ['src'=>'pagina/impresion_digital/lona/4.jpg','label'=>'Lona para  banner 13 onzas'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -102,7 +102,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
@@ -170,7 +170,7 @@
                 ['src'=>'pagina/impresion_digital/vinil/7.jpg','label'=>'Vinil transparente con  impresión'],
                 ['src'=>'pagina/impresion_digital/vinil/8.png','label'=>'Vinil electroestático'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -192,7 +192,7 @@
 
         <div class="row">
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/paleta-de-color.png') }}" alt="">
@@ -206,7 +206,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/weather-forecast.png') }}" alt="">
@@ -220,7 +220,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/hoja.png') }}" alt="">
@@ -233,13 +233,13 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
 
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/letras_3d/circulo-de-color.png') }}" alt="">
@@ -254,7 +254,7 @@
                 </div>
             </div>
 
-            <div class="col-4 contenedor_facs">
+            <div class="col-6 col-md-4 col-lg-4 contenedor_facs">
                 <div class="row">
 
                 </div>
@@ -286,7 +286,7 @@
                 ['src'=>'pagina/impresion_digital/papel/3.jpg','label'=>'Trípticos'],
                 ['src'=>'pagina/impresion_digital/papel/4.jpg','label'=>'Tarjetas de presentación'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -316,7 +316,7 @@
                 ['src'=>'pagina/impresion_digital/mas/2.jpeg','label'=>'Cuadro en tela Canvas'],
                 ['src'=>'pagina/impresion_digital/mas/3.jpg','label'=>'Estireno impreso'],
             ] as $img)
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">

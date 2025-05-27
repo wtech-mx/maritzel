@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12 col-md-12 col-lg-12 my-auto">
         <h1 class="text-center">Promocionales</h1>
@@ -16,7 +16,7 @@
         El Neón Flex es una tecnología patentada que crea una mejor iluminación y más opciones de colores que el neón tradicional, es ideal para darle un toque clásico y brillante a tu espacio.
         El neón Flex es una manguera de PVC flexible que permite crear letreros, formas y contornos, además de que pueden ofrecen animación con su gran variedad de colores y combinaciones.
         </p>
-        
+
         <div class="row">
             <div class="col-12">
                 <p class="text-center mt-4">
@@ -25,12 +25,12 @@
             </div>
         </div>
 
-        <h3 class="h2_subtitle text-center mt-3">Encuentra en un solo sitio todo lo que requieras para tus promocionales</h3> 
+        <h3 class="h2_subtitle text-center mt-3">Encuentra en un solo sitio todo lo que requieras para tus promocionales</h3>
 
     </div>
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
     <div class="col-12">
         <h2 class="h2_subtitle text-center mb-5">
             Son excepcionalmente brillantes aún a la luz del día y muy llamativos.
@@ -46,7 +46,7 @@
                 ['src'=>'pagina/promocionales/promocioanles-1.jpg','label'=>'Libretas en serigrafía'],
 
             ] as $img)
-                <div class="col-4">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
@@ -62,7 +62,7 @@
     </div>
 </section>
 
-<section class="row container mx-auto">
+<section class="row container-lg mx-auto">
 
     <div class="col-12">
 
@@ -70,7 +70,7 @@
 
         <div class="row">
 
-            <div class="col-6 contenedor_facs">
+            <div class="col-12 col-md-6 col-lg-6 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/megafono.png') }}" alt="">
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="col-6 contenedor_facs">
+            <div class="col-12 col-md-6 col-lg-6 contenedor_facs">
                 <div class="row">
                     <div class="col-3 my-auto">
                         <img class="img_icon_card" src="{{ asset('pagina/icons/pin-de-ubicacion.png') }}" alt="">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </div>
 
     </div>
