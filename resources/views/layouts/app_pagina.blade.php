@@ -34,6 +34,7 @@
 
   <link href="{{ asset('assets/bootstrap_icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/landing.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/btn_flotante.css') }}" rel="stylesheet">
 
   <!-- GLightbox CSS -->
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
@@ -54,6 +55,8 @@
     @yield('content')
 
     @include('pagina.componentes.modal_faqs')
+    @include('pagina.componentes.btn_flotante')
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

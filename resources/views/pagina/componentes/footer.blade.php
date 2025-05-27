@@ -26,13 +26,13 @@
                     <h3 class="tittle_footer text-center" >Síguenos en</h3>
 
                     <p class="ul_footer mx-auto text-center mt-4">
-                        <strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-facebook"></i></a></strong>
-                        <strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-whatsapp"></i></a></strong>
+                        <a href="https://www.facebook.com/imaginart3D" ><strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-facebook"></i></strong></a>
+                        <a href="https://wa.link/cprewb" ><strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-whatsapp"></i></strong></a>
                     </p>
 
                     <p class="ul_footer mx-auto text-center mt-4">
-                        <strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-instagram"></i></a></strong>
-                        <strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-tiktok"></i></a></strong>
+                        <a href="https://www.instagram.com/imaginarte3d_/?hl=es" ><strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-instagram"></i></strong></a>
+                        <a href="https://www.tiktok.com/@imaginarte_3d?_t=8jdMkfwYM34&_r=1" ><strong class="p-2 icono_content m-2"><i class="text-dark icons_header bi bi-tiktok"></i></strong></a>
                     </p>
 
                 </div>

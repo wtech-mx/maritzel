@@ -342,20 +342,46 @@
 
 <section class="row container-fluid  mt-5 mb-3" style="background: #7f5adc">
 
-    <div class="row container mx-auto mt-5 mb-3">
-        <div class="col-6">
+    <div class="row container mx-auto  mt-5 mb-3">
+        <div class="col-6 my-auto">
             <div class="d-flex justify-content-center">
                 <div class="container mb-5 mt-5">
-                    <h4 class="text_logo">Imaginarte 3D</h4>
-                    <h5 class="text_opriniones">
+                    <h4 class="text_logo text-center">Imaginarte 3D</h4>
+                    <h5 class="text_opriniones text-center">
                         Lo que nuestros clientes tienen que decir
                     </h5>
                 </div>
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-6 mx-auto">
+            <div id="carouselResenas" class="carousel slide" >
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="{{ asset('pagina/r1.png')}}" class="d-block img_resenas" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="{{ asset('pagina/r2.png')}}" class="d-block img_resenas" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="{{ asset('pagina/r3.png')}}" class="d-block img_resenas" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="{{ asset('pagina/r4.png')}}" class="d-block img_resenas" alt="...">
+                </div>
+            </div>
 
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselResenas" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselResenas" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            </div>
         </div>
     </div>
 
