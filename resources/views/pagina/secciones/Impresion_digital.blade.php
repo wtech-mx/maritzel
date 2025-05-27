@@ -49,17 +49,17 @@
 
     <div class="col-12">
         <div class="d-flex justify-content-around">
-            <a href="#ALUMINIO" class="btn_servicices_sect">Vinil</a>
-            <a href="#ACRILICO" class="btn_servicices_sect">Lona</a>
-            <a href="#ACRILICOALU" class="btn_servicices_sect">Papel</a>
-            <a href="#MDF" class="btn_servicices_sect">Más aplicaciones</a>
+            <a href="#VINIL" class="btn_servicices_sect">Vinil</a>
+            <a href="#LONA" class="btn_servicices_sect">Lona</a>
+            <a href="#PAPEL" class="btn_servicices_sect">Papel</a>
+            <a href="#MAS" class="btn_servicices_sect">Más aplicaciones</a>
         </div>
     </div>
 
 </section>
 
  {{-- ============================== Lona Section ============================== --}}
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="LONA">
 
     <div class="col-12">
 
@@ -148,7 +148,7 @@
 </section>
 
 {{-- ============================== Vinil Section ============================== --}}
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="VINIL">
     <div class="col-12">
         <h3 class="subtite_negro text-center mt-5">Vinil</h3>
 
@@ -265,7 +265,7 @@
 </section>
 
 {{-- ============================== Papel Section ============================== --}}
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="PAPEL">
     <div class="col-12">
         <h3 class="subtite_negro text-center mt-5">Papel</h3>
 
@@ -302,7 +302,7 @@
 </section>
 
 {{-- ============================== Más aplicaciones Section ============================== --}}
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="MAS">
     <div class="col-12">
         <h3 class="subtite_negro text-center mt-5">Más aplicaciones</h3>
 

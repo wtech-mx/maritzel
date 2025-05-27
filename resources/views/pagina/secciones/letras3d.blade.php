@@ -78,13 +78,13 @@
             <a href="#ACRILICO" class="btn_servicices_sect">ACRILICO</a>
             <a href="#ACRILICOALU" class="btn_servicices_sect">ACRILICO CON ALUMINIO</a>
             <a href="#MDF" class="btn_servicices_sect">MDF</a>
-            <a href="#PVC" class="btn_servicices_sect">PVC</a>
+            <a href="#MDF" class="btn_servicices_sect">PVC</a>
         </div>
     </div>
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="ALUMINIO">
 
     <div class="col-12">
 
@@ -223,7 +223,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="ACRILICO">
 
     <div class="col-12">
 
@@ -360,13 +360,13 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="ACRILICOALU">
 
     <div class="col-12">
 
         <h3 class="subtite_negro text-center mt-5">LETRAS DE ACRILICO CON ALUMINIO</h3>
 
-        <h2 class="subtitulos text-center mb-5"> 
+        <h2 class="subtitulos text-center mb-5">
             Los Letreros 3D de aluminio y acrílico hacen la perfecta conjunción de la naturalidad del acrílico y la elegancia del aluminio, al tener los dos materiales tienes diferentes posibilidades para crear tu letrero, dentro de su fabricación podemos ocupar frente de acrilico y cantos de aluminio o viceversa.
            <br> Las Letras corporeas 3d en aluminio y acrílico son ideales para colocarse en alturas por que tienen mayor cuerpo y suelen ser vistosas
         </h2>
@@ -397,7 +397,7 @@
 
 </section>
 
-<section class="row container mx-auto">
+<section class="row container mx-auto" id="MDF">
 
     <div class="col-12">
 
@@ -407,7 +407,7 @@
             ¿En busca de letreros sencillos, económicos y que cubran las necesidades de tu marca?
         </h2>
 
-        <p class="subtitulos text-center mb-5"> 
+        <p class="subtitulos text-center mb-5">
             Los Letreros sin realce 3d, son ideales sí buscas un letrero sencillo y estético, estos se fabrican con el espesor del material de su elección, dentro de sus acabados pueden ser pintados, rotulados en vinil, con frente en aluminio o acrílico, etc.
         </p>
 
