@@ -514,4 +514,20 @@
             font-size: 13px;
         }
 
+        .img_icon_card {
+            width: 40px;
+        }
+        .texto_prinicpal_card {
+            font-size: 13px;
+        }
+
+        .subtexto_prinicpal_card {
+            font-size: 9px;
+            line-height: 11px;
+        }
+
+        .contenedor_facs {
+            padding: 10px;
+        }
+
     }
