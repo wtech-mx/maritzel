@@ -329,19 +329,20 @@
 
         <div class="row">
             @foreach ([
-                ['src'=>'pagina/1.jpg','label'=>'Letreros 3D'],
-                ['src'=>'pagina/4-1.jpg','label'=>'Impresión Digital'],
-                ['src'=>'pagina/6.jpg','label'=>'Neón'],
-                ['src'=>'pagina/2.jpg','label'=>'Anuncios Luminosos'],
-                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Promocionales'],
-                ['src'=>'pagina/3.jpg','label'=>'Recorte de Vinil'],
-                ['src'=>'pagina/5.jpg','label'=>'Señaletica'],
-                ['src'=>'pagina/9.jpg','label'=>'Otros Productos'],
+                ['src'=>'pagina/1.jpg','label'=>'Letreros 3D','href'=>'letras-3d-corporeas'],
+                ['src'=>'pagina/4-1.jpg','label'=>'Impresión Digital','href'=>'impresion-digital'],
+                ['src'=>'pagina/6.jpg','label'=>'Neón','href'=>'neon'],
+                ['src'=>'pagina/2.jpg','label'=>'Anuncios Luminosos','href'=>'anuncios-luminosos'],
+                ['src'=>'pagina/9-1024x649.jpeg','label'=>'Promocionales','href'=>'promocionales'],
+                ['src'=>'pagina/3.jpg','label'=>'Recorte de Vinil','href'=>'Letreros_3D'],
+                ['src'=>'pagina/5.jpg','label'=>'Señaletica','href'=>'senaletica'],
+                ['src'=>'pagina/9.jpg','label'=>'Otros Productos','href'=>'recorte-de-vinil'],
             ] as $img)
                 <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
-                    <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">
+                    <a href="{{ $img['href'] }}" data-title="{{ $img['label'] }}">
+                    {{-- <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}"> --}}
                         <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
                     </a>
                     </p>
