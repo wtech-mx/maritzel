@@ -386,13 +386,13 @@
 
 </section>
 
-<section class="row container-lg-fluid separador_sections">
+<section class="row container-lg-fluid separador_sections" id="nosotros">
     <div class="d-flex justify-content-center">
         <h4 class="h4_separador text-center">IMAGINA - COTIZA - CREA <br>TE ACOMPAÑAMOS DE PRINCIPIO A FIN </h4>
     </div>
 </section>
 
-<section class="row container-lg mx-auto mt-5 mb-3">
+<section class="row container-lg mx-auto mt-5 mb-3" >
 
     <div class="col-12 col-md-6 col-lg-6 my-auto">
         <div class="d-flex justify-content-center">

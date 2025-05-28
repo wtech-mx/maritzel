@@ -24,7 +24,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Sí, las letras 3D corpóreas, ya sea con iluminación o sin ella, son adecuadas y están fabricadas con especificaciones para ser instaladas en exteriores. Asimismo, las letras 3D corpóreas de acrílico con aluminio están elaboradas con materiales resistentes a las inclemencias del clima. Por lo tanto, ambos tipos de letras 3D corpóreas son aptas para instalarse en exteriores.
                     </p>
                 </div>
@@ -38,7 +38,7 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         La garantía proporcionada por imaginarte 3d en la fabricación de letras 3d corpóreas tanto en aluminio como en acrílico es de 10 años, en dicho periodo el material con el que están fabricadas las letras 3d corpóreas no se va a oxidar ni a manchar, solamente requieren el mantenimiento de limpieza, en cuanto a la iluminación eventualmente va a requerir de mantenimiento, considerando que las luces led tienen un periodo de vida de aproximadamente 50,000 horas.
                     </p>
                 </div>
@@ -52,7 +52,7 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         La garantía proporcionada por imaginarte 3d es de 6 meses a partir del día en que fueron instaladas las letras 3d corpóreas. Aplica en el caso de que alguna letra se desprenda o se caiga. En iluminación, eléctricos, fuentes de poder, etc., no hay garantía, pero se considera una vida útil de 50,000 horas en las luces led.
                     </p>
                 </div>
@@ -66,7 +66,7 @@
                 </h2>
                 <div id="collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Las letras 3d corpóreas se pueden fabricar en aluminio con acabado espejo, acabado natural y acabado cepillado, en una amplia gama de colores como dorado, plateado, cobre, negro, blanco, acero y muchos más. En cuanto al acrílico, el acabado es semibrillante o traslúcido, y en caso de tono mate, se puede fabricar en negro o blanco. El acrílico cuenta con casi todos los colores, como rojo, verde, cristal, blanco, rosa, amarillo, café y muchos más.
                     </p>
                 </div>
@@ -80,7 +80,7 @@
                 </h2>
                 <div id="collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Imagínarte 3d cuenta con instalación en alturas. El costo depende de la altura y la complejidad de la instalación que se va a realizar.
                     </p>
                 </div>
@@ -94,7 +94,7 @@
                 </h2>
                 <div id="collapsesixs" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Imaginarte 3d cuenta con un equipo de diseñadores que realizan las plantillas de corte. Asimismo, se ofrece el servicio de diseño en el caso de que el cliente no cuente con él. Se les apoya en el diseño del logotipo, tipografía y más opciones de diseño que ofrece el equipo de diseño de imaginarte 3d.
                     </p>
                 </div>
@@ -110,7 +110,7 @@
                 </h2>
                 <div id="collapsven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         En el caso de que desconozcas las medidas exactas del letrero de tu proyecto, el equipo de diseño necesita que nos proporciones la medida del espacio que tienen destinado para la instalación del letrero. Imaginarte 3D te proporcionará asesoría para las diversas opciones, dependiendo del tamaño y las necesidades del cliente.
                     </p>
                 </div>
@@ -125,7 +125,7 @@
                 </h2>
                 <div id="collapseith" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         El tiempo estimado para la fabricación de los proyectos para nuestros clientes va a depender de la complejidad de la fabricación y la carga de trabajo que tengamos al momento de generar la orden de trabajo. Sin embargo, en promedio se maneja un tiempo estimado de 5 a 10 días hábiles.
                     </p>
                 </div>
@@ -140,7 +140,7 @@
                 </h2>
                 <div id="collapnine" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         La instalación de las letras 3D corpóreas se realiza en promedio en algunas horas. Los letreros sin luz se instalan generalmente en un tiempo de 4 a 6 horas, mientras que los letreros con luz requieren de 8 a 10 horas para la instalación.
                     </p>
                 </div>
@@ -155,7 +155,7 @@
                 </h2>
                 <div id="collapten" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Imaginarte 3D realiza envíos. Los productos se envían en una caja de madera para protección de las letras. Además, se incluye la guía de instalación, fuente de poder y conexiones en caso de tener iluminación. También se proporcionan elementos como pijas, espárragos, cinta doble cara, y el embalaje del proyecto está incluido en la cotización. El costo de la paquetería es adicional a la cotización del proyecto y dependerá del peso y el lugar donde será enviado el paquete.
                     </p>
                 </div>
@@ -170,7 +170,7 @@
                 </h2>
                 <div id="collaponce" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Imaginarte 3D realiza instalaciones al interior de la República, y se aplica un costo adicional para cubrir los viáticos necesarios.
                     </p>
                 </div>
@@ -185,7 +185,7 @@
                 </h2>
                 <div id="collapdoce" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                     Imaginarte 3D realiza mantenimiento de proyectos instalados previamente, como reemplazar alguna letra, fuentes de poder, colocar vinil, limpieza, con la excepción de letreros de neón.
                     </p>
                 </div>
@@ -200,7 +200,7 @@
                 </h2>
                 <div id="collatrece" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                         Para poder cotizar un letrero, Imaginarte 3D necesita una imagen del logotipo, medidas aproximadas y el tipo de materiales con los que se elaborará el proyecto.
                     </p>
                 </div>
@@ -215,7 +215,7 @@
                 </h2>
                 <div id="collacatorce" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p>
+                    <p class="text_modal_faqs">
                     Sí, Imaginarte 3D proporciona factura fiscal con IVA desglosado de acuerdo a las disposiciones fiscales vigentes.
                     </p>
                 </div>

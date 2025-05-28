@@ -39,7 +39,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Nosotros</a>
+          <a class="nav-link text-white" href="{{ route('pagina.inicio') }}#nosotros">Nosotros</a>
         </li>
 
         <li class="nav-item">
