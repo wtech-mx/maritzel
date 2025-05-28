@@ -15,10 +15,10 @@
                 <div class="col-6 col-md-4 col-lg-4">
                     <h3 class="tittle_footer" >Informacion</h3>
                     <p class="ul_footer">
-                    <a href="" > INICIO</a><br>
-                    <a href="" > PRODUCTOS</a><br>
-                    <a href="" > PREGUNTAS </a><br>
-                    <a href="" > Cotizar</a><br>
+                    <a href="" > INICIO</a><br> <br>
+                    <a href="" > PRODUCTOS</a><br> <br>
+                    <a href="" > PREGUNTAS </a><br> <br>
+                    <a href="" > Cotizar</a><br> <br>
                     </p>
                 </div>
 

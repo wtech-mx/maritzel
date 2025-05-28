@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-12">
                 <p class="text-center mt-4">
-                    <a href="" class="btn_accion text-center mt-3 mx-auto">Contáctanos Por WhatsApp</a>
+                    <a href="https://wa.link/cprewb" class="btn_accion text-center mt-3 mx-auto">Contáctanos Por WhatsApp <i class="bi bi-whatsapp"></i></a>
                 </p>
             </div>
         </div>

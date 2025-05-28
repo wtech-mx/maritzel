@@ -13,10 +13,10 @@
         <div class="d-flex justify-content-center">
             <div class="container_btns">
                 <p class="text-end mb-5">
-                    <a href="" class="cotizar">Cotizar</a> <br>
+                    <a href="{{ route('pagina.inicio') }}#productos" class="cotizar">Cotizar</a> <br>
                 </p>
                 <p class="text-end mb-5">
-                    <a href="" class="cotizar ">Contáctanos Por WhatsApp</a> <br>
+                    <a href="https://wa.link/cprewb" class="cotizar ">Contáctanos Por WhatsApp</a> <br>
                 </p>
             </div>
         </div>

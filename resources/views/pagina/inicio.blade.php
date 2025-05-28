@@ -131,13 +131,13 @@
 
             <div class="col-6 mx-auto">
                 <p class="text-center mt-4">
-                    <a href="" class="btn_accion text-center mt-3 mx-auto">Ver Servicios</a>
+                    <a href="#productos" class="btn_accion text-center mt-3 mx-auto">Ver Servicios</a>
                 </p>
             </div>
 
             <div class="col-6">
                 <p class="text-center mt-4">
-                    <a href="" class="btn_accion text-center mt-3 mx-auto">Cotizar</a>
+                    <a href="" class="btn_accion text-center mt-3 mx-auto">Cotizar <i class="bi bi-whatsapp"></i></a>
                 </p>
             </div>
 
@@ -281,8 +281,8 @@
 
 </section>
 
-<section class="row container-lg mx-auto mt-5 mb-3">
-    <div class="col-12 col-md-3 col-lg-3 mb-2 mb-md-0 mb-lg-0">
+<section class="row container-lg mx-auto mt-5 mb-3" >
+    <div class="col-12 col-md-3 col-lg-3 mb-2 mb-md-0 mb-lg-0" id="productos">
         <div class="coantiner_card_services">
             <h3 class="h3_subtitle">Selecciona alguno de nuestros servicios</h3>
         </div>
@@ -566,16 +566,27 @@
             <div id="carouselResenas" class="carousel slide" >
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('pagina/r1.png')}}" class="d-block img_resenas" alt="...">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('pagina/r1.png')}}" class="d-block img_resenas" alt="...">
+                    </div>
                 </div>
+
                 <div class="carousel-item">
-                <img src="{{ asset('pagina/r2.png')}}" class="d-block img_resenas" alt="...">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('pagina/r2.png')}}" class="d-block img_resenas" alt="...">
+                    </div>
                 </div>
+
                 <div class="carousel-item">
-                <img src="{{ asset('pagina/r3.png')}}" class="d-block img_resenas" alt="...">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('pagina/r3.png')}}" class="d-block img_resenas" alt="...">
+                    </div>
                 </div>
+
                 <div class="carousel-item">
-                <img src="{{ asset('pagina/r4.png')}}" class="d-block img_resenas" alt="...">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('pagina/r4.png')}}" class="d-block img_resenas" alt="...">
+                    </div>
                 </div>
             </div>
 

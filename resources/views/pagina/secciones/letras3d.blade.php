@@ -19,13 +19,13 @@
 
             <div class="col-6 mx-auto">
                 <p class="text-center mt-4">
-                    <a href="" class="btn_accion text-center mt-3 mx-auto">Ver Servicios</a>
+                    <a href="{{ route('pagina.inicio') }}#productos" class="btn_accion text-center mt-3 mx-auto">Ver Servicios</a>
                 </p>
             </div>
 
             <div class="col-6">
                 <p class="text-center mt-4">
-                    <a href="" class="btn_accion text-center mt-3 mx-auto">Cotizar</a>
+                    <a href="https://wa.link/cprewb" class="btn_accion text-center mt-3 mx-auto">Cotizar <i class="bi bi-whatsapp"></i></a>
                 </p>
             </div>
 
