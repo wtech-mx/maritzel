@@ -45,7 +45,7 @@
                 ['src'=>'pagina/senaletica/4.jpg','label'=>'Señalamientos creativos de protección civil'],
                 ['src'=>'pagina/senaletica/5.jpg','label'=>'Señalamientos en PVC y vinil impreso'],
             ] as $img)
-                <div class="col-4">
+                <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
                     <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}">

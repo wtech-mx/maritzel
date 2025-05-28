@@ -42,7 +42,7 @@
                 ['src'=>'pagina/anuncios_luminosos/2.jpg','label'=>'Caja de luz 1 vista'],
                 ['src'=>'pagina/anuncios_luminosos/3.jpg','label'=>'Anuncio a contorno del logo'],
                 ['src'=>'pagina/anuncios_luminosos/4.jpg','label'=>'Anuncio luminoso tipo bandera a  contorno'],
-                ['src'=>'pagina/anuncios_luminosos/5.jpeg','label'=>'Anuncio luminoso tipo bandera  rectangular'],
+                ['src'=>'pagina/anuncios_luminosos/5.jpg','label'=>'Anuncio luminoso tipo bandera  rectangular'],
                 ['src'=>'pagina/anuncios_luminosos/6.jpg','label'=>'Caja rectangular de lona tensada'],
             ] as $img)
                 <div class="col-6 col-md-3 col-lg-3 my-auto">
