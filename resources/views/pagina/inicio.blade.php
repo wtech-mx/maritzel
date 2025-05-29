@@ -290,30 +290,42 @@
 
     <div class="col-12 col-md-9 col-lg-9 my-auto">
         <div id="popularProductsCarousel" class="owl-carousel">
+            <a class="texto_services" href="{{ route('pagina.letras3d') }}">
+                <div class="coantiner_card_services2">
+                    <p class="text-center texto_services">
+                            <img class="img_coantiner_card_services" src="{{ asset('pagina/letreros3d.webp')}}" alt=""> <br>
+                            Letreros 3D
+                    </p>
+                </div>
+            </a>
+
+            <a class="texto_services" href="{{ route('pagina.impresion_digital') }}">
+                <div class="coantiner_card_services2">
+                    <p class="text-center texto_services">
+                            <img class="img_coantiner_card_services" src="{{ asset('pagina/impresion_digital.webp')}}" alt=""> <br>
+                        Impresión digital
+                    </p>
+                </div>
+            </a>
+
+            <a class="texto_services" href="{{ route('pagina.anuncios_luminosos') }}">
+                <div class="coantiner_card_services2">
+                    <p class="text-center texto_services">
+                        <img class="img_coantiner_card_services" src="{{ asset('pagina/anuncios-luminosos.webp')}}" alt=""> <br>
+                        Anuncios Lumi
+                    </p>
+                </div>
+            </a>
+
+            <a class="texto_services" href="{{ route('pagina.señaletica') }}">
             <div class="coantiner_card_services2">
-                <p class="text-center texto_services">
-                    <img class="img_coantiner_card_services" src="{{ asset('pagina/letreros3d.webp')}}" alt=""> <br>
-                    Letreros 3D
-                </p>
-            </div>
-            <div class="coantiner_card_services2">
-                <p class="text-center texto_services">
-                    <img class="img_coantiner_card_services" src="{{ asset('pagina/impresion_digital.webp')}}" alt=""> <br>
-                   Impresión digital
-                </p>
-            </div>
-            <div class="coantiner_card_services2">
-                <p class="text-center texto_services">
-                    <img class="img_coantiner_card_services" src="{{ asset('pagina/anuncios-luminosos.webp')}}" alt=""> <br>
-                    Anuncios Lumi
-                </p>
-            </div>
-                        <div class="coantiner_card_services2">
                 <p class="text-center texto_services">
                     <img class="img_coantiner_card_services" src="{{ asset('pagina/senalizacion.webp')}}" alt=""> <br>
                     Señalización
+
                 </p>
             </div>
+            </a>
         </div>
     </div>
 </section>
@@ -336,17 +348,19 @@
                 ['src'=>'pagina/9-1024x649.jpeg','label'=>'Promocionales','href'=>'promocionales'],
                 ['src'=>'pagina/3.jpg','label'=>'Recorte de Vinil','href'=>'Letreros_3D'],
                 ['src'=>'pagina/5.jpg','label'=>'Señaletica','href'=>'senaletica'],
-                ['src'=>'pagina/9.jpg','label'=>'Otros Productos','href'=>'recorte-de-vinil'],
+                ['src'=>'pagina/9.jpg','label'=>'Otros Productos','href'=>'#'],
             ] as $img)
                 <div class="col-6 col-md-3 col-lg-3 my-auto">
                 <div class="container_card_product">
                     <p class="text-center mb-0">
-                    <a href="{{ $img['href'] }}" data-title="{{ $img['label'] }}">
-                    {{-- <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}"> --}}
-                        <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
-                    </a>
+                        <a href="{{ $img['href'] }}" data-title="{{ $img['label'] }}">
+                            {{-- <a href="{{ asset($img['src']) }}" class="glightbox" data-gallery="productos" data-title="{{ $img['label'] }}"> --}}
+                            <img class="img_products" src="{{ asset($img['src']) }}" alt="{{ $img['label'] }}">
+                        </a>
                     </p>
-                    <p class="text-center text_products">{{ $img['label'] }}</p>
+                    <a href="{{ $img['href'] }}" data-title="{{ $img['label'] }}">
+                        <p class="text-center text_products">{{ $img['label'] }}</p>
+                    </a>
                 </div>
                 </div>
             @endforeach
