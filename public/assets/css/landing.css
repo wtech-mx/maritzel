@@ -411,6 +411,16 @@
         width: 80%;
     }
 
+    .bi-caret-left::before {
+        content: "\f230";
+        color: #fff;
+        font-size: 23px;
+    }
+
+    .icon_regreso{
+        display: none;
+    }
+
     @media only screen and (max-width: 991px) {
         .img_crousel_principal {
             width: 100%;
@@ -538,6 +548,10 @@
 
         .sibtittle_card_inicio {
             font-size: 13px;
+        }
+
+        .icon_regreso{
+            display: block;
         }
 
     }

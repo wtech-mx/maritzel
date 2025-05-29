@@ -1,6 +1,11 @@
 <header class="header sticky-top border-bottom mb-4">
   <nav class="navbar navbar-expand-lg container">
     <!-- Logo a la izquierda -->
+
+    <a class="navbar-brand me-auto icon_regreso" href="{{ route('pagina.inicio') }}">
+      <i class="bi bi-caret-left"></i>
+    </a>
+
     <a class="navbar-brand me-auto" href="{{ route('pagina.inicio') }}">
       <img src="{{ asset('pagina/cropped-new-log.png') }}" alt="Logo" height="40">
     </a>
