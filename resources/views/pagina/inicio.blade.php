@@ -509,7 +509,7 @@
                 </div>
 
                 <div class="carousel-item">
-                    <img src="{{ asset('pagina/banner/24.jpg')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
+                    <img src="{{ asset('pagina/banner/24.PNG')}}" class="d-block img_crousel_principal mx-auto"  alt="...">
                 </div>
 
                 <div class="carousel-item">
