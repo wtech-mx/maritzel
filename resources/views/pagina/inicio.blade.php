@@ -27,105 +27,137 @@
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/3d.png')}}" alt="">
+                    <a href="{{ route('pagina.letras3d') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                    <img class="img_container_card_inicio" src="{{ asset('pagina/3d.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.letras3d') }}" class="sibtittle_card_inicio">Letras 3D corpóreas</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Letras 3D corpóreas</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/senal-de-neon.png')}}" alt="">
+                    <a href="{{ route('pagina.anuncios_luminosos') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/senal-de-neon.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.anuncios_luminosos') }}" class="sibtittle_card_inicio">Anuncios luminosos</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Anuncios luminosos</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/luz-1.png')}}" alt="">
+                    <a href="{{ route('pagina.letreros_neon') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/luz-1.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.letreros_neon') }}" class="sibtittle_card_inicio">Letreros de neón</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Letreros de neón</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/continentes.png')}}" alt="">
+                    <a href="{{ route('pagina.vinil') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/continentes.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.vinil') }}" class="sibtittle_card_inicio">Vinil decorativo</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Vinil decorativo</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/impresora.png')}}" alt="">
+                    <a href="{{ route('pagina.impresion_digital') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/impresora.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.impresion_digital') }}" class="sibtittle_card_inicio">Impresión a gran formato</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Impresión a gran formato</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/senalizacion.png')}}" alt="">
+                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/senalizacion.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética creativa</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Señalética creativa</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/pintar.png')}}" alt="">
+                    <a href="{{ route('pagina.vinil') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/pintar.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.vinil') }}" class="sibtittle_card_inicio">Arte grafica</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Arte grafica</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <div class="row">
-                        <div class="col-4 col-md-2 col-lg-2 my-auto">
-                            <img class="img_container_card_inicio" src="{{ asset('pagina/salida-2.png')}}" alt="">
+                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                        <div class="row">
+                            <div class="col-4 col-md-2 col-lg-2 my-auto">
+                                <p class="text-center my-auto">
+                                <img class="img_container_card_inicio" src="{{ asset('pagina/salida-2.png')}}" alt="">
+                                </p>
+                            </div>
+                            <div class="col-8 col-md-10 col-lg-10 my-auto">
+                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética de protección civil</a>
+                            </div>
                         </div>
-                        <div class="col-8 col-md-10 col-lg-10 my-auto">
-                            <a href="" class="sibtittle_card_inicio">Señalética de protección civil</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 

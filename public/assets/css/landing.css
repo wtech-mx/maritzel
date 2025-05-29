@@ -28,7 +28,7 @@
 
     .img_container_card_inicio{
         width: 60px;
-        padding: 10px;
+        padding: 10px 10px 10px 20px;
     }
 
     .sibtittle_card_inicio{
@@ -530,6 +530,14 @@
         .contenedor_facs {
             padding: 10px;
             margin-bottom: 20px;
+        }
+
+        .img_container_card_inicio {
+            padding: 10px 10px 10px 15px;
+        }
+
+        .sibtittle_card_inicio {
+            font-size: 13px;
         }
 
     }
