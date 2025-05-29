@@ -408,13 +408,13 @@
         <div class="d-flex justify-content-center">
             <div class="container_btns">
                 <p class="text-star mb-5">
-                    <a href="" class="cotizar">Cotizar</a> <br>
+                    <a href="https://wa.link/cprewb" class="cotizar">Cotizar</a> <br>
                 </p>
                 <p class="text-star mb-5">
-                    <a href="" class="consejos">Consejos</a> <br>
+                    <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="consejos">Consejos</a> <br>
                 </p>
                 <p class="text-star mb-5">
-                    <a href="" class="whatascontacto ">Contáctanos Por WhatsApp</a> <br>
+                    <a target="_blank" href="https://wa.link/cprewb" class="whatascontacto ">Contáctanos Por WhatsApp </a> <br>
                 </p>
             </div>
         </div>
