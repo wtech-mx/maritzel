@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/'. $configuracion->favicon) }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/'. $configuracion->favicon ?? '') }}">
 
     <link rel="icon" type="image/png" href="{{ asset('pagina/cropped-cropped-new-log-180x180.png') }}">
     <link rel="icon" href="{{ asset('pagina/cropped-cropped-new-log-192x192.png') }}" sizes="192x192" />

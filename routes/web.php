@@ -34,6 +34,11 @@ Route::get('promocionales', [App\Http\Controllers\PaginaController::class, 'prom
 Route::get('senaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
 Route::get('recorte-de-vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
 
+Route::get('prb', [App\Http\Controllers\PaginaController::class, 'prb'])->name('pagina.prb');
+Route::get('prb2', [App\Http\Controllers\PaginaController::class, 'prb2'])->name('pagina.prb2');
+Route::get('prb3', [App\Http\Controllers\PaginaController::class, 'prb3'])->name('pagina.prb3');
+Route::get('prb4', [App\Http\Controllers\PaginaController::class, 'prb4'])->name('pagina.prb4');
+
 
 // =============== M O D U L O   login custom ===============================
 

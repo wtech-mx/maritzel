@@ -45,4 +45,25 @@ class PaginaController extends Controller
 
         return view('pagina.secciones.vinil');
     }
+
+    public function prb(){
+
+        return view('pagina.prb');
+    }
+
+    public function prb2(){
+
+        return view('pagina.prb2');
+    }
+
+    public function prb3(){
+
+        return view('pagina.prb3');
+    }
+
+    public function prb4(){
+
+        return view('pagina.prb4');
+    }
+
 }
