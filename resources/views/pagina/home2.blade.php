@@ -384,7 +384,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#letras-3d" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Letras+3D+Corp%C3%B3reas"
+                src="{{ asset('img/1.png') }}"
                 alt="Letras 3D Corpóreas"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -402,7 +402,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#anuncios-luminosos" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/10B981/FFFFFF?text=Anuncios+Luminosos"
+                src="{{ asset('img/2.png') }}"
                 alt="Anuncios Luminosos"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -420,7 +420,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#neon-flex" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Ne%C3%B3n+Flex"
+                src="{{ asset('img/4.png') }}"
                 alt="Letreros en Neón Flex"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -438,7 +438,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#impresion-digital" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/10B981/FFFFFF?text=Impresi%C3%B3n+Digital"
+                src="{{ asset('img/6.png') }}"
                 alt="Impresión Digital a Gran Formato"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -456,7 +456,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#senaletica" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Se%C3%B1al%C3%A9tica+Creativa"
+                src="{{ asset('img/9.png') }}"
                 alt="Señalética Creativa"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -474,7 +474,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#promocionales" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/10B981/FFFFFF?text=Promocionales"
+                src="{{ asset('img/10.png') }}"
                 alt="Promocionales"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
@@ -492,7 +492,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="#vinilo-decorativo" class="image-card h-100 d-block text-decoration-none">
             <img
-                src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Vinilo+Decorativo"
+                src="{{ asset('img/12.png') }}"
                 alt="Vinilo Decorativo"
                 class="w-100"
                 style="height: 12rem; object-fit: cover;"
