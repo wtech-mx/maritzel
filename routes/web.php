@@ -35,7 +35,11 @@ Route::get('senaletica', [App\Http\Controllers\PaginaController::class, 'señale
 Route::get('recorte-de-vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
 
 Route::get('prb', [App\Http\Controllers\PaginaController::class, 'prb'])->name('pagina.prb');
+
 Route::get('prb2', [App\Http\Controllers\PaginaController::class, 'prb2'])->name('pagina.prb2');
+Route::get('home2', [App\Http\Controllers\PaginaController::class, 'home2'])->name('pagina.home2');
+
+
 Route::get('prb3', [App\Http\Controllers\PaginaController::class, 'prb3'])->name('pagina.prb3');
 Route::get('prb4', [App\Http\Controllers\PaginaController::class, 'prb4'])->name('pagina.prb4');
 

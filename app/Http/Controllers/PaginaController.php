@@ -65,5 +65,9 @@ class PaginaController extends Controller
 
         return view('pagina.prb4');
     }
+    public function home2(){
+
+        return view('pagina.home2');
+    }
 
 }
