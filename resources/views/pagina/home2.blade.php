@@ -537,7 +537,7 @@
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=Aluminio+Plata+Cepillado"
+                    <img src="{{ asset('pagina/servicios/aluminio/15.png')}}"
                         alt="Letra 3D Aluminio plata cepillado"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio Plata Cepillado</p></div>
@@ -545,7 +545,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=Aluminio+Acero+Natural"
+                    <img src="{{ asset('pagina/servicios/aluminio/16.png')}}"
                         alt="Letrero 3D Aluminio acero natural"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio Acero Natural</p></div>
@@ -553,7 +553,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=Aluminio+Dorado"
+                    <img src="{{ asset('pagina/servicios/aluminio/17.png')}}"
                         alt="Letras 3D en aluminio dorado"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio Dorado</p></div>
@@ -561,7 +561,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=Aluminio+Luz+C%C3%A1lida"
+                    <img src="{{ asset('pagina/servicios/aluminio/18.png')}}"
                         alt="Aluminio con Luz Indirecta Cálida"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio con Luz Indirecta Cálida</p></div>
@@ -569,7 +569,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=Aluminio+Negro+Mate"
+                    <img src="{{ asset('pagina/servicios/aluminio/19.png')}}"
                         alt="Aluminio Negro Mate"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio Negro Mate</p></div>
@@ -577,7 +577,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=Aluminio+Espejo"
+                    <img src="{{ asset('pagina/servicios/aluminio/20.png')}}"
                         alt="Aluminio Espejo"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Aluminio Espejo</p></div>
@@ -626,7 +626,7 @@
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/6EE7B7/FFFFFF?text=Acr%C3%ADlico+Rosa+Luz+Directa"
+                    <img src="{{ asset('pagina/servicios/acrilico/22.png')}}"
                         alt="Acrílico Rosa con Luz Directa"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Acrílico Rosa con Luz Directa</p></div>
@@ -634,7 +634,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/34D399/FFFFFF?text=Acr%C3%ADlico+Blanco+Luz+Fr%C3%ADa"
+                    <img src="{{ asset('pagina/servicios/acrilico/23.png')}}"
                         alt="Acrílico Blanco con Luz Fría"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Acrílico Blanco con Luz Fría</p></div>
@@ -642,7 +642,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/10B981/FFFFFF?text=Acr%C3%ADlico+Rojo+Sin+Luz"
+                    <img src="{{ asset('pagina/servicios/acrilico/24.png')}}"
                         alt="Acrílico Rojo sin Luz"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Acrílico Rojo sin Luz</p></div>
@@ -650,7 +650,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/6EE7B7/FFFFFF?text=Medall%C3%B3n+Acr%C3%ADlico+Vinil"
+                    <img src="{{ asset('pagina/servicios/acrilico/25.png')}}"
                         alt="Medallón de Acrílico con Vinil"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Medallón de Acrílico con Vinil</p></div>
@@ -658,7 +658,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/34D399/FFFFFF?text=Acr%C3%ADlico+Transparente"
+                    <img src="{{ asset('pagina/servicios/acrilico/26.png')}}"
                         alt="Acrílico Transparente"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Acrílico Transparente</p></div>
@@ -666,7 +666,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                 <div class="image-card h-100">
-                    <img src="https://placehold.co/400x300/10B981/FFFFFF?text=Acr%C3%ADlico+RGB"
+                    <img src="{{ asset('pagina/servicios/acrilico/27png')}}"
                         alt="Acrílico con Luz RGB"
                         class="w-100" style="height: 12rem; object-fit: cover;">
                     <div class="p-2"><p class="fw-medium small mb-0">Acrílico con Luz RGB</p></div>
@@ -714,37 +714,37 @@
 
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/93C5FD/FFFFFF?text=Acr%C3%ADlico+Frente+Aluminio+Cantos"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/29.png')}}"
                     alt="Frente Acrílico, Cantos Aluminio" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Frente Acrílico, Cantos Aluminio</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/60A5FA/FFFFFF?text=Aluminio+Frente+Acr%C3%ADlico+Cantos"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/30.png')}}"
                     alt="Frente Aluminio, Cantos Acrílico" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Frente Aluminio, Cantos Acrílico</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/3B82F6/FFFFFF?text=Letras+Combinadas+1"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/31.png')}}"
                     alt="Combinación 1" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Combinación de Materiales 1</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/93C5FD/FFFFFF?text=Letras+Combinadas+2"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/32.png')}}"
                     alt="Combinación 2" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Combinación de Materiales 2</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/60A5FA/FFFFFF?text=Acr%C3%ADlico+Iluminado+Aluminio"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/33.png')}}"
                     alt="Acrílico iluminado con base de aluminio" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acrílico Iluminado con Base de Aluminio</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/3B82F6/FFFFFF?text=Aluminio+Iluminado+Acr%C3%ADlico"
+                <img src="{{ asset('pagina/servicios/acrilico_alu/34.png')}}"
                     alt="Aluminio iluminado con frente de acrílico" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Aluminio Iluminado con Frente de Acrílico</p></div>
                 </div></div>
@@ -789,37 +789,37 @@
 
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=Acero+Inoxidable+Pulido"
+                <img src="{{ asset('pagina/servicios/acero_inox/37.png')}}"
                     alt="Acero Inoxidable Pulido" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Pulido</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=Acero+Inoxidable+Cepillado"
+                <img src="{{ asset('pagina/servicios/acero_inox/38.png')}}"
                     alt="Acero Inoxidable Cepillado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Cepillado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=Acero+Inoxidable+Retroiluminado"
+                <img src="{{ asset('pagina/servicios/acero_inox/39.png')}}"
                     alt="Acero Inoxidable Retroiluminado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Retroiluminado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=Acero+Inoxidable+Pintado"
+                <img src="{{ asset('pagina/servicios/acero_inox/40.png')}}"
                     alt="Acero Inoxidable Pintado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Pintado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=Acero+Inoxidable+Oro"
+                <img src="{{ asset('pagina/servicios/acero_inox/41.png')}}"
                     alt="Acero Inoxidable Oro" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Color Oro</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=Acero+Inoxidable+Negro"
+                <img src="{{ asset('pagina/servicios/acero_inox/42.png')}}"
                     alt="Acero Inoxidable Negro" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">Acero Inoxidable Color Negro</p></div>
                 </div></div>
@@ -862,37 +862,37 @@
 
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/6EE7B7/FFFFFF?text=MDF+Pintado"
+                <img src="{{ asset('pagina/servicios/mdf/45.png')}}"
                     alt="MDF Pintado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF Pintado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/34D399/FFFFFF?text=MDF+Con+Vinil"
+                <img src="{{ asset('pagina/servicios/mdf/46.png')}}"
                     alt="MDF con Vinil" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF con Vinil</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/10B981/FFFFFF?text=MDF+Con+Frente+Aluminio"
+                <img src="{{ asset('pagina/servicios/mdf/47.png')}}"
                     alt="MDF con Frente de Aluminio" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF con Frente de Aluminio</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/6EE7B7/FFFFFF?text=MDF+Personalizado"
+                <img src="{{ asset('pagina/servicios/mdf/48.png')}}"
                     alt="MDF Personalizado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF Personalizado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/34D399/FFFFFF?text=MDF+Natural"
+                <img src="{{ asset('pagina/servicios/mdf/49.png')}}"
                     alt="MDF Natural" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF en Acabado Natural</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/10B981/FFFFFF?text=MDF+Con+Acr%C3%ADlico"
+                <img src="{{ asset('pagina/servicios/mdf/50.png')}}"
                     alt="MDF con Frente de Acrílico" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">MDF con Frente de Acrílico</p></div>
                 </div></div>
@@ -934,37 +934,37 @@
 
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=PVC+Pintado+Exterior"
+                <img src="{{ asset('pagina/servicios/pvc/52.png')}}"
                     alt="PVC Pintado Exterior" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC Pintado Exterior</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=PVC+Con+Vinil"
+                <img src="{{ asset('pagina/servicios/pvc/53.png')}}"
                     alt="PVC con Vinil" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC con Vinil</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=PVC+Con+Frente+Aluminio"
+                <img src="{{ asset('pagina/servicios/pvc/54.png')}}"
                     alt="PVC con Frente de Aluminio" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC con Frente de Aluminio</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/A78BFA/FFFFFF?text=PVC+Personalizado"
+                <img src="{{ asset('pagina/servicios/pvc/55.png')}}"
                     alt="PVC Personalizado" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC Personalizado</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/D8B4FE/FFFFFF?text=PVC+Blanco"
+                <img src="{{ asset('pagina/servicios/pvc/56.png')}}"
                     alt="PVC Blanco Natural" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC en Blanco Natural</p></div>
                 </div></div>
 
                 <div class="col-12 col-md-6"><div class="image-card h-100">
-                <img src="https://placehold.co/400x300/C4B5FD/FFFFFF?text=PVC+Negro"
+                <img src="{{ asset('pagina/servicios/pvc/57.png')}}"
                     alt="PVC Negro" class="w-100" style="height:12rem;object-fit:cover;">
                 <div class="p-2"><p class="fw-medium small mb-0">PVC en Negro</p></div>
                 </div></div>
