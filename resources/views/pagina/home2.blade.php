@@ -1003,7 +1003,7 @@
     <div class="row g-3 mb-4">
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Anuncio+Luminoso+Bandera"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/59.png')}}"
                 alt="Anuncio luminoso tipo bandera"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
@@ -1015,7 +1015,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Caja+de+Luz+1+Vista"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/60.png')}}"
                 alt="Caja de luz 1 vista"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
@@ -1027,7 +1027,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Anuncio+Contorno+Logo"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/63.png')}}"
                 alt="Anuncio a contorno del logo"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
@@ -1039,7 +1039,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Anuncio+Bandera+Contorno"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/62.png')}}"
                 alt="Anuncio luminoso tipo bandera a contorno"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
@@ -1051,7 +1051,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Anuncio+Bandera+Rectangular"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/64.png')}}"
                 alt="Anuncio luminoso tipo bandera rectangular"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
@@ -1063,7 +1063,7 @@
 
         <div class="col-12 col-md-6 col-lg-4">
         <div class="image-card h-100">
-            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Caja+Lona+Tensada"
+            <img src="{{ asset('pagina/servicios/anuncios_lumi/65.png')}}"
                 alt="Caja rectangular de lona tensada"
                 class="w-100 rounded-top"
                 style="height: 12rem; object-fit: cover;">
