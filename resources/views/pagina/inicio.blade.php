@@ -1,5 +1,41 @@
 @extends('layouts.app_pagina')
 
+@section('seo_title', 'Publicidad que destaca: Letras 3D, Neón y Anuncios Luminosos en CDMX')
+@section('seo_description', 'En Imaginarte 3D fabricamos e instalamos letras 3D, anuncios luminosos, letreros de neón, vinil e impresión digital. Atención en CDMX. Cotiza por WhatsApp.')
+@section('seo_canonical', url('/'))
+@section('seo_image', asset('pagina/cropped-new-log-192x192.png'))
+
+@section('seo_extra')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Imaginarte 3D",
+  "url": "{{ url('/') }}",
+  "image": "{{ asset('pagina/cropped-new-log-192x192.png') }}",
+  "telephone": "+525587703080",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Palma 64, Lomas Quebradas",
+      "addressLocality": "La Magdalena Contreras",
+      "addressRegion": "CDMX",
+      "postalCode": "10000",
+      "addressCountry": "MX"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Calz. de la Viga 363, Asturias",
+      "addressLocality": "Cuauhtémoc",
+      "addressRegion": "CDMX",
+      "postalCode": "06850",
+      "addressCountry": "MX"
+    }
+  ]
+}
+</script>
+@endsection
+
 @section('template_title')
     Inicio
 @endsection

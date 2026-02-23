@@ -112,7 +112,7 @@
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                    <a href="" style="display: contents;">
                         <div class="row">
                             <div class="col-4 col-md-2 col-lg-2 my-auto">
                                 <p class="text-center my-auto">
@@ -120,7 +120,7 @@
                                 </p>
                             </div>
                             <div class="col-8 col-md-10 col-lg-10 my-auto">
-                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética creativa</a>
+                                <a href="" class="sibtittle_card_inicio">Señalética creativa</a>
                             </div>
                         </div>
                     </a>
@@ -146,7 +146,7 @@
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                    <a href="" style="display: contents;">
                         <div class="row">
                             <div class="col-4 col-md-2 col-lg-2 my-auto">
                                 <p class="text-center my-auto">
@@ -154,7 +154,7 @@
                                 </p>
                             </div>
                             <div class="col-8 col-md-10 col-lg-10 my-auto">
-                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética de protección civil</a>
+                                <a href="" class="sibtittle_card_inicio">Señalética de protección civil</a>
                             </div>
                         </div>
                     </a>
@@ -349,7 +349,7 @@
                 </div>
             </a>
 
-            <a class="texto_services" href="{{ route('pagina.señaletica') }}">
+            <a class="texto_services" href="">
             <div class="coantiner_card_services2">
                 <p class="text-center texto_services">
                     <img class="img_coantiner_card_services" src="{{ asset('pagina/senalizacion.webp')}}" alt=""> <br>

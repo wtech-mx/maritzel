@@ -7,6 +7,38 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+    {{-- ========= SEO BASE ========= --}}
+    @php
+    $seoTitle = trim($__env->yieldContent('seo_title', $__env->yieldContent('template_title', 'Imaginarte 3D')));
+    $seoDesc  = trim($__env->yieldContent('seo_description', 'Fabricamos e instalamos letras 3D, anuncios luminosos, neón e impresión digital en CDMX. Cotiza por WhatsApp.'));
+    $seoUrl   = $__env->yieldContent('seo_canonical', url()->current());
+    $seoImg   = $__env->yieldContent('seo_image', asset('pagina/cropped-new-log-192x192.png'));
+    @endphp
+
+    <title>{{ $seoTitle }} - Imaginarte 3D</title>
+
+    <meta name="description" content="{{ $seoDesc }}">
+    <link rel="canonical" href="{{ $seoUrl }}">
+
+    {{-- Open Graph (Facebook/WhatsApp/LinkedIn) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Imaginarte 3D">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDesc }}">
+    <meta property="og:url" content="{{ $seoUrl }}">
+    <meta property="og:image" content="{{ $seoImg }}">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDesc }}">
+    <meta name="twitter:image" content="{{ $seoImg }}">
+
+    {{-- Permitir que cada página agregue extra SEO (schema, robots, etc.) --}}
+    @yield('seo_extra')
+    {{-- ========= /SEO BASE ========= --}}
+
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/'. $configuracion->favicon ?? '') }}">
 
     <link rel="icon" type="image/png" href="{{ asset('pagina/cropped-cropped-new-log-180x180.png') }}">
@@ -25,8 +57,7 @@
   <link href="{{ asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link href="{{ asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
-  <link href="{{ asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -60,7 +91,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
