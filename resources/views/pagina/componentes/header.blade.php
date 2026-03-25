@@ -40,7 +40,7 @@
             <li><a class="dropdown-item" href="{{ route('pagina.letreros_neon') }}" itemprop="url"><span itemprop="name">Neón</span></a></li>
             <li><a class="dropdown-item" href="{{ route('pagina.anuncios_luminosos') }}" itemprop="url"><span itemprop="name">Anuncios luminosos</span></a></li>
             <li><a class="dropdown-item" href="{{ route('pagina.promocionales') }}" itemprop="url"><span itemprop="name">Promocionales</span></a></li>
-            <li><a class="dropdown-item" href="{{ route('pagina.señaletica') }}" itemprop="url"><span itemprop="name">Señalética</span></a></li>
+            <li><a class="dropdown-item" href="{{ route('pagina.senaletica') }}" itemprop="url"><span itemprop="name">Señalética</span></a></li>
             <li><a class="dropdown-item" href="{{ route('pagina.vinil') }}" itemprop="url"><span itemprop="name">Vinilo</span></a></li>
           </ul>
         </li>
@@ -79,7 +79,7 @@
       "{{ route('pagina.letreros_neon') }}",
       "{{ route('pagina.anuncios_luminosos') }}",
       "{{ route('pagina.promocionales') }}",
-      "{{ route('pagina.señaletica') }}",
+      "{{ route('pagina.senaletica') }}",
       "{{ route('pagina.vinil') }}",
       "{{ route('pagina.inicio') }}#nosotros"
     ]
@@ -94,7 +94,7 @@
     <a href="{{ route('pagina.letreros_neon') }}">Neón</a>
     <a href="{{ route('pagina.anuncios_luminosos') }}">Anuncios luminosos</a>
     <a href="{{ route('pagina.promocionales') }}">Promocionales</a>
-    <a href="{{ route('pagina.señaletica') }}">Señalética</a>
+    <a href="{{ route('pagina.senaletica') }}">Señalética</a>
     <a href="{{ route('pagina.vinil') }}">Vinilo</a>
     <a href="{{ route('pagina.inicio') }}#nosotros">Nosotros</a>
     </nav>

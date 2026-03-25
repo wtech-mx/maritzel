@@ -36,9 +36,9 @@ class PaginaController extends Controller
         return view('pagina.secciones.promocionales');
     }
 
-    public function señaletica(){
+    public function senaletica(){
 
-        return view('pagina.secciones.señaletica');
+        return view('pagina.secciones.senaletica');
     }
 
     public function vinil(){

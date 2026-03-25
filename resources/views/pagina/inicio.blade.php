@@ -148,7 +148,7 @@
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                    <a href="{{ route('pagina.senaletica') }}" style="display: contents;">
                         <div class="row">
                             <div class="col-4 col-md-2 col-lg-2 my-auto">
                                 <p class="text-center my-auto">
@@ -156,7 +156,7 @@
                                 </p>
                             </div>
                             <div class="col-8 col-md-10 col-lg-10 my-auto">
-                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética creativa</a>
+                                <a href="{{ route('pagina.senaletica') }}" class="sibtittle_card_inicio">Señalética creativa</a>
                             </div>
                         </div>
                     </a>
@@ -182,7 +182,7 @@
 
             <div class="col-6">
                 <div class="container_card_inicio mb-3">
-                    <a href="{{ route('pagina.señaletica') }}" style="display: contents;">
+                    <a href="{{ route('pagina.senaletica') }}" style="display: contents;">
                         <div class="row">
                             <div class="col-4 col-md-2 col-lg-2 my-auto">
                                 <p class="text-center my-auto">
@@ -190,7 +190,7 @@
                                 </p>
                             </div>
                             <div class="col-8 col-md-10 col-lg-10 my-auto">
-                                <a href="{{ route('pagina.señaletica') }}" class="sibtittle_card_inicio">Señalética de protección civil</a>
+                                <a href="{{ route('pagina.senaletica') }}" class="sibtittle_card_inicio">Señalética de protección civil</a>
                             </div>
                         </div>
                     </a>
@@ -385,7 +385,7 @@
                 </div>
             </a>
 
-            <a class="texto_services" href="{{ route('pagina.señaletica') }}">
+            <a class="texto_services" href="{{ route('pagina.senaletica') }}">
             <div class="coantiner_card_services2">
                 <p class="text-center texto_services">
                     <img class="img_coantiner_card_services" src="{{ asset('pagina/senalizacion.webp')}}" alt=""> <br>
@@ -415,7 +415,7 @@
                 ['src'=>'pagina/2.jpg','label'=>'Anuncios Luminosos','href'=>'anuncios-luminosos'],
                 ['src'=>'pagina/9-1024x649.jpeg','label'=>'Promocionales','href'=>'promocionales'],
                 ['src'=>'pagina/3.jpg','label'=>'Recorte de Vinil','href'=>'Letreros_3D'],
-                ['src'=>'pagina/5.jpg','label'=>'Señaletica','href'=>'senaletica'],
+                ['src'=>'pagina/5.jpg','label'=>'senaletica','href'=>'senaletica'],
                 ['src'=>'pagina/9.jpg','label'=>'Otros Productos','href'=>'#'],
             ] as $img)
                 <div class="col-6 col-md-3 col-lg-3 my-auto">

@@ -31,7 +31,7 @@ Route::get('impresion-digital', [App\Http\Controllers\PaginaController::class, '
 Route::get('neon', [App\Http\Controllers\PaginaController::class, 'letreros_neon'])->name('pagina.letreros_neon');
 Route::get('anuncios-luminosos', [App\Http\Controllers\PaginaController::class, 'anuncios_luminosos'])->name('pagina.anuncios_luminosos');
 Route::get('promocionales', [App\Http\Controllers\PaginaController::class, 'promocionales'])->name('pagina.promocionales');
-Route::get('senaletica', [App\Http\Controllers\PaginaController::class, 'señaletica'])->name('pagina.señaletica');
+Route::get('senaletica', [App\Http\Controllers\PaginaController::class, 'senaletica'])->name('pagina.senaletica');
 Route::get('recorte-de-vinil', [App\Http\Controllers\PaginaController::class, 'vinil'])->name('pagina.vinil');
 
 Route::get('prb', [App\Http\Controllers\PaginaController::class, 'prb'])->name('pagina.prb');
